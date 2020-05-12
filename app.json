@@ -1,0 +1,17 @@
+{
+  "name": "madu",
+  "displayName": "madu",
+  "expo": {
+    "name": "madu",
+    "slug": "madu",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
