@@ -4,6 +4,8 @@ import Title from "./src/components/atoms/Typography/Title/Title";
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from "expo";
 import { loadFonts } from "./src/utils/loadFonts";
+import Theme from "./src/styleGuide/Theme";
+import { ThemeProvider } from "styled-components";
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
@@ -12,10 +14,12 @@ export default function App() {
     return <AppLoading />
   }
   return (
-    <View style={styles.container}>
-      <Title>H1</Title>
-      <Title variant="h4">Secondary Title</Title>
-    </View>
+    <ThemeProvider theme={Theme}>
+      <View style={styles.container}>
+        <Title isMedium={true}>H1</Title>
+        <Title variant="h2">Secondary Title</Title>
+      </View>
+    </ThemeProvider>
   );
 }
 

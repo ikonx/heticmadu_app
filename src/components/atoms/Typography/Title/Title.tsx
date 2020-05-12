@@ -10,7 +10,8 @@ import {
 interface Props {
   variant?: string;
   isUppercase?: boolean;
-  isBold?: boolean;
+  color?: string;
+  isMedium?: boolean;
 }
 
 const variants: any = {
@@ -21,11 +22,11 @@ const variants: any = {
   subtitle: Subtitle
 };
 
-const Title: FC<Props> = ({ variant = "h1", children, isUppercase, isBold }) => {
+const Title: FC<Props> = ({ variant = "h1", children, isUppercase, color, isMedium }) => {
   const TitleElement = variants[variant];
 
   return (
-      <TitleElement isUppercase={isUppercase} isBold={isBold}>
+      <TitleElement isUppercase={isUppercase} color={color} isMedium={isMedium}>
         { children }
       </TitleElement>
   );
