@@ -1,6 +1,5 @@
-import React from "react";
-import Price, { IPriceBadge } from "./Price";
-import GreenScore, { IGreenScoreBadge } from "./GreenScore";
+import Price, { IPriceBadge } from './Price';
+import GreenScore, { IGreenScoreBadge } from './GreenScore';
 
 interface IBadge {
   Price: React.FunctionComponent<IPriceBadge>;
@@ -9,7 +8,7 @@ interface IBadge {
 
 const Badge: IBadge = {
   Price,
-  GreenScore,
+  GreenScore
 };
 
 export default Badge;

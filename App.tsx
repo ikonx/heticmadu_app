@@ -9,6 +9,7 @@ import { ThemeProvider } from 'styled-components';
 import { Direction } from './src/components/atoms/Icons/Chevron/Chevron.style';
 import Icon from './src/components/atoms/Icons/Icon';
 import { IconName } from './src/assets/icons/IconName.enum';
+import Badge from './src/components/atoms/Badge/Badge';
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
@@ -21,25 +22,8 @@ export default function App() {
       <View style={styles.container}>
         <Title isBold>H1</Title>
         <Title variant="h2">Secondary Title</Title>
-        <Icon name={IconName.CHEVRON} direction={Direction.TOP} />
-        <Icon name={IconName.CHEVRON} direction={Direction.LEFT} />
-        <Icon name={IconName.CHEVRON} direction={Direction.BOTTOM} />
-        <Icon name={IconName.CHEVRON} />
-        <Icon name={IconName.CHEVRON} />
-        <Icon name={IconName.CLOCK} fill="#52FF00" />
-        <Icon name={IconName.CROSS} fill="red" />
-        <Icon name={IconName.DONE} />
-        <Icon name={IconName.FILE} />
-        <Icon name={IconName.FILTER} />
-        <Icon name={IconName.HOME} />
-        <Icon name={IconName.LEAF} />
-        <Icon name={IconName.LOCK} />
-        <Icon name={IconName.MAPS} />
-        <Icon name={IconName.PHONE} />
-        <Icon name={IconName.SEARCH} />
-        <Icon name={IconName.STORY} />
-        <Icon name={IconName.TH} />
-        <Icon name={IconName.USER} />
+        <Badge.Price price="€€" />
+        <Badge.GreenScore score="8.3" />
       </View>
     </ThemeProvider>
   );
