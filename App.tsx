@@ -16,7 +16,7 @@ export default function App() {
   return (
     <ThemeProvider theme={Theme}>
       <View style={styles.container}>
-        <Title isBold={true}>H1</Title>
+        <Title isBold>H1</Title>
         <Title variant="h2">Secondary Title</Title>
       </View>
     </ThemeProvider>
