@@ -1,13 +1,14 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import Title from "./src/components/atoms/Typography/Title/Title";
-import { useFonts } from "@use-expo/font";
-import { AppLoading } from "expo";
-import { loadFonts } from "./src/utils/loadFonts";
-import Theme from "./src/styleGuide/Theme";
-import { ThemeProvider } from "styled-components";
-import Chevron from "./src/components/atoms/Icons/Chevron/Chevron";
-import { Direction } from "./src/components/atoms/Icons/Chevron/Chevron.style";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import Title from './src/components/atoms/Typography/Title/Title';
+import { useFonts } from '@use-expo/font';
+import { AppLoading } from 'expo';
+import { loadFonts } from './src/utils/loadFonts';
+import Theme from './src/styleGuide/Theme';
+import { ThemeProvider } from 'styled-components';
+import { Direction } from './src/components/atoms/Icons/Chevron/Chevron.style';
+import Icon from './src/components/atoms/Icons/Icon';
+import { IconName } from './src/assets/icons/IconName.enum';
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
@@ -20,7 +21,24 @@ export default function App() {
       <View style={styles.container}>
         <Title isMedium={true}>H1</Title>
         <Title variant="h2">Secondary Title</Title>
-        <Chevron direction={Direction.TOP} />
+        <Icon name={IconName.CHEVRON} direction={Direction.TOP} />
+        <Icon name={IconName.CHEVRON} direction={Direction.LEFT} />
+        <Icon name={IconName.CHEVRON} direction={Direction.BOTTOM} />
+        <Icon name={IconName.CHEVRON} fill="#FCFCFC" />
+        <Icon name={IconName.CLOCK} />
+        <Icon name={IconName.CROSS} />
+        <Icon name={IconName.DONE} />
+        <Icon name={IconName.FILE} />
+        <Icon name={IconName.FILTER} />
+        <Icon name={IconName.HOME} />
+        <Icon name={IconName.LEAF} />
+        <Icon name={IconName.LOCK} />
+        <Icon name={IconName.MAPS} />
+        <Icon name={IconName.PHONE} />
+        <Icon name={IconName.SEARCH} />
+        <Icon name={IconName.STORY} />
+        <Icon name={IconName.TH} />
+        <Icon name={IconName.USER} />
       </View>
     </ThemeProvider>
   );
@@ -29,8 +47,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
