@@ -1,7 +1,12 @@
-import styled, { css } from 'styled-components';
-import { Direction } from './Chevron';
+import styled, { css } from "styled-components";
+import { Direction } from "./Chevron";
+import ChevronSVG from "../../../../assets/icons/Chevron.svg";
+import { SvgProps } from "react-native-svg";
 
-export const StyledChevron = styled.svg<{ direction: Direction }>`
+interface IProps extends SvgProps {
+  direction: Direction;
+}
+export const StyledChevron = styled<SvgProps>(ChevronSVG)`
     transform : rotate(0deg);
     ${({ direction }) =>
       direction === Direction.LEFT &&
