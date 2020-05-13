@@ -1,14 +1,14 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import Title from "./src/components/atoms/Typography/Title/Title";
-import { useFonts } from "@use-expo/font";
-import { AppLoading } from "expo";
-import { loadFonts } from "./src/utils/loadFonts";
-import theme from "./src/styleGuide/Theme";
-import { ThemeProvider } from "styled-components";
-import { Direction } from "./src/components/atoms/Icons/Chevron/Chevron.style";
-import Icon from "./src/components/atoms/Icons/Icon";
-import { IconName } from "./src/assets/icons/IconName.enum";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import Title from './src/components/atoms/Typography/Title/Title';
+import { useFonts } from '@use-expo/font';
+import { AppLoading } from 'expo';
+import loadFonts from './src/utils/loadFonts';
+import theme from './src/styleGuide/Theme';
+import { ThemeProvider } from 'styled-components';
+import { Direction } from './src/components/atoms/Icons/Chevron/Chevron.style';
+import Icon from './src/components/atoms/Icons/Icon';
+import { IconName } from './src/assets/icons/IconName.enum';
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
@@ -48,8 +48,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
 });

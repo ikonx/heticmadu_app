@@ -5,5 +5,5 @@ import Shadow from './Shadow';
 export default {
   Colors,
   Fonts,
-  Shadow,
+  Shadow
 };

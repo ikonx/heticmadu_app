@@ -26,9 +26,9 @@ const Title: FC<Props> = ({ variant = "h1", children, isUppercase, color, isMedi
   const TitleElement = variants[variant];
 
   return (
-      <TitleElement isUppercase={isUppercase} color={color} isMedium={isMedium}>
-        { children }
-      </TitleElement>
+    <TitleElement isUppercase={isUppercase} color={color} isMedium={isMedium}>
+      {children}
+    </TitleElement>
   );
 };
 

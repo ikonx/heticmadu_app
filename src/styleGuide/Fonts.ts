@@ -1,7 +1,7 @@
 export default {
-    DMSans: {
-        regular: 'DMSans-Regular',
-        medium: 'DMSans-Medium',
-        bold: 'DMSans-Bold'
-    }
+  DMSans: {
+    regular: 'DMSans-Regular',
+    medium: 'DMSans-Medium',
+    bold: 'DMSans-Bold'
+  }
 };
