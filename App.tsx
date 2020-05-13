@@ -6,6 +6,7 @@ import { AppLoading } from "expo";
 import { loadFonts } from "./src/utils/loadFonts";
 import Theme from "./src/styleGuide/Theme";
 import { ThemeProvider } from "styled-components";
+import Tabs from "./src/components/molecules/Tabs/Tabs";
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
@@ -18,6 +19,7 @@ export default function App() {
       <View style={styles.container}>
         <Title isBold>H1</Title>
         <Title variant="h2">Secondary Title</Title>
+        <Tabs  onClick={() => console.log('CLICK')} />
       </View>
     </ThemeProvider>
   );

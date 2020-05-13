@@ -7,7 +7,7 @@ import Colors from "../../../styleGuide/Colors";
 interface Props {
   text: string;
   disabled?: boolean;
-  clickEvent: () => void;
+  clickEvent?: () => void;
 }
 
 const TabItemContainer = styled(TouchableOpacity)<{ disabled?: boolean }>`
@@ -29,9 +29,9 @@ const TabItemText = styled(View)`
 
 const TabItem: FunctionComponent<Props> = ({ text, disabled, clickEvent }) => {
   return (
-    <TabItemContainer onPress={clickEvent} disabled={disabled}>
+    <TabItemContainer onPress={clickEvent}>
       <TabItemText>
-        <Text variant="legendI" color={disabled ? Colors.mainGrey : Colors.darknessBlue} isMedium>{ text }</Text>
+        <Text variant="legendI" color={disabled ? Colors.mainGrey : Colors.darknessBlue} isBold>{ text }</Text>
       </TabItemText>
       <TabItemBorder isDisabled={disabled}/>
     </TabItemContainer>
