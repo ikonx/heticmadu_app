@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { Text } from 'react-native';
 
-const BaseText = styled(Text)<{ color?: string, isUppercase: boolean, isMedium?: boolean }>`
+const BaseText = styled(Text)<{ color?: string, isUppercase: boolean, isBold?: boolean }>`
   text-transform: ${ props => props.isUppercase ? 'uppercase' : 'none'};
   color: ${ props => props.color ? props.color : props.theme.Colors.black };
-  font-family: ${ props => props.isMedium ? props.theme.Fonts.DMSans.medium : props.theme.Fonts.DMSans.regular };
+  font-family: ${ props => props.isBold ? props.theme.Fonts.DMSans.bold : props.theme.Fonts.DMSans.regular };
 `;
 
 export const TextLegend = styled(BaseText)`

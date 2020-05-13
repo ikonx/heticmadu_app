@@ -5,7 +5,7 @@ interface Props {
   variant: string;
   isUppercase?: boolean;
   color?: string;
-  isMedium?: boolean;
+  isBold?: boolean;
 }
 
 const variants: any = {
@@ -17,11 +17,11 @@ const variants: any = {
   link: TextLink
 };
 
-const Text: FunctionComponent<Props> = ({ variant, children, isUppercase, color, isMedium }) => {
+const Text: FunctionComponent<Props> = ({ variant, children, isUppercase, color, isBold }) => {
   const TextElement = variants[variant];
 
   return (
-      <TextElement isUppercase={isUppercase} color={color} isMedium={isMedium}>
+      <TextElement isUppercase={isUppercase} color={color} isBold={isBold}>
         { children }
       </TextElement>
   );
