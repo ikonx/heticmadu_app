@@ -9,5 +9,5 @@ export default {
   mainWhite: '#ffffff',
   mainBlack: '#000000',
   mainBackground: '#FAFAFA',
-  mainGreen: '#6FCF97',
+  mainGreen: '#6FCF97'
 };
