@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, View } from 'react-native';
 import Title from "./src/components/atoms/Typography/Title/Title";
 import { useFonts } from '@use-expo/font';
@@ -10,6 +10,8 @@ import Tabs from "./src/components/molecules/Tabs/Tabs";
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
+  const [active, setActive] = useState(0);
+  const onClickTab = (i: number) => setActive(i);
 
   if (!fontsLoaded) {
     return <AppLoading />
@@ -19,7 +21,7 @@ export default function App() {
       <View style={styles.container}>
         <Title isBold>H1</Title>
         <Title variant="h2">Secondary Title</Title>
-        <Tabs  onClick={() => console.log('CLICK')} />
+        <Tabs onClick={onClickTab} activeTab={active}/>
       </View>
     </ThemeProvider>
   );
