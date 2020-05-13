@@ -1,10 +1,12 @@
 export default {
-    blue: '#68FFD4',
-    purple: '#738BFF',
+    mainBlue: '#68FFD4',
+    mainPurple: '#738BFF',
     darknessBlue: '#4C8AF2',
-    red: '#F68482',
-    orange: '#F9722D',
-    grey: '#EFEFEF',
-    white: '#ffffff',
-    black: '#000000'
+    mainRed: '#F68482',
+    mainOrange: '#F9722D',
+    mainyGrey: '#9294A0',
+    secondaryGrey: '#EFEFEF',
+    mainWhite: '#ffffff',
+    mainBlack: '#000000',
+    mainBackground: '#FAFAFA'
 };
