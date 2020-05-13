@@ -4,7 +4,7 @@ export default {
     darknessBlue: '#4C8AF2',
     mainRed: '#F68482',
     mainOrange: '#F9722D',
-    mainyGrey: '#9294A0',
+    mainGrey: '#9294A0',
     secondaryGrey: '#EFEFEF',
     mainWhite: '#ffffff',
     mainBlack: '#000000',
