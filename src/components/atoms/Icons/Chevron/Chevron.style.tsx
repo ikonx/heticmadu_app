@@ -1,12 +1,18 @@
 import styled, { css } from "styled-components";
-import { Direction } from "./Chevron";
 import ChevronSVG from "../../../../assets/icons/Chevron.svg";
 import { SvgProps } from "react-native-svg";
+
+export enum Direction {
+  TOP = "top",
+  BOTTOM = "bottom",
+  LEFT = "left",
+  RIGHT = "right",
+}
 
 interface IProps extends SvgProps {
   direction: Direction;
 }
-export const StyledChevron = styled<SvgProps>(ChevronSVG)`
+export const StyledChevron = styled<React.FunctionComponent<IProps>>(ChevronSVG)`
     transform : rotate(0deg);
     ${({ direction }) =>
       direction === Direction.LEFT &&
