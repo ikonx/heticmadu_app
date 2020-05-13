@@ -6,6 +6,7 @@ import { AppLoading } from "expo";
 import { loadFonts } from "./src/utils/loadFonts";
 import Theme from "./src/styleGuide/Theme";
 import { ThemeProvider } from "styled-components";
+import Tag from "./src/components/atoms/Tag/Tag";
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
@@ -18,6 +19,7 @@ export default function App() {
       <View style={styles.container}>
         <Title isBold>H1</Title>
         <Title variant="h2">Secondary Title</Title>
+        <Tag text="Tags" onClick={() => console.log('CLICK TAG')}/>
       </View>
     </ThemeProvider>
   );
