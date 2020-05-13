@@ -19,7 +19,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <View style={styles.container}>
-        <Title isMedium={true}>H1</Title>
+        <Title isBold>H1</Title>
         <Title variant="h2">Secondary Title</Title>
         <Icon name={IconName.CHEVRON} direction={Direction.TOP} />
         <Icon name={IconName.CHEVRON} direction={Direction.LEFT} />

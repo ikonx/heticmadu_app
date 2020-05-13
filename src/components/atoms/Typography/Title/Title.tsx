@@ -5,13 +5,13 @@ import {
   SecondaryTitle,
   Subtitle,
   TertiaryTitle
-} from "./Title.style";
+} from './Title.style';
 
 interface Props {
   variant?: string;
   isUppercase?: boolean;
   color?: string;
-  isMedium?: boolean;
+  isBold?: boolean;
 }
 
 const variants: any = {
@@ -22,11 +22,17 @@ const variants: any = {
   subtitle: Subtitle
 };
 
-const Title: FC<Props> = ({ variant = "h1", children, isUppercase, color, isMedium }) => {
+const Title: FC<Props> = ({
+  variant = 'h1',
+  children,
+  isUppercase,
+  color,
+  isBold
+}) => {
   const TitleElement = variants[variant];
 
   return (
-    <TitleElement isUppercase={isUppercase} color={color} isMedium={isMedium}>
+    <TitleElement isUppercase={isUppercase} color={color} isBold={isBold}>
       {children}
     </TitleElement>
   );
