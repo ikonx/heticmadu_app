@@ -1,5 +1,8 @@
 import React, { FunctionComponent, useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { IconName } from '../../../assets/icons/IconName.enum';
+import { Direction, StyledChevron } from './Chevron/Chevron.style';
+import StyledIcon from './Icon.style';
 
 import HomeIcon from '../../../assets/icons/Home.svg';
 import CrossIcon from '../../../assets/icons/Cross.svg';
@@ -15,10 +18,6 @@ import LeafIcon from '../../../assets/icons/Leaf.svg';
 import FileIcon from '../../../assets/icons/File.svg';
 import ClockIcon from '../../../assets/icons/Clock.svg';
 import ThIcon from '../../../assets/icons/Th.svg';
-
-import { Direction, StyledChevron } from './Chevron/Chevron.style';
-import { ThemeContext } from 'styled-components';
-import { StyledIcon } from './Icon.style';
 
 interface Props {
   name: IconName;

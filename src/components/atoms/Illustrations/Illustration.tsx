@@ -1,6 +1,6 @@
-import React , { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import { IllustrationName } from '../../../assets/illustrations/IllustrationName.enum';
-import { StyledIllustration } from './Illustration.style';
+import StyledIllustration from './Illustration.style';
 
 import EnergieIllus from '../../../assets/illustrations/Illustration_1.svg';
 import CuisineIllus from '../../../assets/illustrations/Illustration_2.svg';
