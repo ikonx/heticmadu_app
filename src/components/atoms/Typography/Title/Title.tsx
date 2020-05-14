@@ -4,8 +4,8 @@ import {
   QuaternaryTitle,
   SecondaryTitle,
   Subtitle,
-  TertiaryTitle
-} from "./Title.style";
+  TertiaryTitle,
+} from './Title.style';
 
 interface Props {
   variant?: string;
@@ -19,16 +19,22 @@ const variants: any = {
   h2: SecondaryTitle,
   h3: TertiaryTitle,
   h4: QuaternaryTitle,
-  subtitle: Subtitle
+  subtitle: Subtitle,
 };
 
-const Title: FC<Props> = ({ variant = "h1", children, isUppercase, color, isBold }) => {
+const Title: FC<Props> = ({
+  variant = 'h1',
+  children,
+  isUppercase,
+  color,
+  isBold,
+}) => {
   const TitleElement = variants[variant];
 
   return (
-      <TitleElement isUppercase={isUppercase} color={color} isBold={isBold}>
-        { children }
-      </TitleElement>
+    <TitleElement isUppercase={isUppercase} color={color} isBold={isBold}>
+      {children}
+    </TitleElement>
   );
 };
 
