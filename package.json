@@ -6,8 +6,6 @@
     "web": "expo start --web",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint src/**/*.ts",
-    "fix": "eslint src/**/*.ts --fix",
     "tslint": "tslint -p . -c tslint.json"
   },
   "husky": {

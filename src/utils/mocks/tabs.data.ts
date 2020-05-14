@@ -3,7 +3,7 @@ import { TabsModel } from '../models/tabs.model';
 export const tabsData: TabsModel[] = [
   {
     label: 'Tous',
-    value: '1'
+    value: '1',
   },
   {
     label: 'Restaurant',
@@ -11,10 +11,10 @@ export const tabsData: TabsModel[] = [
   },
   {
     label: 'Boutique',
-    value: '3'
+    value: '3',
   },
   {
     label: 'Activité',
-    value: '4'
-  }
-]
+    value: '4',
+  },
+];
