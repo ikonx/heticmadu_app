@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import Text from '../Typography/Text/Text';
 import styled from 'styled-components';
 import { TouchableOpacity, View } from 'react-native';
+import Text from '../Typography/Text/Text';
 import Colors from '../../../styleGuide/Colors';
 
 interface Props {
@@ -10,13 +10,13 @@ interface Props {
   clickEvent: () => void;
 }
 
-const TabItemContainer = styled(TouchableOpacity)<{ disabled?: boolean }>`
+const TabItemContainer = styled(TouchableOpacity)`
   width: auto;
   align-items: center;
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
 `;
 
-const TabItemBorder = styled(View)<{ isDisabled?: boolean }>`
+const TabItemBorder = styled(View)`
   width: 100%;
   height: 1px;
   background: ${({ isDisabled, theme }) =>
@@ -25,17 +25,17 @@ const TabItemBorder = styled(View)<{ isDisabled?: boolean }>`
 `;
 
 const TabItemText = styled(View)`
-  padding: 0 13px;
+  padding: 16px 8px;
 `;
 
 const TabItem: FunctionComponent<Props> = ({ text, disabled, clickEvent }) => {
   return (
-    <TabItemContainer onPress={clickEvent} disabled={disabled}>
+    <TabItemContainer onPress={clickEvent}>
       <TabItemText>
         <Text
           variant="legendI"
           color={disabled ? Colors.mainGrey : Colors.darknessBlue}
-          isMedium={true}
+          isBold
         >
           {text}
         </Text>
