@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, KeyboardAvoidingView } from 'react-native';
 import Title from './src/components/atoms/Typography/Title/Title';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
@@ -11,6 +11,7 @@ import { TabsModel } from './src/utils/models/tabs.model';
 import { tabsData } from './src/utils/mocks/tabs.data';
 import Badge from './src/components/atoms/Badge/Badge';
 import Tag from './src/components/atoms/Tag/Tag';
+import SearchInput from './src/components/molecules/SearchInput/SearchInput';
 
 import Illustration from './src/components/atoms/Illustrations/Illustration';
 import { IllustrationName } from './src/assets/illustrations/IllustrationName.enum';
@@ -32,6 +33,14 @@ export default function App() {
         <Badge.Price price="€€" />
         <Badge.GreenScore score="8.3" />
         <Tabs data={tabsData} onClick={onClickTab} activeTab={active.value} />
+        <KeyboardAvoidingView
+          behavior="padding"
+          enabled
+          style={{ flex: 1 }}
+          keyboardVerticalOffset={0}
+        >
+          <SearchInput onSearch={(value: string) => console.log(value)} />
+        </KeyboardAvoidingView>
         <View style={styles.illus}>
           <Illustration name={IllustrationName.ENERGIE} />
           <Illustration name={IllustrationName.CUISINE} />
