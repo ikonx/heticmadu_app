@@ -4,7 +4,7 @@ import {
   QuaternaryTitle,
   SecondaryTitle,
   Subtitle,
-  TertiaryTitle
+  TertiaryTitle,
 } from './Title.style';
 
 interface Props {
@@ -19,7 +19,7 @@ const variants: any = {
   h2: SecondaryTitle,
   h3: TertiaryTitle,
   h4: QuaternaryTitle,
-  subtitle: Subtitle
+  subtitle: Subtitle,
 };
 
 const Title: FC<Props> = ({
@@ -27,7 +27,7 @@ const Title: FC<Props> = ({
   children,
   isUppercase,
   color,
-  isBold
+  isBold,
 }) => {
   const TitleElement = variants[variant];
 

@@ -1,11 +1,11 @@
-import React from "react";
-import { Text } from "react-native";
-import styled from "styled-components";
+import React from 'react';
+import { Text } from 'react-native';
+import styled from 'styled-components';
 
-import StyledBadge from "./Badge.styles";
+import StyledBadge from './Badge.styles';
 
 export interface IPriceBadge {
-  price: "€" | "€€" | "€€€";
+  price: '€' | '€€' | '€€€';
 }
 
 const StyledPrice = styled(StyledBadge)`

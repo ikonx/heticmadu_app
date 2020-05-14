@@ -8,7 +8,7 @@ interface IBadge {
 
 const Badge: IBadge = {
   Price,
-  GreenScore
+  GreenScore,
 };
 
 export default Badge;

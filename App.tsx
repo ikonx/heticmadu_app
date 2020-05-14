@@ -6,9 +6,6 @@ import { AppLoading } from 'expo';
 import loadFonts from './src/utils/loadFonts';
 import theme from './src/styleGuide/Theme';
 import { ThemeProvider } from 'styled-components';
-import { Direction } from './src/components/atoms/Icons/Chevron/Chevron.style';
-import Icon from './src/components/atoms/Icons/Icon';
-import { IconName } from './src/assets/icons/IconName.enum';
 import Badge from './src/components/atoms/Badge/Badge';
 
 export default function App() {

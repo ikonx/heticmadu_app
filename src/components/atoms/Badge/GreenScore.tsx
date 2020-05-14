@@ -26,7 +26,7 @@ const StyledText = styled(Text)`
 `;
 
 const Price: React.FunctionComponent<IGreenScoreBadge> = ({
-  score
+  score,
 }: IGreenScoreBadge) => {
   const { Colors } = useContext(ThemeContext);
 
@@ -35,8 +35,8 @@ const Price: React.FunctionComponent<IGreenScoreBadge> = ({
       <Icon
         name={IconName.LEAF}
         fill={Colors.mainWhite}
-        height={13}
-        width={13}
+        height={16}
+        width={16}
       />
       <StyledText>{score}</StyledText>
     </StyledGreenScore>

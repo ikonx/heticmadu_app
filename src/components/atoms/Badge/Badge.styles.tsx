@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { View, Text } from "react-native";
+import styled from 'styled-components';
+import { View, Text } from 'react-native';
 
 const StyledBadge = styled(View)`
   font-size: 12px;
@@ -7,6 +7,7 @@ const StyledBadge = styled(View)`
   align-self: center;
   padding: 4px 8px;
   border-radius: 47px;
+  max-height: 24px;
 `;
 
 export const StyledBadgeText = styled(Text)`

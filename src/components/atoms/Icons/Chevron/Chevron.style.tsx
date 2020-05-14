@@ -1,12 +1,12 @@
-import styled, { css } from "styled-components";
-import ChevronSVG from "../../../../assets/icons/Chevron.svg";
-import { SvgProps } from "react-native-svg";
+import styled, { css } from 'styled-components';
+import ChevronSVG from '../../../../assets/icons/Chevron.svg';
+import { SvgProps } from 'react-native-svg';
 
 export enum Direction {
-  TOP = "top",
-  BOTTOM = "bottom",
-  LEFT = "left",
-  RIGHT = "right",
+  TOP = 'top',
+  BOTTOM = 'bottom',
+  LEFT = 'left',
+  RIGHT = 'right',
 }
 
 interface IProps extends SvgProps {
@@ -14,8 +14,8 @@ interface IProps extends SvgProps {
 }
 
 export const StyledChevron = styled<React.FunctionComponent<IProps>>(
-  ChevronSVG
-)` 
+  ChevronSVG,
+)`
     color: ${({ fill, theme }) => (fill ? fill : theme.Colors.mainBlack)};
     ${({ direction }) =>
       direction === Direction.RIGHT &&
