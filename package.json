@@ -6,8 +6,6 @@
     "web": "expo start --web",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint src/**/*.ts",
-    "fix": "eslint src/**/*.ts --fix",
     "tslint": "tslint -p . -c tslint.json"
   },
   "husky": {
@@ -32,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
+    "@react-native-community/eslint-config": "^1.1.0",
     "@types/react": "~16.9.23",
     "@types/react-native": "~0.61.23",
     "@types/styled-components": "^5.1.0",
