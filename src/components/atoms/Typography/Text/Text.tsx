@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { TextButton, TextDefault, TextLabel, TextLegend, TextLegendImportant, TextLink } from "./Text.style";
+import { TextButton, TextDefault, TextLabel, TextLegend, TextLegendImportant, TextLink } from './Text.style';
 
 interface Props {
   variant: string;
@@ -14,7 +14,7 @@ const variants: any = {
   legendI: TextLegendImportant,
   label: TextLabel,
   button: TextButton,
-  link: TextLink
+  link: TextLink,
 };
 
 const Text: FunctionComponent<Props> = ({ variant, children, isUppercase, color, isBold }) => {

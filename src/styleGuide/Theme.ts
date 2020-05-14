@@ -7,5 +7,5 @@ export default {
   Colors,
   Fonts,
   Shadow,
-  Borders
+  Borders,
 };

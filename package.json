@@ -6,12 +6,11 @@
     "web": "expo start --web",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint src/**/*.ts",
-    "fix": "eslint src/**/*.ts --fix"
+    "tslint": "tslint -p . -c tslint.json"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run tslint"
     }
   },
   "dependencies": {
@@ -56,6 +55,7 @@
     "tslint": "^6.1.2",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-react": "^5.0.0",
+    "tslint-react-hooks": "^2.2.2",
     "typescript": "^3.9.2"
   },
   "jest": {
