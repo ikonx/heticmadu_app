@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { Text } from 'react-native';
 
 const BaseText = styled(Text)<{ color?: string, isUppercase: boolean, isBold?: boolean }>`

@@ -5,7 +5,7 @@ import {
   SecondaryTitle,
   Subtitle,
   TertiaryTitle
-} from "./Title.style";
+} from './Title.style';
 
 interface Props {
   variant?: string;
@@ -22,13 +22,19 @@ const variants: any = {
   subtitle: Subtitle
 };
 
-const Title: FC<Props> = ({ variant = "h1", children, isUppercase, color, isBold }) => {
+const Title: FC<Props> = ({
+  variant = 'h1',
+  children,
+  isUppercase,
+  color,
+  isBold
+}) => {
   const TitleElement = variants[variant];
 
   return (
-      <TitleElement isUppercase={isUppercase} color={color} isBold={isBold}>
-        { children }
-      </TitleElement>
+    <TitleElement isUppercase={isUppercase} color={color} isBold={isBold}>
+      {children}
+    </TitleElement>
   );
 };
 
