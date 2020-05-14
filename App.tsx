@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Title from './src/components/atoms/Typography/Title/Title';
 import { useFonts } from '@use-expo/font';
@@ -10,11 +10,13 @@ import { Direction } from './src/components/atoms/Icons/Chevron/Chevron.style';
 import Icon from './src/components/atoms/Icons/Icon';
 import { IconName } from './src/assets/icons/IconName.enum';
 import Tabs from './src/components/molecules/Tabs/Tabs';
+import { TabsModel } from './src/utils/models/tabs.model';
+import { tabsData } from './src/utils/mocks/tabs.data';
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
-  const [active, setActive] = useState(0);
-  const onClickTab = (i: number) => setActive(i);
+  const [active, setActive] = useState<TabsModel>(tabsData[0]);
+  const onClickTab = (item: TabsModel) => setActive(item);
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -43,7 +45,7 @@ export default function App() {
         <Icon name={IconName.STORY} />
         <Icon name={IconName.TH} />
         <Icon name={IconName.USER} />
-        <Tabs onClick={onClickTab} activeTab={active}/>
+        <Tabs data={tabsData} onClick={onClickTab} activeTab={active.value}/>
       </View>
     </ThemeProvider>
   );
