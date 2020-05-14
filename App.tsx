@@ -10,6 +10,7 @@ import Tabs from './src/components/molecules/Tabs/Tabs';
 import { TabsModel } from './src/utils/models/tabs.model';
 import { tabsData } from './src/utils/mocks/tabs.data';
 import Badge from './src/components/atoms/Badge/Badge';
+import Tag from './src/components/atoms/Tag/Tag';
 import SearchInput from './src/components/molecules/SearchInput/SearchInput';
 
 import Illustration from './src/components/atoms/Illustrations/Illustration';
@@ -28,6 +29,7 @@ export default function App() {
       <View style={styles.container}>
         <Title isBold>H1</Title>
         <Title variant="h2">Secondary Title</Title>
+        <Tag text="Tags" onClick={() => console.log('CLICK TAG')}/>
         <Badge.Price price="€€" />
         <Badge.GreenScore score="8.3" />
         <Tabs data={tabsData} onClick={onClickTab} activeTab={active.value} />
