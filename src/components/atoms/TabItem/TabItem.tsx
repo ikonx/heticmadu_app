@@ -13,13 +13,14 @@ interface Props {
 const TabItemContainer = styled(TouchableOpacity)`
   width: auto;
   align-items: center;
-  opacity: ${ ({ disabled }) => disabled ? 0.32 : 1 };
+  opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
 `;
 
 const TabItemBorder = styled(View)`
   width: 100%;
   height: 1px;
-  background: ${ ({ isDisabled, theme }) => isDisabled ? theme.Colors.mainGrey : theme.Colors.darknessBlue };
+  background: ${({ isDisabled, theme }) =>
+    isDisabled ? theme.Colors.mainGrey : theme.Colors.darknessBlue};
   margin-top: 8px;
 `;
 
