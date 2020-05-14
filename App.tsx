@@ -11,6 +11,9 @@ import { TabsModel } from './src/utils/models/tabs.model';
 import { tabsData } from './src/utils/mocks/tabs.data';
 import Badge from './src/components/atoms/Badge/Badge';
 
+import Illustration from './src/components/atoms/Illustrations/Illustration';
+import { IllustrationName } from './src/assets/illustrations/IllustrationName.enum';
+
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
   const [active, setActive] = useState<TabsModel>(tabsData[0]);
@@ -26,7 +29,13 @@ export default function App() {
         <Title variant="h2">Secondary Title</Title>
         <Badge.Price price="€€" />
         <Badge.GreenScore score="8.3" />
-        <Tabs data={tabsData} onClick={onClickTab} activeTab={active.value}/>
+        <Tabs data={tabsData} onClick={onClickTab} activeTab={active.value} />
+        <View style={styles.illus}>
+          <Illustration name={IllustrationName.ENERGIE} />
+          <Illustration name={IllustrationName.CUISINE} />
+          <Illustration name={IllustrationName.MAISON} />
+          <Illustration name={IllustrationName.RECYCLAGE} />
+        </View>
       </View>
     </ThemeProvider>
   );
@@ -38,5 +47,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  illus: {
+    flexDirection: 'row',
+    backgroundColor: '#F68482'
   }
 });
