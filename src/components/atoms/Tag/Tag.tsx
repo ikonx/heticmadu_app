@@ -20,7 +20,7 @@ const TagContainer = styled(TouchableOpacity)<{ color?: string }>`
 const Tag: FunctionComponent<Props> = ({ text, onClick, disabled, color }) => {
   return (
     <TagContainer onPress={onClick} disabled={disabled} color={color}>
-      <Text variant="label" color={Colors.mainWhite}>{ text }</Text>
+      <Text variant="label" color={Colors.mainWhite} isBold>{ text }</Text>
     </TagContainer>
   );
 };

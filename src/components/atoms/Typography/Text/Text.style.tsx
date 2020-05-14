@@ -22,7 +22,7 @@ export const TextDefault = styled(BaseText)`
 `;
 
 export const TextLabel = styled(BaseText)`
-  font-size: 12px;
+  font-size: 15px;
 `;
 
 export const TextButton = styled(BaseText)`
