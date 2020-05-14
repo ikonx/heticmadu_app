@@ -5,5 +5,5 @@ const boldFont = require('../assets/fonts/DMSans/DMSans-Bold.ttf');
 export default {
   'DMSans-Regular': regularFont,
   'DMSans-Medium': mediumFont,
-  'DMSans-Bold': boldFont
+  'DMSans-Bold': boldFont,
 };
