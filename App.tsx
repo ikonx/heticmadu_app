@@ -12,6 +12,9 @@ import { tabsData } from './src/utils/mocks/tabs.data';
 import Badge from './src/components/atoms/Badge/Badge';
 import SearchInput from './src/components/molecules/SearchInput/SearchInput';
 
+import Illustration from './src/components/atoms/Illustrations/Illustration';
+import { IllustrationName } from './src/assets/illustrations/IllustrationName.enum';
+
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
   const [active, setActive] = useState<TabsModel>(tabsData[0]);
@@ -36,6 +39,12 @@ export default function App() {
         >
           <SearchInput onSearch={(value: string) => console.log(value)} />
         </KeyboardAvoidingView>
+        <View style={styles.illus}>
+          <Illustration name={IllustrationName.ENERGIE} />
+          <Illustration name={IllustrationName.CUISINE} />
+          <Illustration name={IllustrationName.MAISON} />
+          <Illustration name={IllustrationName.RECYCLAGE} />
+        </View>
       </View>
     </ThemeProvider>
   );
@@ -46,6 +55,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
+  illus: {
+    flexDirection: 'row',
+    backgroundColor: '#F68482'
+  }
 });
