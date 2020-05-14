@@ -10,6 +10,9 @@ import { Direction } from './src/components/atoms/Icons/Chevron/Chevron.style';
 import Icon from './src/components/atoms/Icons/Icon';
 import { IconName } from './src/assets/icons/IconName.enum';
 
+import Illustration from './src/components/atoms/Illustrations/Illustration';
+import { IllustrationName } from './src/assets/illustrations/IllustrationName.enum';
+
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
 
@@ -26,8 +29,8 @@ export default function App() {
         <Icon name={IconName.CHEVRON} direction={Direction.BOTTOM} />
         <Icon name={IconName.CHEVRON} />
         <Icon name={IconName.CHEVRON} />
-        <Icon name={IconName.CLOCK} fill="#52FF00" />
-        <Icon name={IconName.CROSS} fill="red" />
+        <Icon name={IconName.CLOCK} />
+        <Icon name={IconName.CROSS} />
         <Icon name={IconName.DONE} />
         <Icon name={IconName.FILE} />
         <Icon name={IconName.FILTER} />
@@ -40,6 +43,12 @@ export default function App() {
         <Icon name={IconName.STORY} />
         <Icon name={IconName.TH} />
         <Icon name={IconName.USER} />
+        <View style={styles.illus}>
+          <Illustration name={IllustrationName.ENERGIE} />
+          <Illustration name={IllustrationName.CUISINE} />
+          <Illustration name={IllustrationName.MAISON} />
+          <Illustration name={IllustrationName.RECYCLAGE} />
+        </View>
       </View>
     </ThemeProvider>
   );
@@ -51,5 +60,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  illus: {
+    flexDirection: 'row',
+    backgroundColor: '#F68482'
   }
 });
