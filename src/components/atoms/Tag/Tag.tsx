@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
-import styled from "styled-components";
-import { TouchableOpacity } from "react-native";
-import Text from "../Typography/Text/Text";
-import Colors from "../../../styleGuide/Colors";
+import React, { FunctionComponent } from 'react';
+import styled from 'styled-components';
+import { TouchableOpacity } from 'react-native';
+import Text from '../Typography/Text/Text';
+import Colors from '../../../styleGuide/Colors';
 
 interface Props {
   text: string;
