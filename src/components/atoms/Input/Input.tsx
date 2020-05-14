@@ -7,7 +7,7 @@ const Input = (props: TextInputProps) => {
 };
 
 Input.defaultProps = {
-  placeholder: 'placeholder',
+  placeholder: 'Placeholder',
 };
 
 export default Input;
