@@ -42,10 +42,20 @@ export default function App() {
           <Illustration name={IllustrationName.RECYCLAGE} />
         </View>
         <Buttons variant={TouchableType.ICON}>
-          <Icon name={IconName.CHEVRON} direction={Direction.LEFT} />
+          <Icon
+            height={24}
+            width={24}
+            name={IconName.CHEVRON}
+            direction={Direction.LEFT}
+          />
         </Buttons>
         <Buttons variant={TouchableType.FULLWIDTH}>
-          <Text isBold variant="button" color={theme.Colors.mainWhite}>
+          <Text
+            isBold
+            variant="button"
+            color={theme.Colors.mainWhite}
+            style={{ textAlign: 'center' }}
+          >
             Button
           </Text>
         </Buttons>
@@ -56,9 +66,14 @@ export default function App() {
         </Buttons>
         <Buttons variant={TouchableType.DEFAULT}>
           <>
-            <Icon height={24} width={24} name={IconName.SEARCH} fill={theme.Colors.mainWhite} />
-            <Text isBold variant="button" color={theme.Colors.mainPurple}>
-              Button
+            <Icon
+              height={24}
+              width={24}
+              name={IconName.SEARCH}
+              fill={theme.Colors.mainWhite}
+            />
+            <Text isBold variant="button" color={theme.Colors.mainWhite}>
+              Recherche
             </Text>
           </>
         </Buttons>

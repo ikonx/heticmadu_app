@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import styled, { css } from 'styled-components';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import { TouchableType } from './Buttons.enum';
 import Theme from '../../../styleGuide/Theme';
 
-interface ITouchable {
+interface ITouchable extends TouchableOpacityProps {
   variant: TouchableType;
 }
 
@@ -23,7 +23,7 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
     ${({ variant }) =>
       variant === TouchableType.ICON &&
       css`
-        background-color: ${Theme.Colors.secondaryGrey};
+        background-color: ${Theme.Colors.mainWhite};
         min-width: 40px;
         border: ${Theme.Borders.mainBorder};
         padding: 8px;
@@ -39,14 +39,22 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
       css`
         background-color: ${Theme.Colors.mainPurple};
         max-height: 56px;
-        min-width: 343px;
+        width: 343px;
         padding: 17px 47px;
       `}
 `;
 
-const Buttons: FunctionComponent<ITouchable> = ({ variant, children }) => {
+const Buttons: FunctionComponent<ITouchable> = ({
+  variant,
+  children,
+  ...rest
+}) => {
   return (
-    <StyledTouchable variant={variant} onPress={() => console.log('res')}>
+    <StyledTouchable
+      {...rest}
+      variant={variant}
+      onPress={() => console.log('res')}
+    >
       {children}
     </StyledTouchable>
   );

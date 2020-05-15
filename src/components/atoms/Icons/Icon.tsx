@@ -31,7 +31,7 @@ const Icon: FunctionComponent<Props> = ({ name, direction, fill, ...rest }) => {
   const renderIcon = () => {
     switch (name) {
       case IconName.CHEVRON:
-        return <StyledChevron direction={direction} fill={fill} />;
+        return <StyledChevron direction={direction} fill={fill} {...rest} />;
       case IconName.CLOCK:
         return <ClockIcon color={fill || Colors.mainBlack} {...rest} />;
       case IconName.CROSS:

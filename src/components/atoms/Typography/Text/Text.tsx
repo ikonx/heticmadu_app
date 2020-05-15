@@ -1,7 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import { TextButton, TextDefault, TextLabel, TextLegend, TextLegendImportant, TextLink } from './Text.style';
+import { TextProps } from 'react-native';
+import {
+  TextButton,
+  TextDefault,
+  TextLabel,
+  TextLegend,
+  TextLegendImportant,
+  TextLink,
+} from './Text.style';
 
-interface Props {
+interface Props extends TextProps {
   variant: string;
   isUppercase?: boolean;
   color?: string;
@@ -17,13 +25,25 @@ const variants: any = {
   link: TextLink,
 };
 
-const Text: FunctionComponent<Props> = ({ variant, children, isUppercase, color, isBold }) => {
+const Text: FunctionComponent<Props> = ({
+  variant,
+  children,
+  isUppercase,
+  color,
+  isBold,
+  ...rest
+}) => {
   const TextElement = variants[variant];
 
   return (
-      <TextElement isUppercase={isUppercase} color={color} isBold={isBold}>
-        { children }
-      </TextElement>
+    <TextElement
+      isUppercase={isUppercase}
+      color={color}
+      isBold={isBold}
+      {...rest}
+    >
+      {children}
+    </TextElement>
   );
 };
 
