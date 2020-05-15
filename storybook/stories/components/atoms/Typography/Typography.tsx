@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../../../../../src/components/atoms/Typography/Title/Title';
+import Title from '@components/atoms/Typography/Title/Title';
 
 const Typography = () => {
   return (

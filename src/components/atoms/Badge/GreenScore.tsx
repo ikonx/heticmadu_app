@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 
 import StyledBadge from './Badge.styles';
 import Icon from '../Icons/Icon';
-import { IconName } from '../../../assets/icons/IconName.enum';
+import { IconName } from '@assets/icons/IconName.enum';
 
 export interface IGreenScoreBadge {
   score: number | string;

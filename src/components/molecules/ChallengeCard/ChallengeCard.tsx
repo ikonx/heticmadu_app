@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { StyledChallengeCard, StyledText } from './ChallengeCard.style';
-import Text from '../../atoms/Typography/Text/Text';
-import TagsList, { ITag } from '../../molecules/TagsList/TagsList';
-import Illustration from '../../atoms/Illustrations/Illustration';
-import IllustrationName from '../../../assets/illustrations/IllustrationName.enum';
+import Text from '@components/atoms/Typography/Text/Text';
+import TagsList, { ITag } from '@components/molecules/TagsList/TagsList';
+import Illustration from '@components/atoms/Illustrations/Illustration';
+import IllustrationName from '@assets/illustrations/IllustrationName.enum';
 import { ThemeContext } from 'styled-components';
-import Spacer from '../../atoms/Spacer/Spacer';
+import Spacer from '@components/atoms/Spacer/Spacer';
 import { TouchableHighlight } from 'react-native';
 
 interface Props {

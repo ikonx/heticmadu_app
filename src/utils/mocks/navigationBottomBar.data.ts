@@ -1,6 +1,6 @@
-import Input from '../../components/atoms/Input/Input';
-import { IconName } from '../../assets/icons/IconName.enum';
-import TagsList from '../../components/molecules/TagsList/TagsList';
+import Input from '@components/atoms/Input/Input';
+import { IconName } from '@assets/icons/IconName.enum';
+import TagsList from '@components/molecules/TagsList/TagsList';
 import { NavigationItemModel } from '../models/navigationItem.model';
 
 const navigationBottomData: NavigationItemModel[] = [

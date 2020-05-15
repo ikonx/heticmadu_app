@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { TextProperties } from 'react-native';
+import { TextProperties, TextProps } from 'react-native';
 import {
   TextButton,
   TextDefault,

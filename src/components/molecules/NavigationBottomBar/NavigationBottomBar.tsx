@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import NavigationTabItem from '../../atoms/NavigationTabItem/NavigationTabItem';
-import { NavigationItemModel } from '../../../utils/models/navigationItem.model';
+import NavigationTabItem from '@components/atoms/NavigationTabItem/NavigationTabItem';
+import { NavigationItemModel } from '@utils/models/navigationItem.model';
 
 interface Props {
   data: NavigationItemModel[];
