@@ -14,7 +14,7 @@ import EyeIcon from '../../../assets/icons/Eye.svg';
 import FileIcon from '../../../assets/icons/File.svg';
 import FilterIcon from '../../../assets/icons/Filter.svg';
 import FiltersIcon from '../../../assets/icons/Filters.svg';
-import EyeSlashIcon from '../../../assets/icons/Error.svg';
+import EyeSlashIcon from '../../../assets/icons/EyeSlash.svg';
 import HomeIcon from '../../../assets/icons/Home.svg';
 import LeafIcon from '../../../assets/icons/Leaf.svg';
 import LockIcon from '../../../assets/icons/Lock.svg';
