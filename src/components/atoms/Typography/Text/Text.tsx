@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { TextProps } from 'react-native';
+import { TextProperties } from 'react-native';
 import {
   TextButton,
   TextDefault,
@@ -25,7 +25,7 @@ const variants: any = {
   link: TextLink,
 };
 
-const Text: FunctionComponent<Props> = ({
+const Text: FunctionComponent<Props & TextProperties> = ({
   variant,
   children,
   isUppercase,
