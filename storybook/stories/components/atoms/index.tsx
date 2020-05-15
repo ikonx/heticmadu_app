@@ -1,11 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import CenterView from '../../helpers/Layout';
-import Typography from './Typography/Typography';
+import TypographyStories from './Typography/Typography.stories';
+import ChipsStories from './Chips/Chips.stories';
 
 
 storiesOf('Atoms', module)
   .addDecorator((getStory: any) => <CenterView>{ getStory() }</CenterView>)
   .add('Typography', () => (
-    <Typography />
+    <TypographyStories />
+  ))
+  .add('Chips', () => (
+    <ChipsStories />
   ))
