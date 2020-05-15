@@ -13,11 +13,14 @@ import Badge from './src/components/atoms/Badge/Badge';
 import Tag from './src/components/atoms/Tag/Tag';
 import Separator from './src/components/atoms/Separator/Separator';
 import SearchInput from './src/components/molecules/SearchInput/SearchInput';
+import StorybookUIRoot from './storybook';
 
 import Illustration from './src/components/atoms/Illustrations/Illustration';
 import { IllustrationName } from './src/assets/illustrations/IllustrationName.enum';
 
-export default function App() {
+const ACTIVATE_STORYBOOK = false;
+
+function App() {
   let [fontsLoaded] = useFonts(loadFonts);
   const [active, setActive] = useState<TabsModel>(tabsData[0]);
   const onClickTab = (item: TabsModel) => setActive(item);
@@ -59,3 +62,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#F68482',
   },
 });
+
+export default ACTIVATE_STORYBOOK ? StorybookUIRoot : App;
