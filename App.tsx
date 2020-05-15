@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import Title from './src/components/atoms/Typography/Title/Title';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
@@ -22,6 +23,8 @@ import { TouchableType } from './src/components/atoms/Buttons/Buttons.enum';
 import { IconName } from './src/assets/icons/IconName.enum';
 import { Direction } from './src/components/atoms/Icons/Chevron/Chevron.style';
 import Text from './src/components/atoms/Typography/Text/Text';
+import NavigationBottomBar from './src/components/molecules/NavigationBottomBar/NavigationBottomBar';
+import navigationBottomData from './src/utils/mocks/navigationBottomBar.data';
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
@@ -32,60 +35,63 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <ThemeProvider theme={theme}>
-      <View style={styles.container}>
-        <Title isBold>H1</Title>
-        <Title variant="h2">Secondary Title</Title>
-        <Tag text="Tags" onClick={() => console.log('CLICK TAG')} />
-        <Badge.Price price="€€" />
-        <Badge.GreenScore score="8.3" />
-        <Tabs data={tabsData} onClick={onClickTab} activeTab={active.value} />
-        <SearchInput onSearch={(value: string) => console.log(value)} />
-        <Separator />
-        <View style={styles.illus}>
-          <Illustration name={IllustrationName.ENERGIE} />
-          <Illustration name={IllustrationName.CUISINE} />
-          <Illustration name={IllustrationName.MAISON} />
-          <Illustration name={IllustrationName.RECYCLAGE} />
-        </View>
-        <Buttons variant={TouchableType.ICON}>
-          <Icon
-            height={24}
-            width={24}
-            name={IconName.CHEVRON}
-            direction={Direction.LEFT}
-          />
-        </Buttons>
-        <Buttons variant={TouchableType.FULLWIDTH}>
-          <Text
-            isBold
-            variant="button"
-            color={theme.Colors.mainWhite}
-            style={{ textAlign: 'center' }}
-          >
-            Button
-          </Text>
-        </Buttons>
-        <Buttons variant={TouchableType.INVERT}>
-          <Text isBold variant="button" color={theme.Colors.mainPurple}>
-            Button + icon
-          </Text>
-        </Buttons>
-        <Buttons variant={TouchableType.DEFAULT}>
-          <>
+    <NavigationContainer>
+      <ThemeProvider theme={theme}>
+        <View style={styles.container}>
+          <Title isBold>H1</Title>
+          <Title variant="h2">Secondary Title</Title>
+          <Tag text="Tags" onClick={() => console.log('CLICK TAG')} />
+          <Badge.Price price="€€" />
+          <Badge.GreenScore score="8.3" />
+          <Tabs data={tabsData} onClick={onClickTab} activeTab={active.value} />
+          <SearchInput onSearch={(value: string) => console.log(value)} />
+          <Separator />
+          <View style={styles.illus}>
+            <Illustration name={IllustrationName.ENERGIE} />
+            <Illustration name={IllustrationName.CUISINE} />
+            <Illustration name={IllustrationName.MAISON} />
+            <Illustration name={IllustrationName.RECYCLAGE} />
+          </View>
+          <Buttons variant={TouchableType.ICON}>
             <Icon
               height={24}
               width={24}
-              name={IconName.SEARCH}
-              fill={theme.Colors.mainWhite}
+              name={IconName.CHEVRON}
+              direction={Direction.LEFT}
             />
-            <Text isBold variant="button" color={theme.Colors.mainWhite}>
-              Recherche
+          </Buttons>
+          <Buttons variant={TouchableType.FULLWIDTH}>
+            <Text
+              isBold
+              variant="button"
+              color={theme.Colors.mainWhite}
+              style={{ textAlign: 'center' }}
+            >
+              Button
             </Text>
-          </>
-        </Buttons>
-      </View>
-    </ThemeProvider>
+          </Buttons>
+          <Buttons variant={TouchableType.INVERT}>
+            <Text isBold variant="button" color={theme.Colors.mainPurple}>
+              Button + icon
+            </Text>
+          </Buttons>
+          <Buttons variant={TouchableType.DEFAULT}>
+            <>
+              <Icon
+                height={24}
+                width={24}
+                name={IconName.SEARCH}
+                fill={theme.Colors.mainWhite}
+              />
+              <Text isBold variant="button" color={theme.Colors.mainWhite}>
+                Recherche
+              </Text>
+            </>
+          </Buttons>
+        </View>
+        <NavigationBottomBar data={navigationBottomData}/>
+      </ThemeProvider>
+    </NavigationContainer>
   );
 }
 
