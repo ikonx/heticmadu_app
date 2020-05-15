@@ -4,8 +4,11 @@ import StyledTagList from './TagList.style';
 import Tag from '../../atoms/Tag/Tag';
 import { View } from 'react-native';
 
+export interface ITag {
+  label: string;
+}
 interface Props {
-  tagsArray: { label: string }[];
+  tagsArray: ITag[];
 }
 
 const TagsList = ({ tagsArray }: Props) => {
