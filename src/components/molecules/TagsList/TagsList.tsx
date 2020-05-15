@@ -1,6 +1,6 @@
 import React from 'react';
 
-import StyledTagList from './TagList.style';
+import StyledTagList from './TagsList.style';
 import Tag from '../../atoms/Tag/Tag';
 import { View } from 'react-native';
 
