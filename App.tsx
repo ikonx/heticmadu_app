@@ -10,9 +10,14 @@ import Tabs from './src/components/molecules/Tabs/Tabs';
 import { TabsModel } from './src/utils/models/tabs.model';
 import { tabsData } from './src/utils/mocks/tabs.data';
 import Badge from './src/components/atoms/Badge/Badge';
-
 import Illustration from './src/components/atoms/Illustrations/Illustration';
 import { IllustrationName } from './src/assets/illustrations/IllustrationName.enum';
+import Icon from './src/components/atoms/Icons/Icon';
+import Buttons from './src/components/atoms/Buttons/Buttons';
+import { TouchableType } from './src/components/atoms/Buttons/Buttons.enum';
+import { IconName } from './src/assets/icons/IconName.enum';
+import { Direction } from './src/components/atoms/Icons/Chevron/Chevron.style';
+import Text from './src/components/atoms/Typography/Text/Text';
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
@@ -36,6 +41,27 @@ export default function App() {
           <Illustration name={IllustrationName.MAISON} />
           <Illustration name={IllustrationName.RECYCLAGE} />
         </View>
+        <Buttons variant={TouchableType.ICON}>
+          <Icon name={IconName.CHEVRON} direction={Direction.LEFT} />
+        </Buttons>
+        <Buttons variant={TouchableType.FULLWIDTH}>
+          <Text isBold variant="button" color={theme.Colors.mainWhite}>
+            Button
+          </Text>
+        </Buttons>
+        <Buttons variant={TouchableType.INVERT}>
+          <Text isBold variant="button" color={theme.Colors.mainPurple}>
+            Button + icon
+          </Text>
+        </Buttons>
+        <Buttons variant={TouchableType.DEFAULT}>
+          <>
+            <Icon height={24} width={24} name={IconName.SEARCH} fill={theme.Colors.mainWhite} />
+            <Text isBold variant="button" color={theme.Colors.mainPurple}>
+              Button
+            </Text>
+          </>
+        </Buttons>
       </View>
     </ThemeProvider>
   );

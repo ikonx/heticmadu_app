@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
+import { SvgProps } from 'react-native-svg';
 import { IconName } from '../../../assets/icons/IconName.enum';
 import { Direction, StyledChevron } from './Chevron/Chevron.style';
 import StyledIcon from './Icon.style';
-import { SvgProps } from 'react-native-svg';
 
 import HomeIcon from '../../../assets/icons/Home.svg';
 import CrossIcon from '../../../assets/icons/Cross.svg';
