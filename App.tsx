@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import Title from './src/components/atoms/Typography/Title/Title';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
@@ -16,6 +17,8 @@ import SearchInput from './src/components/molecules/SearchInput/SearchInput';
 
 import Illustration from './src/components/atoms/Illustrations/Illustration';
 import { IllustrationName } from './src/assets/illustrations/IllustrationName.enum';
+import NavigationBottomBar from './src/components/molecules/NavigationBottomBar/NavigationBottomBar';
+import navigationBottomData from './src/utils/mocks/navigationBottomBar.data';
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
@@ -26,24 +29,28 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <ThemeProvider theme={theme}>
-      <View style={styles.container}>
-        <Title isBold>H1</Title>
-        <Title variant="h2">Secondary Title</Title>
-        <Tag text="Tags" onClick={() => console.log('CLICK TAG')} />
-        <Badge.Price price="€€" />
-        <Badge.GreenScore score="8.3" />
-        <Tabs data={tabsData} onClick={onClickTab} activeTab={active.value} />
-        <SearchInput onSearch={(value: string) => console.log(value)} />
-        <Separator />
-        <View style={styles.illus}>
-          <Illustration name={IllustrationName.ENERGIE} />
-          <Illustration name={IllustrationName.CUISINE} />
-          <Illustration name={IllustrationName.MAISON} />
-          <Illustration name={IllustrationName.RECYCLAGE} />
+    <NavigationContainer>
+      <ThemeProvider theme={theme}>
+        <View style={styles.container}>
+          <Title isBold>H1</Title>
+          <Title variant="h2">Secondary Title</Title>
+          <Tag text="Tags" onClick={() => console.log('CLICK TAG')} />
+          <Badge.Price price="€€" />
+          <Badge.GreenScore score="8.3" />
+          <Tabs data={tabsData} onClick={onClickTab} activeTab={active.value} />
+          <SearchInput onSearch={(value: string) => console.log(value)} />
+          <Separator />
+          <View style={styles.illus}>
+            <Illustration name={IllustrationName.ENERGIE} />
+            <Illustration name={IllustrationName.CUISINE} />
+            <Illustration name={IllustrationName.MAISON} />
+            <Illustration name={IllustrationName.RECYCLAGE} />
+          </View>
+
         </View>
-      </View>
-    </ThemeProvider>
+        <NavigationBottomBar data={navigationBottomData}/>
+      </ThemeProvider>
+    </NavigationContainer>
   );
 }
 
