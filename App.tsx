@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
 import Title from './src/components/atoms/Typography/Title/Title';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
@@ -13,9 +13,11 @@ import Badge from './src/components/atoms/Badge/Badge';
 import Tag from './src/components/atoms/Tag/Tag';
 import Separator from './src/components/atoms/Separator/Separator';
 import SearchInput from './src/components/molecules/SearchInput/SearchInput';
+import Map from './src/components/organisms/Map/Map';
 
 import Illustration from './src/components/atoms/Illustrations/Illustration';
 import { IllustrationName } from './src/assets/illustrations/IllustrationName.enum';
+import TagsList from './src/components/molecules/TagsList/TagsList';
 
 export default function App() {
   let [fontsLoaded] = useFonts(loadFonts);
@@ -27,22 +29,10 @@ export default function App() {
   }
   return (
     <ThemeProvider theme={theme}>
-      <View style={styles.container}>
-        <Title isBold>H1</Title>
-        <Title variant="h2">Secondary Title</Title>
-        <Tag text="Tags" onClick={() => console.log('CLICK TAG')} />
-        <Badge.Price price="€€" />
-        <Badge.GreenScore score="8.3" />
-        <Tabs data={tabsData} onClick={onClickTab} activeTab={active.value} />
-        <SearchInput onSearch={(value: string) => console.log(value)} />
-        <Separator />
-        <View style={styles.illus}>
-          <Illustration name={IllustrationName.ENERGIE} />
-          <Illustration name={IllustrationName.CUISINE} />
-          <Illustration name={IllustrationName.MAISON} />
-          <Illustration name={IllustrationName.RECYCLAGE} />
-        </View>
-      </View>
+      <SafeAreaView style={styles.container}>
+        <Map />
+        {/* <TagsList /> */}
+      </SafeAreaView>
     </ThemeProvider>
   );
 }

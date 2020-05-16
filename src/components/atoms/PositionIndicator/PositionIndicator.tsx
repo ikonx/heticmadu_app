@@ -7,7 +7,7 @@ import {
 const PositionIndicator = (_: {}) => {
   return (
     <StyledPositionIndicator>
-      <StyledInner></StyledInner>
+      <StyledInner />
     </StyledPositionIndicator>
   );
 };
