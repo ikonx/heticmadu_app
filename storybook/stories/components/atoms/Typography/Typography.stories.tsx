@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from '../../../../../src/components/atoms/Typography/Title/Title';
 
-const Typography = () => {
+const TypographyStories = () => {
   return (
     <>
       <Title variant="h1">H1</Title>
@@ -11,4 +11,4 @@ const Typography = () => {
   )
 };
 
-export default Typography;
+export default TypographyStories;
