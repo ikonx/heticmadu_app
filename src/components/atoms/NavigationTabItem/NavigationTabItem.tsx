@@ -2,9 +2,9 @@ import React, { FunctionComponent } from 'react';
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 import Icon from '../Icons/Icon';
-import { IconName } from '../../../assets/icons/IconName.enum';
+import { IconName } from '@assets/icons/IconName.enum';
 import Text from '../Typography/Text/Text';
-import Colors from '../../../styleGuide/Colors';
+import Colors from '@styleGuide/Colors';
 import { useIsFocused } from '@react-navigation/native';
 
 interface Props {

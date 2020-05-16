@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Layout from './Layout';
-import Title from '../../../src/components/atoms/Typography/Title/Title';
+import Title from '@components/atoms/Typography/Title/Title';
 
 interface Props {}
 

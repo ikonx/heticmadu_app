@@ -1,7 +1,7 @@
 import React from 'react';
 
 import StyledTagList from './TagsList.style';
-import Tag from '../../atoms/Tag/Tag';
+import Tag from '@components/atoms/Tag/Tag';
 import { View } from 'react-native';
 
 export interface ITag {

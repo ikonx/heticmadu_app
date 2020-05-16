@@ -2,9 +2,9 @@ import React, { FunctionComponent } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { View } from 'react-native';
 import styled, { ThemeProvider } from 'styled-components';
-import theme from '../../../src/styleGuide/Theme';
+import theme from '@src/styleGuide/Theme';
 import { useFonts } from '@use-expo/font';
-import loadFonts from '../../../src/utils/loadFonts';
+import loadFonts from '@utils/loadFonts';
 import { AppLoading } from 'expo';
 
 const Container = styled(View)`

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled, { css } from 'styled-components';
 import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import { TouchableType } from './Buttons.enum';
-import Theme from '../../../styleGuide/Theme';
+import Theme from '@styleGuide/Theme';
 
 interface ITouchable extends TouchableOpacityProps {
   variant: TouchableType;
