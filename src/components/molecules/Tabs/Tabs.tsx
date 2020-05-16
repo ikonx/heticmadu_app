@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components';
-import { TabsModel } from '../../../utils/models/tabs.model';
-import TabItem from '../../atoms/TabItem/TabItem';
+import { TabsModel } from '@utils/models/tabs.model';
+import TabItem from '@components/atoms/TabItem/TabItem';
 
 interface Props {
   data: TabsModel[];

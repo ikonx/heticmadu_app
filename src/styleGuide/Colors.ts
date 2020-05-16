@@ -5,6 +5,7 @@ export default {
   mainRed: '#F68482',
   mainOrange: '#F9722D',
   mainGrey: '#9294A0',
+  overlayGrey: 'rgba(146, 148, 160, .25)',
   secondaryGrey: '#EFEFEF',
   mainWhite: '#ffffff',
   mainBlack: '#000000',

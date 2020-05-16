@@ -44,5 +44,8 @@ target 'madu' do
   # react-native-cli autolinking
   use_native_modules!
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
 
 end

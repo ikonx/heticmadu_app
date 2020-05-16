@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import Icon from '../../atoms/Icons/Icon';
-import { IconName } from '../../../assets/icons/IconName.enum';
+import Icon from '@components/atoms/Icons/Icon';
+import { IconName } from '@assets/icons/IconName.enum';
 import StyledSearchInput from './SearchInput.style';
-import Input from '../../atoms/Input/Input';
+import Input from '@components/atoms/Input/Input';
 import { ThemeContext } from 'styled-components';
 import { debounce } from 'throttle-debounce';
 

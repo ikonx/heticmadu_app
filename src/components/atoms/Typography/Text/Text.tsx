@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { TextProperties, TextProps } from 'react-native';
 import {
   TextButton,
   TextDefault,
@@ -7,9 +8,8 @@ import {
   TextLegendImportant,
   TextLink,
 } from './Text.style';
-import { TextProperties } from 'react-native';
 
-interface Props {
+interface Props extends TextProps {
   variant: string;
   isUppercase?: boolean;
   color?: string;

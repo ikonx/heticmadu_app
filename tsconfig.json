@@ -25,7 +25,18 @@
     /* Module Resolution Options */
     "moduleResolution": "node" /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */ /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
-    "types": ["react", "react-native"]
+    "types": ["react", "react-native"],
+    "rootDirs": ["src", "stories"],
+
+    /* Custom Paths */
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@styleGuide/*": ["./src/styleGuide/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["src"]
 }

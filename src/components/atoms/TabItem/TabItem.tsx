@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { TouchableOpacity, View } from 'react-native';
 import Text from '../Typography/Text/Text';
-import Colors from '../../../styleGuide/Colors';
+import Colors from '@styleGuide/Colors';
 
 interface Props {
   text: string;
