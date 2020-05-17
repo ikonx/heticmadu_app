@@ -20,12 +20,12 @@ const TabItemBorder = styled(View)`
   width: 100%;
   height: 1px;
   background: ${({ isDisabled, theme }) =>
-    isDisabled ? theme.Colors.mainGrey : theme.Colors.darknessBlue};
+    isDisabled ? theme.Colors.secondaryGrey : theme.Colors.darknessBlue};
   margin-top: 8px;
 `;
 
 const TabItemText = styled(View)`
-  padding: 16px 8px;
+  padding: 16px 16px 8px 16px;
 `;
 
 const TabItem: FunctionComponent<Props> = ({ text, disabled, clickEvent }) => {
@@ -34,7 +34,7 @@ const TabItem: FunctionComponent<Props> = ({ text, disabled, clickEvent }) => {
       <TabItemText>
         <Text
           variant="legendI"
-          color={disabled ? Colors.mainGrey : Colors.darknessBlue}
+          color={disabled ? Colors.secondaryGrey : Colors.darknessBlue}
           isBold
         >
           {text}

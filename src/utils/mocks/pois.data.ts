@@ -1,4 +1,6 @@
-export const poisData: {}[] = [
+import { PoiModel } from '../models/pois.model';
+
+export const poisData: PoiModel[] = [
   {
     id: 4,
     name: 'Hetic',
@@ -58,6 +60,33 @@ export const poisData: {}[] = [
     name: 'Kofte',
     longitude: 2.2923355309989324,
     latitude: 48.86441370117699,
+    address: 'Héricourt, Bourgogne-Franche-Comté, France',
+    postalCode: 92000,
+    monday: '',
+    tuesday: '',
+    wednesday: '',
+    thursday: '',
+    friday: '',
+    saturday: '',
+    sunday: '',
+    schedule: '',
+    category: 'restau',
+    averagePrice: '',
+    glutenFree: false,
+    bio: '',
+    disabledAccess: false,
+    greenScore: 9,
+    phoneNumber: '',
+    picture: '',
+    description: '',
+    status: 'deactivated',
+    tags: [],
+  },
+  {
+    id: 7,
+    name: 'Kofte',
+    longitude: 2.2913355309989324,
+    latitude: 48.85441370117699,
     address: 'Héricourt, Bourgogne-Franche-Comté, France',
     postalCode: 92000,
     monday: '',

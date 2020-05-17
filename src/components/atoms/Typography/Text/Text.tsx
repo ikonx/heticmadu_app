@@ -9,14 +9,21 @@ import {
   TextLink,
 } from './Text.style';
 
+type TextVariants =
+  | 'default'
+  | 'legend'
+  | 'legendI'
+  | 'label'
+  | 'button'
+  | 'link';
 interface Props extends TextProps {
-  variant: string;
+  variant: TextVariants;
   isUppercase?: boolean;
   color?: string;
   isBold?: boolean;
 }
 
-const variants: any = {
+const variants = {
   default: TextDefault,
   legend: TextLegend,
   legendI: TextLegendImportant,

@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { StyleSheet, StatusBar, Text } from 'react-native';
-import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 
-import { StyledMap, StyledMarker } from './Map.style';
-import { poisData } from '../../../utils/mocks/pois.data';
-import MapPointIcon from '../../atoms/MapPointIcon/MapPointIcon';
-import PositionIndicator from '../../atoms/PositionIndicator/PositionIndicator';
+import { StyledMap } from './Map.style';
+import { poisData } from '@utils/mocks/pois.data';
+import MapPointIcon from '@components/atoms/MapPointIcon/MapPointIcon';
+import { PoiModel } from '@src/utils/models/pois.model';
 
 interface Props {
-  pois: {}[];
+  pois: PoiModel[];
 }
 
 const Map = ({ pois }: Props) => {
@@ -29,17 +28,17 @@ const Map = ({ pois }: Props) => {
     })();
   }, []);
 
-  let text: any = 'Waiting..';
   if (errorMsg) {
-    text = errorMsg;
-  } else if (location) {
-    text = JSON.stringify(location);
-    console.log('location', location);
+    return <Text>{errorMsg}</Text>;
   }
 
   return (
     <StyledMap style={StyleSheet.absoluteFill}>
-      <StatusBar backgroundColor={'transparent'} translucent />
+      <StatusBar
+        backgroundColor={'transparent'}
+        translucent
+        barStyle={'dark-content'}
+      />
       {location && (
         <MapView
           provider={PROVIDER_GOOGLE}
@@ -106,8 +105,12 @@ const Map = ({ pois }: Props) => {
               ],
             },
           ]}
+          showsUserLocation
+          showsBuildings={false}
+          showsIndoors={false}
+          showsIndoorLevelPicker={false}
         >
-          <Marker
+          {/* <Marker
             coordinate={{
               longitude: location.longitude,
               latitude: location.latitude,
@@ -115,12 +118,19 @@ const Map = ({ pois }: Props) => {
             style={{ zIndex: 2 }}
           >
             <PositionIndicator />
-          </Marker>
-          {pois.map(({ longitude, latitude, name, id, category }) => (
-            <Marker key={id} coordinate={{ longitude, latitude }} title={name}>
-              <MapPointIcon point={{ category }} />
-            </Marker>
-          ))}
+          </Marker> */}
+          {pois.map((poi: PoiModel) => {
+            const { longitude, latitude, name, id } = poi;
+            return (
+              <Marker
+                key={id}
+                coordinate={{ longitude, latitude }}
+                title={name}
+              >
+                <MapPointIcon point={poi} />
+              </Marker>
+            );
+          })}
         </MapView>
       )}
     </StyledMap>
