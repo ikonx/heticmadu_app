@@ -15,14 +15,15 @@ interface Props {
   title?: string;
   middleItem?: JSX.Element;
   rightItem?: JSX.Element;
+  onBack: () => void;
 }
 
-const NavigationHeader = ({ title, middleItem, rightItem }: Props) => {
+const NavigationHeader = ({ title, middleItem, rightItem, onBack }: Props) => {
   const { Colors } = useContext(ThemeContext);
 
   return (
     <StyledNavigationHeader>
-      <Buttons variant={TouchableType.ICON}>
+      <Buttons variant={TouchableType.ICON} onPress={onBack}>
         <Icon
           height={24}
           width={24}
