@@ -38,4 +38,8 @@ const SearchInput = ({ onSearch }: Props) => {
   );
 };
 
+SearchInput.defaultProps = {
+  onSearch: () => {},
+};
+
 export default SearchInput;
