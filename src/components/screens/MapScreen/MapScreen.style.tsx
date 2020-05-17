@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import List from '@src/components/atoms/List/List';
 
 export const StyledFlatList = styled(FlatList)`

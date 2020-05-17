@@ -37,7 +37,9 @@ const Map = ({ pois }: Props) => {
           latitude,
         })),
       ];
-      mapRef.current.fitToCoordinates(markers);
+      mapRef.current.fitToCoordinates(markers, {
+        edgePadding: { top: 100, right: 70, bottom: 100, left: 70 },
+      });
     }
   }, [pois]);
 
@@ -56,7 +58,7 @@ const Map = ({ pois }: Props) => {
         <MapView
           ref={mapRef}
           provider={PROVIDER_GOOGLE}
-          style={{ flex: 1 }}
+          style={{ flex: 1, padding: 50 }}
           maxZoomLevel={18}
           minZoomLevel={1}
           initialRegion={{

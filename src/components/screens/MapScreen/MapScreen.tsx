@@ -1,6 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
 
 import { TabsModel } from '@utils/models/tabs.model';
 import List from '@src/components/atoms/List/List';
@@ -62,49 +60,43 @@ const MapScreen = (_: Props) => {
   };
 
   return (
-    <SafeAreaView style={StyleSheet.absoluteFill} forceInset={{ top: 'never' }}>
-      <List flexDirection="column" style={StyleSheet.absoluteFill}>
-        <Map pois={pois} />
-        <SafeAreaView style={{ flex: .7, flexDirection: 'column-reverse' }}>
-          <StyledPanel flexDirection="column">
-            <Tabs
-              data={tabsArray}
-              activeTab={activeTab}
-              onClick={onTabChange}
-            />
-            <StyledFlatList
-              pointerEvents="auto"
-              horizontal
-              data={pois}
-              renderItem={({ item }: any) => <PoiCard poi={item} />}
-            />
-          </StyledPanel>
-          <Buttons
-            variant={TouchableType.FULLWIDTH}
-            style={{
-              width: 'auto',
-              maxWidth: 150,
-              alignSelf: 'center',
-              marginBottom: 16,
-              position: 'absolute',
-              top: -66,
-            }}
-            onPress={searchHandler}
-          >
-            <Icon
-              height={24}
-              width={24}
-              name={IconName.SEARCH}
-              fill={Colors.mainWhite}
-              style={{ marginRight: 8 }}
-            />
-            <Text variant="button" color={Colors.mainWhite}>
-              Rechercher
-            </Text>
-          </Buttons>
-        </SafeAreaView>
-      </List>
-    </SafeAreaView>
+    <List flexDirection="column" style={{ flex: 1 }}>
+      <Map pois={pois} />
+      <StyledPanel flexDirection="column">
+        <Buttons
+          variant={TouchableType.FULLWIDTH}
+          style={{
+            width: 'auto',
+            alignSelf: 'center',
+            position: 'absolute',
+            top: -64,
+            zIndex: 3,
+          }}
+          onPress={searchHandler}
+        >
+          <Icon
+            height={24}
+            width={24}
+            name={IconName.SEARCH}
+            fill={Colors.mainWhite}
+            style={{ marginRight: 8 }}
+          />
+          <Text variant="button" color={Colors.mainWhite}>
+            Rechercher
+          </Text>
+        </Buttons>
+        <Tabs data={tabsArray} activeTab={activeTab} onClick={onTabChange} />
+        <StyledFlatList
+          pointerEvents="auto"
+          horizontal
+          data={pois}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }: any) => (
+            <PoiCard key={item.id.toString()} poi={item} />
+          )}
+        />
+      </StyledPanel>
+    </List>
   );
 };
 

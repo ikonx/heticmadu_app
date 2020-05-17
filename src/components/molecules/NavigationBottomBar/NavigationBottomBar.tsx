@@ -24,7 +24,7 @@ const TabStyle = {
 const NavigationBottomBar: FunctionComponent<Props> = ({ data }) => {
   function MainTabsScreen() {
     return (
-      <Tab.Navigator tabBarOptions={TabStyle}>
+      <Tab.Navigator tabBarOptions={TabStyle} initialRouteName="Map">
         {data.map((item, i) => (
           <Tab.Screen
             key={i}

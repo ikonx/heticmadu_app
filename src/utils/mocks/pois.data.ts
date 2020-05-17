@@ -28,7 +28,7 @@ export const poisData: PoiModel[] = [
     status: 'deactivated',
     tags: [],
     images: [
-      'https://images.unsplash.com/photo-1542039778-22c80bfeaa48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80',
+      'https://images.unsplash.com/photo-1542039778-22c80bfeaa48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=80',
     ],
   },
   {
@@ -58,7 +58,7 @@ export const poisData: PoiModel[] = [
     status: 'deactivated',
     tags: [],
     images: [
-      'https://images.unsplash.com/photo-1570857502809-08184874388e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1398&q=80',
+      'https://images.unsplash.com/photo-1570857502809-08184874388e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=80',
     ],
   },
   {
@@ -88,7 +88,7 @@ export const poisData: PoiModel[] = [
     status: 'deactivated',
     tags: [],
     images: [
-      'https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
+      'https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=80',
     ],
   },
   {
@@ -118,7 +118,7 @@ export const poisData: PoiModel[] = [
     status: 'deactivated',
     tags: [],
     images: [
-      'https://images.unsplash.com/photo-1585144570839-e429bb95ffb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2060&q=80',
+      'https://images.unsplash.com/photo-1585144570839-e429bb95ffb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=80',
     ],
   },
 ];

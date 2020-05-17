@@ -13,7 +13,7 @@ interface Props {
 }
 
 const StyledImage = styled(Image)`
-  background: red;
+  background: ${({ theme }) => theme.Colors.secondaryGrey};
   height: 130px;
   width: 100%;
   border-radius: 4px;
