@@ -13,7 +13,6 @@ import Spacer from '@src/components/atoms/Spacer/Spacer';
 import TagsList from '@src/components/molecules/TagsList/TagsList';
 import PoiCard from '@src/components/molecules/PoiCard/PoiCard';
 import { poisData } from '@src/utils/mocks/pois.data';
-import { ScrollView } from 'react-native-gesture-handler';
 
 interface Props {
   navigation: NavigationScreenProp<{}, 'Search'>;
@@ -52,26 +51,18 @@ const SearchScreen = ({ navigation }: Props) => {
       <Spacer size={8} />
       <TagsList />
       <Spacer size={24} />
-      <ScrollView
+      <StyledContent
         contentContainerStyle={{
           paddingBottom: 20,
         }}
       >
-        <PoiCard gotBorder poi={poisData[0]} fullWidth />
-        <Spacer size={16} />
-        <PoiCard gotBorder poi={poisData[0]} fullWidth />
-        <Spacer size={16} />
-        <PoiCard gotBorder poi={poisData[0]} fullWidth />
-        <Spacer size={16} />
-        <PoiCard gotBorder poi={poisData[0]} fullWidth />
-        <Spacer size={16} />
-        <PoiCard gotBorder poi={poisData[0]} fullWidth />
-        <Spacer size={16} />
-        <PoiCard gotBorder poi={poisData[0]} fullWidth />
-        <Spacer size={16} />
-        <PoiCard gotBorder poi={poisData[0]} fullWidth />
-        <Spacer size={16} />
-      </ScrollView>
+        {poisData.map(poi => (
+          <>
+            <PoiCard gotBorder poi={poi} fullWidth />
+            <Spacer size={16} />
+          </>
+        ))}
+      </StyledContent>
     </StyledSearchScreen>
   );
 };
