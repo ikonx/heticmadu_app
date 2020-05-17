@@ -1,19 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import List from '@components/atoms/List/List';
 import Chips from '@components/atoms/Chips/Chips';
 import { ChipsListModel } from '@utils/models/chipsList.model';
 import Spacer from '@components/atoms/Spacer/Spacer';
-import styled from 'styled-components';
+import { ChipsListContainer, ChipsListItem } from '@components/molecules/ChipsList/ChipsList.style';
 
 interface Props {
   data: ChipsListModel[];
   onClick: (item: ChipsListModel) => void;
   active?: string|null;
 }
-
-const ChipsListContainer = styled(List)``;
-
-const ChipsListItem = styled(List)``;
 
 const ChipsList: FunctionComponent<Props> = ({ data,  onClick, active }) => {
   return (

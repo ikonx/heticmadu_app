@@ -1,18 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import { View } from 'react-native';
-import styled from 'styled-components';
 import { TabsModel } from '@utils/models/tabs.model';
 import TabItem from '@components/atoms/TabItem/TabItem';
+import { TabsContainer } from '@components/molecules/Tabs/Tabs.style';
 
 interface Props {
   data: TabsModel[];
   onClick: (item: TabsModel) => void;
   activeTab: string;
 }
-
-const TabsContainer = styled(View)`
-  flex-direction: row;
-`;
 
 const Tabs: FunctionComponent<Props> = ({ data, onClick, activeTab }) => {
   return (
