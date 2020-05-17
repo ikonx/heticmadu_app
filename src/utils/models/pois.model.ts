@@ -1,7 +1,7 @@
 import { TagModel } from './tag.model';
 
 export interface PoiModel {
-  id?: number | string;
+  id: number | string;
   name: string;
   longitude: number;
   latitude: number;

@@ -90,7 +90,8 @@ const MapScreen = (_: Props) => {
           pointerEvents="auto"
           horizontal
           data={pois}
-          keyExtractor={item => item.id.toString()}
+          extraData={pois}
+          keyExtractor={(item: PoiModel) => item.id.toString()}
           renderItem={({ item }: any) => (
             <PoiCard key={item.id.toString()} poi={item} />
           )}

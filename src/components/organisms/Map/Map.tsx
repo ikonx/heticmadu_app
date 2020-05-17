@@ -41,6 +41,7 @@ const Map = ({ pois }: Props) => {
         edgePadding: { top: 100, right: 70, bottom: 100, left: 70 },
       });
     }
+    console.log('render');
   }, [pois]);
 
   if (errorMsg) {
