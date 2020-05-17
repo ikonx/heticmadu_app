@@ -1,16 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { SafeAreaView, NavigationScreenProp } from 'react-navigation';
+import { NavigationScreenProp } from 'react-navigation';
 
-import Text from '@src/components/atoms/Typography/Text/Text';
 import NavigationHeader from '@src/components/molecules/NavigationHeader/NavigationHeader';
 import SearchInput from '@src/components/molecules/SearchInput/SearchInput';
 import Buttons from '@src/components/atoms/Buttons/Buttons';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Icon from '@src/components/atoms/Icons/Icon';
 import { IconName } from '@src/assets/icons/IconName.enum';
-import { StyledSearchScreen } from './SearchScreen.style';
-import Title from '@src/components/atoms/Typography/Title/Title';
+import { StyledSearchScreen, StyledContent } from './SearchScreen.style';
+import Spacer from '@src/components/atoms/Spacer/Spacer';
+import TagsList from '@src/components/molecules/TagsList/TagsList';
+import PoiCard from '@src/components/molecules/PoiCard/PoiCard';
+import { poisData } from '@src/utils/mocks/pois.data';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface Props {
   navigation: NavigationScreenProp<{}, 'Search'>;
@@ -34,18 +37,8 @@ const SearchScreen = ({ navigation }: Props) => {
   const goBack = () => navigation.goBack();
 
   return (
-    <StyledSearchScreen>
-      <NavigationHeader onBack={goBack} />
-      <NavigationHeader onBack={goBack} title="Salut" />
-      <NavigationHeader
-        onBack={goBack}
-        middleItem={
-          <SearchInput
-            onSearch={value => setSearch(value)}
-            value={searchValue}
-          />
-        }
-      />
+    <StyledSearchScreen forceInset={{ bottom: 'never' }}>
+      <Spacer size={8} />
       <NavigationHeader
         onBack={goBack}
         middleItem={
@@ -56,8 +49,29 @@ const SearchScreen = ({ navigation }: Props) => {
         }
         rightItem={rightItem}
       />
-      <Text variant="legend">Search screen</Text>
-      <Title>{searchValue}</Title>
+      <Spacer size={8} />
+      <TagsList />
+      <Spacer size={24} />
+      <ScrollView
+        contentContainerStyle={{
+          paddingBottom: 20,
+        }}
+      >
+        <PoiCard gotBorder poi={poisData[0]} fullWidth />
+        <Spacer size={16} />
+        <PoiCard gotBorder poi={poisData[0]} fullWidth />
+        <Spacer size={16} />
+        <PoiCard gotBorder poi={poisData[0]} fullWidth />
+        <Spacer size={16} />
+        <PoiCard gotBorder poi={poisData[0]} fullWidth />
+        <Spacer size={16} />
+        <PoiCard gotBorder poi={poisData[0]} fullWidth />
+        <Spacer size={16} />
+        <PoiCard gotBorder poi={poisData[0]} fullWidth />
+        <Spacer size={16} />
+        <PoiCard gotBorder poi={poisData[0]} fullWidth />
+        <Spacer size={16} />
+      </ScrollView>
     </StyledSearchScreen>
   );
 };

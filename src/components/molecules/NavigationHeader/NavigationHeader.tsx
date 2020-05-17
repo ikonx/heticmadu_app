@@ -32,7 +32,7 @@ const NavigationHeader = ({ title, middleItem, rightItem, onBack }: Props) => {
           fill={Colors.mainGrey}
         />
       </Buttons>
-      <Spacer size={20} />
+      <Spacer size={16} />
       <View style={{ alignItems: 'center', flex: 1 }}>
         {title && (
           <>
@@ -44,7 +44,7 @@ const NavigationHeader = ({ title, middleItem, rightItem, onBack }: Props) => {
       {title && <Spacer size={60} style={{ height: 0 }} />}
       {rightItem && (
         <>
-          <Spacer size={20} />
+          <Spacer size={16} />
           {rightItem}
         </>
       )}

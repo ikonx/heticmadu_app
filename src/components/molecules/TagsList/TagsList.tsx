@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import StyledTagList from './TagsList.style';
 import Tag from '@components/atoms/Tag/Tag';
 import { View } from 'react-native';
+import { ThemeContext } from 'styled-components';
 
 export interface ITag {
   label: string;
@@ -12,13 +13,21 @@ interface Props {
 }
 
 const TagsList = ({ tagsArray }: Props) => {
+  const { Colors } = useContext(ThemeContext);
+
   return (
-    <StyledTagList>
+    <StyledTagList
+      horizontal
+      contentContainerStyle={{
+        paddingLeft: 20,
+      }}
+      showsHorizontalScrollIndicator={false}
+    >
       {tagsArray.map(({ label }, index) => {
         const gotMarginRight = index < tagsArray.length - 1;
         return (
           <View style={{ marginRight: gotMarginRight ? 8 : 0 }}>
-            <Tag text={label} />
+            <Tag text={label} color={Colors.tags[label]} />
           </View>
         );
       })}
@@ -27,7 +36,13 @@ const TagsList = ({ tagsArray }: Props) => {
 };
 
 TagsList.defaultProps = {
-  tagsArray: [{ label: 'salut' }, { label: 'salam' }, { label: 'shalom' }],
+  tagsArray: [
+    { label: 'africain' },
+    { label: 'indien' },
+    { label: 'italien' },
+    { label: 'junkfood' },
+    { label: 'mexicain' },
+  ],
 };
 
 export default TagsList;

@@ -63,7 +63,7 @@ const NavigationBottomBar: FunctionComponent<Props> = ({ data }) => {
           title: '',
           headerTransparent: true,
           headerShown: false,
-          cardStyle: { height: 300 },
+          cardStyle: { flex: 1 },
           gestureResponseDistance: { vertical: 600 },
         }}
       />

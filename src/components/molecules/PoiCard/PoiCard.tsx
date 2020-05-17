@@ -10,6 +10,7 @@ import Spacer from '@src/components/atoms/Spacer/Spacer';
 interface Props {
   poi: PoiModel;
   gotBorder?: boolean;
+  fullWidth?: boolean;
 }
 
 const StyledImage = styled(Image)`
@@ -32,14 +33,21 @@ const StyledPoiCard = styled(TouchableHighlight)`
       border-radius: 10px;
       background-color: ${({ theme }) => theme.Colors.mainWhite};
     `}
+
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
+      width: 100%;
+    `}
 `;
 
 const PoiCard = ({
   poi: { name, address, greenScore, averagePrice, images },
   gotBorder,
+  fullWidth,
 }: Props) => {
   return (
-    <StyledPoiCard gotBorder={gotBorder}>
+    <StyledPoiCard gotBorder={gotBorder} fullWidth={fullWidth}>
       <List flexDirection="column">
         <StyledImage
           source={{
