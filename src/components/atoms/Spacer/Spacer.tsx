@@ -9,8 +9,8 @@ interface IProps {
 const Spacer: StyledFunction<IProps & FunctionComponent<ViewProps>> = styled(
   View,
 )`
-  height: ${({ size }) => size || 0};
-  width: ${({ size }) => size || 0};
+  height: ${({ size }) => size || 0}px;
+  width: ${({ size }) => size || 0}px;
 `;
 
 export default Spacer;

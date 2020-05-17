@@ -17,7 +17,7 @@ export const poisData: PoiModel[] = [
     sunday: '',
     schedule: '',
     category: 'activity',
-    averagePrice: '',
+    averagePrice: '€',
     glutenFree: false,
     bio: '',
     disabledAccess: false,
@@ -27,6 +27,9 @@ export const poisData: PoiModel[] = [
     description: '',
     status: 'deactivated',
     tags: [],
+    images: [
+      'https://images.unsplash.com/photo-1542039778-22c80bfeaa48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80',
+    ],
   },
   {
     id: 6,
@@ -44,7 +47,7 @@ export const poisData: PoiModel[] = [
     sunday: '',
     schedule: '',
     category: 'shop',
-    averagePrice: '',
+    averagePrice: '€€',
     glutenFree: false,
     bio: '',
     disabledAccess: false,
@@ -54,6 +57,9 @@ export const poisData: PoiModel[] = [
     description: '',
     status: 'deactivated',
     tags: [],
+    images: [
+      'https://images.unsplash.com/photo-1570857502809-08184874388e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1398&q=80',
+    ],
   },
   {
     id: 5,
@@ -71,7 +77,7 @@ export const poisData: PoiModel[] = [
     sunday: '',
     schedule: '',
     category: 'restau',
-    averagePrice: '',
+    averagePrice: '€€',
     glutenFree: false,
     bio: '',
     disabledAccess: false,
@@ -81,6 +87,9 @@ export const poisData: PoiModel[] = [
     description: '',
     status: 'deactivated',
     tags: [],
+    images: [
+      'https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
+    ],
   },
   {
     id: 7,
@@ -98,7 +107,7 @@ export const poisData: PoiModel[] = [
     sunday: '',
     schedule: '',
     category: 'restau',
-    averagePrice: '',
+    averagePrice: '€',
     glutenFree: false,
     bio: '',
     disabledAccess: false,
@@ -108,5 +117,8 @@ export const poisData: PoiModel[] = [
     description: '',
     status: 'deactivated',
     tags: [],
+    images: [
+      'https://images.unsplash.com/photo-1585144570839-e429bb95ffb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2060&q=80',
+    ],
   },
 ];

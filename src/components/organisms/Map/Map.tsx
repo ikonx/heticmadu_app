@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { StyleSheet, StatusBar, Text } from 'react-native';
 import * as Location from 'expo-location';
@@ -15,6 +15,7 @@ interface Props {
 const Map = ({ pois }: Props) => {
   const [location, setLocation] = useState<any>(null);
   const [errorMsg, setErrorMsg] = useState<any>(null);
+  const mapRef: any = useRef(null);
 
   useEffect(() => {
     (async () => {
@@ -28,12 +29,24 @@ const Map = ({ pois }: Props) => {
     })();
   }, []);
 
+  useEffect(() => {
+    if (mapRef.current) {
+      const markers = [
+        ...pois.map(({ longitude, latitude }) => ({
+          longitude,
+          latitude,
+        })),
+      ];
+      mapRef.current.fitToCoordinates(markers);
+    }
+  }, [pois]);
+
   if (errorMsg) {
     return <Text>{errorMsg}</Text>;
   }
 
   return (
-    <StyledMap style={StyleSheet.absoluteFill}>
+    <StyledMap style={{ flex: 1 }}>
       <StatusBar
         backgroundColor={'transparent'}
         translucent
@@ -41,8 +54,9 @@ const Map = ({ pois }: Props) => {
       />
       {location && (
         <MapView
+          ref={mapRef}
           provider={PROVIDER_GOOGLE}
-          style={StyleSheet.absoluteFillObject}
+          style={{ flex: 1 }}
           maxZoomLevel={18}
           minZoomLevel={1}
           initialRegion={{
