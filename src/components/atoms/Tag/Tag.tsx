@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
-import { TouchableOpacity } from 'react-native';
 import Text from '../Typography/Text/Text';
 import Colors from '@styleGuide/Colors';
+import { TagContainer } from '@components/atoms/Tag/Tag.style';
 
 interface Props {
   text: string;
@@ -10,13 +9,6 @@ interface Props {
   disabled?: boolean;
   color?: string;
 }
-
-const TagContainer = styled(TouchableOpacity)<{ color?: string }>`
-  background: ${({ color, theme }) =>
-    color ? color : `${theme.Colors.mainBlack}25`};
-  padding: 4px 8px;
-  border-radius: 48px;
-`;
 
 const Tag: FunctionComponent<Props> = ({ text, onClick, disabled, color }) => {
   return (

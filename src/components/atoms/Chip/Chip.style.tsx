@@ -5,7 +5,7 @@ const StyledView = styled(View)<{ isActive?: boolean }>`
   background: ${({ isActive, theme }) =>
     isActive ? theme.Colors.mainPurple : theme.Colors.mainWhite};
   border: ${({ isActive, theme }) =>
-    !isActive ? `1px solid ${theme.Colors.secondaryGrey}` : 'none'};
+    !isActive ? `1px solid ${theme.Colors.secondaryGrey}` : `1px solid ${theme.Colors.mainPurple}`};
   padding: 12px 33px;
   border-radius: 8px;
 `;
