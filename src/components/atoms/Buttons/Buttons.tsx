@@ -13,6 +13,8 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
     max-height: 40px;
     flex-direction: row;
     flex-wrap: nowrap;
+    align-items: center;
+
     ${({ variant }) =>
       variant === TouchableType.DEFAULT &&
       css`
@@ -40,7 +42,7 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
         background-color: ${Theme.Colors.mainPurple};
         max-height: 56px;
         width: 343px;
-        padding: 17px 47px;
+        padding: 11px 16px;
       `}
 `;
 
@@ -50,11 +52,7 @@ const Buttons: FunctionComponent<ITouchable> = ({
   ...rest
 }) => {
   return (
-    <StyledTouchable
-      {...rest}
-      variant={variant}
-      onPress={() => console.log('res')}
-    >
+    <StyledTouchable variant={variant} {...rest}>
       {children}
     </StyledTouchable>
   );

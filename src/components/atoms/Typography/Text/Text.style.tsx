@@ -19,6 +19,7 @@ export const TextLegend = styled(BaseText)`
 
 export const TextLegendImportant = styled(TextLegend)`
   font-size: 16px;
+  line-height: 23px;
 `;
 
 export const TextDefault = styled(BaseText)`

@@ -2,17 +2,19 @@ import Input from '@components/atoms/Input/Input';
 import { IconName } from '@assets/icons/IconName.enum';
 import TagsList from '@components/molecules/TagsList/TagsList';
 import { NavigationItemModel } from '../models/navigationItem.model';
+import HomeScreen from '@src/components/screens/HomeScreen/HomeScreen';
+import MapScreen from '@src/components/screens/MapScreen/MapScreen';
 
 const navigationBottomData: NavigationItemModel[] = [
   {
     name: 'Home',
-    component: Input,
+    component: HomeScreen,
     icon: IconName.HOME,
     text: 'Home',
   },
   {
-    name: 'Carte',
-    component: TagsList,
+    name: 'Map',
+    component: MapScreen,
     icon: IconName.MAPS,
     text: 'Carte',
   },

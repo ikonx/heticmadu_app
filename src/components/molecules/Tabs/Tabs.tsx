@@ -6,7 +6,7 @@ import { TabsContainer } from '@components/molecules/Tabs/Tabs.style';
 interface Props {
   data: TabsModel[];
   onClick: (item: TabsModel) => void;
-  activeTab: string;
+  activeTab: TabsModel;
 }
 
 const Tabs: FunctionComponent<Props> = ({ data, onClick, activeTab }) => {
@@ -15,7 +15,7 @@ const Tabs: FunctionComponent<Props> = ({ data, onClick, activeTab }) => {
       { data.map((item: TabsModel, i) => (
         <TabItem
           text={item.label}
-          disabled={item.value !== activeTab}
+          disabled={item.value !== activeTab.value}
           clickEvent={() => onClick(item)}
           key={i}
         />

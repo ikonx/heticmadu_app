@@ -2,11 +2,10 @@ import React from 'react';
 import { Text } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { StyledIconContainer, StyledIcon } from './MapPoitIcon.style';
+import { PoiModel } from '@src/utils/models/pois.model';
 
 interface Props {
-  point: {
-    category: 'restau' | 'shop' | 'activity';
-  };
+  point: PoiModel;
 }
 
 const MapPointIcon: React.FC<Props> = ({ point }) => {
@@ -116,12 +115,7 @@ const MapPointIcon: React.FC<Props> = ({ point }) => {
         );
       case 'activity':
         return (
-          <Svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
+          <Svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <Path
               d="M22 8.34072H2V20.6372C2 21.3295 2.56119 21.8907 3.25348 21.8907H20.7465C21.4388 21.8907 22 21.3295 22 20.6372V8.34072Z"
               fill="#EFEFEF"

@@ -15,7 +15,7 @@ const TabItem: FunctionComponent<Props> = ({ text, disabled, clickEvent }) => {
       <TabItemText>
         <Text
           variant="legendI"
-          color={disabled ? Colors.mainGrey : Colors.darknessBlue}
+          color={disabled ? Colors.secondaryGrey : Colors.darknessBlue}
           isBold
         >
           {text}
