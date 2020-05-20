@@ -8,9 +8,10 @@ import { debounce } from 'throttle-debounce';
 
 interface Props {
   onSearch: (value: string) => void;
+  value: string;
 }
 
-const SearchInput = ({ onSearch }: Props) => {
+const SearchInput = ({ onSearch, value }: Props) => {
   const [isFocus, setFocus] = useState(false);
   const { Colors } = useContext(ThemeContext);
 
@@ -33,9 +34,15 @@ const SearchInput = ({ onSearch }: Props) => {
         onFocus={focusHanlder}
         onBlur={focusHanlder}
         onChangeText={changeTextHanlder}
+        defaultValue={value}
       />
     </StyledSearchInput>
   );
+};
+
+SearchInput.defaultProps = {
+  onSearch: () => {},
+  value: '',
 };
 
 export default SearchInput;

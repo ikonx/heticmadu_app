@@ -15,6 +15,7 @@ const StyledPrice = styled(StyledBadge)`
 const StyledText = styled(Text)`
   font-family: ${({ theme }) => theme.Fonts.DMSans.bold};
   color: ${({ theme }) => theme.Colors.mainBlack};
+  text-align: center;
 `;
 
 const Price: React.FunctionComponent<IPriceBadge> = ({
@@ -22,7 +23,7 @@ const Price: React.FunctionComponent<IPriceBadge> = ({
 }: IPriceBadge) => {
   return (
     <StyledPrice>
-      <StyledText>{price}</StyledText>
+      <StyledText>{price ? price : 'null'}</StyledText>
     </StyledPrice>
   );
 };
