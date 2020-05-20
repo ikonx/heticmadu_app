@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import Text from '../Typography/Text/Text';
-import Colors from '../../../styleGuide/Colors';
-import StyledView from './Chips.style';
+import Colors from '@styleGuide/Colors';
+import StyledView from './Chip.style';
 
 interface Props {
   text: string;
@@ -10,7 +10,7 @@ interface Props {
   onClick: () => void;
 }
 
-const Chips: FunctionComponent<Props> = ({ text, active, onClick }) => {
+const Chip: FunctionComponent<Props> = ({ text, active, onClick }) => {
   return (
     <TouchableWithoutFeedback onPress={onClick}>
       <StyledView isActive={active}>
@@ -26,4 +26,4 @@ const Chips: FunctionComponent<Props> = ({ text, active, onClick }) => {
   );
 };
 
-export default Chips;
+export default Chip;

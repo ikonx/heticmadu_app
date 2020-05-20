@@ -6,15 +6,15 @@ interface Props {}
 
 const fakeData: ChipsListModel[] = [
   {
-    text: 'Chips',
+    text: 'Chip',
     value: '1',
   },
   {
-    text: 'Chips',
+    text: 'Chip',
     value: '2',
   },
   {
-    text: 'Chips',
+    text: 'Chip',
     value: '3',
   },
 ];

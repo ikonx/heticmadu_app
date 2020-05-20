@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import Chips from '@components/atoms/Chips/Chips';
+import Chip from '@components/atoms/Chip/Chip';
 import { ChipsListModel } from '@utils/models/chipsList.model';
 import Spacer from '@components/atoms/Spacer/Spacer';
 import { ChipsListContainer, ChipsListItem } from '@components/molecules/ChipsList/ChipsList.style';
@@ -15,7 +15,7 @@ const ChipsList: FunctionComponent<Props> = ({ data,  onClick, active }) => {
     <ChipsListContainer>
       { data.map((item, i) => (
         <ChipsListItem key={i}>
-          <Chips
+          <Chip
             key={i}
             text={item.text}
             onClick={() => onClick(item)}
