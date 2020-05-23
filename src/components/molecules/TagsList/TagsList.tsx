@@ -26,7 +26,7 @@ const TagsList = ({ tagsArray }: Props) => {
       {tagsArray.map(({ label }, index) => {
         const gotMarginRight = index < tagsArray.length - 1;
         return (
-          <View style={{ marginRight: gotMarginRight ? 8 : 0 }}>
+          <View key={index} style={{ marginRight: gotMarginRight ? 8 : 0 }}>
             <Tag text={label} color={Colors.tags[label]} />
           </View>
         );
