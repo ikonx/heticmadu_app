@@ -6,11 +6,12 @@ import { ChipsListContainer, ChipsListItem } from '@components/molecules/ChipsLi
 
 interface Props {
   data: ChipsListModel[];
-  onClick: (item: ChipsListModel) => void;
+  onClick: (item: ChipsListModel, index: number) => void;
   active?: string|null;
+  fieldIndex: number;
 }
 
-const ChipsList: FunctionComponent<Props> = ({ data,  onClick, active }) => {
+const ChipsList: FunctionComponent<Props> = ({ data,  onClick, active, fieldIndex }) => {
   return (
     <ChipsListContainer>
       { data.map((item, i) => (
@@ -18,7 +19,7 @@ const ChipsList: FunctionComponent<Props> = ({ data,  onClick, active }) => {
           <Chip
             key={i}
             text={item.text}
-            onClick={() => onClick(item)}
+            onClick={() => onClick(item, fieldIndex)}
             active={active === item.value}
           />
           <Spacer size={8}/>

@@ -30,7 +30,12 @@ const ChipsListStories: FunctionComponent<Props> = () => {
   }
 
   return (
-    <ChipsList data={fakeData} onClick={(item) => clickEvent(item)} active={activeChip && activeChip.value} />
+    <ChipsList
+      data={fakeData}
+      onClick={(item) => clickEvent(item)}
+      active={activeChip && activeChip.value}
+      fieldIndex={0}
+    />
   );
 };
 
