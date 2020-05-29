@@ -17,7 +17,7 @@ type TextVariants =
   | 'button'
   | 'link';
 interface Props extends TextProps {
-  variant: TextVariants;
+  variant?: TextVariants;
   isUppercase?: boolean;
   color?: string;
   isBold?: boolean;
@@ -33,7 +33,7 @@ const variants = {
 };
 
 const Text: FunctionComponent<Props & TextProperties> = ({
-  variant,
+  variant= 'default',
   children,
   isUppercase,
   color,
