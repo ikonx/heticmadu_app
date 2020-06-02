@@ -7,6 +7,7 @@ export const StyledChallengeCard = styled(List)`
   background-color: ${({ theme }) => '#F68482' || theme.Colors.mainGreen};
   max-height: 160px;
   width: 100%;
+  border: ${ ({ theme }) => theme.Borders.mainBorder };
 `;
 
 export const StyledText = styled(List)`
