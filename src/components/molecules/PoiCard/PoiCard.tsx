@@ -22,7 +22,7 @@ const StyledImage = styled(Image)`
 
 const StyledPoiCard = styled(TouchableHighlight)`
   height: 250px;
-  width: 240px;
+  width: ${ ({ fullWidth }) => fullWidth ? '100%' : '240px'};
   padding: 16px;
 
   ${({ gotBorder }) =>

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import CenterView from '../../helpers/Layout';
 import TypographyStories from './Typography/Typography.stories';
-import ChipsStories from './Chips/Chips.stories';
+import ChipStories from './Chip/Chip.stories';
 
 
 storiesOf('Atoms', module)
@@ -10,6 +10,6 @@ storiesOf('Atoms', module)
   .add('Typography', () => (
     <TypographyStories />
   ))
-  .add('Chips', () => (
-    <ChipsStories />
+  .add('Chip', () => (
+    <ChipStories />
   ))

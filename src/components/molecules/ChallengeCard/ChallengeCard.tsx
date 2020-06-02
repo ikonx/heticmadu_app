@@ -7,6 +7,7 @@ import IllustrationName from '@assets/illustrations/IllustrationName.enum';
 import { ThemeContext } from 'styled-components';
 import Spacer from '@components/atoms/Spacer/Spacer';
 import { TouchableHighlight } from 'react-native';
+import Title from '@components/atoms/Typography/Title/Title';
 
 interface Props {
   tagsArray: ITag[];
@@ -19,12 +20,12 @@ const ChallengeCard = ({ title, description, tagsArray }: Props) => {
   return (
     <TouchableHighlight>
       <StyledChallengeCard direction="row">
-        <StyledText direction="column">
+        <StyledText flexDirection="column">
           <TagsList tagsArray={tagsArray} />
           <Spacer size={8} />
-          <Text variant="legendI" isBold color={Colors.mainWhite}>
+          <Title variant="h4" isBold color={Colors.mainWhite}>
             {title}
-          </Text>
+          </Title>
           <Spacer size={8} />
           <Text
             variant="default"

@@ -7,6 +7,8 @@ import './rn-addons';
 configure(() => {
   require('./stories');
   require('./stories/components/atoms');
+  require('./stories/components/molecules');
+  require('./stories/components/organisms');
 }, module);
 
 // Refer to https://github.com/storybookjs/storybook/tree/master/app/react-native#start-command-parameters
