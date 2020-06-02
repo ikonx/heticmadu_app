@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import { StyleSheet, StatusBar, Text } from 'react-native';
+import { StatusBar, Text } from 'react-native';
 import * as Location from 'expo-location';
 
 import { StyledMap } from './Map.style';
