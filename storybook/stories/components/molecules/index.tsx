@@ -8,6 +8,7 @@ import LogoutModalStories from './LogoutModal/LogoutModal.stories';
 import NavigationHeaderStories from './NavigationHeader/NavigationHeader.stories';
 import PoiCardStories from './PoiCard/PoiCard.stories';
 import SearchInputStories from './SearchInput/SearchInput.stories';
+import SnackBarStories from './SnackBar/SnackBar.stories';
 import TabsStories from './Tabs/Tabs.stories';
 import TagsListStories from './TagsList/TagsList.stories';
 
@@ -20,5 +21,6 @@ storiesOf('Molecules', module)
   .add('Navigation Header', () => <NavigationHeaderStories />)
   .add('Poi Card', () => <PoiCardStories />)
   .add('Search Input', () => <SearchInputStories />)
+  .add('SnackBar', () => <SnackBarStories />)
   .add('Tabs', () => <TabsStories />)
   .add('Tags List', () => <TagsListStories />)
