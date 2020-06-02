@@ -14,14 +14,19 @@ interface Props {
 const TagContainer = styled(TouchableOpacity)<{ color?: string }>`
   background: ${({ color, theme }) =>
     color ? color : `${theme.Colors.mainBlack}25`};
-  padding: 4px 8px;
+  padding: 4px 8px 8px;
   border-radius: 48px;
 `;
 
 const Tag: FunctionComponent<Props> = ({ text, onClick, disabled, color }) => {
   return (
     <TagContainer onPress={onClick} disabled={disabled} color={color}>
-      <Text variant="label" color={Colors.mainWhite} isBold>
+      <Text
+        variant="label"
+        color={Colors.mainWhite}
+        isBold
+        style={{ textTransform: 'capitalize' }}
+      >
         {text}
       </Text>
     </TagContainer>
