@@ -6,17 +6,9 @@ import Icon from '@src/components/atoms/Icons/Icon';
 import styled from 'styled-components';
 import Theme from '@src/styleGuide/Theme';
 import { IconName } from '@src/assets/icons/IconName.enum';
+import StyledAvatarTouchable from './Avatar.style';
 
-interface IAvatar extends TouchableOpacityProps {}
-
-const StyledAvatarTouchable = styled(TouchableOpacity)<IAvatar>`
-  width: 88px;
-  height: 88px;
-  border-radius: 100px;
-  border: ${Theme.Borders.avatarBorder};
-  justify-content: center;
-  align-items: center;
-`;
+export interface IAvatar extends TouchableOpacityProps {}
 
 const StyledImage = styled(Image)`
   width: 88px;
@@ -38,7 +30,6 @@ const Avatar: FunctionComponent<IAvatar> = () => {
           alert(
             'Désolé, nous avons besoin des autorisations pour acceder à la galerie photo',
           );
-          // return null;
         }
       }
     })();
