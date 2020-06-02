@@ -10,6 +10,7 @@ import Spacer from '@src/components/atoms/Spacer/Spacer';
 interface Props {
   poi: PoiModel;
   gotBorder?: boolean;
+  fullWidth?: boolean;
 }
 
 const StyledImage = styled(Image)`
@@ -21,7 +22,7 @@ const StyledImage = styled(Image)`
 
 const StyledPoiCard = styled(TouchableHighlight)`
   height: 250px;
-  width: 240px;
+  width: ${ ({ fullWidth }) => fullWidth ? '100%' : '240px'};
   padding: 16px;
 
   ${({ gotBorder }) =>
@@ -37,9 +38,10 @@ const StyledPoiCard = styled(TouchableHighlight)`
 const PoiCard = ({
   poi: { name, address, greenScore, averagePrice, images },
   gotBorder,
+  fullWidth,
 }: Props) => {
   return (
-    <StyledPoiCard gotBorder={gotBorder}>
+    <StyledPoiCard gotBorder={gotBorder} fullWidth={fullWidth}>
       <List flexDirection="column">
         <StyledImage
           source={{
