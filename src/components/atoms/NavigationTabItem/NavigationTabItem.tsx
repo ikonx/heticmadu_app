@@ -26,6 +26,7 @@ const NavigationTabItem: FunctionComponent<Props> = ({ icon, text, onClick }) =>
       <Text
         variant="legend"
         color={isFocused ? Colors.darknessBlue : Colors.overlayGrey}
+        isBold={isFocused}
       >
         { text }
       </Text>
