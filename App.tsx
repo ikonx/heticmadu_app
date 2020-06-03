@@ -11,7 +11,7 @@ import { tabsData } from '@utils/mocks/tabs.data';
 import NavigationBottomBar from '@components/molecules/NavigationBottomBar/NavigationBottomBar';
 import navigationBottomData from '@utils/mocks/navigationBottomBar.data';
 
-const ACTIVATE_STORYBOOK = false;
+const ACTIVATE_STORYBOOK = true;
 
 function App() {
   let [fontsLoaded] = useFonts(loadFonts);
