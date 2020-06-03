@@ -1,9 +1,9 @@
-import Input from '@components/atoms/Input/Input';
 import { IconName } from '@assets/icons/IconName.enum';
 import TagsList from '@components/molecules/TagsList/TagsList';
 import { NavigationItemModel } from '../models/navigationItem.model';
 import HomeScreen from '@src/components/screens/HomeScreen/HomeScreen';
 import MapScreen from '@src/components/screens/MapScreen/MapScreen';
+import StoryScreen from '@components/screens/StoryScreen/StoryScreen';
 
 const navigationBottomData: NavigationItemModel[] = [
   {
@@ -20,7 +20,7 @@ const navigationBottomData: NavigationItemModel[] = [
   },
   {
     name: 'Story',
-    component: Input,
+    component: StoryScreen,
     icon: IconName.STORY,
     text: 'Story',
   },
