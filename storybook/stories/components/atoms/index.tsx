@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import CenterView from '../../helpers/Layout';
+import AvatarStories from './Avatar/Avatar.stories';
 import ButtonsStories from './Buttons/Buttons.stories';
 import BadgeStories from './Badge/Badge.stories';
 import ChipStories from './Chip/Chip.stories';
@@ -15,7 +16,8 @@ import TypographyStories from './Typography/Typography.stories';
 
 
 storiesOf('Atoms', module)
-  .addDecorator((getStory: any) => <CenterView>{ getStory() }</CenterView>)
+  .addDecorator((getStory: any) => <CenterView>{getStory()}</CenterView>)
+  .add('Avatar', () => <AvatarStories />)
   .add('Badge', () => <BadgeStories />)
   .add('Buttons', () => <ButtonsStories />)
   .add('Chip', () => <ChipStories />)
@@ -26,4 +28,4 @@ storiesOf('Atoms', module)
   .add('Position Indicator', () => <PositionIndicatorStories />)
   .add('Tab Item', () => <TabItemStories />)
   .add('Tag', () => <TagStories />)
-  .add('Typography', () => <TypographyStories />)
+  .add('Typography', () => <TypographyStories />);

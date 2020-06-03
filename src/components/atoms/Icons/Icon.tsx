@@ -2,8 +2,6 @@ import React, { FunctionComponent, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { SvgProps } from 'react-native-svg';
 import { IconName } from '@assets/icons/IconName.enum';
-import { Direction, StyledChevron } from './Chevron/Chevron.style';
-import StyledIcon from './Icon.style';
 
 import CameraIcon from '@assets/icons/Camera.svg';
 import ClockIcon from '@assets/icons/Clock.svg';
@@ -24,6 +22,8 @@ import Search from '@assets/icons/Search.svg';
 import StoryIcon from '@assets/icons/Story.svg';
 import ThIcon from '@assets/icons/Th.svg';
 import UserIcon from '@assets/icons/User.svg';
+import StyledIcon from './Icon.style';
+import { Direction, StyledChevron } from './Chevron/Chevron.style';
 
 interface Props extends SvgProps {
   name: IconName;

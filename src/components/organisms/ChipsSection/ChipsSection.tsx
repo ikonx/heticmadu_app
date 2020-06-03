@@ -11,7 +11,7 @@ interface Props {
 }
 
 const ChipsSection: FunctionComponent<Props> = ({ title, data }) => {
-  const [activeChip, setActiveChip] = useState<(ChipsListModel|null)[]>([
+  const [activeChip, setActiveChip] = useState<(ChipsListModel | null)[]>([
     null,
     null,
     null,
@@ -24,12 +24,9 @@ const ChipsSection: FunctionComponent<Props> = ({ title, data }) => {
       newData[fieldIndex] = item;
     } else {
       newData[fieldIndex] =
-        activeChip[fieldIndex] &&
-        activeChip[fieldIndex].value === item.value ?
-          null
-          :
-          item
-      ;
+        activeChip[fieldIndex] && activeChip[fieldIndex].value === item.value
+          ? null
+          : item;
     }
 
     setActiveChip(newData);
@@ -37,9 +34,11 @@ const ChipsSection: FunctionComponent<Props> = ({ title, data }) => {
 
   return (
     <View>
-      <Title variant="h4" isBold>{ title }</Title>
+      <Title variant="h4" isBold>
+        {title}
+      </Title>
       <Spacer size={16} />
-      { data.map((item, index) => (
+      {data.map((item, index) => (
         <View key={index}>
           <ChipsList
             data={item}
