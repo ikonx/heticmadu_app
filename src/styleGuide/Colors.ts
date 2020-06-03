@@ -3,6 +3,7 @@ export default {
   mainPurple: '#738BFF',
   darknessBlue: '#4C8AF2',
   mainRed: '#F68482',
+  overlayRed: 'rgba(246, 132, 130, .16)',
   mainOrange: '#F9722D',
   mainGrey: '#9294A0',
   overlayGrey: 'rgba(146, 148, 160, .25)',
@@ -18,4 +19,5 @@ export default {
     indien: '#C4BDAF',
     italien: '#4C8AF2',
   },
+  overlayGreen: 'rgba(111, 207, 151, .16)',
 };

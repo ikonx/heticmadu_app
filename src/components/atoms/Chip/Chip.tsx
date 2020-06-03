@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
-import Text from '../Typography/Text/Text';
 import Colors from '@styleGuide/Colors';
+import Text from '../Typography/Text/Text';
 import StyledView from './Chip.style';
 
 interface Props {
@@ -19,7 +19,7 @@ const Chip: FunctionComponent<Props> = ({ text, active, onClick }) => {
           color={active ? Colors.mainWhite : Colors.mainGrey}
           isBold
         >
-          { text }
+          {text}
         </Text>
       </StyledView>
     </TouchableWithoutFeedback>

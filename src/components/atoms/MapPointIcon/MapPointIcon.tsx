@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
-import { StyledIconContainer, StyledIcon } from './MapPoitIcon.style';
 import { PoiModel } from '@src/utils/models/pois.model';
+import { StyledIconContainer, StyledIcon } from './MapPoitIcon.style';
 
 interface Props {
   point: PoiModel;

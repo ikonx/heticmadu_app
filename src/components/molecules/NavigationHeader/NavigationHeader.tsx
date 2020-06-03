@@ -36,7 +36,7 @@ const NavigationHeader = ({ title, middleItem, rightItem, onBack }: Props) => {
       <View style={{ alignItems: 'center', flex: 1 }}>
         {title && (
           <>
-            <Title variant="h2">Salut</Title>
+            <Title variant="h2">{ title }</Title>
           </>
         )}
         {middleItem && middleItem}
