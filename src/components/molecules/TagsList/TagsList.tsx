@@ -4,15 +4,18 @@ import StyledTagList from './TagsList.style';
 import Tag from '@components/atoms/Tag/Tag';
 import { View } from 'react-native';
 import { ThemeContext } from 'styled-components';
+import { some } from 'lodash';
 
 export interface ITag {
   label: string;
 }
 interface Props {
   tagsArray: ITag[];
+  selectedTags: ITag[];
+  onTagPress: (tag: ITag) => void;
 }
 
-const TagsList = ({ tagsArray }: Props) => {
+const TagsList = ({ tagsArray, selectedTags, onTagPress }: Props) => {
   const { Colors } = useContext(ThemeContext);
 
   return (
@@ -23,12 +26,21 @@ const TagsList = ({ tagsArray }: Props) => {
       }}
       showsHorizontalScrollIndicator={false}
     >
-      {tagsArray.map(({ label }, index) => {
+      {tagsArray.map((tag, index) => {
         const gotMarginRight = index < tagsArray.length - 1;
+        const isTagSelected: boolean = some(selectedTags, tag);
+        const { label } = tag;
+
         return (
-          <View key={index} style={{ marginRight: gotMarginRight ? 8 : 0 }}>
-            <Tag text={label} color={Colors.tags[label]} />
-          </View>
+          !isTagSelected && (
+            <View
+              key={index}
+              style={{ marginRight: gotMarginRight ? 8 : 0 }}
+              onTouchEnd={() => onTagPress(tag)}
+            >
+              <Tag text={label} color={Colors.tags[label]} />
+            </View>
+          )
         );
       })}
     </StyledTagList>

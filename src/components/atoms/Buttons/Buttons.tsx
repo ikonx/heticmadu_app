@@ -27,7 +27,7 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
       css`
         background-color: ${Theme.Colors.mainWhite};
         min-width: 40px;
-        border: ${Theme.Borders.mainBorder};
+        border: ${({ theme }) => theme.Borders.lightBorder};
         padding: 8px;
       `}
     ${({ variant }) =>

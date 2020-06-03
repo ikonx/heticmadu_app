@@ -3,7 +3,6 @@ import { FlatList } from 'react-native';
 import List from '@src/components/atoms/List/List';
 
 export const StyledFlatList = styled(FlatList)`
-  flex: 1;
   background-color: ${({ theme }) => theme.Colors.mainWhite};
 `;
 
