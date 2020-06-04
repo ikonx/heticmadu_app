@@ -31,7 +31,7 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
   inputType,
   children,
 }) => {
-  const [isHidden, setHidden] = useState(hidePassword);
+  const [isHidden, setHidden] = useState(inputType === 'password');
   const [isFocus, setFocus] = useState(false);
   const { Colors } = useContext(ThemeContext);
 
@@ -39,8 +39,8 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
     setHidden(!isHidden);
   };
 
-  const manageInputFocus = () => {
-    setFocus(!isFocus);
+  const manageInputFocus = (focusState: boolean) => (e: any) => {
+    setFocus(e.nativeEvent.text ? true : focusState);
   };
 
   const renderAction = (hide: boolean) => {
@@ -66,7 +66,7 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
   };
 
   return (
-    <StyledInputBlock inputType={inputType}>
+    <StyledInputBlock inputType={inputType} inputFocus={isFocus}>
       <Text
         variant="labelInput"
         color={Theme.Colors.mainGrey}
@@ -74,7 +74,11 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
       >
         Label
       </Text>
-      <InputLogin secureTextEntry={isHidden} onFocus={manageInputFocus} />
+      <InputLogin
+        secureTextEntry={isHidden}
+        onFocus={manageInputFocus(true)}
+        onBlur={manageInputFocus(false)}
+      />
       <StyledRightBlock>{renderAction(isHidden)}</StyledRightBlock>
     </StyledInputBlock>
   );

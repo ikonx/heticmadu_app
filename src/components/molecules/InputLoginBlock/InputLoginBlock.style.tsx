@@ -9,8 +9,7 @@ const StyledInputBlock = styled(View)<{
   padding: 12px;
   background-color: ${Theme.Colors.mainWhite};
   border: ${({ inputFocus }) =>
-    inputFocus ? Theme.Borders.avatarBorder : 'none'};
-  border: ${Theme.Borders.avatarBorder};
+    inputFocus ? Theme.Borders.avatarBorder : Theme.Borders.lightBorder};
   border-radius: 10px;
   position: relative;
 `;
