@@ -33,6 +33,12 @@ const StyledPoiCard = styled(TouchableHighlight)`
       border-radius: 10px;
       background-color: ${({ theme }) => theme.Colors.mainWhite};
     `}
+
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
+      width: 100%;
+    `}
 `;
 
 const PoiCard = ({
