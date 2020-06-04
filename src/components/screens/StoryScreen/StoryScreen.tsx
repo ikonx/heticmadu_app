@@ -7,12 +7,15 @@ import Spacer from '@components/atoms/Spacer/Spacer';
 import Theme from '@styleGuide/Theme';
 import ChallengeCard from '@components/molecules/ChallengeCard/ChallengeCard';
 import IllustrationName from '@assets/illustrations/IllustrationName.enum';
+import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 
-interface Props {}
+interface Props {
+  navigation?: NavigationScreenProp<NavigationState, NavigationParams>;
+}
 
-const StoryScreen: FunctionComponent<Props> = () => {
+const StoryScreen: FunctionComponent<Props> = ({ navigation }) => {
   const onClickCard = () => {
-    console.log('OK');
+    navigation && navigation.navigate('Stories');
   };
 
   return (

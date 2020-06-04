@@ -7,6 +7,7 @@ import {
 import NavigationTabItem from '@components/atoms/NavigationTabItem/NavigationTabItem';
 import { NavigationItemModel } from '@utils/models/navigationItem.model';
 import SearchScreen from '@src/components/screens/Search/SearchScreen';
+import StoryNavigator from '@utils/navigator/Story.navigator';
 import FiltersScreen from '@src/components/screens/Filters/FiltersScreen';
 
 interface Props {
@@ -79,6 +80,7 @@ const NavigationBottomBar: FunctionComponent<Props> = ({ data }) => {
           gestureResponseDistance: { vertical: 600 },
         }}
       />
+      <RootStack.Screen name="Stories" component={StoryNavigator}/>
     </RootStack.Navigator>
   );
 };
