@@ -7,6 +7,7 @@ import {
   TextLegend,
   TextLegendImportant,
   TextLink,
+  TextLabelInput,
 } from './Text.style';
 
 type TextVariants =
@@ -15,12 +16,14 @@ type TextVariants =
   | 'legendI'
   | 'label'
   | 'button'
-  | 'link';
+  | 'link'
+  | 'labelInput';
 interface Props extends TextProps {
   variant?: TextVariants;
   isUppercase?: boolean;
   color?: string;
   isBold?: boolean;
+  inputFocus?: boolean;
 }
 
 const variants = {
@@ -30,14 +33,17 @@ const variants = {
   label: TextLabel,
   button: TextButton,
   link: TextLink,
+  labelInput: TextLabelInput,
 };
 
 const Text: FunctionComponent<Props & TextProperties> = ({
-  variant= 'default',
+  variant = 'default',
   children,
   isUppercase,
   color,
   isBold,
+  inputFocus,
+
   ...rest
 }) => {
   const TextElement = variants[variant];
@@ -47,6 +53,7 @@ const Text: FunctionComponent<Props & TextProperties> = ({
       isUppercase={isUppercase}
       color={color}
       isBold={isBold}
+      inputFocus={inputFocus}
       {...rest}
     >
       {children}

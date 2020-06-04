@@ -8,6 +8,7 @@ import ChipStories from './Chip/Chip.stories';
 import IconsStories from './Icons/Icons.stories';
 import IllustrationsStories from './Illustrations/Illustrations.stories';
 import InputStories from './Input/Input.stories';
+import InputLoginStories from './InputLogin/InputLogin.stories';
 import MapPointIconStories from './MapPointIcon/MapPointIcon.stories';
 import PositionIndicatorStories from './PositionIndicator/PositionIndicator.stories';
 import TabItemStories from './TabItem/TabItem.stories';
@@ -24,6 +25,7 @@ storiesOf('Atoms', module)
   .add('Icons', () => <IconsStories />)
   .add('Illustrations', () => <IllustrationsStories />)
   .add('Input', () => <InputStories />)
+  .add('InputLogin', () => <InputLoginStories />)
   .add('Map Point Icon', () => <MapPointIconStories />)
   .add('Position Indicator', () => <PositionIndicatorStories />)
   .add('Tab Item', () => <TabItemStories />)

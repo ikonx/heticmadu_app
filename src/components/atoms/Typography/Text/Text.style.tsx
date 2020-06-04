@@ -5,6 +5,7 @@ const BaseText = styled(Text)<{
   color?: string;
   isUppercase: boolean;
   isBold?: boolean;
+  inputFocus?: boolean;
 }>`
   text-transform: ${({ isUppercase }) => (isUppercase ? 'uppercase' : 'none')};
   color: ${({ color, theme }) => color || theme.Colors.mainBlack};
@@ -37,4 +38,11 @@ export const TextButton = styled(BaseText)`
 
 export const TextLink = styled(BaseText)`
   font-size: 12px;
+`;
+
+export const TextLabelInput = styled(BaseText)`
+  font-size: ${({ inputFocus }) => (inputFocus ? '12px' : '16px')};
+  top: ${({ inputFocus }) => (inputFocus ? '0' : '25%')};
+  z-index: 1;
+  position: relative;
 `;
