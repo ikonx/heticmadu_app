@@ -14,13 +14,13 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-
     ${({ variant }) =>
       variant === TouchableType.DEFAULT &&
       css`
         background-color: ${Theme.Colors.mainPurple};
         min-width: 40px;
         padding: 8px 16px;
+        z-index: 4;
       `}
     ${({ variant }) =>
       variant === TouchableType.ICON &&
@@ -29,12 +29,14 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
         min-width: 40px;
         border: ${({ theme }) => theme.Borders.lightBorder};
         padding: 8px;
+        z-index: 4;
       `}
     ${({ variant }) =>
       variant === TouchableType.INVERT &&
       css`
         background-color: ${Theme.Colors.mainWhite};
         padding: 8px;
+        z-index: 4;
       `}
     ${({ variant }) =>
       variant === TouchableType.FULLWIDTH &&
@@ -43,6 +45,7 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
         max-height: 56px;
         width: 343px;
         padding: 11px 16px;
+        z-index: 4;
       `}
 `;
 

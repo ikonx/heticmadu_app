@@ -17,6 +17,7 @@ interface IInputBlock {
   hidePassword?: boolean;
   inputFocus?: boolean;
   inputType: LabelVariants;
+  value: string;
 }
 
 const StyledRightBlock = styled(View)`
@@ -25,14 +26,21 @@ const StyledRightBlock = styled(View)`
   top: 50%;
 `;
 
+const StyledTextAction = styled(Text)`
+  color: ${Theme.Colors.mainPurple};
+  font-size: 12px;
+  height: 39px;
+`;
+
 const InputBlock: FunctionComponent<IInputBlock> = ({
-  hidePassword,
-  inputFocus,
   inputType,
   children,
+  value,
 }) => {
   const [isHidden, setHidden] = useState(inputType === 'password');
   const [isFocus, setFocus] = useState(false);
+  const [isValue, setValue] = useState('');
+
   const { Colors } = useContext(ThemeContext);
 
   const managePasswordVisibility = () => {
@@ -41,6 +49,12 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
 
   const manageInputFocus = (focusState: boolean) => (e: any) => {
     setFocus(e.nativeEvent.text ? true : focusState);
+    console.log(focusState);
+  };
+
+  const changeTextHanlder = (e: any) => {
+    setValue(e.nativeEvent.text);
+    console.log(e.nativeEvent.text);
   };
 
   const renderAction = (hide: boolean) => {
@@ -50,16 +64,31 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
       case 'password':
         return (
           <TouchableOpacity onPress={managePasswordVisibility}>
-            <Icon
-              height={20}
-              width={20}
-              name={hide ? IconName.EYE : IconName.EYESLASH}
-              fill={Colors.mainBlack}
-            />
+            {isValue ? (
+              <Icon
+                height={20}
+                width={20}
+                name={hide ? IconName.EYE : IconName.EYESLASH}
+                fill={Colors.mainBlack}
+              />
+            ) : (
+              <Buttons
+                variant={TouchableType.INVERT}
+                onPress={() => {
+                  return null;
+                }}
+              >
+                <StyledTextAction>Mot de passe oublié ?</StyledTextAction>
+              </Buttons>
+            )}
           </TouchableOpacity>
         );
       case 'action':
-        return <Buttons variant={TouchableType.INVERT}>{children}</Buttons>;
+        return (
+          <Buttons variant={TouchableType.INVERT}>
+            <StyledTextAction>Action / Modifier</StyledTextAction>
+          </Buttons>
+        );
       default:
         return null;
     }
@@ -72,12 +101,16 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
         color={Theme.Colors.mainGrey}
         inputFocus={isFocus}
       >
-        Label
+        {children}
       </Text>
       <InputLogin
         secureTextEntry={isHidden}
         onFocus={manageInputFocus(true)}
         onBlur={manageInputFocus(false)}
+        onEndEditing={manageInputFocus(false)}
+        defaultValue={value}
+        onChange={changeTextHanlder}
+        inputType={inputType}
       />
       <StyledRightBlock>{renderAction(isHidden)}</StyledRightBlock>
     </StyledInputBlock>
@@ -85,9 +118,7 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
 };
 
 InputBlock.defaultProps = {
-  hidePassword: false,
-  inputFocus: false,
-  inputType: 'password',
+  inputType: 'default',
 };
 
 export default InputBlock;

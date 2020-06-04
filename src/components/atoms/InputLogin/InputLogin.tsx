@@ -2,10 +2,12 @@ import React, { FunctionComponent } from 'react';
 import { TextInputProps } from 'react-native';
 import StyledInputLogin from './InputLogin.style';
 
-interface IInputLogin extends TextInputProps {}
+interface IInputLogin extends TextInputProps {
+  inputType: string;
+}
 
-const InputLogin: FunctionComponent<IInputLogin> = ({ ...rest }) => {
-  return <StyledInputLogin {...rest} />;
+const InputLogin: FunctionComponent<IInputLogin> = ({ inputType, ...rest }) => {
+  return <StyledInputLogin inputType={inputType} {...rest} />;
 };
 
 InputLogin.defaultProps = {
