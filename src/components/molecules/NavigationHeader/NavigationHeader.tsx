@@ -7,9 +7,9 @@ import { IconName } from '@src/assets/icons/IconName.enum';
 import { Direction } from '@src/components/atoms/Icons/Chevron/Chevron.style';
 import Buttons from '@src/components/atoms/Buttons/Buttons';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
-import { StyledNavigationHeader } from './NavigationHeader.style';
 import Title from '@src/components/atoms/Typography/Title/Title';
 import Spacer from '@src/components/atoms/Spacer/Spacer';
+import { StyledNavigationHeader } from './NavigationHeader.style';
 
 interface Props {
   title?: string;
@@ -32,7 +32,7 @@ const NavigationHeader = ({ title, middleItem, rightItem, onBack }: Props) => {
           fill={Colors.mainGrey}
         />
       </Buttons>
-      <Spacer size={20} />
+      <Spacer size={16} />
       <View style={{ alignItems: 'center', flex: 1 }}>
         {title && (
           <>
@@ -44,7 +44,7 @@ const NavigationHeader = ({ title, middleItem, rightItem, onBack }: Props) => {
       {title && <Spacer size={60} style={{ height: 0 }} />}
       {rightItem && (
         <>
-          <Spacer size={20} />
+          <Spacer size={16} />
           {rightItem}
         </>
       )}

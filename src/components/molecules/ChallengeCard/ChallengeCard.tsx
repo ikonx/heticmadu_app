@@ -8,10 +8,10 @@ import Spacer from '@components/atoms/Spacer/Spacer';
 import Title from '@components/atoms/Typography/Title/Title';
 import {
   StyledChallengeCard,
-  StyledText,
+  StyledContent,
   StyledTouchable,
 } from './ChallengeCard.style';
-import EnergieAnim from '@assets/illustrations/Illustration_1.json';
+import { View } from 'react-native';
 
 interface Props {
   tagsArray: ITag[];
@@ -33,8 +33,11 @@ const ChallengeCard = ({
   return (
     <StyledTouchable activeOpacity={0.6} {...rest}>
       <StyledChallengeCard direction="row" background={background}>
-        <StyledText flexDirection="column">
-          <TagsList tagsArray={tagsArray} />
+        <StyledContent flexDirection="column">
+          <TagsList
+            tagsArray={tagsArray}
+            style={{ maxHeight: 28 }}
+          />
           <Spacer size={8} />
           <Title variant="h4" isBold color={Colors.mainWhite}>
             {title}
@@ -48,7 +51,7 @@ const ChallengeCard = ({
           >
             {description}
           </Text>
-        </StyledText>
+        </StyledContent>
         <Spacer size={16} />
         <Illustration name={illustration || IllustrationName.ENERGIE} />
       </StyledChallengeCard>

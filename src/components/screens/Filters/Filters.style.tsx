@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { SafeAreaView } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 
-export const StyledSearchScreen = styled(SafeAreaView)`
+export const StyledFiltersScreen = styled(SafeAreaView)`
   background-color: ${({ theme }) => theme.Colors.mainWhite};
+  flex: 1;
 `;
 
 export const StyledContent = styled(ScrollView)`

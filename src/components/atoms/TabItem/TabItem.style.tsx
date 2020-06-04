@@ -13,7 +13,6 @@ export const TabItemBorder = styled(View)`
   height: 1px;
   background: ${({ isDisabled, theme }) =>
     isDisabled ? theme.Colors.secondaryGrey : theme.Colors.darknessBlue};
-  margin-top: 8px;
 `;
 
 export const TabItemText = styled(View)`
