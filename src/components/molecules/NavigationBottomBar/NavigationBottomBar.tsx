@@ -8,6 +8,7 @@ import NavigationTabItem from '@components/atoms/NavigationTabItem/NavigationTab
 import { NavigationItemModel } from '@utils/models/navigationItem.model';
 import SearchScreen from '@src/components/screens/Search/SearchScreen';
 import StoryNavigator from '@utils/navigator/Story.navigator';
+import FiltersScreen from '@src/components/screens/Filters/FiltersScreen';
 
 interface Props {
   data: NavigationItemModel[];
@@ -64,7 +65,18 @@ const NavigationBottomBar: FunctionComponent<Props> = ({ data }) => {
           title: '',
           headerTransparent: true,
           headerShown: false,
-          cardStyle: { height: 300 },
+          cardStyle: { flex: 1 },
+          gestureResponseDistance: { vertical: 600 },
+        }}
+      />
+      <RootStack.Screen
+        name="Filters"
+        component={FiltersScreen}
+        options={{
+          title: 'Filters',
+          headerTransparent: true,
+          headerShown: false,
+          cardStyle: { flex: 1 },
           gestureResponseDistance: { vertical: 600 },
         }}
       />

@@ -12,5 +12,12 @@ export default {
   mainBlack: '#000000',
   mainBackground: '#FAFAFA',
   mainGreen: '#6FCF97',
+  tags: {
+    africain: '#F68482',
+    junkfood: '#F9722D',
+    mexicain: '#E9A2AD',
+    indien: '#C4BDAF',
+    italien: '#4C8AF2',
+  },
   overlayGreen: 'rgba(111, 207, 151, .16)',
 };

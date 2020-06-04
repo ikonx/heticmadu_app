@@ -11,8 +11,8 @@ interface Props {
 
 const Tabs: FunctionComponent<Props> = ({ data, onClick, activeTab }) => {
   return (
-    <TabsContainer>
-      { data.map((item: TabsModel, i) => (
+    <TabsContainer horizontal pagingEnabled showsHorizontalScrollIndicator={false}>
+      {data.map((item: TabsModel, i) => (
         <TabItem
           text={item.label}
           disabled={item.value !== activeTab.value}

@@ -26,7 +26,7 @@ export const poisData: PoiModel[] = [
     picture: '',
     description: '',
     status: 'deactivated',
-    tags: [],
+    tags: ['africain'],
     images: [
       'https://images.unsplash.com/photo-1542039778-22c80bfeaa48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=80',
     ],

@@ -2,8 +2,8 @@ import { IconName } from '@assets/icons/IconName.enum';
 import TagsList from '@components/molecules/TagsList/TagsList';
 import { NavigationItemModel } from '../models/navigationItem.model';
 import HomeScreen from '@src/components/screens/HomeScreen/HomeScreen';
-import MapScreen from '@src/components/screens/MapScreen/MapScreen';
 import StoryScreen from '@components/screens/StoryScreen/StoryScreen';
+import MapScreen from '@src/components/screens/Map/MapScreen';
 
 const navigationBottomData: NavigationItemModel[] = [
   {
