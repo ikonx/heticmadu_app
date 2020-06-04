@@ -6,7 +6,12 @@ import IllustrationName from '@assets/illustrations/IllustrationName.enum';
 import { ThemeContext } from 'styled-components';
 import Spacer from '@components/atoms/Spacer/Spacer';
 import Title from '@components/atoms/Typography/Title/Title';
-import { StyledChallengeCard, StyledText, StyledTouchable } from './ChallengeCard.style';
+import {
+  StyledChallengeCard,
+  StyledText,
+  StyledTouchable,
+} from './ChallengeCard.style';
+import EnergieAnim from '@assets/illustrations/Illustration_1.json';
 
 interface Props {
   tagsArray: ITag[];
