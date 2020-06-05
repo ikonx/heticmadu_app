@@ -26,7 +26,12 @@ const ChallengeRow: FunctionComponent<Props> = ({
     <TouchableOpacity onPress={clickEvent} disabled={disabled}>
       <StyledContainer>
           <StyledIcon color={ disabled ? Theme.Colors.secondaryGrey : color }>
-            <Icon name={icon} color={ disabled ? Theme.Colors.mainBlack : Theme.Colors.mainWhite}/>
+            <Icon
+              name={icon}
+              color={ disabled ? Theme.Colors.mainBlack : Theme.Colors.mainWhite}
+              width={24}
+              height={24}
+            />
           </StyledIcon>
           <Spacer size={16}/>
           <Text>{ text }</Text>

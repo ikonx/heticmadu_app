@@ -4,7 +4,11 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 export const StyledSearchScreen = styled(SafeAreaView)`
   background-color: ${({ theme }) => theme.Colors.mainWhite};
-  flex: 1;
+`;
+
+export const StyledContent = styled(ScrollView)`
+  background-color: ${({ theme }) => theme.Colors.mainWhite};
+  padding: 0 16px 16px 16px;
 `;
 
 export const StyledContent = styled(ScrollView)`

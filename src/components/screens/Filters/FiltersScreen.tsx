@@ -6,6 +6,8 @@ import NavigationHeader from '@src/components/molecules/NavigationHeader/Navigat
 import Buttons from '@src/components/atoms/Buttons/Buttons';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Text from '@src/components/atoms/Typography/Text/Text';
+import Title from '@components/atoms/Typography/Title/Title';
+import ChipsList from '@components/molecules/ChipsList/ChipsList';
 
 import { StyledFiltersScreen, StyledContent } from './Filters.style';
 import Theme from '@src/styleGuide/Theme';
@@ -41,6 +43,44 @@ const FiltersScreen = ({ navigation }: Props) => {
       />
       <Spacer size={8} />
       <StyledContent>
+        <Title variant="h4" isBold>Aliments et boissons</Title>
+        <Spacer size={16} />
+        <ChipsList
+          data={[
+            { text: 'Vegan', value: 'vegan' },
+            { text: 'Veggie', value: 'veggie' },
+            { text: 'Glutenfree', value: 'glutenfree' },
+            { text: 'Bio', value: 'bio' },
+          ]}
+          fieldIndex={1}
+          onClick={() => console.log('OK')}
+        />
+        <Spacer size={16}/>
+        <Spacer size={16}/>
+        <Title variant="h4" isBold>Accessibilité</Title>
+        <Spacer size={16}/>
+        <ChipsList
+          data={[
+            { text: 'Fauteuil', value: 'fauteuil' },
+            { text: 'Enfant', value: 'enfant' },
+            { text: 'Chien', value: 'chien' },
+          ]}
+          fieldIndex={1}
+          onClick={() => console.log('OK')}
+        />
+        <Spacer size={16}/>
+        <Spacer size={16}/>
+        <Title variant="h4" isBold>Tarifs</Title>
+        <Spacer size={16}/>
+        <ChipsList
+          data={[
+            { text: '€', value: '€' },
+            { text: '€€', value: '€€' },
+            { text: '€€€', value: '€€€' },
+          ]}
+          fieldIndex={1}
+          onClick={() => console.log('OK')}
+        />
         <Buttons
           variant={TouchableType.DEFAULT}
           style={{ justifyContent: 'center' }}

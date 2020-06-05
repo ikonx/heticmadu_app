@@ -10,7 +10,7 @@ export const SnackBarContainer = styled(List)`
   align-items: center;
 `;
 
-export const SnackBarIcon = styled(View)`
+export const SnackBarIcon = styled(View)<{ background?: string }>`
   width: 40px;
   height: 40px;
   background: ${ ({ background }) => background };

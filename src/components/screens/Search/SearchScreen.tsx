@@ -52,7 +52,7 @@ const SearchScreen = ({ navigation }: Props) => {
 
   const filterPois = (existingTags: ITag[]) => {
     const newPois = [...pois];
-    const formatedExistingTags = existingTags.map(item => item.label);
+    const formatedExistingTags = existingTags.map((item: ITag) => item.label);
 
     existingTags.length > 0
       ? newPois.filter((item: PoiModel) =>
@@ -74,7 +74,7 @@ const SearchScreen = ({ navigation }: Props) => {
 
   useEffect(() => {
     let search: string = ' ';
-    selectedTags.map(tag => (search = `${search} ${tag.label}`));
+    selectedTags.map((tag: ITag) => (search = `${search} ${tag.label}`));
     setSearch(search);
   }, [selectedTags]);
 
@@ -97,6 +97,9 @@ const SearchScreen = ({ navigation }: Props) => {
           { label: 'junkfood' },
           { label: 'mexicain' },
         ]}
+        contentContainerStyle={{
+          paddingLeft: 20,
+        }}
       />
       <Spacer size={24} />
       <StyledContent
@@ -104,7 +107,7 @@ const SearchScreen = ({ navigation }: Props) => {
           paddingBottom: 20,
         }}
       >
-        {pois.map(poi => (
+        {pois.map((poi: PoiModel) => (
           <>
             <PoiCard gotBorder poi={poi} fullWidth />
             <Spacer size={16} />

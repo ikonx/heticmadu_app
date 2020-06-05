@@ -3,4 +3,5 @@ export enum TouchableType {
   INVERT = 'invert',
   DEFAULT = 'default',
   FULLWIDTH = 'fullwidth',
+  IMPORTANT = 'important',
 }

@@ -11,28 +11,27 @@ interface Props {}
 
 const HomeScreen = (_: Props) => {
   return (
-    <ScrollView>
-      <Spacer size={24} />
-      <HomeContainer>
-        <Title isBold>Hello, Victor ✌🏼</Title>
-        <HomePlaces>
+    <HomeContainer>
+       <ScrollView>
+          <Title isBold>Hello, Victor ✌🏼</Title>
+          <HomePlaces>
+            <Title variant="h3" isBold>
+              Lieu à visiter
+            </Title>
+            <Spacer size={16} />
+            <PoiCard poi={poisData[0]} gotBorder fullWidth />
+          </HomePlaces>
           <Title variant="h3" isBold>
-            Lieu à visiter
+            Défi en cours
           </Title>
           <Spacer size={16} />
-          <PoiCard poi={poisData[0]} gotBorder fullWidth />
-        </HomePlaces>
-        <Title variant="h3" isBold>
-          Story en cours
-        </Title>
-        <Spacer size={16} />
-        <ChallengeCard
-          tagsArray={[{ label: '7 Stories' }, { label: 'Énergie' }]}
-          title="Toutes ses fournitures"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-        />
-      </HomeContainer>
-    </ScrollView>
+          <ChallengeCard
+            tagsArray={[{ label: '7 Défi' }, { label: 'Énergie' }]}
+            title="Toutes ses fournitures"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+          />
+        </ScrollView>
+    </HomeContainer>
   );
 };
 
