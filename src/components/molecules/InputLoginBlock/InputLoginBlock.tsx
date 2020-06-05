@@ -62,11 +62,13 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
       toValue: isFocus ? -4 : 12,
       duration: 300,
       easing: Easing.ease,
+      useNativeDriver: false,
     }).start();
     Animated.timing(fontSize, {
       toValue: isFocus ? 12 : 16,
       duration: 300,
       easing: Easing.ease,
+      useNativeDriver: false,
     }).start();
   }, [isFocus]);
 
@@ -126,7 +128,6 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
         style={{
           transform: [{ translateY }],
           left: 0,
-          backgroundColor: 'red',
         }}
       >
         <Text
