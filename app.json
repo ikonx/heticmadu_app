@@ -24,6 +24,11 @@
     },
     "assetBundlePatterns": ["**/*"],
     "description": "Madu application",
-    "githubUrl": "https://github.com/ikonx/heticmadu_app"
+    "githubUrl": "https://github.com/ikonx/heticmadu_app",
+    "splash": {
+      "image": "./src/assets/img/splash.png",
+      "backgroundColor": "#FAFAFA",
+      "resizeMode": "contain"
+    }
   }
 }
