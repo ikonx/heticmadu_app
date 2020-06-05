@@ -10,10 +10,10 @@ import InputLogin from '@src/components/atoms/InputLogin/InputLogin';
 import Theme from '@src/styleGuide/Theme';
 import Buttons from '@src/components/atoms/Buttons/Buttons';
 import Icon from '@src/components/atoms/Icons/Icon';
-import styled, { ThemeContext } from 'styled-components';
 import { IconName } from '@src/assets/icons/IconName.enum';
-import { View, Animated, Easing } from 'react-native';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
+import styled, { ThemeContext } from 'styled-components';
+import { View, Animated, Easing } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import StyledInputLoginBlock from './InputLoginBlock.style';
 
@@ -51,11 +51,11 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
 
   const { Colors } = useContext(ThemeContext);
 
-  const focusAnim = useRef(new Animated.Value(50)).current;
+  const focusAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Animated.timing(focusAnim, {
-      toValue: isFocus ? 4 : focusAnim,
+      toValue: isFocus ? -10 : focusAnim,
       duration: 300,
       easing: Easing.ease,
     }).start();

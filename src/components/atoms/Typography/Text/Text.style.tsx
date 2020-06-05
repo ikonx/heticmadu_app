@@ -42,7 +42,6 @@ export const TextLink = styled(BaseText)`
 
 export const TextLabelInput = styled(BaseText)`
   font-size: ${({ inputFocus }) => (inputFocus ? '12px' : '16px')};
-  top: ${({ inputFocus }) => (inputFocus ? '4px' : '50%')};
   left: 12px;
   z-index: 1;
   position: absolute;
