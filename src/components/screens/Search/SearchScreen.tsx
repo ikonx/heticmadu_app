@@ -108,10 +108,10 @@ const SearchScreen = ({ navigation }: Props) => {
         }}
       >
         {pois.map((poi: PoiModel) => (
-          <>
+          <React.Fragment key={`poiCard_${poi.id}`}>
             <PoiCard gotBorder poi={poi} fullWidth />
             <Spacer size={16} />
-          </>
+          </React.Fragment>
         ))}
       </StyledContent>
     </StyledSearchScreen>
