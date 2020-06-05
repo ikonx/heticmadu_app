@@ -5,6 +5,10 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
+import styled, { ThemeContext } from 'styled-components';
+import { View, Animated, Easing } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
 import Text from '@src/components/atoms/Typography/Text/Text';
 import InputLogin from '@src/components/atoms/InputLogin/InputLogin';
 import Theme from '@src/styleGuide/Theme';
@@ -12,9 +16,8 @@ import Buttons from '@src/components/atoms/Buttons/Buttons';
 import Icon from '@src/components/atoms/Icons/Icon';
 import { IconName } from '@src/assets/icons/IconName.enum';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
-import styled, { ThemeContext } from 'styled-components';
-import { View, Animated, Easing } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import Spacer from '@src/components/atoms/Spacer/Spacer';
+
 import StyledInputLoginBlock from './InputLoginBlock.style';
 
 type LabelVariants = 'default' | 'password' | 'action';
@@ -51,11 +54,17 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
 
   const { Colors } = useContext(ThemeContext);
 
-  const focusAnim = useRef(new Animated.Value(0)).current;
+  const translateY = useRef(new Animated.Value(4)).current;
+  const fontSize = useRef(new Animated.Value(16)).current;
 
   useEffect(() => {
-    Animated.timing(focusAnim, {
-      toValue: isFocus ? -10 : focusAnim,
+    Animated.timing(translateY, {
+      toValue: isFocus ? -4 : 12,
+      duration: 300,
+      easing: Easing.ease,
+    }).start();
+    Animated.timing(fontSize, {
+      toValue: isFocus ? 12 : 16,
       duration: 300,
       easing: Easing.ease,
     }).start();
@@ -115,17 +124,21 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
     <StyledInputLoginBlock inputType={inputType} inputFocus={isFocus}>
       <Animated.View
         style={{
-          transform: [{ translateY: focusAnim }],
+          transform: [{ translateY }],
+          left: 0,
+          backgroundColor: 'red',
         }}
       >
         <Text
           variant="labelInput"
           color={Theme.Colors.mainGrey}
           inputFocus={isFocus}
+          style={{ fontSize }}
         >
           {children}
         </Text>
       </Animated.View>
+      <Spacer size={4} />
       <InputLogin
         secureTextEntry={isHidden}
         onFocus={manageInputFocus(true)}
