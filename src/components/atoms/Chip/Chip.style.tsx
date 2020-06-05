@@ -8,7 +8,8 @@ const StyledView = styled(View)<{ isActive?: boolean }>`
     !isActive
       ? `1px solid ${theme.Colors.secondaryGrey}`
       : `1px solid ${theme.Colors.mainPurple}`};
-  padding: 12px 33px;
+  padding: 12px 0;
+  align-items: center;
   border-radius: 8px;
 `;
 
