@@ -25,11 +25,11 @@ const HomeScreen = (_: Props) => {
             <PoiCard poi={poisData[0]} gotBorder fullWidth />
           </HomePlaces>
           <Title variant="h3" isBold>
-            Story en cours
+            Défi en cours
           </Title>
           <Spacer size={16} />
           <ChallengeCard
-            tagsArray={[{ label: '7 Stories' }, { label: 'Énergie' }]}
+            tagsArray={[{ label: '7 Défi' }, { label: 'Énergie' }]}
             title="Toutes ses fournitures"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
           />

@@ -44,6 +44,13 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
         width: 343px;
         padding: 11px 16px;
       `}
+    ${({ variant }) =>
+      variant === TouchableType.IMPORTANT &&
+      css`
+        background-color: ${Theme.Colors.mainPurple};
+        max-height: 56px;
+        padding: 16px;
+      `}
 `;
 
 const Buttons: FunctionComponent<ITouchable> = ({
