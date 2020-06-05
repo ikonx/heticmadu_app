@@ -16,6 +16,7 @@ const ChallengeStack = createStackNavigator();
 
 const StyledButton = styled(Buttons)`
   margin-left: auto;
+  margin-top: 24px;
   margin-right: 16px;
   width: 40px;
 `;
@@ -31,6 +32,7 @@ const ChallengeNavigator: FunctionComponent<Props> = () => {
             backgroundColor: Colors.mainWhite,
           },
           title: '',
+          headerStatusBarHeight: 0,
           headerStyle: {
             elevation: 0,
             backgroundColor: Colors.mainRed,
@@ -57,6 +59,7 @@ const ChallengeNavigator: FunctionComponent<Props> = () => {
             backgroundColor: Colors.mainWhite,
           },
           title: '',
+          headerStatusBarHeight: 0,
           headerStyle: {
             shadowOpacity: 0,
             elevation: 0,
