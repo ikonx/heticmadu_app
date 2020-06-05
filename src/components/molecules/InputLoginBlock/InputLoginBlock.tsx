@@ -1,4 +1,10 @@
-import React, { FunctionComponent, useContext, useState } from 'react';
+import React, {
+  FunctionComponent,
+  useContext,
+  useState,
+  useRef,
+  useEffect,
+} from 'react';
 import Text from '@src/components/atoms/Typography/Text/Text';
 import InputLogin from '@src/components/atoms/InputLogin/InputLogin';
 import Theme from '@src/styleGuide/Theme';
@@ -6,18 +12,19 @@ import Buttons from '@src/components/atoms/Buttons/Buttons';
 import Icon from '@src/components/atoms/Icons/Icon';
 import styled, { ThemeContext } from 'styled-components';
 import { IconName } from '@src/assets/icons/IconName.enum';
-import { View } from 'react-native';
+import { View, Animated, Easing } from 'react-native';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import StyledInputBlock from './InputLoginBlock.style';
+import StyledInputLoginBlock from './InputLoginBlock.style';
 
 type LabelVariants = 'default' | 'password' | 'action';
 
-interface IInputBlock {
+interface IInputLoginBlock {
   hidePassword?: boolean;
   inputFocus?: boolean;
   inputType: LabelVariants;
   value: string;
+  onPress: (value: string) => void;
 }
 
 const StyledRightBlock = styled(View)`
@@ -32,10 +39,11 @@ const StyledTextAction = styled(Text)`
   height: 39px;
 `;
 
-const InputBlock: FunctionComponent<IInputBlock> = ({
+const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
   inputType,
   children,
   value,
+  onPress,
 }) => {
   const [isHidden, setHidden] = useState(inputType === 'password');
   const [isFocus, setFocus] = useState(false);
@@ -43,18 +51,26 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
 
   const { Colors } = useContext(ThemeContext);
 
+  const focusAnim = useRef(new Animated.Value(50)).current;
+
+  useEffect(() => {
+    Animated.timing(focusAnim, {
+      toValue: isFocus ? 4 : focusAnim,
+      duration: 300,
+      easing: Easing.ease,
+    }).start();
+  }, [isFocus]);
+
   const managePasswordVisibility = () => {
     setHidden(!isHidden);
   };
 
   const manageInputFocus = (focusState: boolean) => (e: any) => {
     setFocus(e.nativeEvent.text ? true : focusState);
-    console.log(focusState);
   };
 
   const changeTextHanlder = (e: any) => {
     setValue(e.nativeEvent.text);
-    console.log(e.nativeEvent.text);
   };
 
   const renderAction = (hide: boolean) => {
@@ -64,7 +80,7 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
       case 'password':
         return (
           <TouchableOpacity onPress={managePasswordVisibility}>
-            {isValue ? (
+            {/* {isValue ? (
               <Icon
                 height={20}
                 width={20}
@@ -72,21 +88,22 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
                 fill={Colors.mainBlack}
               />
             ) : (
-              <Buttons
-                variant={TouchableType.INVERT}
-                onPress={() => {
-                  return null;
-                }}
-              >
+              <Buttons variant={TouchableType.INVERT} onPress={onPress}>
                 <StyledTextAction>Mot de passe oublié ?</StyledTextAction>
               </Buttons>
-            )}
+            )} */}
+            <Icon
+              height={20}
+              width={20}
+              name={hide ? IconName.EYE : IconName.EYESLASH}
+              fill={Colors.mainBlack}
+            />
           </TouchableOpacity>
         );
       case 'action':
         return (
-          <Buttons variant={TouchableType.INVERT}>
-            <StyledTextAction>Action / Modifier</StyledTextAction>
+          <Buttons variant={TouchableType.INVERT} onPress={onPress}>
+            <StyledTextAction>Mot de passe oublié ?</StyledTextAction>
           </Buttons>
         );
       default:
@@ -95,14 +112,20 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
   };
 
   return (
-    <StyledInputBlock inputType={inputType} inputFocus={isFocus}>
-      <Text
-        variant="labelInput"
-        color={Theme.Colors.mainGrey}
-        inputFocus={isFocus}
+    <StyledInputLoginBlock inputType={inputType} inputFocus={isFocus}>
+      <Animated.View
+        style={{
+          transform: [{ translateY: focusAnim }],
+        }}
       >
-        {children}
-      </Text>
+        <Text
+          variant="labelInput"
+          color={Theme.Colors.mainGrey}
+          inputFocus={isFocus}
+        >
+          {children}
+        </Text>
+      </Animated.View>
       <InputLogin
         secureTextEntry={isHidden}
         onFocus={manageInputFocus(true)}
@@ -113,12 +136,13 @@ const InputBlock: FunctionComponent<IInputBlock> = ({
         inputType={inputType}
       />
       <StyledRightBlock>{renderAction(isHidden)}</StyledRightBlock>
-    </StyledInputBlock>
+    </StyledInputLoginBlock>
   );
 };
 
-InputBlock.defaultProps = {
+InputLoginBlock.defaultProps = {
   inputType: 'default',
+  onPress: () => {},
 };
 
-export default InputBlock;
+export default InputLoginBlock;

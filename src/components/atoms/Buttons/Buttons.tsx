@@ -14,6 +14,7 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+
     ${({ variant }) =>
       variant === TouchableType.DEFAULT &&
       css`

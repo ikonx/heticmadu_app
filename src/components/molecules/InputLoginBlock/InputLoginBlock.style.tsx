@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { View } from 'react-native';
 import Theme from '@src/styleGuide/Theme';
 
-const StyledInputBlock = styled(View)<{
+const StyledInputLoginBlock = styled(View)<{
   inputFocus?: boolean;
 }>`
   width: 90%;
@@ -14,4 +14,4 @@ const StyledInputBlock = styled(View)<{
   position: relative;
 `;
 
-export default StyledInputBlock;
+export default StyledInputLoginBlock;
