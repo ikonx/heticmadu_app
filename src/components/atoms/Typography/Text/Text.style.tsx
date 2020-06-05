@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Text } from 'react-native';
+import { Animated } from 'react-native';
 
-const BaseText = styled(Text)<{
+const BaseText = styled(Animated.Text)<{
   color?: string;
   isUppercase: boolean;
   isBold?: boolean;
@@ -43,7 +43,6 @@ export const TextLink = styled(BaseText)`
 export const TextLabelInput = styled(BaseText)`
   font-size: ${({ inputFocus }) => (inputFocus ? '12px' : '16px')};
   top: ${({ inputFocus }) => (inputFocus ? '4px' : '50%')};
-  left: 12px;
   z-index: 1;
   position: absolute;
 `;
