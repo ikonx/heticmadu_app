@@ -3,7 +3,6 @@ import { Image, NativeScrollEvent, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {
   ChallengeDetailsContainer,
-  ChallengeDetailsUser,
   StyledButton,
   StyledContainer,
 } from './ChallengeDetails.style';
@@ -14,8 +13,8 @@ import Spacer from '@components/atoms/Spacer/Spacer';
 import StoryImage from '@assets/img/temp-story-details.png';
 import Separator from '@components/atoms/Separator/Separator';
 import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
-import Icon from '@components/atoms/Icons/Icon';
 import { IconName } from '@assets/icons/IconName.enum';
+import Comment from '@components/molecules/Comment/Comment';
 
 interface Props {}
 
@@ -52,7 +51,7 @@ const ChallengeDetails: FunctionComponent<Props> = () => {
         />
         <Spacer size={24}/>
         <Spacer size={24}/>
-        <ChallengeDetailsContainer>
+        <ChallengeDetailsContainer style={{ marginBottom: 80 }}>
           <Title variant="h4" isBold>Objectifs du défi</Title>
           <Spacer size={12}/>
           <Text color={Colors.mainGrey}>
@@ -64,24 +63,24 @@ const ChallengeDetails: FunctionComponent<Props> = () => {
           </Text>
           <Spacer size={24}/>
           <Spacer size={24}/>
-          <ChallengeDetailsUser>
-            <Icon name={IconName.USER} width={40} height={40}/>
-            <Spacer size={16}/>
-            <Text variant="button" isBold>Andrea</Text>
-            <Text variant="button"> a réalisé le défi 👍 </Text>
-          </ChallengeDetailsUser>
-          <Spacer size={24}/>
+          <Comment
+            author="Andrea"
+            text="a réalisé le défi 👍"
+            icon={IconName.USER}
+          />
+          <Spacer size={16}/>
           <Separator />
-          <Spacer size={24}/>
-          <ChallengeDetailsUser>
-            <Icon name={IconName.USER} width={40} height={40}/>
-            <Spacer size={16}/>
-            <Text variant="button" isBold>Andrea</Text>
-            <Text variant="button"> a réalisé le défi 👍 </Text>
-          </ChallengeDetailsUser>
+          <Spacer size={16}/>
+          <Comment
+            author="Willie"
+            text="a fini le défi 👍"
+            icon={IconName.USER}
+          />
+          <Spacer size={16}/>
+          <Separator />
+          <Spacer size={16}/>
+          <Text color={Colors.mainGrey} isBold>55 autres personnes ont réalisés le défi</Text>
         </ChallengeDetailsContainer>
-        <Spacer size={24}/>
-        <Spacer size={24}/>
       </ScrollView>
       <StyledButton variant={TouchableType.IMPORTANT}>
         <Text variant="button" color={Colors.mainWhite} isBold>Je participe au défi</Text>

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import List from '@components/atoms/List/List';
 import Buttons from '@components/atoms/Buttons/Buttons';
 
 export const StyledContainer = styled(SafeAreaView)`
@@ -12,10 +11,6 @@ export const StyledContainer = styled(SafeAreaView)`
 
 export const ChallengeDetailsContainer = styled(View)`
   margin: 0 16px;
-`;
-
-export const ChallengeDetailsUser = styled(List)`
-  align-items: center;
 `;
 
 export const StyledButton = styled(Buttons)`
