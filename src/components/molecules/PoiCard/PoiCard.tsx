@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableHighlight, Image } from 'react-native';
+import { TouchableOpacity, Image } from 'react-native';
 import styled, { css } from 'styled-components';
 import List from '@src/components/atoms/List/List';
 import Text from '@src/components/atoms/Typography/Text/Text';
@@ -11,6 +11,7 @@ interface Props {
   poi: PoiModel;
   gotBorder?: boolean;
   fullWidth?: boolean;
+  onPress: (poi: PoiModel) => () => void;
 }
 
 const StyledImage = styled(Image)`
@@ -20,9 +21,9 @@ const StyledImage = styled(Image)`
   border-radius: 4px;
 `;
 
-const StyledPoiCard = styled(TouchableHighlight)`
+const StyledPoiCard = styled(TouchableOpacity)`
   height: 250px;
-  width: ${ ({ fullWidth }) => fullWidth ? '100%' : '240px'};
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : '240px')};
   padding: 16px;
 
   ${({ gotBorder }) =>
@@ -41,13 +42,14 @@ const StyledPoiCard = styled(TouchableHighlight)`
     `}
 `;
 
-const PoiCard = ({
-  poi: { name, address, greenScore, averagePrice, images },
-  gotBorder,
-  fullWidth,
-}: Props) => {
+const PoiCard = ({ poi, gotBorder, fullWidth, onPress }: Props) => {
+  const { name, address, greenScore, averagePrice, images } = poi;
   return (
-    <StyledPoiCard gotBorder={gotBorder} fullWidth={fullWidth}>
+    <StyledPoiCard
+      gotBorder={gotBorder}
+      fullWidth={fullWidth}
+      onPress={onPress(poi)}
+    >
       <List flexDirection="column">
         <StyledImage
           source={{
@@ -72,6 +74,10 @@ const PoiCard = ({
       </List>
     </StyledPoiCard>
   );
+};
+
+PoiCard.defaultProps = {
+  onPress: (poi: PoiModel) => () => {},
 };
 
 export default PoiCard;
