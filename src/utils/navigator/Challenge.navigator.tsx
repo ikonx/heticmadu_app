@@ -64,6 +64,9 @@ const ChallengeNavigator: FunctionComponent<Props> = () => {
             shadowOpacity: 0,
             elevation: 0,
           },
+          headerTitleStyle: {
+            marginTop: 24,
+          },
           headerLeft: () => (
             <StyledButton
               variant={TouchableType.ICON}
