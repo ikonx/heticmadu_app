@@ -28,6 +28,10 @@ const ButtonsStories: FunctionComponent<Props> = () => {
       <Buttons variant={TouchableType.INVERT}>
         <Text variant="button" isBold>Button Invert</Text>
       </Buttons>
+      <Spacer size={16} />
+      <Buttons variant={TouchableType.IMPORTANT}>
+        <Text variant="button" isBold>Button Important</Text>
+      </Buttons>
     </>
   );
 };

@@ -2,7 +2,7 @@ import { IconName } from '@assets/icons/IconName.enum';
 import TagsList from '@components/molecules/TagsList/TagsList';
 import { NavigationItemModel } from '../models/navigationItem.model';
 import HomeScreen from '@src/components/screens/HomeScreen/HomeScreen';
-import StoryScreen from '@components/screens/StoryScreen/StoryScreen';
+import ChallengeScreen from '@components/screens/ChallengeScreen/ChallengeScreen';
 import MapScreen from '@src/components/screens/Map/MapScreen';
 
 const navigationBottomData: NavigationItemModel[] = [
@@ -19,10 +19,10 @@ const navigationBottomData: NavigationItemModel[] = [
     text: 'Carte',
   },
   {
-    name: 'Story',
-    component: StoryScreen,
+    name: 'Défi',
+    component: ChallengeScreen,
     icon: IconName.STORY,
-    text: 'Story',
+    text: 'Défi',
   },
   {
     name: 'Profil',
