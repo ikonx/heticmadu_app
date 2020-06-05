@@ -1,33 +1,53 @@
-import React, { FunctionComponent, SyntheticEvent } from 'react';
+import React, { FunctionComponent, SyntheticEvent, useState } from 'react';
 import { Image, NativeScrollEvent, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
 import {
   ChallengeDetailsContainer,
+  ChallengeDetailsHeader,
   StyledButton,
   StyledContainer,
+  StyledReturn,
 } from './ChallengeDetails.style';
 import Colors from '@styleGuide/Colors';
+import StoryImage from '@assets/img/temp-story-details.png';
+import { IconName } from '@assets/icons/IconName.enum';
+
 import Title from '@components/atoms/Typography/Title/Title';
 import Text from '@components/atoms/Typography/Text/Text';
 import Spacer from '@components/atoms/Spacer/Spacer';
-import StoryImage from '@assets/img/temp-story-details.png';
+import Comment from '@components/molecules/Comment/Comment';
+import Icon from '@components/atoms/Icons/Icon';
+import { Direction } from '@components/atoms/Icons/Chevron/Chevron.style';
 import Separator from '@components/atoms/Separator/Separator';
 import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
-import { IconName } from '@assets/icons/IconName.enum';
-import Comment from '@components/molecules/Comment/Comment';
 
 interface Props {}
 
 const ChallengeDetails: FunctionComponent<Props> = () => {
   const navigation = useNavigation();
+  const [headerTitle, setHeaderTitle] = useState('');
   const scrollEvent = (e: SyntheticEvent<any, NativeScrollEvent>) => {
-    navigation.setOptions({
-      title: e.nativeEvent.contentOffset.y > 20 ? 'Ma feuille l\'unique' : '',
-    });
+    setHeaderTitle(e.nativeEvent.contentOffset.y > 20 ? 'Ma feuille l\'unique' : '');
   };
 
   return (
     <StyledContainer>
+      <ChallengeDetailsHeader>
+        <StyledReturn
+          variant={TouchableType.ICON}
+          onPress={() => navigation.goBack()}
+        >
+          <Icon
+            height={24}
+            width={24}
+            name={IconName.CHEVRON}
+            direction={Direction.LEFT}
+            fill={Colors.mainGrey}
+          />
+        </StyledReturn>
+        <Text isBold>{ headerTitle }</Text>
+      </ChallengeDetailsHeader>
       <ScrollView onScroll={scrollEvent} scrollEventThrottle={10}>
         <ChallengeDetailsContainer>
           <Title variant="h2" isBold>Ma feuille l’unique</Title>

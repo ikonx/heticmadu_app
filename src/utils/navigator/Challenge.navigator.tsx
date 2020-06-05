@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import styled from 'styled-components';
+
 import Colors from '@styleGuide/Colors';
+import { IconName } from '@assets/icons/IconName.enum';
+
 import ChallengeList from '@components/screens/ChallengeList/ChallengeList';
 import ChallengeDetails from '@components/screens/ChallengeDetails/ChallengeDetails';
 import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
 import Icon from '@components/atoms/Icons/Icon';
-import { IconName } from '@assets/icons/IconName.enum';
 import { Direction } from '@components/atoms/Icons/Chevron/Chevron.style';
 import Buttons from '@components/atoms/Buttons/Buttons';
 
@@ -23,7 +25,7 @@ const StyledButton = styled(Buttons)`
 
 const ChallengeNavigator: FunctionComponent<Props> = () => {
   return (
-    <ChallengeStack.Navigator mode="modal">
+    <ChallengeStack.Navigator headerMode="screen">
       <ChallengeStack.Screen
         name="List"
         component={ChallengeList}
@@ -54,7 +56,7 @@ const ChallengeNavigator: FunctionComponent<Props> = () => {
       <ChallengeStack.Screen
         name="Details"
         component={ChallengeDetails}
-        options={ ({ navigation }) => ({
+        options={{
           cardStyle: {
             backgroundColor: Colors.mainWhite,
           },
@@ -64,25 +66,8 @@ const ChallengeNavigator: FunctionComponent<Props> = () => {
             shadowOpacity: 0,
             elevation: 0,
           },
-          headerTitleStyle: {
-            marginTop: 24,
-          },
-          headerLeft: () => (
-            <StyledButton
-              variant={TouchableType.ICON}
-              onPress={() => navigation.goBack()}
-              style={{ marginLeft: 16 }}
-            >
-              <Icon
-                height={24}
-                width={24}
-                name={IconName.CHEVRON}
-                direction={Direction.LEFT}
-                fill={Colors.mainGrey}
-              />
-            </StyledButton>
-          ),
-        })}
+          header: () => null,
+        }}
       />
     </ChallengeStack.Navigator>
   );
