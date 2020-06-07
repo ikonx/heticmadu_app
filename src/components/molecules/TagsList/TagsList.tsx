@@ -12,7 +12,7 @@ export interface ITag {
 interface Props extends ScrollViewProps {
   tagsArray: ITag[];
   selectedTags: ITag[];
-  onTagPress: (tag: ITag) => void;
+  onTagPress?: (tag: ITag) => void;
 }
 
 const TagsList = ({ tagsArray, selectedTags, onTagPress, ...rest }: Props) => {
@@ -35,7 +35,7 @@ const TagsList = ({ tagsArray, selectedTags, onTagPress, ...rest }: Props) => {
               <View
                 key={index}
                 style={{ marginRight: gotMarginRight ? 8 : 0 }}
-                onTouchEnd={() => onTagPress(tag)}
+                onTouchEnd={() => onTagPress && onTagPress(tag)}
               >
                 <Tag text={label} color={Colors.tags[label]} />
               </View>
