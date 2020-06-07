@@ -4,6 +4,7 @@ import CenterView from '../../helpers/Layout';
 import ChallengeCardStories from './ChallengeCard/ChallengeCard.stories';
 import ChallengeRowStories from './ChallengeRow/ChallengeRow.stories';
 import ChipsListStories from './ChipsList/ChipsList.stories';
+import CommentStories from './Comment/Comment.stories';
 import LogoutModalStories from './LogoutModal/LogoutModal.stories';
 import NavigationHeaderStories from './NavigationHeader/NavigationHeader.stories';
 import PoiCardStories from './PoiCard/PoiCard.stories';
@@ -17,6 +18,7 @@ storiesOf('Molecules', module)
   .add('Challenge Card', () => <ChallengeCardStories />)
   .add('Challenge Row', () => <ChallengeRowStories />)
   .add('Chips List', () => <ChipsListStories />)
+  .add('Comment', () => <CommentStories />)
   .add('Logout Modal', () => <LogoutModalStories />)
   .add('Navigation Header', () => <NavigationHeaderStories />)
   .add('Poi Card', () => <PoiCardStories />)

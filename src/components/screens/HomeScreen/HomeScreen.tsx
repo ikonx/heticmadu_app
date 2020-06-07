@@ -6,16 +6,13 @@ import Spacer from '@components/atoms/Spacer/Spacer';
 import ChallengeCard from '@components/molecules/ChallengeCard/ChallengeCard';
 import { ScrollView } from 'react-native';
 import { HomeContainer, HomePlaces } from './HomeScreen.style';
-import { SafeAreaView } from 'react-navigation';
 
 interface Props {}
 
 const HomeScreen = (_: Props) => {
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <Spacer size={24} />
-        <HomeContainer>
+    <HomeContainer>
+       <ScrollView>
           <Title isBold>Hello, Victor ✌🏼</Title>
           <HomePlaces>
             <Title variant="h3" isBold>
@@ -25,17 +22,16 @@ const HomeScreen = (_: Props) => {
             <PoiCard poi={poisData[0]} gotBorder fullWidth />
           </HomePlaces>
           <Title variant="h3" isBold>
-            Story en cours
+            Défi en cours
           </Title>
           <Spacer size={16} />
           <ChallengeCard
-            tagsArray={[{ label: '7 Stories' }, { label: 'Énergie' }]}
+            tagsArray={[{ label: '7 Défi' }, { label: 'Énergie' }]}
             title="Toutes ses fournitures"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
           />
-        </HomeContainer>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+    </HomeContainer>
   );
 };
 
