@@ -10,6 +10,8 @@ const BadgeStories: FunctionComponent<Props> = () => {
       <Badge.Price price='€€€'/>
       <Spacer size={16}/>
       <Badge.GreenScore score={400} />
+      <Spacer size={16}/>
+      <Badge.Challenge count={400} />
     </>
   );
 };
