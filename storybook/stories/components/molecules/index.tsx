@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import CenterView from '../../helpers/Layout';
+import ChallengeBadgeStories from './ChallengeBadge/ChallengeBadge.stories';
 import ChallengeCardStories from './ChallengeCard/ChallengeCard.stories';
 import ChallengeRowStories from './ChallengeRow/ChallengeRow.stories';
 import ChipsListStories from './ChipsList/ChipsList.stories';
@@ -15,6 +16,7 @@ import TagsListStories from './TagsList/TagsList.stories';
 
 storiesOf('Molecules', module)
   .addDecorator((getStory: any) => <CenterView>{ getStory() }</CenterView>)
+  .add('Challenge Badge', () => <ChallengeBadgeStories />)
   .add('Challenge Card', () => <ChallengeCardStories />)
   .add('Challenge Row', () => <ChallengeRowStories />)
   .add('Chips List', () => <ChipsListStories />)
