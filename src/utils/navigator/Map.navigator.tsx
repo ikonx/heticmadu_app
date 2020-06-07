@@ -10,7 +10,7 @@ const MapStack = createStackNavigator();
 
 const MapNavigator: FunctionComponent<Props> = () => {
   return (
-    <MapStack.Navigator mode="modal" headerMode="none">
+    <MapStack.Navigator headerMode="none">
       <MapStack.Screen
         name="Search"
         component={SearchScreen}
