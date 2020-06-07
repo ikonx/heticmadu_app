@@ -56,7 +56,14 @@ const MapScreen = (_: Props) => {
   };
 
   const searchHandler = () => {
-    navigation.navigate('Search');
+    navigation.navigate('Maps');
+  };
+
+  const openPoiDetails = (poi: PoiModel) => () => {
+    navigation.navigate('Maps', {
+      screen: 'Details',
+      params: { poi },
+    });
   };
 
   return (
@@ -93,7 +100,11 @@ const MapScreen = (_: Props) => {
           extraData={pois}
           keyExtractor={(item: PoiModel) => item.id.toString()}
           renderItem={({ item }: any) => (
-            <PoiCard key={item.id.toString()} poi={item} />
+            <PoiCard
+              key={item.id.toString()}
+              poi={item}
+              onPress={openPoiDetails}
+            />
           )}
         />
       </StyledPanel>

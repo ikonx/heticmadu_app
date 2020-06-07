@@ -24,7 +24,7 @@ export const poisData: PoiModel[] = [
     greenScore: 9,
     phoneNumber: '',
     picture: '',
-    description: '',
+    description: 'Ce restaurant et épicerie chaleureux aux touches rustiques proposant des mezze turcs 100% végétariens',
     status: 'deactivated',
     tags: ['africain'],
     images: [
@@ -54,9 +54,9 @@ export const poisData: PoiModel[] = [
     greenScore: 9,
     phoneNumber: '',
     picture: '',
-    description: '',
+    description: 'Ce restaurant et épicerie chaleureux aux touches rustiques proposant des mezze turcs 100% végétariens',
     status: 'deactivated',
-    tags: [],
+    tags: ['africain'],
     images: [
       'https://images.unsplash.com/photo-1570857502809-08184874388e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=80',
     ],
@@ -84,7 +84,7 @@ export const poisData: PoiModel[] = [
     greenScore: 9,
     phoneNumber: '',
     picture: '',
-    description: '',
+    description: 'Ce restaurant et épicerie chaleureux aux touches rustiques proposant des mezze turcs 100% végétariens',
     status: 'deactivated',
     tags: [],
     images: [
@@ -114,7 +114,7 @@ export const poisData: PoiModel[] = [
     greenScore: 8.2,
     phoneNumber: '',
     picture: '',
-    description: '',
+    description: 'Ce restaurant et épicerie chaleureux aux touches rustiques proposant des mezze turcs 100% végétariens',
     status: 'deactivated',
     tags: [],
     images: [
@@ -144,7 +144,7 @@ export const poisData: PoiModel[] = [
     greenScore: 7.4,
     phoneNumber: '',
     picture: '',
-    description: '',
+    description: 'Ce restaurant et épicerie chaleureux aux touches rustiques proposant des mezze turcs 100% végétariens',
     status: 'deactivated',
     tags: [],
     images: [
@@ -174,7 +174,7 @@ export const poisData: PoiModel[] = [
     greenScore: 9.4,
     phoneNumber: '',
     picture: '',
-    description: '',
+    description: 'Ce restaurant et épicerie chaleureux aux touches rustiques proposant des mezze turcs 100% végétariens',
     status: 'deactivated',
     tags: [],
     images: [
@@ -204,7 +204,7 @@ export const poisData: PoiModel[] = [
     greenScore: 9.4,
     phoneNumber: '',
     picture: '',
-    description: '',
+    description: 'Ce restaurant et épicerie chaleureux aux touches rustiques proposant des mezze turcs 100% végétariens',
     status: 'deactivated',
     tags: [],
     images: [
@@ -234,7 +234,7 @@ export const poisData: PoiModel[] = [
     greenScore: 9.4,
     phoneNumber: '',
     picture: '',
-    description: '',
+    description: 'Ce restaurant et épicerie chaleureux aux touches rustiques proposant des mezze turcs 100% végétariens',
     status: 'deactivated',
     tags: [],
     images: [
