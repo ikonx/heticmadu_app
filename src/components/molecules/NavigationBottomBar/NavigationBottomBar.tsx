@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/stack';
 import NavigationTabItem from '@components/atoms/NavigationTabItem/NavigationTabItem';
 import { NavigationItemModel } from '@utils/models/navigationItem.model';
-import StoryNavigator from '@utils/navigator/Story.navigator';
+import ChallengesNavigator from '@utils/navigator/Challenge.navigator';
 import MapNavigator from '@src/utils/navigator/Map.navigator';
 
 interface Props {
@@ -57,7 +57,7 @@ const NavigationBottomBar: FunctionComponent<Props> = ({ data }) => {
       }}
     >
       <RootStack.Screen name="Main" component={MainTabsScreen} />
-      <RootStack.Screen name="Stories" component={StoryNavigator} />
+      <RootStack.Screen name="Stories" component={ChallengesNavigator} />
       <RootStack.Screen name="Maps" component={MapNavigator} />
     </RootStack.Navigator>
   );
