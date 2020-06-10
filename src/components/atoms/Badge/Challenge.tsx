@@ -12,7 +12,7 @@ export interface IChallengeBadge {
 const StyledContainer = styled(View)`
   background: ${ ({ theme }) => theme.Colors.mainWhite };
   border-radius: 17px;
-  padding: 4px 8px;
+  padding: 4px 12px;
   align-items: center;
 `;
 

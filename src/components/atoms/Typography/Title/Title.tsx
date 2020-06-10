@@ -12,6 +12,7 @@ interface Props {
   isUppercase?: boolean;
   color?: string;
   isBold?: boolean;
+  align?: string;
 }
 
 const variants: any = {
@@ -28,11 +29,12 @@ const Title: FC<Props> = ({
   isUppercase,
   color,
   isBold,
+  align,
 }) => {
   const TitleElement = variants[variant];
 
   return (
-    <TitleElement isUppercase={isUppercase} color={color} isBold={isBold}>
+    <TitleElement isUppercase={isUppercase} color={color} isBold={isBold} align={align}>
       {children}
     </TitleElement>
   );

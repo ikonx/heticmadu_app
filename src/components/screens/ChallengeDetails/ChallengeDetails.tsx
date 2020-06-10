@@ -102,7 +102,7 @@ const ChallengeDetails: FunctionComponent<Props> = () => {
           <Text color={Colors.mainGrey} isBold>55 autres personnes ont réalisés le défi</Text>
         </ChallengeDetailsContainer>
       </ScrollView>
-      <StyledButton variant={TouchableType.IMPORTANT}>
+      <StyledButton variant={TouchableType.IMPORTANT} onPress={() => navigation.navigate('Reward')}>
         <Text variant="button" color={Colors.mainWhite} isBold>Je participe au défi</Text>
       </StyledButton>
     </StyledContainer>
