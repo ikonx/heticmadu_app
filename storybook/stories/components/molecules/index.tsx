@@ -9,6 +9,7 @@ import CommentStories from './Comment/Comment.stories';
 import LogoutModalStories from './LogoutModal/LogoutModal.stories';
 import NavigationHeaderStories from './NavigationHeader/NavigationHeader.stories';
 import PoiCardStories from './PoiCard/PoiCard.stories';
+import ProfileStories from './Profile/Profile.stories';
 import SearchInputStories from './SearchInput/SearchInput.stories';
 import SnackBarStories from './SnackBar/SnackBar.stories';
 import TabsStories from './Tabs/Tabs.stories';
@@ -24,6 +25,7 @@ storiesOf('Molecules', module)
   .add('Logout Modal', () => <LogoutModalStories />)
   .add('Navigation Header', () => <NavigationHeaderStories />)
   .add('Poi Card', () => <PoiCardStories />)
+  .add('Profile', () => <ProfileStories />)
   .add('Search Input', () => <SearchInputStories />)
   .add('SnackBar', () => <SnackBarStories />)
   .add('Tabs', () => <TabsStories />)

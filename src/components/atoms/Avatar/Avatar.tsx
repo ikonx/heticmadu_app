@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
-import { Image, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { Image, TouchableOpacityProps } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import Icon from '@src/components/atoms/Icons/Icon';
@@ -8,7 +8,9 @@ import Theme from '@src/styleGuide/Theme';
 import { IconName } from '@src/assets/icons/IconName.enum';
 import StyledAvatarTouchable from './Avatar.style';
 
-export interface IAvatar extends TouchableOpacityProps {}
+export interface IAvatar extends TouchableOpacityProps {
+  source?: string;
+}
 
 const StyledImage = styled(Image)`
   width: 88px;
@@ -17,7 +19,7 @@ const StyledImage = styled(Image)`
   border: ${Theme.Borders.blackBorder};
 `;
 
-const Avatar: FunctionComponent<IAvatar> = () => {
+const Avatar: FunctionComponent<IAvatar> = ({ source }) => {
   const [image, setImage] = useState(null);
 
   useEffect(() => {
@@ -52,9 +54,9 @@ const Avatar: FunctionComponent<IAvatar> = () => {
 
   return (
     <StyledAvatarTouchable onPress={pickImage}>
-      {image ? (
+      {image || source ? (
         <StyledImage
-          source={{ uri: image }}
+          source={{ uri: source ? source : image }}
           // style={{
           //   width: 88,
           //   height: 88,
