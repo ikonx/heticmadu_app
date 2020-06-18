@@ -15,7 +15,10 @@ interface Props {
 const ChallengeBadge: FunctionComponent<Props> = ({ illustration, background }) => {
   return (
     <ChallengeBadgeContainer background={background}>
-      <Illustration name={illustration} />
+      <Illustration
+        name={illustration}
+        style={{ minHeight: 172 }}
+      />
       <ChallengeBadgeCount>
         <Badge.Challenge
           count={2}
