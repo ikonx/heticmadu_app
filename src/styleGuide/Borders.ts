@@ -4,5 +4,5 @@ export default {
   mainBorder: '1px solid rgba(28, 28, 28, 0.25)',
   lightBorder: `1px solid ${Colors.secondaryGrey}`,
   avatarBorder: `1px solid ${Colors.mainPurple}`,
-  blackBorder: `2px solid ${Colors.mainBlack}`,
+  blackBorder: `1px solid ${Colors.mainBlack}`,
 };
