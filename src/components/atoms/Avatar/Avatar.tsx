@@ -16,7 +16,8 @@ const StyledImage = styled(Image)`
   width: 88px;
   height: 88px;
   border-radius: 100px;
-  border: ${Theme.Borders.blackBorder};
+  border-width: 1px;
+  border-color: ${ ({ theme }) => theme.Colors.mainBlack };
 `;
 
 const Avatar: FunctionComponent<IAvatar> = ({ source }) => {
@@ -57,11 +58,6 @@ const Avatar: FunctionComponent<IAvatar> = ({ source }) => {
       {image || source ? (
         <StyledImage
           source={{ uri: source ? source : image }}
-          // style={{
-          //   width: 88,
-          //   height: 88,
-          //   borderRadius: 100,
-          // }}
         />
       ) : (
         <Icon
