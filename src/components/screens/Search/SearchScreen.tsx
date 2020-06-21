@@ -72,6 +72,10 @@ const SearchScreen = ({ navigation }: Props) => {
     setSelectedTags(newSelectedTags);
   };
 
+  const openPoiDetails = (poi: PoiModel) => () => {
+    navigation.navigate('Details', { poi });
+  };
+
   useEffect(() => {
     let search: string = ' ';
     selectedTags.map((tag: ITag) => (search = `${search} ${tag.label}`));
@@ -108,10 +112,10 @@ const SearchScreen = ({ navigation }: Props) => {
         }}
       >
         {pois.map((poi: PoiModel) => (
-          <>
-            <PoiCard gotBorder poi={poi} fullWidth />
+          <React.Fragment key={`poiCard_${poi.id}`}>
+            <PoiCard gotBorder poi={poi} fullWidth onPress={openPoiDetails} />
             <Spacer size={16} />
-          </>
+          </React.Fragment>
         ))}
       </StyledContent>
     </StyledSearchScreen>

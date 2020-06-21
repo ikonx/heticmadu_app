@@ -5,14 +5,14 @@ import Title from '@components/atoms/Typography/Title/Title';
 import Spacer from '@components/atoms/Spacer/Spacer';
 import ChallengeCard from '@components/molecules/ChallengeCard/ChallengeCard';
 import { ScrollView } from 'react-native';
-import { HomeContainer, HomePlaces } from './HomeScreen.style';
+import { HomeChallenges, HomeContainer, HomePlaces } from './HomeScreen.style';
 
 interface Props {}
 
 const HomeScreen = (_: Props) => {
   return (
     <HomeContainer>
-       <ScrollView>
+       <ScrollView style={{ paddingBottom: 66 }}>
           <Title isBold>Hello, Victor ✌🏼</Title>
           <HomePlaces>
             <Title variant="h3" isBold>
@@ -25,11 +25,13 @@ const HomeScreen = (_: Props) => {
             Défi en cours
           </Title>
           <Spacer size={16} />
-          <ChallengeCard
-            tagsArray={[{ label: '7 Défi' }, { label: 'Énergie' }]}
-            title="Toutes ses fournitures"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-          />
+          <HomeChallenges>
+            <ChallengeCard
+              tagsArray={[{ label: '7 Défi' }, { label: 'Énergie' }]}
+              title="Toutes ses fournitures"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+            />
+          </HomeChallenges>
         </ScrollView>
     </HomeContainer>
   );

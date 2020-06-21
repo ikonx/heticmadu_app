@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 import { Text } from 'react-native';
 
-const BaseTitle = styled(Text)<{ color?: string, isUppercase?: boolean, isBold?: boolean }>`
+const BaseTitle = styled(Text)<{
+  color?: string,
+  isUppercase?: boolean,
+  isBold?: boolean,
+  align?: string,
+}>`
   text-transform: ${ ({ isUppercase }) => isUppercase ? 'uppercase' : 'none'};
   color: ${ ({ color, theme }) => color ? color : theme.Colors.mainBlack };
+  text-align: ${ ({ align }) => align ? align : 'left' };
   font-family: ${ ({ isBold, theme }) => isBold ? theme.Fonts.DMSans.bold : theme.Fonts.DMSans.regular };
 `;
 

@@ -11,6 +11,7 @@ import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
 import Icon from '@components/atoms/Icons/Icon';
 import { Direction } from '@components/atoms/Icons/Chevron/Chevron.style';
 import Buttons from '@components/atoms/Buttons/Buttons';
+import RewardScreen from '@components/screens/Reward/RewardScreen';
 
 interface Props {}
 
@@ -60,11 +61,15 @@ const ChallengeNavigator: FunctionComponent<Props> = () => {
           cardStyle: {
             backgroundColor: Colors.mainWhite,
           },
-          title: '',
-          headerStatusBarHeight: 0,
-          headerStyle: {
-            shadowOpacity: 0,
-            elevation: 0,
+          header: () => null,
+        }}
+      />
+      <ChallengeStack.Screen
+        name="Reward"
+        component={RewardScreen}
+        options={{
+          cardStyle: {
+            backgroundColor: Colors.mainWhite,
           },
           header: () => null,
         }}

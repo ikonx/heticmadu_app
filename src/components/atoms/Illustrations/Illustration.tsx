@@ -12,7 +12,7 @@ interface Props {
   name: IllustrationName;
 }
 
-const Illustration: FunctionComponent<Props> = ({ name }) => {
+const Illustration: FunctionComponent<Props> = ({ name, ...rest }) => {
   const renderIllustration = () => {
     switch (name) {
       case IllustrationName.ENERGIE:
@@ -30,7 +30,7 @@ const Illustration: FunctionComponent<Props> = ({ name }) => {
 
   return (
     <StyledIllustration>
-      {<LottieView autoPlay autoSize loop source={renderIllustration()} />}
+      {<LottieView autoPlay autoSize loop source={renderIllustration()} { ...rest }/>}
     </StyledIllustration>
   );
 };
