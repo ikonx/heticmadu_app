@@ -1,9 +1,9 @@
 import { IconName } from '@assets/icons/IconName.enum';
-import TagsList from '@components/molecules/TagsList/TagsList';
 import { NavigationItemModel } from '../models/navigationItem.model';
 import HomeScreen from '@src/components/screens/HomeScreen/HomeScreen';
 import ChallengeScreen from '@components/screens/ChallengeScreen/ChallengeScreen';
 import MapScreen from '@src/components/screens/Map/MapScreen';
+import ProfileScreen from '@components/screens/ProfileScreen/ProfileScreen';
 
 const navigationBottomData: NavigationItemModel[] = [
   {
@@ -26,7 +26,7 @@ const navigationBottomData: NavigationItemModel[] = [
   },
   {
     name: 'Profil',
-    component: TagsList,
+    component: ProfileScreen,
     icon: IconName.USER,
     text: 'Profil',
   },

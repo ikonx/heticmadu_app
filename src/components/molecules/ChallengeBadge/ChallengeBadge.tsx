@@ -10,18 +10,19 @@ import Badge from '@components/atoms/Badge/Badge';
 interface Props {
   illustration: IllustrationName;
   background?: string;
+  count: number;
 }
 
-const ChallengeBadge: FunctionComponent<Props> = ({ illustration, background }) => {
+const ChallengeBadge: FunctionComponent<Props> = ({ illustration, background, count, ...rest }) => {
   return (
     <ChallengeBadgeContainer background={background}>
       <Illustration
         name={illustration}
-        style={{ minHeight: 172 }}
+        {...rest}
       />
       <ChallengeBadgeCount>
         <Badge.Challenge
-          count={2}
+          count={count}
           color={background}
         />
       </ChallengeBadgeCount>
