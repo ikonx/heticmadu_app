@@ -22,6 +22,7 @@ export const ProfileParams = styled(Buttons)`
 
 export const ProfileList = styled(FlatList)`
   padding: 24px 16px 54px;
+  width: 100%;
 `;
 
 export const ProfileItem = styled(List)`
