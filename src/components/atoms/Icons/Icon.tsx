@@ -19,6 +19,7 @@ import LockIcon from '@assets/icons/Lock.svg';
 import MapsIcon from '@assets/icons/Maps.svg';
 import PhoneIcon from '@assets/icons/Phone.svg';
 import Search from '@assets/icons/Search.svg';
+import Settings from '@assets/icons/Settings.svg';
 import StoryIcon from '@assets/icons/Story.svg';
 import ThIcon from '@assets/icons/Th.svg';
 import UserIcon from '@assets/icons/User.svg';
@@ -69,6 +70,8 @@ const Icon: FunctionComponent<Props> = ({ name, direction, fill, ...rest }) => {
         return <PhoneIcon color={fill || Colors.mainBlack} {...rest} />;
       case IconName.SEARCH:
         return <Search color={fill || Colors.mainBlack} {...rest} />;
+      case IconName.SETTINGS:
+        return <Settings color={fill || Colors.mainBlack} {...rest} />;
       case IconName.STORY:
         return <StoryIcon color={fill || Colors.mainBlack} {...rest} />;
       case IconName.TH:
