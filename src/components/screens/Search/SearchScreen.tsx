@@ -22,6 +22,7 @@ import PoiCard from '@src/components/molecules/PoiCard/PoiCard';
 import { poisData } from '@src/utils/mocks/pois.data';
 import { PoiModel } from '@src/utils/models/pois.model';
 import PoisContext from '@src/contexts/pois/pois.context';
+import TagsContext from '@src/contexts/tags/tags.context';
 
 interface Props {
   navigation: NavigationScreenProp<{}, 'Search'>;
@@ -33,6 +34,7 @@ const SearchScreen = ({ navigation }: Props) => {
   const [selectedTags, setSelectedTags] = useState<ITag[]>([]);
   const { pois: defaultPois } = useContext(PoisContext);
   const [pois, setPois] = useState(defaultPois);
+  const { tags, fetchingTags, retreiveTags } = useContext(TagsContext);
   const goToFiltersScreen = () => {
     navigation.navigate('Filters');
   };
@@ -78,6 +80,10 @@ const SearchScreen = ({ navigation }: Props) => {
   };
 
   useEffect(() => {
+    tags.length === 0 && retreiveTags();
+  }, []);
+
+  useEffect(() => {
     let search: string = ' ';
     selectedTags.map((tag: ITag) => (search = `${search} ${tag.label}`));
     setSearch(search);
@@ -95,16 +101,11 @@ const SearchScreen = ({ navigation }: Props) => {
       <TagsList
         onTagPress={updateTags}
         selectedTags={selectedTags}
-        tagsArray={[
-          { label: 'africain' },
-          { label: 'indien' },
-          { label: 'italien' },
-          { label: 'junkfood' },
-          { label: 'mexicain' },
-        ]}
+        tagsArray={tags.map(({ tag }) => ({ label: tag }))}
         contentContainerStyle={{
           paddingLeft: 20,
         }}
+        isLoading={fetchingTags}
       />
       <Spacer size={24} />
       <StyledContent

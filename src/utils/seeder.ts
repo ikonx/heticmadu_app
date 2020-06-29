@@ -67,7 +67,7 @@ const generatePoi = (): Poi =>
     saturday: '',
     sunday: '',
   } as Poi);
-export const seeder = () => {
+export const seedPois = () => {
   const pois: Poi[] = [];
   for (let index = 0; index < 10; index += 1) {
     pois.push(generatePoi());
@@ -81,4 +81,20 @@ export const seeder = () => {
   //   axios.post("http://localhost:4000/pois", );
 
   console.log(pois);
+};
+
+export const seedTags = () => {
+  const tags: { tag: string }[] = [
+    { tag: 'indien' },
+    { tag: 'italien' },
+    { tag: 'junkfood' },
+    { tag: 'mexicain' },
+  ];
+  tags.forEach(
+    async (tag) =>
+      await axios
+        .post('http://localhost:4000/tags', tag)
+        .then((res) => console.log(res.data)),
+  );
+  axios.post('http://localhost:4000/pois');
 };

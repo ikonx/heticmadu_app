@@ -20,6 +20,7 @@ const PoisProvider: React.FC<Props> = ({ children }) => {
         setFetchingPois(false);
       }
     });
+    // TODO: manage user context
     // if (isLogin) {
     //   setFetchingPois(true);
     //   getPois().then((res: any) => {
