@@ -43,7 +43,7 @@ const StyledPoiCard = styled(TouchableOpacity)`
 `;
 
 const PoiCard = ({ poi, gotBorder, fullWidth, onPress }: Props) => {
-  const { name, address, greenScore, averagePrice, images } = poi;
+  const { name, address, greenScore, averagePrice, images, picture } = poi;
   return (
     <StyledPoiCard
       gotBorder={gotBorder}
@@ -55,7 +55,7 @@ const PoiCard = ({ poi, gotBorder, fullWidth, onPress }: Props) => {
           source={{
             uri: images
               ? images[0]
-              : 'https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
+              : `https://source.unsplash.com/900x90${greenScore}/?food`,
           }}
         />
         <Spacer size={8} />

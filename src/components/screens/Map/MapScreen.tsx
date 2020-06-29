@@ -1,4 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  useCallback,
+  useRef,
+} from 'react';
 
 import { TabsModel } from '@utils/models/tabs.model';
 import List from '@src/components/atoms/List/List';
@@ -15,6 +21,7 @@ import Text from '@src/components/atoms/Typography/Text/Text';
 import { ThemeContext } from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
 import PoiCard from '@src/components/molecules/PoiCard/PoiCard';
+import PoisContext from '@src/contexts/pois/pois.context';
 
 interface Props {
   navigation: any;
@@ -43,17 +50,24 @@ const MapScreen = (_: Props) => {
   const navigation = useNavigation();
   const { Colors } = useContext(ThemeContext);
   const [activeTab, setTab] = useState({ ...tabsArray[0] });
-  const [pois, setPois] = useState(poisData);
-
+  const { pois: defaultPois } = useContext(PoisContext);
+  const [pois, setPois] = useState(defaultPois);
   const onTabChange = (tab: TabsModel) => {
-    let result = [...poisData];
+    let result = [...defaultPois];
 
     result = tab.value
       ? result.filter((item: PoiModel) => item.category === tab.value)
-      : poisData;
+      : defaultPois;
     setPois(result);
     setTab(tab);
   };
+  const flatListRef: any = useRef();
+  useEffect(() => {
+    if (flatListRef && flatListRef.current) {
+      flatListRef.current.scrollToOffset({ animated: false, offset: 0 });
+      console.log('scroll');
+    }
+  }, [activeTab]);
 
   const searchHandler = () => {
     navigation.navigate('Maps');
@@ -94,6 +108,7 @@ const MapScreen = (_: Props) => {
         </Buttons>
         <Tabs data={tabsArray} activeTab={activeTab} onClick={onTabChange} />
         <StyledFlatList
+          ref={flatListRef}
           pointerEvents="auto"
           horizontal
           data={pois}

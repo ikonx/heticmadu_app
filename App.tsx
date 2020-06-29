@@ -8,6 +8,7 @@ import loadFonts from '@utils/loadFonts';
 import theme from '@styleGuide/Theme';
 import NavigationBottomBar from '@components/molecules/NavigationBottomBar/NavigationBottomBar';
 import navigationBottomData from '@utils/mocks/navigationBottomBar.data';
+import PoisProvider from './src/contexts/pois/pois.provider';
 
 const ACTIVATE_STORYBOOK = false;
 
@@ -18,11 +19,13 @@ function App() {
     return <AppLoading />;
   }
   return (
-    <NavigationContainer>
-      <ThemeProvider theme={theme}>
-        <NavigationBottomBar data={navigationBottomData} />
-      </ThemeProvider>
-    </NavigationContainer>
+    <PoisProvider>
+      <NavigationContainer>
+        <ThemeProvider theme={theme}>
+          <NavigationBottomBar data={navigationBottomData} />
+        </ThemeProvider>
+      </NavigationContainer>
+    </PoisProvider>
   );
 }
 

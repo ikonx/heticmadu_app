@@ -21,6 +21,7 @@ import TagsList, { ITag } from '@src/components/molecules/TagsList/TagsList';
 import PoiCard from '@src/components/molecules/PoiCard/PoiCard';
 import { poisData } from '@src/utils/mocks/pois.data';
 import { PoiModel } from '@src/utils/models/pois.model';
+import PoisContext from '@src/contexts/pois/pois.context';
 
 interface Props {
   navigation: NavigationScreenProp<{}, 'Search'>;
@@ -30,8 +31,8 @@ const SearchScreen = ({ navigation }: Props) => {
   const { Colors } = useContext(ThemeContext);
   const [searchValue, setSearch] = useState('');
   const [selectedTags, setSelectedTags] = useState<ITag[]>([]);
-  const [pois, setPois] = useState<PoiModel[]>([...poisData]);
-  const [defaultPois] = useState<PoiModel[]>([...poisData]);
+  const { pois: defaultPois } = useContext(PoisContext);
+  const [pois, setPois] = useState(defaultPois);
   const goToFiltersScreen = () => {
     navigation.navigate('Filters');
   };
