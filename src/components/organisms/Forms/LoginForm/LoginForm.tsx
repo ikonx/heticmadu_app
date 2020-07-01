@@ -51,21 +51,9 @@ const LoginForm: FunctionComponent<ILoginForm> = () => {
 
   return (
     <StyledBlockForm>
-      <InputLoginBlock
-        label="Email"
-        onChange={(e) =>
-          setInputsState({ input1: e.nativeEvent.text, input2: null })
-        }
-        inputType="default"
-      />
+      <InputLoginBlock label="Email" inputType="default" />
       <Spacer size={16} />
-      <InputLoginBlock
-        label="Mot de passe"
-        onChange={(e) =>
-          setInputsState({ input2: e.nativeEvent.text, input1: null })
-        }
-        inputType="password"
-      />
+      <InputLoginBlock label="Mot de passe" inputType="password" />
       <Spacer size={24} />
       <Buttons
         disabled={!queryState.availableButton}
