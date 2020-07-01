@@ -12,7 +12,7 @@ export const StyledHeader = styled(List)`
   padding: 24px 20px 24px 16px;
   align-items: center;
   justify-content: space-between;
-  background: ${ ({ theme }) => theme.Colors.mainRed };
+  background: ${ ({ theme }) => theme.Colors.mainGreen };
 `;
 
 export const StyledHeaderText = styled(View)`

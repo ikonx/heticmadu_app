@@ -22,7 +22,7 @@ const HomeScreen = (_: Props) => {
             <PoiCard poi={poisData[0]} gotBorder fullWidth />
           </HomePlaces>
           <Title variant="h3" isBold>
-            Défi en cours
+            Défi suggérer
           </Title>
           <Spacer size={16} />
           <HomeChallenges>

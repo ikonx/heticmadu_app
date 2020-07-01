@@ -38,7 +38,7 @@ const ChallengeNavigator: FunctionComponent<Props> = () => {
           headerStatusBarHeight: 0,
           headerStyle: {
             elevation: 0,
-            backgroundColor: Colors.mainRed,
+            backgroundColor: Colors.mainGreen,
             shadowOpacity: 0,
           },
           headerRight: () => (
