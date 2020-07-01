@@ -14,8 +14,10 @@ interface IForms {
     label: string;
     type: string;
     required: boolean;
+    key: string;
   }[];
   buttonName: string;
+  initialValue: any;
 }
 
 const StyledFormik = styled(Formik)`
@@ -26,7 +28,16 @@ const StyledFormik = styled(Formik)`
   flex-direction: column;
 `;
 
-const Forms: FunctionComponent<IForms> = ({ dataInput, buttonName }) => {
+const StyledContainerForm = styled(View)`
+  align-items: center;
+  width: 100%;
+`;
+
+const Forms: FunctionComponent<IForms> = ({
+  dataInput,
+  buttonName,
+  initialValue,
+}) => {
   const { Colors } = useContext(ThemeContext);
 
   // All queries for actions on this form
@@ -34,51 +45,11 @@ const Forms: FunctionComponent<IForms> = ({ dataInput, buttonName }) => {
 
   return (
     <StyledFormik
-      initialValues={{
-        email: '',
-        emailPro: '',
-        password: '',
-        name: '',
-        lastName: '',
-      }}
+      initialValues={initialValue}
       validate={(values) => {
-        // const errors = {};
-        // if (!values.email) {
-        //   errors.email = 'Required';
-        // } else if (
-        //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        // ) {
-        //   errors.email = 'Invalid secondary email address';
-        // }
-
-        // if (!values.emailPro) {
-        //   errors.emailPro = 'Required';
-        // } else if (
-        //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.emailPro)
-        // ) {
-        //   errors.emailPro = 'Invalid email address';
-        // }
-
-        // if (!values.lastName) {
-        //   errors.lastName = 'Required';
-        // } else if (values.lastName.length > 20) {
-        //   errors.lastName = 'Must be 20 characters or less';
-        // }
-
-        // if (!values.name) {
-        //   errors.name = 'Required';
-        // } else if (values.name.length > 20) {
-        //   errors.name = 'Must be 20 characters or less';
-        // }
-
-        // if (!values.password) {
-        //   errors.password = 'Required';
-        // } else if (values.password.length > 20) {
-        //   errors.password = 'Must be 20 characters or less';
-        // }
-
+        const errors = {};
         setisAvailableState(!isAvailableState);
-        // return errors;
+        return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
         console.log(JSON.stringify(values, null, 2));
@@ -87,8 +58,8 @@ const Forms: FunctionComponent<IForms> = ({ dataInput, buttonName }) => {
         }, 400);
       }}
     >
-      {({ handleSubmit }) => (
-        <View style={{ flex: 1, backgroundColor: 'red' }}>
+      {({ handleSubmit, values }) => (
+        <StyledContainerForm>
           {dataInput.map((input: any, index: number) => {
             return (
               <>
@@ -98,6 +69,7 @@ const Forms: FunctionComponent<IForms> = ({ dataInput, buttonName }) => {
                   label={input.label}
                   required={input.required}
                   inputType={input.type}
+                  value={values[input.key]}
                 />
                 <Spacer size={16} />
               </>
@@ -116,7 +88,7 @@ const Forms: FunctionComponent<IForms> = ({ dataInput, buttonName }) => {
               {buttonName}
             </Text>
           </Buttons>
-        </View>
+        </StyledContainerForm>
       )}
     </StyledFormik>
   );

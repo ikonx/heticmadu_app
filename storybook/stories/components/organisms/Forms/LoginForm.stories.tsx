@@ -9,10 +9,10 @@ const LoginFormStories: FunctionComponent<Props> = () => {
     // <LoginForm></LoginForm>
     <Forms
       dataInput={[
-        { label: 'email', type: 'default', required: true },
-        { label: 'prénom', type: 'default', required: true },
-        { label: 'nom', type: 'default', required: true },
-        { label: 'Mot de passe', type: 'password', required: true }
+        { label: 'email', type: 'default', required: true, value: 'email' },
+        { label: 'prénom', type: 'default', required: true, value: 'email' },
+        { label: 'nom', type: 'default', required: true value: 'email' },
+        { label: 'Mot de passe', type: 'password', required: true value: 'email'},
       ]}
       buttonName="Se connecter"
     />
