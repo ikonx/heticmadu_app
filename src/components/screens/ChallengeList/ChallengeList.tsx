@@ -30,7 +30,7 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
     <ChallengeListContainer>
       <StyledHeader>
         <StyledHeaderText>
-          <TagsList />
+          <TagsList tagsArray={[{ label: '7 Défi' }]} selectedTags={[{ label: '7 Défi' }]}/>
           <Spacer size={16} />
           <Title variant="h4" color={Colors.mainWhite} isBold>Toutes ses fournitures</Title>
           <Spacer size={8} />
@@ -43,9 +43,6 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
         <Illustration name={IllustrationName.ENERGIE} />
       </StyledHeader>
       <StyledContent>
-        <Spacer size={24} />
-        <Title variant="h4" isBold>Catégorie</Title>
-        <Spacer size={24} />
         <FlatList
           data={ChallengeListData}
           renderItem={ ({ item }) => (
@@ -59,6 +56,9 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
           keyExtractor={ item => item.id }
           ListFooterComponent={() => <Spacer size={24} />}
           ItemSeparatorComponent={() => <Spacer size={16}/>}
+          style={{
+            paddingTop: 24,
+          }}
         />
     </StyledContent>
     </ChallengeListContainer>
