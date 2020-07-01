@@ -1,3 +1,4 @@
+/* tslint:disable */
 import faker from 'faker';
 import axios from 'axios';
 faker.locale = 'fr';

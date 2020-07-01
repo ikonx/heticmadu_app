@@ -1,11 +1,23 @@
+// @ts-nocheck
+/* tslint:disable */
 import React, { FunctionComponent, useState } from 'react';
-import { View } from 'react-native';
-import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
+import { View, Animated, Dimensions, StyleSheet } from 'react-native';
+import {
+  NavigationParams,
+  NavigationScreenProp,
+  NavigationState,
+  AnimatedValue,
+  SafeAreaView,
+} from 'react-navigation';
 import Colors from '@styleGuide/Colors';
 import { IconName } from '@assets/icons/IconName.enum';
 import { ProfileBadgeModel } from '@utils/models/profileBadge.model';
 import { ProfileLeaderboardModel } from '@utils/models/profileLeaderboard.model';
-import { leaderboardData, profileData, profileTabs } from '@utils/mocks/profile.data';
+import {
+  leaderboardData,
+  profileData,
+  profileTabs,
+} from '@utils/mocks/profile.data';
 import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
 import Icon from '@components/atoms/Icons/Icon';
 import { Direction } from '@components/atoms/Icons/Chevron/Chevron.style';
@@ -17,7 +29,8 @@ import Title from '@components/atoms/Typography/Title/Title';
 import Separator from '@components/atoms/Separator/Separator';
 import LeaderboardRow from '@components/molecules/LeaderboardRow/LeaderboardRow';
 import {
-  ProfileItem, ProfileList,
+  ProfileItem,
+  ProfileList,
   ProfileParams,
   ProfileScreenContainer,
   ProfileScreenHeader,
@@ -29,78 +42,145 @@ interface Props {
 
 const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
   const [activeTab, setActiveTab] = useState(1);
-  const [mainData, setData] = useState<ProfileBadgeModel[]|ProfileLeaderboardModel[]>(
-    leaderboardData,
-  );
-
+  const [mainData, setData] = useState<
+    ProfileBadgeModel[] | ProfileLeaderboardModel[]
+  >(leaderboardData);
   const updateTab = () => {
     setData(activeTab === 0 ? leaderboardData : profileData);
     setActiveTab(activeTab === 0 ? 1 : 0);
   };
 
+  const animatedValue: AnimatedValue = new Animated.Value(0);
+  const MAX_SCROLL = Dimensions.get('window').height / 3;
+  const headerTranslateY = animatedValue.interpolate({
+    inputRange: [0, 100],
+    outputRange: [0, -100],
+    extrapolate: 'clamp',
+  });
+
+  const iconTranslateY = animatedValue.interpolate({
+    inputRange: [0, 100],
+    outputRange: [44, 144],
+    extrapolate: 'clamp',
+  });
+
+  const avatarScale = animatedValue.interpolate({
+    inputRange: [0, 100],
+    outputRange: [1, 0.7],
+    extrapolate: 'clamp',
+  });
+
   return (
     <ProfileScreenContainer>
-      <ProfileScreenHeader>
-        <ProfileParams variant={TouchableType.ICON} onPress={() => navigation.goBack()}>
-          <Icon
-            height={24}
-            width={24}
-            name={IconName.SETTINGS}
-            direction={Direction.LEFT}
-            fill={Colors.mainGrey}
+      <Animated.View
+        style={[
+          {
+            ...StyleSheet.absoluteFillObject,
+            zIndex: 1,
+            bottom: 'auto',
+            backgroundColor: 'white',
+            transform: [{ translateY: headerTranslateY }],
+          },
+        ]}
+      >
+        {/* <SafeAreaView forceInset={{ bottom: 'never', top: 'never' }}> */}
+        <ProfileScreenHeader
+          style={[
+            {
+              transform: [{ translateY: iconTranslateY }],
+            },
+          ]}
+        >
+          <ProfileParams
+            variant={TouchableType.ICON}
+            onPress={() => navigation.goBack()}
+          >
+            <Icon
+              height={24}
+              width={24}
+              name={IconName.SETTINGS}
+              direction={Direction.LEFT}
+              fill={Colors.mainGrey}
+            />
+          </ProfileParams>
+        </ProfileScreenHeader>
+        {/* </SafeAreaView> */}
+        <Animated.View
+          style={[
+            {
+              transform: [
+                {
+                  translateY: animatedValue.interpolate({
+                    inputRange: [0, 100],
+                    outputRange: [0, 50],
+                    extrapolate: 'clamp',
+                  }),
+                  scale: avatarScale,
+                },
+              ],
+            },
+          ]}
+        >
+          <Spacer size={24} />
+          <Profile title="John Doe" text="7 Défi réalisés" />
+        </Animated.View>
+        <Spacer size={24} />
+        <View>
+          <Tabs
+            data={profileTabs}
+            onClick={updateTab}
+            activeTab={profileTabs[activeTab]}
+            columns={profileTabs.length}
           />
-        </ProfileParams>
-      </ProfileScreenHeader>
-      <Spacer size={24}/>
-      <Profile
-        title="John Doe"
-        text="7 Défi réalisés"
-      />
-      <Spacer size={24}/>
-      <View>
-        <Tabs
-          data={profileTabs}
-          onClick={updateTab}
-          activeTab={profileTabs[activeTab]}
-          columns={profileTabs.length}
-        />
-      </View>
+        </View>
+      </Animated.View>
       <ProfileList
+        contentContainerStyle={{
+          paddingTop: MAX_SCROLL,
+        }}
+        scrollEventThrottle={16}
+        onScroll={Animated.event(
+          [
+            {
+              nativeEvent: { contentOffset: { y: animatedValue } },
+            },
+          ],
+          { useNativeDriver: true },
+        )}
         data={mainData}
-        renderItem={
-          ({ item, index }: {
-            item: ProfileBadgeModel&ProfileLeaderboardModel,
-            index: number,
-          }) => {
-            return activeTab === 0 ? (
-                <ProfileItem flexDirection="column">
-                  <ChallengeBadge
-                    illustration={item.illustration}
-                    background={item.color}
-                    count={item.count}
-                  />
-                  <Spacer size={8}/>
-                  <Title variant="subtitle">{item.text}</Title>
-                </ProfileItem>
-              ) : (
-                <>
-                  <LeaderboardRow
-                    rank={item.rank}
-                    name={item.name}
-                    text={item.text}
-                  />
-                  <Spacer size={16} />
-                  { leaderboardData.length > index + 1 && (
-                    <Separator />
-                  )}
-                </>
-            );
-          }
-        }
-        key={(activeTab === 0 ? 'a' : 'b')}
-        keyExtractor={ (item: ProfileBadgeModel) => item.text }
+        renderItem={({
+          item,
+          index,
+        }: {
+          item: ProfileBadgeModel & ProfileLeaderboardModel;
+          index: number;
+        }) => {
+          return activeTab === 0 ? (
+            <ProfileItem flexDirection="column">
+              <ChallengeBadge
+                illustration={item.illustration}
+                background={item.color}
+                count={item.count}
+              />
+              <Spacer size={8} />
+              <Title variant="subtitle">{item.text}</Title>
+            </ProfileItem>
+          ) : (
+            <>
+              <LeaderboardRow
+                rank={item.rank}
+                name={item.name}
+                text={item.text}
+              />
+              <Spacer size={16} />
+              {leaderboardData.length > index + 1 && <Separator />}
+            </>
+          );
+        }}
+        key={activeTab === 0 ? 'a' : 'b'}
+        keyExtractor={(item: ProfileBadgeModel) => item.text}
         numColumns={activeTab === 0 ? 2 : 1}
-        ItemSeparatorComponent={() => <Spacer size={24}/>}
+        ItemSeparatorComponent={() => <Spacer size={24} />}
         ListFooterComponent={() => (
           <>
             <Spacer size={24} />

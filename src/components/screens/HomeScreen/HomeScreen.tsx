@@ -7,20 +7,20 @@ import Spacer from '@components/atoms/Spacer/Spacer';
 import ChallengeCard from '@components/molecules/ChallengeCard/ChallengeCard';
 import { ScrollView, Button, Text } from 'react-native';
 import { HomeChallenges, HomeContainer, HomePlaces } from './HomeScreen.style';
-import { seeder } from '@src/utils/seeder';
+import { seedPois, seedTags } from '@src/utils/seeder';
 
 interface Props {}
 
 const HomeScreen = (_: Props) => {
   const seed = () => {
-    seeder();
+    // seedTags();
   };
 
   return (
     <HomeContainer>
       <ScrollView style={{ paddingBottom: 66 }}>
         <Title isBold>Hello, Victor ✌🏼</Title>
-        <Button title="seed" onPress={seed} />
+        {/* <Button title="seed" onPress={seed} /> */}
         <HomePlaces>
           <Title variant="h3" isBold>
             Lieu à visiter
