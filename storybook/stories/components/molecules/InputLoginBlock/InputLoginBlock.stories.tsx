@@ -7,11 +7,11 @@ interface Props {}
 const InputLoginBlockStories: FunctionComponent<Props> = () => {
   return (
     <>
-      <InputLoginBlock inputType="default">Email</InputLoginBlock>
+      <InputLoginBlock inputType="default" label="Email" />
       <Spacer size={24} />
-      <InputLoginBlock inputType="password">Mot de passe</InputLoginBlock>
+      <InputLoginBlock inputType="password" label="Mot de passe" />
       <Spacer size={24} />
-      <InputLoginBlock inputType="action">Action</InputLoginBlock>
+      <InputLoginBlock inputType="action" label="Action"/>
     </>
   );
 };

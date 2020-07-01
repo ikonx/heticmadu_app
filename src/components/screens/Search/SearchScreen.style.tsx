@@ -10,8 +10,3 @@ export const StyledContent = styled(ScrollView)`
   background-color: ${({ theme }) => theme.Colors.mainWhite};
   padding: 0 16px 16px 16px;
 `;
-
-export const StyledContent = styled(ScrollView)`
-  background-color: ${({ theme }) => theme.Colors.mainWhite};
-  padding: 0 16px 16px 16px;
-`;

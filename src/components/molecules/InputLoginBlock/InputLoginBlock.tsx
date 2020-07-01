@@ -26,8 +26,11 @@ interface IInputLoginBlock {
   hidePassword?: boolean;
   inputFocus?: boolean;
   inputType: LabelVariants;
-  value: string;
-  onPress: (value: string) => void;
+  value?: string;
+  label?: string;
+  required?: boolean;
+  index?: number;
+  onPress?: (value?: string) => void;
 }
 
 const StyledRightBlock = styled(View)`
@@ -44,9 +47,11 @@ const StyledTextAction = styled(Text)`
 
 const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
   inputType,
-  children,
+  label,
   value,
   onPress,
+  index,
+  required,
 }) => {
   const [isHidden, setHidden] = useState(inputType === 'password');
   const [isFocus, setFocus] = useState(false);
@@ -123,7 +128,13 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
   };
 
   return (
-    <StyledInputLoginBlock inputType={inputType} inputFocus={isFocus}>
+    <StyledInputLoginBlock
+      inputType={inputType}
+      inputFocus={isFocus}
+      key={index}
+      label={label}
+      required={required}
+    >
       <Animated.View
         style={{
           transform: [{ translateY }],
@@ -136,7 +147,7 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
           inputFocus={isFocus}
           style={{ fontSize }}
         >
-          {children}
+          {label}
         </Text>
       </Animated.View>
       <Spacer size={4} />

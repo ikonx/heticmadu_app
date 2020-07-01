@@ -6,6 +6,7 @@ import { TouchableType } from './Buttons.enum';
 
 interface ITouchable extends TouchableOpacityProps {
   variant: TouchableType;
+  disabled: boolean;
 }
 
 const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
@@ -14,7 +15,8 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-
+    background-color: ${({ disabled }) =>
+      disabled ? `${Theme.Colors.mainGrey} !important` : 'none'};
     ${({ variant }) =>
       variant === TouchableType.DEFAULT &&
       css`
@@ -60,10 +62,11 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
 const Buttons: FunctionComponent<ITouchable> = ({
   variant,
   children,
+  disabled,
   ...rest
 }) => {
   return (
-    <StyledTouchable variant={variant} {...rest}>
+    <StyledTouchable variant={variant} disabled={disabled} {...rest}>
       {children}
     </StyledTouchable>
   );
