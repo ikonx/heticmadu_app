@@ -7,11 +7,14 @@ const StyledInputLoginBlock = styled(View)<{
 }>`
   width: 90%;
   padding: 12px;
+  padding-bottom: 4px;
+  padding-top: 16px;
   background-color: ${Theme.Colors.mainWhite};
   border: ${({ inputFocus }) =>
     inputFocus ? Theme.Borders.avatarBorder : Theme.Borders.lightBorder};
   border-radius: 10px;
   position: relative;
+  max-height: 64px;
 `;
 
 export default StyledInputLoginBlock;

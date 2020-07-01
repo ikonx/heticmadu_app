@@ -9,7 +9,6 @@ const StyledInputLogin = styled(TextInput)<{
   height: 39px;
   width: 85%;
   z-index: 2;
-  margin-top: 4px;
 `;
 
 export default StyledInputLogin;

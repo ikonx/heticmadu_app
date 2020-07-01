@@ -15,8 +15,6 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    background-color: ${({ disabled }) =>
-      disabled ? `${Theme.Colors.mainGrey} !important` : 'none'};
     ${({ variant }) =>
       variant === TouchableType.DEFAULT &&
       css`
@@ -56,6 +54,11 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
         background-color: ${Theme.Colors.mainPurple};
         max-height: 56px;
         padding: 16px;
+      `}
+    ${({ disabled }) =>
+      disabled &&
+      css`
+        background-color: ${Theme.Colors.mainGrey};
       `}
 `;
 

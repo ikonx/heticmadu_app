@@ -15,6 +15,7 @@ interface IForms {
     type: string;
     required: boolean;
     key: string;
+    pattern?: string;
   }[];
   buttonName: string;
   initialValue: any;
@@ -42,35 +43,49 @@ const Forms: FunctionComponent<IForms> = ({
 
   // All queries for actions on this form
   const [isAvailableState, setisAvailableState] = useState(false);
+  const [errors, setErrors] = useState({});
 
   return (
     <StyledFormik
       initialValues={initialValue}
+      onSubmit={(values: any) => console.log('values', values)}
       validate={(values) => {
-        const errors = {};
-        setisAvailableState(!isAvailableState);
+        const errors: any = {};
+        dataInput.map((field: any) => {
+          if (!values[field.key]) {
+            errors[field.key] = 'Required';
+          } else if (field.pattern && !field.pattern.test(values[field.key])) {
+            errors[field.key] = `Invalid ${field.key} field`;
+          }
+        });
+
+        // if (!values.lastName) {
+        //   errors.lastName = 'Required';
+        // } else if (values.lastName.length > 20) {
+        //   errors.lastName = 'Must be 20 characters or less';
+        // }
+        Object.keys(errors).length === 0
+          ? setisAvailableState(true)
+          : setisAvailableState(false);
+        console.log('rreors', errors);
+        setErrors(errors);
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        console.log(JSON.stringify(values, null, 2));
-        setTimeout(() => {
-          setSubmitting(false);
-        }, 400);
-      }}
     >
-      {({ handleSubmit, values }) => (
+      {({ handleChange, handleSubmit, values }) => (
         <StyledContainerForm>
           {dataInput.map((input: any, index: number) => {
             return (
               <>
                 <InputLoginBlock
-                  // eslint-disable-next-line react/no-array-index-key
                   key={index}
                   label={input.label}
                   required={input.required}
                   inputType={input.type}
-                  value={values[input.key]}
+                  defaultValue={input.value}
+                  onInputValueChange={handleChange(input.key)}
                 />
+                {errors[input.key] && <Text>{errors[input.key]}</Text>}
                 <Spacer size={16} />
               </>
             );
@@ -78,10 +93,12 @@ const Forms: FunctionComponent<IForms> = ({
           <Spacer size={8} />
           <Buttons
             onPress={handleSubmit}
-            disabled={isAvailableState}
+            disabled={!isAvailableState}
             variant={TouchableType.FULLWIDTH}
             style={{
               justifyContent: 'center',
+              maxHeight: 56,
+              height: 56,
             }}
           >
             <Text variant="button" color={Colors.mainWhite} isBold>

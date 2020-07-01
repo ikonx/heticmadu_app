@@ -9,12 +9,39 @@ const LoginFormStories: FunctionComponent<Props> = () => {
     // <LoginForm></LoginForm>
     <Forms
       dataInput={[
-        { label: 'email', type: 'default', required: true, value: 'email' },
-        { label: 'prénom', type: 'default', required: true, value: 'email' },
-        { label: 'nom', type: 'default', required: true value: 'email' },
-        { label: 'Mot de passe', type: 'password', required: true value: 'email'},
+        {
+          label: 'email',
+          type: 'default',
+          required: true,
+          key: 'email',
+          pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        },
+        {
+          label: 'prénom',
+          type: 'default',
+          required: true,
+          key: 'firstname',
+        },
+        {
+          label: 'nom',
+          type: 'default',
+          required: true,
+          key: 'lastname',
+        },
+        {
+          label: 'Mot de passe',
+          type: 'password',
+          required: true,
+          key: 'password',
+        },
       ]}
       buttonName="Se connecter"
+      initialValue={{
+        email: '',
+        firstname: '',
+        lastname: '',
+        password: '',
+      }}
     />
   );
 };

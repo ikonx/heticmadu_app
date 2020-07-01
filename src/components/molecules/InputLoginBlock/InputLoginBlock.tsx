@@ -32,6 +32,7 @@ interface IInputLoginBlock {
   required?: boolean;
   index?: number;
   onPress?: (defaultValue?: string) => void;
+  onInputValueChange?: (value?: string | number) => void;
 }
 
 const StyledRightBlock = styled(View)`
@@ -54,6 +55,7 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
   index,
   required,
   value,
+  onInputValueChange,
 }) => {
   const [isHidden, setHidden] = useState(inputType === 'password');
   const [isFocus, setFocus] = useState(false);
@@ -66,7 +68,7 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
 
   useEffect(() => {
     Animated.timing(translateY, {
-      toValue: isFocus ? -4 : 12,
+      toValue: isFocus ? 0 : 12,
       duration: 300,
       easing: Easing.ease,
       useNativeDriver: false,
@@ -89,6 +91,7 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
 
   const changeTextHanlder = (e: any) => {
     setValue(e.nativeEvent.text);
+    onInputValueChange(e.nativeEvent.text);
   };
 
   const renderAction = (hide: boolean) => {
@@ -140,7 +143,9 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
       <Animated.View
         style={{
           transform: [{ translateY }],
-          left: 0,
+          left: 12,
+          top: 8,
+          position: 'absolute',
         }}
       >
         <Text
@@ -152,7 +157,6 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
           {label}
         </Text>
       </Animated.View>
-      <Spacer size={4} />
       <InputLogin
         secureTextEntry={isHidden}
         onFocus={manageInputFocus(true)}
