@@ -5,7 +5,7 @@ import ChallengeBadgeStories from './ChallengeBadge/ChallengeBadge.stories';
 import ChallengeCardStories from './ChallengeCard/ChallengeCard.stories';
 import ChallengeRowStories from './ChallengeRow/ChallengeRow.stories';
 import ChipsListStories from './ChipsList/ChipsList.stories';
-import InputLoginBlockStories from './InputLoginBlock/InputLoginBlock.stories';
+import InputFormBlockStories from './InputFormBlock/InputFormBlock.stories';
 import CommentStories from './Comment/Comment.stories';
 import LogoutModalStories from './LogoutModal/LogoutModal.stories';
 import NavigationHeaderStories from './NavigationHeader/NavigationHeader.stories';
@@ -22,7 +22,7 @@ storiesOf('Molecules', module)
   .add('Challenge Card', () => <ChallengeCardStories />)
   .add('Challenge Row', () => <ChallengeRowStories />)
   .add('Chips List', () => <ChipsListStories />)
-  .add('Input Login', () => <InputLoginBlockStories />)
+  .add('Input Form', () => <InputFormBlockStories />)
   .add('Comment', () => <CommentStories />)
   .add('Logout Modal', () => <LogoutModalStories />)
   .add('Navigation Header', () => <NavigationHeaderStories />)

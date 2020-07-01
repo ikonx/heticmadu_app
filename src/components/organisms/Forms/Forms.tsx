@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import styled, { ThemeContext } from 'styled-components';
 import { View } from 'react-native';
 
-import InputLoginBlock from '@src/components/molecules/InputLoginBlock/InputLoginBlock';
+import InputLoginBlock from '@src/components/molecules/InputFormBlock/InputFormBlock';
 import Buttons from '@src/components/atoms/Buttons/Buttons';
 import Text from '@src/components/atoms/Typography/Text/Text';
 import Spacer from '@src/components/atoms/Spacer/Spacer';
@@ -48,31 +48,28 @@ const Forms: FunctionComponent<IForms> = ({
   return (
     <StyledFormik
       initialValues={initialValue}
-      onSubmit={(values: any) => console.log('values', values)}
-      validate={(values) => {
+      onSubmit={(values: any) => {
+        console.log('values', values);
         const errors: any = {};
         dataInput.map((field: any) => {
           if (!values[field.key]) {
-            errors[field.key] = 'Required';
+            errors[field.key] = `Requiert ${field.label}`;
           } else if (field.pattern && !field.pattern.test(values[field.key])) {
-            errors[field.key] = `Invalid ${field.key} field`;
+            errors[field.key] = `Le champ ${field.key} est invalide`;
           }
         });
-
-        // if (!values.lastName) {
-        //   errors.lastName = 'Required';
-        // } else if (values.lastName.length > 20) {
-        //   errors.lastName = 'Must be 20 characters or less';
-        // }
-        Object.keys(errors).length === 0
-          ? setisAvailableState(true)
-          : setisAvailableState(false);
-        console.log('rreors', errors);
         setErrors(errors);
         return errors;
       }}
+      validate={(values) => {
+        dataInput.map((field: any) => {
+          !values[field.key]
+            ? setisAvailableState(false)
+            : setisAvailableState(true);
+        });
+      }}
     >
-      {({ handleChange, handleSubmit, values }) => (
+      {({ handleChange, handleSubmit }) => (
         <StyledContainerForm>
           {dataInput.map((input: any, index: number) => {
             return (
@@ -84,8 +81,20 @@ const Forms: FunctionComponent<IForms> = ({
                   inputType={input.type}
                   defaultValue={input.value}
                   onInputValueChange={handleChange(input.key)}
+                  errors={errors[input.key]}
                 />
-                {errors[input.key] && <Text>{errors[input.key]}</Text>}
+                {errors[input.key] && (
+                  <>
+                    <Spacer size={4} />
+                    <Text
+                      variant="error"
+                      color={Colors.mainRed}
+                      style={{ width: '85%' }}
+                    >
+                      {errors[input.key]}
+                    </Text>
+                  </>
+                )}
                 <Spacer size={16} />
               </>
             );

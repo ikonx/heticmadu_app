@@ -7,6 +7,7 @@ import {
   TextLegend,
   TextLegendImportant,
   TextLink,
+  TextError,
   TextLabelInput,
 } from './Text.style';
 
@@ -17,6 +18,7 @@ type TextVariants =
   | 'label'
   | 'button'
   | 'link'
+  | 'error'
   | 'labelInput';
 interface Props extends TextProps {
   variant?: TextVariants;
@@ -32,6 +34,7 @@ const variants = {
   legendI: TextLegendImportant,
   label: TextLabel,
   button: TextButton,
+  error: TextError,
   link: TextLink,
   labelInput: TextLabelInput,
 };

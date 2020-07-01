@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import LoginForm from '@components/organisms/Forms/LoginForm/LoginForm';
 import Forms from '@components/organisms/Forms/Forms';
 
 interface Props {}
@@ -10,20 +9,20 @@ const LoginFormStories: FunctionComponent<Props> = () => {
     <Forms
       dataInput={[
         {
-          label: 'email',
+          label: 'Email',
           type: 'default',
           required: true,
           key: 'email',
           pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
         },
         {
-          label: 'prénom',
+          label: 'Prénom',
           type: 'default',
           required: true,
           key: 'firstname',
         },
         {
-          label: 'nom',
+          label: 'Nom',
           type: 'default',
           required: true,
           key: 'lastname',

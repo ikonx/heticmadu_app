@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { TextInputProps } from 'react-native';
-import StyledInputLogin from './InputLogin.style';
+import StyledInputLogin from './InputForm.style';
 
 interface IInputLogin extends TextInputProps {
   inputType: string;

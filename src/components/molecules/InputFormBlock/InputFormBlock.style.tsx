@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { View } from 'react-native';
 import Theme from '@src/styleGuide/Theme';
 
 const StyledInputLoginBlock = styled(View)<{
   inputFocus?: boolean;
+  errors?: string;
 }>`
   width: 90%;
   padding: 12px;
@@ -15,6 +16,11 @@ const StyledInputLoginBlock = styled(View)<{
   border-radius: 10px;
   position: relative;
   max-height: 64px;
+  ${({ errors }) =>
+    errors &&
+    css`
+      border: ${Theme.Borders.errorBorder};
+    `}
 `;
 
 export default StyledInputLoginBlock;

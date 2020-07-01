@@ -10,7 +10,7 @@ import { View, Animated, Easing } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import Text from '@src/components/atoms/Typography/Text/Text';
-import InputLogin from '@src/components/atoms/InputLogin/InputLogin';
+import InputLogin from '@src/components/atoms/InputForm/InputForm';
 import Theme from '@src/styleGuide/Theme';
 import Buttons from '@src/components/atoms/Buttons/Buttons';
 import Icon from '@src/components/atoms/Icons/Icon';
@@ -18,7 +18,7 @@ import { IconName } from '@src/assets/icons/IconName.enum';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Spacer from '@src/components/atoms/Spacer/Spacer';
 
-import StyledInputLoginBlock from './InputLoginBlock.style';
+import StyledInputLoginBlock from './InputFormBlock.style';
 
 type LabelVariants = 'default' | 'password' | 'action';
 
@@ -33,6 +33,7 @@ interface IInputLoginBlock {
   index?: number;
   onPress?: (defaultValue?: string) => void;
   onInputValueChange?: (value?: string | number) => void;
+  errors?: string;
 }
 
 const StyledRightBlock = styled(View)`
@@ -56,6 +57,7 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
   required,
   value,
   onInputValueChange,
+  errors,
 }) => {
   const [isHidden, setHidden] = useState(inputType === 'password');
   const [isFocus, setFocus] = useState(false);
@@ -139,6 +141,7 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
       key={index}
       label={label}
       required={required}
+      errors={errors}
     >
       <Animated.View
         style={{
