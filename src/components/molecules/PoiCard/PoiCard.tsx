@@ -12,6 +12,7 @@ interface Props {
   gotBorder?: boolean;
   fullWidth?: boolean;
   onPress: (poi: PoiModel) => () => void;
+  onPressGreenscore?: () => void;
 }
 
 const StyledImage = styled(Image)`
@@ -42,7 +43,7 @@ const StyledPoiCard = styled(TouchableOpacity)`
     `}
 `;
 
-const PoiCard = ({ poi, gotBorder, fullWidth, onPress }: Props) => {
+const PoiCard = ({ poi, gotBorder, fullWidth, onPress, onPressGreenscore }: Props) => {
   const { name, address, greenScore, averagePrice, images } = poi;
   return (
     <StyledPoiCard
@@ -67,7 +68,7 @@ const PoiCard = ({ poi, gotBorder, fullWidth, onPress }: Props) => {
         </Text>
         <Spacer size={8} />
         <List>
-          <Badge.GreenScore score={greenScore} />
+          <Badge.GreenScore score={greenScore} onClick={onPressGreenscore}/>
           <Spacer size={8} />
           <Badge.Price price={averagePrice} />
         </List>
