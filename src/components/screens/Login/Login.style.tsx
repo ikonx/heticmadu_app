@@ -6,7 +6,6 @@ export const LoginContainer = styled(SafeAreaView)`
   align-items: center;
 `;
 
-export const LoginImgBlock = styled(View)``;
 export const LoginTextBlock = styled(View)`
   flex-direction: row;
   justify-content: center;

@@ -6,9 +6,6 @@ export const CreateAccountContainer = styled(SafeAreaView)`
   align-items: center;
 `;
 
-export const CreateAccountImgBlock = styled(View)``;
-export const CreateAccountTextBlock = styled(View)`
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+export const CreateAccountTitleBlock = styled(View)`
+  width: 90%;
 `;

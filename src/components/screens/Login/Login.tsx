@@ -11,7 +11,7 @@ import Text from '@src/components/atoms/Typography/Text/Text';
 import Buttons from '@src/components/atoms/Buttons/Buttons';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Colors from '@src/styleGuide/Colors';
-import { LoginContainer, LoginImgBlock, LoginTextBlock } from './Login.style';
+import { LoginContainer, LoginTextBlock } from './Login.style';
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
@@ -22,9 +22,7 @@ const LoginScreen: FunctionComponent<Props> = ({ navigation }) => {
     <>
       <LoginContainer>
         <Spacer size={24} />
-        <LoginImgBlock>
-          <MaduLogo />
-        </LoginImgBlock>
+        <MaduLogo />
         <Spacer size={24} />
         <Forms
           dataInput={[

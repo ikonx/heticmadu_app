@@ -4,17 +4,15 @@ import {
   NavigationScreenProp,
   NavigationState,
 } from 'react-navigation';
-import MaduLogo from '@assets/img/Madu_Logo.svg';
 import Spacer from '@src/components/atoms/Spacer/Spacer';
-import Forms from '@src/components/organisms/Forms/Forms';
-import Text from '@src/components/atoms/Typography/Text/Text';
-import Buttons from '@src/components/atoms/Buttons/Buttons';
-import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Colors from '@src/styleGuide/Colors';
+import NavigationHeader from '@src/components/molecules/NavigationHeader/NavigationHeader';
+import Forms from '@src/components/organisms/Forms/Forms';
+import Title from '@src/components/atoms/Typography/Title/Title';
+import Text from '@src/components/atoms/Typography/Text/Text';
 import {
   CreateAccountContainer,
-  CreateAccountImgBlock,
-  CreateAccountTextBlock,
+  CreateAccountTitleBlock,
 } from './CreateAccount.style';
 
 interface Props {
@@ -22,13 +20,60 @@ interface Props {
 }
 
 const CreateAccountScreen: FunctionComponent<Props> = ({ navigation }) => {
+  const goBack = () => navigation.goBack();
+
   return (
     <>
       <CreateAccountContainer>
+        <Spacer size={8} />
+        <NavigationHeader onBack={goBack} />
         <Spacer size={24} />
-        <CreateAccountImgBlock>
-          <MaduLogo />
-        </CreateAccountImgBlock>
+        <CreateAccountTitleBlock>
+          <Title variant="h2" isBold>
+            Crée mon compte
+          </Title>
+          <Spacer size={8} />
+          <Text color={Colors.mainGrey}>
+            Votre inscription en une seule et simple étape
+          </Text>
+        </CreateAccountTitleBlock>
+        <Spacer size={24} />
+        <Forms
+          dataInput={[
+            {
+              label: 'Nom',
+              type: 'default',
+              required: true,
+              key: 'lastname',
+            },
+            {
+              label: 'Prénom',
+              type: 'default',
+              required: true,
+              key: 'name',
+            },
+            {
+              label: 'Email',
+              type: 'default',
+              required: true,
+              key: 'email',
+              pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            },
+            {
+              label: 'Mot de passe',
+              type: 'password',
+              required: true,
+              key: 'password',
+            },
+          ]}
+          buttonName="Confirmer"
+          initialValue={{
+            email: '',
+            firstname: '',
+            lastname: '',
+            password: '',
+          }}
+        />
       </CreateAccountContainer>
     </>
   );
