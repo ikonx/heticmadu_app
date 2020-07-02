@@ -41,7 +41,7 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
   return (
     <ProfileScreenContainer>
       <ProfileScreenHeader>
-        <ProfileParams variant={TouchableType.ICON} onPress={() => navigation.navigate('Profile')}>
+        <ProfileParams variant={TouchableType.ICON} onPress={() => navigation.navigate('Profile', { screen: 'Edit' })}>
           <Icon
             height={24}
             width={24}
@@ -74,7 +74,7 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
           }) => {
             return activeTab === 0 ? (
                 <ProfileItem flexDirection="column">
-                    <TouchableOpacity onPress={() => navigation.navigate('Coupon')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Profile', { screen: 'Coupon' })}>
                         <ChallengeBadge
                             illustration={item.illustration}
                             background={item.color}
