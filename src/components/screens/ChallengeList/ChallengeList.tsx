@@ -33,7 +33,7 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
 
   return (
     <ChallengeListContainer>
-      <View style={{ backgroundColor: Colors.mainRed, paddingBottom: 24 }}>
+      <View style={{ backgroundColor: Colors.mainGreen, paddingBottom: 24 }}>
         <StyledButton variant={TouchableType.ICON} onPress={() => navigation.goBack()}>
           <Icon
             height={24}

@@ -11,7 +11,9 @@ export const ChallengeListContainer = styled(SafeAreaView)`
 
 export const StyledHeader = styled(List)`
   padding: 0 20px 24px 16px;
-  background: ${ ({ theme }) => theme.Colors.mainRed };
+  align-items: center;
+  justify-content: space-between;
+  background: ${ ({ theme }) => theme.Colors.mainGreen };
 `;
 
 export const StyledHeaderText = styled(View)`

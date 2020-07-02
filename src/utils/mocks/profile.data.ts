@@ -19,19 +19,19 @@ export const profileData: ProfileBadgeModel[] = [
     illustration: IllustrationName.ENERGIE,
     text: 'Master de l\'energie',
     count: 1,
-    color: Colors.mainRed,
+    color: Colors.mainGreen,
   },
   {
     illustration: IllustrationName.CUISINE,
     text: 'Chef cuisinier',
     count: 0,
-    color: Colors.secondaryGrey,
+    color: Colors.darknessPurple,
   },
   {
     illustration: IllustrationName.MAISON,
     text: 'Maison verte',
     count: 1,
-    color: Colors.mainOrange,
+    color: Colors.mainYellow,
   },
   {
     illustration: IllustrationName.RECYCLAGE,
