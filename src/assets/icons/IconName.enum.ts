@@ -16,6 +16,7 @@ export enum IconName {
   MAPS = 'maps',
   PHONE = 'phone',
   SEARCH = 'search',
+  SETTINGS = 'settings',
   STORY = 'story',
   TH = 'th',
   USER = 'user',

@@ -7,6 +7,8 @@ import ChallengeRowStories from './ChallengeRow/ChallengeRow.stories';
 import ChipsListStories from './ChipsList/ChipsList.stories';
 import InputFormBlockStories from './InputFormBlock/InputFormBlock.stories';
 import CommentStories from './Comment/Comment.stories';
+import GreenScoreIndicatorStories from './GreenScoreIndicator/GreenScoreIndicator.stories';
+import LeaderboardRowStories from './LeaderboardRow/LeaderboardRow.stories';
 import LogoutModalStories from './LogoutModal/LogoutModal.stories';
 import NavigationHeaderStories from './NavigationHeader/NavigationHeader.stories';
 import PoiCardStories from './PoiCard/PoiCard.stories';
@@ -24,6 +26,8 @@ storiesOf('Molecules', module)
   .add('Chips List', () => <ChipsListStories />)
   .add('Input Form', () => <InputFormBlockStories />)
   .add('Comment', () => <CommentStories />)
+  .add('Green Score Indicator', () => <GreenScoreIndicatorStories />)
+  .add('Leaderboard Row', () => <LeaderboardRowStories />)
   .add('Logout Modal', () => <LogoutModalStories />)
   .add('Navigation Header', () => <NavigationHeaderStories />)
   .add('Poi Card', () => <PoiCardStories />)

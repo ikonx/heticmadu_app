@@ -7,11 +7,12 @@ interface Props {
   text: string;
   disabled?: boolean;
   clickEvent: () => void;
+  columns?: number;
 }
 
-const TabItem: FunctionComponent<Props> = ({ text, disabled, clickEvent }) => {
+const TabItem: FunctionComponent<Props> = ({ text, disabled, clickEvent, columns }) => {
   return (
-    <TabItemContainer onPress={clickEvent}>
+    <TabItemContainer onPress={clickEvent} columns={columns}>
       <TabItemText>
         <Text
           variant="legendI"

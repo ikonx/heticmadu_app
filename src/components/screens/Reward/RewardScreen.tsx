@@ -15,7 +15,6 @@ interface Props {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 const RewardScreen: FunctionComponent<Props> = ({ navigation }) => {
-
   return (
     <>
       <RewardContainer>
@@ -29,7 +28,13 @@ const RewardScreen: FunctionComponent<Props> = ({ navigation }) => {
           />
         </RewardCross>
         <RewardBadge>
-          <ChallengeBadge illustration={IllustrationName.ENERGIE} />
+          <ChallengeBadge
+            illustration={IllustrationName.ENERGIE}
+            count={2}
+            style={{
+              minHeight: 172,
+            }}
+          />
         </RewardBadge>
         <RewardTitle>
           <Title variant="h3" align="center" isBold>Félicitation vous avez reussi

@@ -15,7 +15,7 @@ interface Props {
   title?: string;
   middleItem?: JSX.Element;
   rightItem?: JSX.Element;
-  onBack: () => void;
+  onBack?: () => void;
 }
 
 const NavigationHeader = ({ title, middleItem, rightItem, onBack }: Props) => {
@@ -23,15 +23,17 @@ const NavigationHeader = ({ title, middleItem, rightItem, onBack }: Props) => {
 
   return (
     <StyledNavigationHeader>
-      <Buttons variant={TouchableType.ICON} onPress={onBack}>
-        <Icon
-          height={24}
-          width={24}
-          name={IconName.CHEVRON}
-          direction={Direction.LEFT}
-          fill={Colors.mainGrey}
-        />
-      </Buttons>
+      { onBack && (
+        <Buttons variant={TouchableType.ICON} onPress={onBack}>
+          <Icon
+            height={24}
+            width={24}
+            name={IconName.CHEVRON}
+            direction={Direction.LEFT}
+            fill={Colors.mainGrey}
+          />
+        </Buttons>
+      )}
       <Spacer size={16} />
       <View style={{ alignItems: 'center', flex: 1 }}>
         {title && (

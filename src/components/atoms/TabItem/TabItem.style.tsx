@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import { TouchableOpacity, View, Dimensions } from 'react-native';
 
-export const TabItemContainer = styled(TouchableOpacity)`
-  width: auto;
+export const TabItemContainer = styled(TouchableOpacity)<{ columns?: number }>`
+  width: ${ ({ columns }) => columns ? `${Dimensions.get('window').width / columns}px` : 'auto'};
   align-items: center;
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
 `;
