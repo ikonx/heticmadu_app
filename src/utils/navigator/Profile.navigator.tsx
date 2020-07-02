@@ -8,6 +8,7 @@ import Icon from '@components/atoms/Icons/Icon';
 import { IconName } from '@assets/icons/IconName.enum';
 import Buttons from '@components/atoms/Buttons/Buttons';
 import { Direction } from '@components/atoms/Icons/Chevron/Chevron.style';
+import { CouponScreen } from '@components/screens/Coupon/CouponScreen';
 
 interface Props {}
 
@@ -47,6 +48,16 @@ const ProfileNavigator: FunctionComponent<Props> = () => {
             </ProfileCross>
           ),
         })}
+      />
+      <ChallengeStack.Screen
+          name="Coupon"
+          component={CouponScreen}
+          options={{
+              cardStyle: {
+                  backgroundColor: Colors.mainWhite,
+              },
+              header: () => null,
+          }}
       />
     </ProfileStack.Navigator>
   );

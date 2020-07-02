@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-import { View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 import Colors from '@styleGuide/Colors';
 import { IconName } from '@assets/icons/IconName.enum';
@@ -74,13 +74,15 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
           }) => {
             return activeTab === 0 ? (
                 <ProfileItem flexDirection="column">
-                  <ChallengeBadge
-                    illustration={item.illustration}
-                    background={item.color}
-                    count={item.count}
-                  />
-                  <Spacer size={8}/>
-                  <Title variant="subtitle">{item.text}</Title>
+                    <TouchableOpacity onPress={() => navigation.navigate('Coupon')}>
+                        <ChallengeBadge
+                            illustration={item.illustration}
+                            background={item.color}
+                            count={item.count}
+                        />
+                        <Spacer size={8}/>
+                        <Title variant="subtitle">{item.text}</Title>
+                    </TouchableOpacity>
                 </ProfileItem>
               ) : (
                 <>
