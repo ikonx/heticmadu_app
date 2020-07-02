@@ -28,9 +28,9 @@ interface Props {
 }
 
 const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(0);
   const [mainData, setData] = useState<ProfileBadgeModel[]|ProfileLeaderboardModel[]>(
-    leaderboardData,
+    profileData,
   );
 
   const updateTab = () => {
@@ -41,7 +41,7 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
   return (
     <ProfileScreenContainer>
       <ProfileScreenHeader>
-        <ProfileParams variant={TouchableType.ICON} onPress={() => navigation.goBack()}>
+        <ProfileParams variant={TouchableType.ICON} onPress={() => navigation.navigate('Profile')}>
           <Icon
             height={24}
             width={24}

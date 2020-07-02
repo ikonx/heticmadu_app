@@ -8,6 +8,7 @@ import NavigationTabItem from '@components/atoms/NavigationTabItem/NavigationTab
 import { NavigationItemModel } from '@utils/models/navigationItem.model';
 import ChallengesNavigator from '@utils/navigator/Challenge.navigator';
 import MapNavigator from '@src/utils/navigator/Map.navigator';
+import ProfileNavigator from '@utils/navigator/Profile.navigator';
 
 interface Props {
   data: NavigationItemModel[];
@@ -59,6 +60,7 @@ const NavigationBottomBar: FunctionComponent<Props> = ({ data }) => {
       <RootStack.Screen name="Main" component={MainTabsScreen} />
       <RootStack.Screen name="Stories" component={ChallengesNavigator} />
       <RootStack.Screen name="Maps" component={MapNavigator} />
+      <RootStack.Screen name="Profile" component={ProfileNavigator} />
     </RootStack.Navigator>
   );
 };
