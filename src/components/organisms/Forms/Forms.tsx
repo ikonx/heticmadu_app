@@ -15,7 +15,7 @@ interface IForms {
     type: string;
     required: boolean;
     key: string;
-    pattern?: string;
+    pattern?: string | any;
   }[];
   buttonName: string;
   initialValue: any;

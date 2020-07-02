@@ -6,7 +6,7 @@ import { TouchableType } from './Buttons.enum';
 
 interface ITouchable extends TouchableOpacityProps {
   variant: TouchableType;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
@@ -35,7 +35,6 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
     ${({ variant }) =>
       variant === TouchableType.INVERT &&
       css`
-        background-color: ${Theme.Colors.mainWhite};
         padding: 8px;
         z-index: 4;
       `}
@@ -44,7 +43,7 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
       css`
         background-color: ${Theme.Colors.mainPurple};
         max-height: 56px;
-        width: 343px;
+        width: 90%;
         padding: 11px 16px;
         z-index: 4;
       `}

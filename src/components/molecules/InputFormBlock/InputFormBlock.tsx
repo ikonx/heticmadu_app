@@ -16,7 +16,6 @@ import Buttons from '@src/components/atoms/Buttons/Buttons';
 import Icon from '@src/components/atoms/Icons/Icon';
 import { IconName } from '@src/assets/icons/IconName.enum';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
-import Spacer from '@src/components/atoms/Spacer/Spacer';
 
 import StyledInputLoginBlock from './InputFormBlock.style';
 
