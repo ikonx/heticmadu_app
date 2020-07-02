@@ -7,6 +7,8 @@ import {
   TextLegend,
   TextLegendImportant,
   TextLink,
+  TextError,
+  TextLabelInput,
 } from './Text.style';
 
 type TextVariants =
@@ -15,7 +17,10 @@ type TextVariants =
   | 'legendI'
   | 'label'
   | 'button'
-  | 'link';
+  | 'link'
+  | 'error'
+  | 'labelInput';
+
 interface Props extends TextProps {
   variant?: TextVariants;
   isUppercase?: boolean;
@@ -30,6 +35,8 @@ const variants = {
   label: TextLabel,
   button: TextButton,
   link: TextLink,
+  error: TextError,
+  labelInput: TextLabelInput,
 };
 
 const Text: FunctionComponent<Props & TextProperties> = ({

@@ -38,3 +38,12 @@ export const TextButton = styled(BaseText)`
 export const TextLink = styled(BaseText)`
   font-size: 12px;
 `;
+
+export const TextLabelInput = styled(BaseText)`
+  z-index: 1;
+  position: absolute;
+`;
+
+export const TextError = styled(BaseText)`
+  font-size: 12px;
+`;
