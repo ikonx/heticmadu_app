@@ -34,6 +34,8 @@ export const postTags = async (_data: CreateTagsDTO): Promise<TagModel> =>
 export const deleteTag = async (_id: string | number): Promise<any> =>
   await axios.delete(`${API_URL}tags/${_id}`);
 
+// LOGIN
+
 export const loginUser = async ({
   email,
   password,
@@ -42,6 +44,25 @@ export const loginUser = async ({
   password: string;
 }): Promise<any> =>
   await axios.post('http://localhost:4000/auth/login', { email, password });
+
+export const createUser = async ({
+  firstName,
+  lastName,
+  email,
+  password,
+}: {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}): Promise<any> =>
+  await axios.post('http://localhost:4000/users', {
+    firstName,
+    lastName,
+    email,
+    hashedPassword: password,
+    picture: '',
+  });
 
 // COMPANIES
 

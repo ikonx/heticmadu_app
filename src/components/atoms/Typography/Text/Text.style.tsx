@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import { Text } from 'react-native';
+import { Animated } from 'react-native';
 
-const BaseText = styled(Text)<{
+const BaseText = styled(Animated.Text)<{
   color?: string;
   isUppercase: boolean;
   isBold?: boolean;
+  inputFocus?: boolean;
 }>`
   text-transform: ${({ isUppercase }) => (isUppercase ? 'uppercase' : 'none')};
   color: ${({ color, theme }) => color || theme.Colors.mainBlack};
@@ -36,5 +37,14 @@ export const TextButton = styled(BaseText)`
 `;
 
 export const TextLink = styled(BaseText)`
+  font-size: 12px;
+`;
+
+export const TextLabelInput = styled(BaseText)`
+  z-index: 1;
+  position: absolute;
+`;
+
+export const TextError = styled(BaseText)`
   font-size: 12px;
 `;

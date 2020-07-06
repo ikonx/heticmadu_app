@@ -28,6 +28,7 @@
     "expo-location": "^8.1.0",
     "expo-updates": "^0.2.7",
     "faker": "^4.1.0",
+    "formik": "^2.1.4",
     "lodash": "^4.17.15",
     "lottie-react-native": "^3.4.0",
     "react": "~16.9.0",
