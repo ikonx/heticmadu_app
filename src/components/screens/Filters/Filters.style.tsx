@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { SafeAreaView } from 'react-navigation';
-import { ScrollView } from 'react-native-gesture-handler';
 import { View } from 'react-native';
+import Buttons from '@components/atoms/Buttons/Buttons';
 
 export const StyledFiltersScreen = styled(SafeAreaView)`
   background-color: ${({ theme }) => theme.Colors.mainWhite};
@@ -12,4 +12,9 @@ export const StyledContent = styled(View)`
   background-color: ${({ theme }) => theme.Colors.mainWhite};
   padding: 0 16px 16px 16px;
   margin-top: 24px;
+`;
+
+export const StyledButton = styled(Buttons)`
+  justify-content: center;
+  flex: 1;
 `;

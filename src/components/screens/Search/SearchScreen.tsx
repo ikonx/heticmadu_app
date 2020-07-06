@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ThemeContext } from 'styled-components';
 import { NavigationScreenProp } from 'react-navigation';
+import { FlatList } from 'react-native';
 import {
   some,
   intersectionWith,
   isEqual,
-  differenceWith,
-  isObjectLike,
 } from 'lodash';
 
 import NavigationHeader from '@src/components/molecules/NavigationHeader/NavigationHeader';
@@ -19,7 +18,6 @@ import { StyledSearchScreen, StyledContent } from './SearchScreen.style';
 import Spacer from '@src/components/atoms/Spacer/Spacer';
 import TagsList, { ITag } from '@src/components/molecules/TagsList/TagsList';
 import PoiCard from '@src/components/molecules/PoiCard/PoiCard';
-import { poisData } from '@src/utils/mocks/pois.data';
 import { PoiModel } from '@src/utils/models/pois.model';
 import PoisContext from '@src/contexts/pois/pois.context';
 import TagsContext from '@src/contexts/tags/tags.context';
@@ -56,13 +54,14 @@ const SearchScreen = ({ navigation }: Props) => {
   const filterPois = (existingTags: ITag[]) => {
     const newPois = [...pois];
     const formatedExistingTags = existingTags.map((item: ITag) => item.label);
+    const poisData = newPois.length === 0 ? defaultPois : newPois;
+    const filteredPois = poisData.filter((item: PoiModel) => {
+      const itemTags = item.tags ? item.tags.map((item: any) => item.tag) : [];
 
-    existingTags.length > 0
-      ? newPois.filter((item: PoiModel) =>
-          intersectionWith(item.tags, formatedExistingTags, isEqual),
-        )
-      : defaultPois;
-    setPois(newPois);
+      return intersectionWith(itemTags, formatedExistingTags, isEqual).length > 0;
+    });
+
+    setPois(existingTags.length > 0 ? filteredPois : defaultPois);
   };
 
   const updateTags = (_tag: ITag) => {
@@ -73,6 +72,7 @@ const SearchScreen = ({ navigation }: Props) => {
       newSelectedTags.push(_tag);
     }
     setSelectedTags(newSelectedTags);
+    filterPois(newSelectedTags);
   };
 
   const openPoiDetails = (poi: PoiModel) => () => {
@@ -113,12 +113,16 @@ const SearchScreen = ({ navigation }: Props) => {
           paddingBottom: 20,
         }}
       >
-        {pois.map((poi: PoiModel) => (
-          <React.Fragment key={`poiCard_${poi.id}`}>
-            <PoiCard gotBorder poi={poi} fullWidth onPress={openPoiDetails} />
-            <Spacer size={16} />
-          </React.Fragment>
-        ))}
+        <FlatList
+          data={pois}
+          renderItem={({ item }) => (
+            <React.Fragment key={`poiCard_${item.id}`}>
+              <PoiCard gotBorder poi={item} fullWidth onPress={openPoiDetails} />
+              <Spacer size={16} />
+            </React.Fragment>
+          )}
+          keyExtractor={item => item.id.toString()}
+        />
       </StyledContent>
     </StyledSearchScreen>
   );

@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import FiltersScreen from '@src/components/screens/Filters/FiltersScreen';
 import SearchScreen from '@src/components/screens/Search/SearchScreen';
 import PoiDetails from '@src/components/screens/PoiDetails/PoiDetailsScreen';
+import Colors from '@styleGuide/Colors';
 
 interface Props {}
 
@@ -18,7 +19,10 @@ const MapNavigator: FunctionComponent<Props> = () => {
           title: '',
           headerTransparent: true,
           headerShown: false,
-          cardStyle: { flex: 1 },
+          cardStyle: {
+            flex: 1,
+            backgroundColor: Colors.mainWhite,
+          },
           gestureResponseDistance: { vertical: 600 },
           headerStatusBarHeight: 0,
         }}
