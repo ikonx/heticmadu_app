@@ -52,7 +52,7 @@ const NavigationBottomBar: FunctionComponent<Props> = ({ data }) => {
     <RootStack.Navigator
       mode="modal"
       headerMode="none"
-      initialRouteName="Login"
+      initialRouteName="Main"
       screenOptions={{
         gestureEnabled: true,
         cardOverlayEnabled: true,

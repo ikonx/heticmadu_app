@@ -30,7 +30,7 @@ const ChallengeNavigator: FunctionComponent<Props> = () => {
       <ChallengeStack.Screen
         name="List"
         component={ChallengeList}
-        options={ ({ navigation }) => ({
+        options={({ navigation }) => ({
           cardStyle: {
             backgroundColor: Colors.mainWhite,
           },
@@ -42,7 +42,10 @@ const ChallengeNavigator: FunctionComponent<Props> = () => {
             shadowOpacity: 0,
           },
           headerRight: () => (
-            <StyledButton variant={TouchableType.ICON} onPress={() => navigation.goBack()}>
+            <StyledButton
+              variant={TouchableType.ICON}
+              onPress={() => navigation.goBack()}
+            >
               <Icon
                 height={24}
                 width={24}

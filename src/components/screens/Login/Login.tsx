@@ -43,8 +43,6 @@ const LoginScreen: FunctionComponent<Props> = ({ navigation }) => {
           buttonName="Se connecter"
           initialValue={{
             email: '',
-            firstname: '',
-            lastname: '',
             password: '',
           }}
         />
