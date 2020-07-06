@@ -12,12 +12,25 @@ import Buttons from '@src/components/atoms/Buttons/Buttons';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Colors from '@src/styleGuide/Colors';
 import { LoginContainer, LoginImgBlock, LoginTextBlock } from './Login.style';
+import { loginUser } from '@src/utils/http';
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
 const LoginScreen: FunctionComponent<Props> = ({ navigation }) => {
+  const login = (values: any) => {
+    loginUser({ email: values.email, password: values.password })
+      .then((res) => {
+        const response = res;
+        if (response.status === 201) {
+          const token = response.data;
+          navigation.navigate('Main', { screen: 'Home' });
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <LoginContainer>
@@ -44,11 +57,10 @@ const LoginScreen: FunctionComponent<Props> = ({ navigation }) => {
           ]}
           buttonName="Se connecter"
           initialValue={{
-            email: '',
-            firstname: '',
-            lastname: '',
-            password: '',
+            email: 'user@sfr.com',
+            password: 'admin',
           }}
+          onSubmit={login}
         />
         <Spacer size={24} />
         <LoginTextBlock>
