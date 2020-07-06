@@ -6,7 +6,7 @@ const StyledInputLoginBlock = styled(View)<{
   inputFocus?: boolean;
   errors?: string;
 }>`
-  width: 90%;
+  width: 100%;
   padding: 12px;
   padding-bottom: 4px;
   padding-top: 16px;
