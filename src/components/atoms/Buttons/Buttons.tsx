@@ -6,6 +6,7 @@ import { TouchableType } from './Buttons.enum';
 
 interface ITouchable extends TouchableOpacityProps {
   variant: TouchableType;
+  disabled?: boolean;
 }
 
 const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
@@ -14,13 +15,13 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-
     ${({ variant }) =>
       variant === TouchableType.DEFAULT &&
       css`
         background-color: ${Theme.Colors.mainPurple};
         min-width: 40px;
         padding: 8px 16px;
+        z-index: 4;
       `}
     ${({ variant }) =>
       variant === TouchableType.ICON &&
@@ -29,20 +30,22 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
         min-width: 40px;
         border: ${({ theme }) => theme.Borders.lightBorder};
         padding: 8px;
+        z-index: 4;
       `}
     ${({ variant }) =>
       variant === TouchableType.INVERT &&
       css`
-        background-color: ${Theme.Colors.mainWhite};
         padding: 8px;
+        z-index: 4;
       `}
     ${({ variant }) =>
       variant === TouchableType.FULLWIDTH &&
       css`
         background-color: ${Theme.Colors.mainPurple};
         max-height: 56px;
-        width: 343px;
+        width: 90%;
         padding: 11px 16px;
+        z-index: 4;
       `}
     ${({ variant }) =>
       variant === TouchableType.IMPORTANT &&
@@ -51,15 +54,21 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
         max-height: 56px;
         padding: 16px;
       `}
+    ${({ disabled }) =>
+      disabled &&
+      css`
+        background-color: ${Theme.Colors.mainGrey};
+      `}
 `;
 
 const Buttons: FunctionComponent<ITouchable> = ({
   variant,
   children,
+  disabled,
   ...rest
 }) => {
   return (
-    <StyledTouchable variant={variant} {...rest}>
+    <StyledTouchable variant={variant} disabled={disabled} {...rest}>
       {children}
     </StyledTouchable>
   );

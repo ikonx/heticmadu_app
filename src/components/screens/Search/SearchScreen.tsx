@@ -15,12 +15,12 @@ import Buttons from '@src/components/atoms/Buttons/Buttons';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Icon from '@src/components/atoms/Icons/Icon';
 import { IconName } from '@src/assets/icons/IconName.enum';
-import { StyledSearchScreen, StyledContent } from './SearchScreen.style';
 import Spacer from '@src/components/atoms/Spacer/Spacer';
 import TagsList, { ITag } from '@src/components/molecules/TagsList/TagsList';
 import PoiCard from '@src/components/molecules/PoiCard/PoiCard';
 import { poisData } from '@src/utils/mocks/pois.data';
 import { PoiModel } from '@src/utils/models/pois.model';
+import { StyledSearchScreen, StyledContent } from './SearchScreen.style';
 
 interface Props {
   navigation: NavigationScreenProp<{}, 'Search'>;

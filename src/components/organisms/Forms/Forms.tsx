@@ -15,10 +15,11 @@ interface IForms {
     type: string;
     required: boolean;
     key: string;
-    pattern?: string;
+    pattern?: string | any;
   }[];
   buttonName: string;
   initialValue: any;
+  onSubmit: (values: any) => void;
 }
 
 const StyledFormik = styled(Formik)`
@@ -38,6 +39,7 @@ const Forms: FunctionComponent<IForms> = ({
   dataInput,
   buttonName,
   initialValue,
+  onSubmit,
 }) => {
   const { Colors } = useContext(ThemeContext);
 
@@ -59,6 +61,7 @@ const Forms: FunctionComponent<IForms> = ({
           }
         });
         setErrors(errors);
+        Object.keys(errors).length === 0 && onSubmit(values);
         return errors;
       }}
       validate={(values) => {
@@ -72,7 +75,6 @@ const Forms: FunctionComponent<IForms> = ({
       {({ handleChange, handleSubmit }) => (
         <StyledContainerForm>
           {dataInput.map((input: any, index: number) => {
-            console.log(input, 'INPUT');
             return (
               <>
                 <InputLoginBlock
