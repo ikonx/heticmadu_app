@@ -9,14 +9,7 @@ import Buttons from '@src/components/atoms/Buttons/Buttons';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Colors from '@src/styleGuide/Colors';
 import { loginUser } from '@src/utils/http';
-import {
-  LoginContainer,
-  LoginImgBlock,
-  LoginTextBlock,
-  LoginContainer,
-  LoginImgBlock,
-  LoginTextBlock,
-} from './Login.style';
+import { LoginContainer, LoginImgBlock, LoginTextBlock } from './Login.style';
 
 const LoginScreen: FunctionComponent = () => {
   const navigation = useNavigation();
