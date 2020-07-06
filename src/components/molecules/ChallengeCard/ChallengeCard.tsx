@@ -11,7 +11,6 @@ import {
   StyledContent,
   StyledTouchable,
 } from './ChallengeCard.style';
-import { View } from 'react-native';
 
 interface Props {
   tagsArray: ITag[];

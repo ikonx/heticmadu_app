@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 import Colors from '@styleGuide/Colors';
 import {
@@ -7,6 +7,7 @@ import {
   StyledContent,
   StyledHeader,
   StyledHeaderText,
+  StyledButton,
 } from '@components/screens/ChallengeList/ChallengeList.style';
 import TagsList from '@components/molecules/TagsList/TagsList';
 import Title from '@components/atoms/Typography/Title/Title';
@@ -16,6 +17,10 @@ import Illustration from '@components/atoms/Illustrations/Illustration';
 import IllustrationName from '@assets/illustrations/IllustrationName.enum';
 import ChallengeRow from '@components/molecules/ChallengeRow/ChallengeRow';
 import { ChallengeListData } from '@utils/mocks/challengeList.data';
+import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
+import Icon from '@components/atoms/Icons/Icon';
+import { IconName } from '@assets/icons/IconName.enum';
+import { Direction } from '@components/atoms/Icons/Chevron/Chevron.style';
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
@@ -28,9 +33,20 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
 
   return (
     <ChallengeListContainer>
+      <View style={{ backgroundColor: Colors.mainGreen, paddingBottom: 24 }}>
+        <StyledButton variant={TouchableType.ICON} onPress={() => navigation.goBack()}>
+          <Icon
+            height={24}
+            width={24}
+            name={IconName.CROSS}
+            direction={Direction.LEFT}
+            fill={Colors.mainGrey}
+          />
+        </StyledButton>
+      </View>
       <StyledHeader>
         <StyledHeaderText>
-          <TagsList />
+          <TagsList tagsArray={[{ label: '7 Défi' }]} selectedTags={[{ label: '7 Défi' }]}/>
           <Spacer size={16} />
           <Title variant="h4" color={Colors.mainWhite} isBold>Toutes ses fournitures</Title>
           <Spacer size={8} />
@@ -43,9 +59,6 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
         <Illustration name={IllustrationName.ENERGIE} />
       </StyledHeader>
       <StyledContent>
-        <Spacer size={24} />
-        <Title variant="h4" isBold>Catégorie</Title>
-        <Spacer size={24} />
         <FlatList
           data={ChallengeListData}
           renderItem={ ({ item }) => (
@@ -59,6 +72,9 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
           keyExtractor={ item => item.id }
           ListFooterComponent={() => <Spacer size={24} />}
           ItemSeparatorComponent={() => <Spacer size={16}/>}
+          style={{
+            paddingTop: 24,
+          }}
         />
     </StyledContent>
     </ChallengeListContainer>

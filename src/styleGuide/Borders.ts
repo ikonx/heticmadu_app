@@ -5,4 +5,5 @@ export default {
   lightBorder: `1px solid ${Colors.secondaryGrey}`,
   avatarBorder: `1px solid ${Colors.mainPurple}`,
   blackBorder: `1px solid ${Colors.mainBlack}`,
+  errorBorder: `1px solid ${Colors.mainRed}`,
 };

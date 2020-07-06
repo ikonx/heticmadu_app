@@ -43,8 +43,18 @@ const PoiDetails: FunctionComponent<Props> = ({ navigation, route }) => {
     <PoiDetailsContainer forceInset={{ top: 'never' }}>
       <ScrollView>
         <Spacer size={8} />
-        <NavigationHeader onBack={goBack} />
-        <PoiCard poi={poi} fullWidth />
+        <NavigationHeader rightItem={(
+          <Buttons variant={TouchableType.ICON} onPress={goBack}>
+            <Icon
+              height={24}
+              width={24}
+              name={IconName.CROSS}
+              direction={Direction.LEFT}
+              fill={Colors.mainGrey}
+            />
+        </Buttons>
+        )}/>
+        <PoiCard poi={poi} fullWidth onPressGreenscore={() => navigation.navigate('GreenScore')}/>
         <StyledContent>
           <Separator />
           <Spacer size={24} />

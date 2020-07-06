@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import styled from 'styled-components';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import List from '@components/atoms/List/List';
+import Buttons from '@components/atoms/Buttons/Buttons';
 
 export const ChallengeListContainer = styled(SafeAreaView)`
   padding: 0;
@@ -9,10 +10,10 @@ export const ChallengeListContainer = styled(SafeAreaView)`
 `;
 
 export const StyledHeader = styled(List)`
-  padding: 24px 20px 24px 16px;
+  padding: 0 20px 24px 16px;
   align-items: center;
   justify-content: space-between;
-  background: ${ ({ theme }) => theme.Colors.mainRed };
+  background: ${ ({ theme }) => theme.Colors.mainGreen };
 `;
 
 export const StyledHeaderText = styled(View)`
@@ -22,4 +23,11 @@ export const StyledHeaderText = styled(View)`
 export const StyledContent = styled(View)`
   margin: 0 16px;
   flex: 1;
+`;
+
+export const StyledButton = styled(Buttons)`
+  margin-left: auto;
+  margin-top: 24px;
+  margin-right: 16px;
+  width: 40px;
 `;

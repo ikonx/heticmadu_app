@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import FiltersScreen from '@src/components/screens/Filters/FiltersScreen';
 import SearchScreen from '@src/components/screens/Search/SearchScreen';
 import PoiDetails from '@src/components/screens/PoiDetails/PoiDetailsScreen';
+import GreenScoreScreen from '@components/screens/GreenScore/GreenScoreScreen';
 import Colors from '@styleGuide/Colors';
 
 interface Props {}
@@ -47,6 +48,21 @@ const MapNavigator: FunctionComponent<Props> = () => {
           headerTransparent: true,
           headerShown: false,
           cardStyle: { flex: 1 },
+          gestureResponseDistance: { vertical: 600 },
+          headerStatusBarHeight: 400,
+        }}
+      />
+      <MapStack.Screen
+        name="GreenScore"
+        component={GreenScoreScreen}
+        options={{
+          title: '',
+          headerTransparent: true,
+          headerShown: false,
+          cardStyle: {
+            flex: 1,
+            backgroundColor: Colors.mainWhite,
+          },
           gestureResponseDistance: { vertical: 600 },
           headerStatusBarHeight: 400,
         }}
