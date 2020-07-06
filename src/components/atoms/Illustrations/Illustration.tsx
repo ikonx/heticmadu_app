@@ -3,10 +3,10 @@ import { IllustrationName } from '@assets/illustrations/IllustrationName.enum';
 import LottieView from 'lottie-react-native';
 import StyledIllustration from './Illustration.style';
 
-import EnergieIllus from '@assets/illustrations/Illustration_1.json';
-import CuisineIllus from '@assets/illustrations/Illustration_2.json';
-import MaisonIllus from '@assets/illustrations/Illustration_3.json';
-import RecyclageIllus from '@assets/illustrations/Illustration_4.json';
+import EnergieIllus from '@assets/illustrations/Illustration_1-bis.json';
+import CuisineIllus from '@assets/illustrations/Illustration_2-bis.json';
+import MaisonIllus from '@assets/illustrations/Illustration_3-bis.json';
+import RecyclageIllus from '@assets/illustrations/Illustration_4-bis.json';
 
 interface Props {
   name: IllustrationName;
