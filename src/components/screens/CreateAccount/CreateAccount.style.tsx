@@ -4,6 +4,7 @@ import { View } from 'react-native';
 
 export const CreateAccountContainer = styled(SafeAreaView)`
   align-items: center;
+  padding-top: 0;
 `;
 
 export const CreateAccountTitleBlock = styled(View)`

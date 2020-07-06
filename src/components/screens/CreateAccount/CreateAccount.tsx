@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import {
-  NavigationParams,
-  NavigationScreenProp,
-  NavigationState,
-} from 'react-navigation';
+import { StackActions, useNavigation } from '@react-navigation/native';
+
 import Spacer from '@src/components/atoms/Spacer/Spacer';
 import Colors from '@src/styleGuide/Colors';
 import NavigationHeader from '@src/components/molecules/NavigationHeader/NavigationHeader';
@@ -14,13 +11,27 @@ import {
   CreateAccountContainer,
   CreateAccountTitleBlock,
 } from './CreateAccount.style';
+import { createUser } from '@src/utils/http';
 
-interface Props {
-  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
-}
+const CreateAccountScreen: FunctionComponent = () => {
+  const navigation = useNavigation();
 
-const CreateAccountScreen: FunctionComponent<Props> = ({ navigation }) => {
   const goBack = () => navigation.goBack();
+  const submit = ({ firstName, lastName, email, password }: any) => {
+    createUser({ firstName, lastName, email, password })
+      .then((res) => {
+        const response = res;
+        if (response.status === 201) {
+          // const token = response.data;
+          navigation.dispatch(
+            StackActions.replace('Main', {
+              screen: 'Home',
+            }),
+          );
+        }
+      })
+      .catch(err => console.log(err));
+  };
 
   return (
     <>
@@ -44,13 +55,13 @@ const CreateAccountScreen: FunctionComponent<Props> = ({ navigation }) => {
               label: 'Nom',
               type: 'default',
               required: true,
-              key: 'lastname',
+              key: 'lastName',
             },
             {
               label: 'Prénom',
               type: 'default',
               required: true,
-              key: 'name',
+              key: 'firstName',
             },
             {
               label: 'Email',
@@ -73,6 +84,7 @@ const CreateAccountScreen: FunctionComponent<Props> = ({ navigation }) => {
             lastname: '',
             password: '',
           }}
+          onSubmit={submit}
         />
       </CreateAccountContainer>
     </>
