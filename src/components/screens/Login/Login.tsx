@@ -8,8 +8,8 @@ import Text from '@src/components/atoms/Typography/Text/Text';
 import Buttons from '@src/components/atoms/Buttons/Buttons';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Colors from '@src/styleGuide/Colors';
-import { LoginContainer, LoginImgBlock, LoginTextBlock } from './Login.style';
 import { loginUser } from '@src/utils/http';
+import { LoginContainer, LoginImgBlock, LoginTextBlock } from './Login.style';
 
 const LoginScreen: FunctionComponent = () => {
   const navigation = useNavigation();
@@ -27,7 +27,7 @@ const LoginScreen: FunctionComponent = () => {
           );
         }
       })
-      .catch(err => console.log(err));
+      .catch((err: any) => console.log(err));
   };
 
   return (
