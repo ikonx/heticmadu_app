@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import {
-  NavigationParams,
-  NavigationScreenProp,
-  NavigationState,
-} from 'react-navigation';
+import { StackActions, useNavigation } from '@react-navigation/native';
+
 import MaduLogo from '@assets/img/Madu_Logo.svg';
 import Spacer from '@src/components/atoms/Spacer/Spacer';
 import Forms from '@src/components/organisms/Forms/Forms';
@@ -11,13 +8,28 @@ import Text from '@src/components/atoms/Typography/Text/Text';
 import Buttons from '@src/components/atoms/Buttons/Buttons';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Colors from '@src/styleGuide/Colors';
-import { LoginContainer, LoginTextBlock } from './Login.style';
+import { LoginContainer, LoginImgBlock, LoginTextBlock } from './Login.style';
+import { loginUser } from '@src/utils/http';
 
-interface Props {
-  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
-}
+const LoginScreen: FunctionComponent = () => {
+  const navigation = useNavigation();
 
-const LoginScreen: FunctionComponent<Props> = ({ navigation }) => {
+  const login = (values: any) => {
+    loginUser({ email: values.email, password: values.password })
+      .then((res) => {
+        const response = res;
+        if (response.status === 201) {
+          // const token = response.data;
+          navigation.dispatch(
+            StackActions.replace('Main', {
+              screen: 'Home',
+            }),
+          );
+        }
+      })
+      .catch(err => console.log(err));
+  };
+
   return (
     <>
       <LoginContainer>
@@ -43,10 +55,9 @@ const LoginScreen: FunctionComponent<Props> = ({ navigation }) => {
           buttonName="Se connecter"
           initialValue={{
             email: '',
-            firstname: '',
-            lastname: '',
             password: '',
           }}
+          onSubmit={login}
         />
         <Spacer size={24} />
         <LoginTextBlock>

@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import {
-  NavigationParams,
-  NavigationScreenProp,
-  NavigationState,
-} from 'react-navigation';
+import { StackActions, useNavigation } from '@react-navigation/native';
+
 import Spacer from '@src/components/atoms/Spacer/Spacer';
 import Colors from '@src/styleGuide/Colors';
 import NavigationHeader from '@src/components/molecules/NavigationHeader/NavigationHeader';
@@ -15,14 +12,12 @@ import {
   CreateAccountTitleBlock,
 } from './CreateAccount.style';
 import { createUser } from '@src/utils/http';
-import { StackActions, useNavigation } from '@react-navigation/native';
 
 const CreateAccountScreen: FunctionComponent = () => {
   const navigation = useNavigation();
 
   const goBack = () => navigation.goBack();
   const submit = ({ firstName, lastName, email, password }: any) => {
-    console.log({ firstName, lastName, email, password });
     createUser({ firstName, lastName, email, password })
       .then((res) => {
         const response = res;
