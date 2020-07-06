@@ -34,9 +34,7 @@ const LoginScreen: FunctionComponent = () => {
     <>
       <LoginContainer>
         <Spacer size={24} />
-        <LoginImgBlock>
-          <MaduLogo />
-        </LoginImgBlock>
+        <MaduLogo />
         <Spacer size={24} />
         <Forms
           dataInput={[
