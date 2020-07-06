@@ -14,13 +14,29 @@ import {
   CreateAccountContainer,
   CreateAccountTitleBlock,
 } from './CreateAccount.style';
+import { createUser } from '@src/utils/http';
+import { StackActions, useNavigation } from '@react-navigation/native';
 
-interface Props {
-  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
-}
+const CreateAccountScreen: FunctionComponent = () => {
+  const navigation = useNavigation();
 
-const CreateAccountScreen: FunctionComponent<Props> = ({ navigation }) => {
   const goBack = () => navigation.goBack();
+  const submit = ({ firstName, lastName, email, password }: any) => {
+    console.log({ firstName, lastName, email, password });
+    createUser({ firstName, lastName, email, password })
+      .then((res) => {
+        const response = res;
+        if (response.status === 201) {
+          // const token = response.data;
+          navigation.dispatch(
+            StackActions.replace('Main', {
+              screen: 'Home',
+            }),
+          );
+        }
+      })
+      .catch(err => console.log(err));
+  };
 
   return (
     <>
@@ -44,13 +60,13 @@ const CreateAccountScreen: FunctionComponent<Props> = ({ navigation }) => {
               label: 'Nom',
               type: 'default',
               required: true,
-              key: 'lastname',
+              key: 'lastName',
             },
             {
               label: 'Prénom',
               type: 'default',
               required: true,
-              key: 'name',
+              key: 'firstName',
             },
             {
               label: 'Email',
@@ -73,6 +89,7 @@ const CreateAccountScreen: FunctionComponent<Props> = ({ navigation }) => {
             lastname: '',
             password: '',
           }}
+          onSubmit={submit}
         />
       </CreateAccountContainer>
     </>

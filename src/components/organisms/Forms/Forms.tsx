@@ -19,6 +19,7 @@ interface IForms {
   }[];
   buttonName: string;
   initialValue: any;
+  onSubmit: (values: any) => void;
 }
 
 const StyledFormik = styled(Formik)`
@@ -38,12 +39,13 @@ const Forms: FunctionComponent<IForms> = ({
   dataInput,
   buttonName,
   initialValue,
+  onSubmit,
 }) => {
   const { Colors } = useContext(ThemeContext);
 
   // All queries for actions on this form
   const [isAvailableState, setisAvailableState] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   return (
     <StyledFormik
@@ -59,9 +61,10 @@ const Forms: FunctionComponent<IForms> = ({
           }
         });
         setErrors(errors);
+        Object.keys(errors).length === 0 && onSubmit(values);
         return errors;
       }}
-      validate={(values) => {
+      validate={(values: { [key: string]: string; }) => {
         dataInput.map((field: any) => {
           !values[field.key]
             ? setisAvailableState(false)
