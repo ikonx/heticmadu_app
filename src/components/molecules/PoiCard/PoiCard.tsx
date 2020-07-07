@@ -43,7 +43,13 @@ const StyledPoiCard = styled(TouchableOpacity)`
     `}
 `;
 
-const PoiCard = ({ poi, gotBorder, fullWidth, onPress, onPressGreenscore }: Props) => {
+const PoiCard = ({
+  poi,
+  gotBorder,
+  fullWidth,
+  onPress,
+  onPressGreenscore,
+}: Props) => {
   const { name, address, greenScore, averagePrice, images } = poi;
   return (
     <StyledPoiCard
@@ -68,7 +74,7 @@ const PoiCard = ({ poi, gotBorder, fullWidth, onPress, onPressGreenscore }: Prop
         </Text>
         <Spacer size={8} />
         <List>
-          <Badge.GreenScore score={greenScore} onClick={onPressGreenscore}/>
+          <Badge.GreenScore score={greenScore} onClick={onPressGreenscore} />
           <Spacer size={8} />
           <Badge.Price price={averagePrice} />
         </List>
