@@ -10,6 +10,7 @@ import NavigationBottomBar from '@components/molecules/NavigationBottomBar/Navig
 import navigationBottomData from '@utils/mocks/navigationBottomBar.data';
 import PoisProvider from './src/contexts/pois/pois.provider';
 import TagsProvider from './src/contexts/tags/tags.provider';
+import SearchProvider from './src/contexts/search/search.provider';
 
 const ACTIVATE_STORYBOOK = false;
 
@@ -22,11 +23,13 @@ function App() {
   return (
     <PoisProvider>
       <TagsProvider>
-        <NavigationContainer>
-          <ThemeProvider theme={theme}>
-            <NavigationBottomBar data={navigationBottomData} />
-          </ThemeProvider>
-        </NavigationContainer>
+        <SearchProvider>
+          <NavigationContainer>
+            <ThemeProvider theme={theme}>
+              <NavigationBottomBar data={navigationBottomData} />
+            </ThemeProvider>
+          </NavigationContainer>
+        </SearchProvider>
       </TagsProvider>
     </PoisProvider>
   );
