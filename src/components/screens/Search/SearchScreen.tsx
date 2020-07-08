@@ -167,7 +167,7 @@ const SearchScreen = ({ navigation }: Props) => {
       <Spacer size={24} />
       <StyledContent
         contentContainerStyle={{
-          paddingBottom: 20,
+          paddingBottom: 140,
         }}
       >
         <FlatList
