@@ -89,3 +89,15 @@ export const postTheme = async (theme: any) =>
 
 export const deleteTheme = async (_id: string | number): Promise<any> =>
   await axios.delete(`${API_URL}themes/${_id}`);
+
+// USER
+
+export const getUserImg = (img: string) => `${API_URL}users/${img}`;
+
+export const uploadImg = async (file: any) => await axios.post(`${API_URL}users/upload`, file, {
+  headers: {
+    'content-type': 'multipart/form-data; boundary=---011000010111000001101001',
+  },
+});
+
+export const updateUser = async (user: any) => await axios.patch(`${API_URL}users`, { user });

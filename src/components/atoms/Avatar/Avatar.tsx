@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Theme from '@src/styleGuide/Theme';
 import { IconName } from '@src/assets/icons/IconName.enum';
 import StyledAvatarTouchable from './Avatar.style';
+import { getUserImg, uploadImg } from '@utils/http';
 
 export interface IAvatar extends TouchableOpacityProps {
   source?: string;
@@ -21,7 +22,7 @@ const StyledImage = styled(Image)`
 `;
 
 const Avatar: FunctionComponent<IAvatar> = ({ source }) => {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState<any>(null);
 
   useEffect(() => {
     (async () => {
@@ -39,17 +40,24 @@ const Avatar: FunctionComponent<IAvatar> = ({ source }) => {
   }, []);
 
   const pickImage = async () => {
-    const result = await ImagePicker.launchImageLibraryAsync({
+    const result: any = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
+    const form = new FormData();
+    const filename = result.uri.split('/').pop();
+    const match = /\.(\w+)$/.exec(filename);
+    const type = match ? `image/${match[1]}` : 'image';
 
-    console.log(result);
+    form.append('file', { type, uri: result.uri, name: filename });
+
+    const upload = await uploadImg(form).then(res => res.data);
+    const image = await getUserImg(upload.filename);
 
     if (!result.cancelled) {
-      setImage(result.uri);
+      setImage(image);
     }
   };
 
