@@ -62,7 +62,7 @@ const PoiCard = ({
           source={{
             uri: images
               ? images[0]
-              : 'https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
+              : `https://source.unsplash.com/900x90${greenScore}/?food`,
           }}
         />
         <Spacer size={8} />

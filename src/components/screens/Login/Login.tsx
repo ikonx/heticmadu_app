@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import { StackActions, useNavigation } from '@react-navigation/native';
 
 import MaduLogo from '@assets/img/Madu_Logo.svg';
@@ -8,26 +8,19 @@ import Text from '@src/components/atoms/Typography/Text/Text';
 import Buttons from '@src/components/atoms/Buttons/Buttons';
 import { TouchableType } from '@src/components/atoms/Buttons/Buttons.enum';
 import Colors from '@src/styleGuide/Colors';
-import { loginUser } from '@src/utils/http';
-import { LoginContainer, LoginImgBlock, LoginTextBlock } from './Login.style';
+// import { loginUser } from '@src/utils/http';
+import { LoginContainer, LoginTextBlock } from './Login.style';
+import UserContext from '@src/contexts/user/user.context';
+import { UserModel } from '@src/utils/models/user.model';
 
 const LoginScreen: FunctionComponent = () => {
   const navigation = useNavigation();
+  const { user, loginUser }: { user: UserModel; loginUser: any } = useContext(
+    UserContext,
+  );
 
-  const login = (values: any) => {
-    loginUser({ email: values.email, password: values.password })
-      .then((res) => {
-        const response = res;
-        if (response.status === 201) {
-          // const token = response.data;
-          navigation.dispatch(
-            StackActions.replace('Main', {
-              screen: 'Home',
-            }),
-          );
-        }
-      })
-      .catch((err: any) => console.log(err));
+  const login = async ({ email, password }: any) => {
+    await loginUser({ email, password });
   };
 
   return (

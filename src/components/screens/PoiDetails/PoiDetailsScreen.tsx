@@ -83,7 +83,7 @@ const PoiDetails: FunctionComponent<Props> = ({ navigation, route }) => {
             <Title variant="h2" isBold>
               Horaires
             </Title>
-            <Text color={Theme.Colors.mainGrey}>mdrrrr</Text>
+            <Text color={Theme.Colors.mainGrey}>Non renseigné</Text>
           </>
           <Spacer size={24} />
           <>

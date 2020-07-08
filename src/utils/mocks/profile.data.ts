@@ -65,6 +65,31 @@ export const leaderboardData: ProfileLeaderboardModel[] = [
   {
     rank: 5,
     name: 'Martin',
+    text: '11 Défi réaliser',
+  },
+  {
+    rank: 6,
+    name: 'Julien',
     text: '8 Défi réaliser',
+  },
+  {
+    rank: 7,
+    name: 'Kader',
+    text: '7 Défi réaliser',
+  },
+  {
+    rank: 8,
+    name: 'Alk',
+    text: '6 Défi réaliser',
+  },
+  {
+    rank: 9,
+    name: 'Dimeh',
+    text: '4 Défi réaliser',
+  },
+  {
+    rank: 10,
+    name: 'Hommer',
+    text: '3 Défi réaliser',
   },
 ];

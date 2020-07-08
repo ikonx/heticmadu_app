@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import { StackActions, useNavigation } from '@react-navigation/native';
 
 import Spacer from '@src/components/atoms/Spacer/Spacer';
@@ -11,26 +11,15 @@ import {
   CreateAccountContainer,
   CreateAccountTitleBlock,
 } from './CreateAccount.style';
-import { createUser } from '@src/utils/http';
+import UserContext from '@src/contexts/user/user.context';
 
 const CreateAccountScreen: FunctionComponent = () => {
   const navigation = useNavigation();
+  const { createUserAccount } = useContext(UserContext);
 
   const goBack = () => navigation.goBack();
   const submit = ({ firstName, lastName, email, password }: any) => {
-    createUser({ firstName, lastName, email, password })
-      .then((res) => {
-        const response = res;
-        if (response.status === 201) {
-          // const token = response.data;
-          navigation.dispatch(
-            StackActions.replace('Main', {
-              screen: 'Home',
-            }),
-          );
-        }
-      })
-      .catch(err => console.log(err));
+    createUserAccount(firstName, lastName, email, password);
   };
 
   return (
@@ -41,7 +30,7 @@ const CreateAccountScreen: FunctionComponent = () => {
         <Spacer size={24} />
         <CreateAccountTitleBlock>
           <Title variant="h2" isBold>
-            Crée mon compte
+            Créer mon compte
           </Title>
           <Spacer size={8} />
           <Text color={Colors.mainGrey}>
@@ -80,8 +69,8 @@ const CreateAccountScreen: FunctionComponent = () => {
           buttonName="Confirmer"
           initialValue={{
             email: '',
-            firstname: '',
-            lastname: '',
+            firstName: '',
+            lastName: '',
             password: '',
           }}
           onSubmit={submit}
