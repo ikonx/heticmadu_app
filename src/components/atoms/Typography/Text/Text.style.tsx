@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Animated } from 'react-native';
 
-const BaseText = styled(Animated.Text)<{
+export const BaseText = styled(Animated.Text)<{
   color?: string;
   isUppercase: boolean;
   isBold?: boolean;
