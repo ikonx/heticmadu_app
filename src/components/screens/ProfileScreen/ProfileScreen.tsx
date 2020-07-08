@@ -62,7 +62,7 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
   };
 
   const animatedValue: AnimatedValue = new Animated.Value(0);
-  const MAX_SCROLL = Dimensions.get('window').height / 3;
+  const MAX_SCROLL = 280;
   const headerTranslateY = animatedValue.interpolate({
     inputRange: [0, 100],
     outputRange: [0, -100],
@@ -138,7 +138,7 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
           <Spacer size={24} />
           <Profile
             title={`${user.firstName} ${user.lastName}`}
-            text="7 Défi réalisés"
+            text="7 Défis réalisés"
             avatar={user.picture}
           />
         </Animated.View>
