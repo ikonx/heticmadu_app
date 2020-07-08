@@ -5,7 +5,11 @@
     "name": "Madu",
     "slug": "madu",
     "version": "1.0.0",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "packagerOpts": {
       "config": "metro.config.js",
       "sourceExts": [
@@ -22,7 +26,9 @@
         "svg"
       ]
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "description": "Madu application",
     "githubUrl": "https://github.com/ikonx/heticmadu_app",
     "splash": {

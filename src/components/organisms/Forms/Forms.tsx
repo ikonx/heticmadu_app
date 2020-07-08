@@ -15,10 +15,11 @@ interface IForms {
     type: string;
     required: boolean;
     key: string;
-    pattern?: string;
+    pattern?: string | any;
   }[];
   buttonName: string;
   initialValue: any;
+  onSubmit: (values: any) => void;
 }
 
 const StyledFormik = styled(Formik)`
@@ -38,12 +39,13 @@ const Forms: FunctionComponent<IForms> = ({
   dataInput,
   buttonName,
   initialValue,
+  onSubmit,
 }) => {
   const { Colors } = useContext(ThemeContext);
 
   // All queries for actions on this form
   const [isAvailableState, setisAvailableState] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   return (
     <StyledFormik
@@ -51,7 +53,7 @@ const Forms: FunctionComponent<IForms> = ({
       onSubmit={(values: any) => {
         console.log('values', values);
         const errors: any = {};
-        dataInput.map((field: any) => {
+        dataInput.forEach((field: any) => {
           if (!values[field.key]) {
             errors[field.key] = `Requiert ${field.label}`;
           } else if (field.pattern && !field.pattern.test(values[field.key])) {
@@ -59,10 +61,11 @@ const Forms: FunctionComponent<IForms> = ({
           }
         });
         setErrors(errors);
+        Object.keys(errors).length === 0 && onSubmit(values);
         return errors;
       }}
-      validate={(values) => {
-        dataInput.map((field: any) => {
+      validate={(values: { [key: string]: string }) => {
+        dataInput.forEach((field: any) => {
           !values[field.key]
             ? setisAvailableState(false)
             : setisAvailableState(true);
@@ -71,16 +74,14 @@ const Forms: FunctionComponent<IForms> = ({
     >
       {({ handleChange, handleSubmit }) => (
         <StyledContainerForm>
-          {dataInput.map((input: any, index: number) => {
-            console.log(input, 'INPUT');
+          {dataInput.map((input: any) => {
             return (
-              <>
+              <React.Fragment key={input.key}>
                 <InputLoginBlock
-                  key={index}
                   label={input.label}
                   required={input.required}
                   inputType={input.type}
-                  defaultValue={input.value}
+                  defaultValue={initialValue[input.key]}
                   onInputValueChange={handleChange(input.key)}
                   errors={errors[input.key]}
                 />
@@ -97,7 +98,7 @@ const Forms: FunctionComponent<IForms> = ({
                   </>
                 )}
                 <Spacer size={16} />
-              </>
+              </React.Fragment>
             );
           })}
           <Spacer size={8} />

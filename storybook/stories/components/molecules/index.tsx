@@ -5,6 +5,7 @@ import ChallengeBadgeStories from './ChallengeBadge/ChallengeBadge.stories';
 import ChallengeCardStories from './ChallengeCard/ChallengeCard.stories';
 import ChallengeRowStories from './ChallengeRow/ChallengeRow.stories';
 import ChipsListStories from './ChipsList/ChipsList.stories';
+import InputFormBlockStories from './InputFormBlock/InputFormBlock.stories';
 import CommentStories from './Comment/Comment.stories';
 import GreenScoreIndicatorStories from './GreenScoreIndicator/GreenScoreIndicator.stories';
 import LeaderboardRowStories from './LeaderboardRow/LeaderboardRow.stories';
@@ -23,6 +24,7 @@ storiesOf('Molecules', module)
   .add('Challenge Card', () => <ChallengeCardStories />)
   .add('Challenge Row', () => <ChallengeRowStories />)
   .add('Chips List', () => <ChipsListStories />)
+  .add('Input Form', () => <InputFormBlockStories />)
   .add('Comment', () => <CommentStories />)
   .add('Green Score Indicator', () => <GreenScoreIndicatorStories />)
   .add('Leaderboard Row', () => <LeaderboardRowStories />)
@@ -33,4 +35,4 @@ storiesOf('Molecules', module)
   .add('Search Input', () => <SearchInputStories />)
   .add('SnackBar', () => <SnackBarStories />)
   .add('Tabs', () => <TabsStories />)
-  .add('Tags List', () => <TagsListStories />)
+  .add('Tags List', () => <TagsListStories />);

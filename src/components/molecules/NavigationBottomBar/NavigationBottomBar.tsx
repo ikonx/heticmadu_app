@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext, useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   createStackNavigator,
@@ -8,7 +8,11 @@ import NavigationTabItem from '@components/atoms/NavigationTabItem/NavigationTab
 import { NavigationItemModel } from '@utils/models/navigationItem.model';
 import ChallengesNavigator from '@utils/navigator/Challenge.navigator';
 import MapNavigator from '@src/utils/navigator/Map.navigator';
+import LoginScreen from '@src/components/screens/Login/Login';
+import CreateAccountScreen from '@src/components/screens/CreateAccount/CreateAccount';
 import ProfileNavigator from '@utils/navigator/Profile.navigator';
+import UserContext from '@src/contexts/user/user.context';
+import { UserModel } from '@src/utils/models/user.model';
 
 interface Props {
   data: NavigationItemModel[];
@@ -24,6 +28,8 @@ const TabStyle = {
 };
 
 const NavigationBottomBar: FunctionComponent<Props> = ({ data }) => {
+  const { user }: { user: UserModel } = useContext(UserContext);
+
   function MainTabsScreen() {
     return (
       <Tab.Navigator tabBarOptions={TabStyle}>
@@ -51,16 +57,33 @@ const NavigationBottomBar: FunctionComponent<Props> = ({ data }) => {
     <RootStack.Navigator
       mode="modal"
       headerMode="none"
+      initialRouteName="Login"
       screenOptions={{
         gestureEnabled: true,
         cardOverlayEnabled: true,
         ...TransitionPresets.ModalPresentationIOS,
       }}
     >
-      <RootStack.Screen name="Main" component={MainTabsScreen} />
-      <RootStack.Screen name="Stories" component={ChallengesNavigator} />
-      <RootStack.Screen name="Maps" component={MapNavigator} />
-      <RootStack.Screen name="Profile" component={ProfileNavigator} />
+      {!user.isLogin ? (
+        <>
+          <RootStack.Screen
+            name="Login"
+            component={LoginScreen}
+            options={{ animationTypeForReplace: 'pop' }}
+          />
+          <RootStack.Screen
+            name="CreateAccount"
+            component={CreateAccountScreen}
+          />
+        </>
+      ) : (
+        <>
+          <RootStack.Screen name="Main" component={MainTabsScreen} />
+          <RootStack.Screen name="Stories" component={ChallengesNavigator} />
+          <RootStack.Screen name="Maps" component={MapNavigator} />
+          <RootStack.Screen name="Profile" component={ProfileNavigator} />
+        </>
+      )}
     </RootStack.Navigator>
   );
 };

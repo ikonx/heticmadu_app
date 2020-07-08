@@ -20,7 +20,10 @@ const MapNavigator: FunctionComponent<Props> = () => {
           title: '',
           headerTransparent: true,
           headerShown: false,
-          cardStyle: { flex: 1 },
+          cardStyle: {
+            flex: 1,
+            backgroundColor: Colors.mainWhite,
+          },
           gestureResponseDistance: { vertical: 600 },
           headerStatusBarHeight: 0,
         }}

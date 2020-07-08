@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { Text, TouchableOpacity } from 'react-native';
 
+import { IconName } from '@assets/icons/IconName.enum';
 import StyledBadge from './Badge.styles';
 import Icon from '../Icons/Icon';
-import { IconName } from '@assets/icons/IconName.enum';
 
 export interface IGreenScoreBadge {
   score: number | string;

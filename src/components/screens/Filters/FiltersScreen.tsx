@@ -9,7 +9,7 @@ import Text from '@src/components/atoms/Typography/Text/Text';
 import Title from '@components/atoms/Typography/Title/Title';
 import ChipsList from '@components/molecules/ChipsList/ChipsList';
 
-import { StyledFiltersScreen, StyledContent } from './Filters.style';
+import { StyledFiltersScreen, StyledContent, StyledButton } from './Filters.style';
 import Theme from '@src/styleGuide/Theme';
 
 interface Props {
@@ -81,14 +81,11 @@ const FiltersScreen = ({ navigation }: Props) => {
           fieldIndex={1}
           onClick={() => console.log('OK')}
         />
-        <Buttons
-          variant={TouchableType.DEFAULT}
-          style={{ justifyContent: 'center' }}
-        >
+        <StyledButton variant={TouchableType.IMPORTANT}>
           <Text variant="button" color={Theme.Colors.mainWhite} isBold>
             Appliquer
           </Text>
-        </Buttons>
+        </StyledButton>
       </StyledContent>
     </StyledFiltersScreen>
   );

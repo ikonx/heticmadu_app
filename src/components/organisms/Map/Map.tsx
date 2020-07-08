@@ -10,9 +10,10 @@ import { PoiModel } from '@src/utils/models/pois.model';
 
 interface Props {
   pois: PoiModel[];
+  scrollToItem: (index: number) => void;
 }
 
-const Map = ({ pois }: Props) => {
+const Map = ({ pois, scrollToItem }: Props) => {
   const [location, setLocation] = useState<any>(null);
   const [errorMsg, setErrorMsg] = useState<any>(null);
   const mapRef: any = useRef(null);
@@ -136,13 +137,14 @@ const Map = ({ pois }: Props) => {
           >
             <PositionIndicator />
           </Marker> */}
-          {pois.map((poi: PoiModel) => {
+          {pois.map((poi: PoiModel, index: number) => {
             const { longitude, latitude, name, id } = poi;
             return (
               <Marker
                 key={id}
                 coordinate={{ longitude, latitude }}
                 title={name}
+                onPress={() => scrollToItem(index)}
               >
                 <MapPointIcon point={poi} />
               </Marker>

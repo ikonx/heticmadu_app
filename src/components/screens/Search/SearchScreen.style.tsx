@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { SafeAreaView } from 'react-navigation';
-import { ScrollView } from 'react-native-gesture-handler';
+import { View } from 'react-native';
 
 export const StyledSearchScreen = styled(SafeAreaView)`
   background-color: ${({ theme }) => theme.Colors.mainWhite};
 `;
 
-export const StyledContent = styled(ScrollView)`
+export const StyledContent = styled(View)`
   background-color: ${({ theme }) => theme.Colors.mainWhite};
-  padding: 0 16px 16px 16px;
+  padding: 0 16px;
 `;

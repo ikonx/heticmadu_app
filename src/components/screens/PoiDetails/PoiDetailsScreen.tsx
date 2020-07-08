@@ -41,9 +41,9 @@ const PoiDetails: FunctionComponent<Props> = ({ navigation, route }) => {
   console.log(poi.description);
   return (
     <PoiDetailsContainer forceInset={{ top: 'never' }}>
-      <ScrollView>
-        <Spacer size={8} />
-        <NavigationHeader rightItem={(
+      <Spacer size={8} />
+      <NavigationHeader
+        rightItem={
           <Buttons variant={TouchableType.ICON} onPress={goBack}>
             <Icon
               height={24}
@@ -52,9 +52,15 @@ const PoiDetails: FunctionComponent<Props> = ({ navigation, route }) => {
               direction={Direction.LEFT}
               fill={Colors.mainGrey}
             />
-        </Buttons>
-        )}/>
-        <PoiCard poi={poi} fullWidth onPressGreenscore={() => navigation.navigate('GreenScore')}/>
+          </Buttons>
+        }
+      />
+      <ScrollView>
+        <PoiCard
+          poi={poi}
+          fullWidth
+          onPressGreenscore={() => navigation.navigate('GreenScore')}
+        />
         <StyledContent>
           <Separator />
           <Spacer size={24} />
@@ -77,7 +83,7 @@ const PoiDetails: FunctionComponent<Props> = ({ navigation, route }) => {
             <Title variant="h2" isBold>
               Horaires
             </Title>
-            <Text color={Theme.Colors.mainGrey}>mdrrrr</Text>
+            <Text color={Theme.Colors.mainGrey}>Non renseigné</Text>
           </>
           <Spacer size={24} />
           <>
