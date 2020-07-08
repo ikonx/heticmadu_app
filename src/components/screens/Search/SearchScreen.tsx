@@ -22,7 +22,6 @@ import SearchContext from '@src/contexts/search/search.context';
 import TagsContext from '@src/contexts/tags/tags.context';
 import { StyledSearchScreen, StyledContent } from './SearchScreen.style';
 import PoisContext from '@src/contexts/pois/pois.context';
-import { TagModel } from '@utils/models/tag.model';
 
 interface Props {
   navigation: NavigationScreenProp<{}, 'Search'>;
@@ -58,28 +57,38 @@ const SearchScreen = ({ navigation }: Props) => {
   const goBack = () => navigation.goBack();
 
   const onSearch = (value: string) => {
-    // TODO: Cannot type in multiple tags
     // TODO: Cannot type a name + a tag
 
     const val = formatValue(value);
 
     if (val !== '') {
+      // On search, add tag if search value is equal to one of the tags
+      const newTags: ITag[] = [];
+      tags.map((item: any) => {
+        const formattedTag = formatValue(item.tag);
+
+        if (formattedTag === val || val.includes(formattedTag)) {
+          newTags.push({ label: item.tag });
+        }
+      });
+
+      setSelectedTags(newTags);
+
       // Filter pois by name
       const newPois = [...pois];
       const poisData = newPois.length === 0 ? defaultPois : newPois;
-      const filteredPoisByName = poisData.filter((item: PoiModel) => (
-        formatValue(item.name).includes(val)
-      ));
+      const filteredPoisByName = poisData.filter((item: PoiModel) => {
+        const hasTags = item.tags && item.tags.some(({ tag } : any) => (
+          val.includes(tag)
+        ));
+
+        return formatValue(item.name).includes(val) || hasTags;
+      });
 
       setPois(filteredPoisByName);
 
-      // On search, add tag if search value is equal to one of the tags
-      tags.map((item: any) => (
-        formatValue(item.tag) === val && updateTags({ label: item.tag })
-      ));
-
       // If selected tags is deleted in search, update state
-      if (selectedTags.length > 0) {
+      if (selectedTags.length > 0 && val.length < formatValue(searchValue).length) {
         const newTags = selectedTags.filter((item: { label: string }) => {
           const formattedLabel = formatValue(item.label);
           return val.includes(formattedLabel);
@@ -111,10 +120,9 @@ const SearchScreen = ({ navigation }: Props) => {
   const updateTags = (_tag: ITag) => {
     const newSelectedTags = [...selectedTags];
     const isTagSelected: boolean = some(selectedTags, _tag);
-    if (isTagSelected) {
-    } else {
-      newSelectedTags.push(_tag);
-    }
+
+    !isTagSelected && newSelectedTags.push(_tag);
+
     setSelectedTags(newSelectedTags);
     filterPois(newSelectedTags);
   };
