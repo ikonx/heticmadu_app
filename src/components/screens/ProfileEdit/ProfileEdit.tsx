@@ -1,4 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
+import { useNavigation } from '@react-navigation/native';
+
 import Colors from '@styleGuide/Colors';
 import { ProfileEditContainer } from '@components/screens/ProfileEdit/ProfileEdit.style';
 import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
@@ -7,16 +9,11 @@ import Buttons from '@components/atoms/Buttons/Buttons';
 import Text from '@components/atoms/Typography/Text/Text';
 import Spacer from '@components/atoms/Spacer/Spacer';
 import Forms from '@components/organisms/Forms/Forms';
+import UserContext from '@src/contexts/user/user.context';
 
 interface Props {}
 
 const data = [
-  {
-    label: 'Nom',
-    type: 'text',
-    required: false,
-    key: 'name',
-  },
   {
     label: 'Prénom',
     type: 'text',
@@ -24,7 +21,13 @@ const data = [
     key: 'firstName',
   },
   {
-    label: 'Email secondaire',
+    label: 'Nom',
+    type: 'text',
+    required: false,
+    key: 'lastName',
+  },
+  {
+    label: 'Email',
     type: 'text',
     required: false,
     key: 'email',
@@ -32,22 +35,53 @@ const data = [
 ];
 
 const ProfileEdit: FunctionComponent<Props> = () => {
+  const navigation = useNavigation();
+
+  const {
+    user: { firstName, lastName, email, picture, id },
+    logout,
+    updateUserAccount,
+  } = useContext(UserContext);
+  const onLogout = () => {
+    logout();
+  };
+  const submit = async (values: any) => {
+    await updateUserAccount({
+      id,
+      picture,
+      lastName: values.lastName,
+      firstName: values.firstName,
+      email: values.email,
+    }).then((response: any) => {
+      if (response.status === 200) {
+        navigation.goBack();
+      }
+    });
+  };
+
   return (
     <ProfileEditContainer>
-      <Avatar />
-      <Spacer size={24}/>
+      <Avatar source={picture || 'https://picsum.photos/200/300'} />
+      <Spacer size={24} />
       <Forms
         dataInput={data}
         buttonName="Enregistrer"
         initialValue={{
-          name: '',
-          firstName: '',
-          email: '',
+          firstName,
+          lastName,
+          email,
         }}
+        onSubmit={submit}
       />
-      <Spacer size={24}/>
-      <Buttons variant={TouchableType.INVERT} style={{ backgroundColor: Colors.mainBackground }}>
-        <Text variant="button" color={Colors.mainRed}>Déconnexion</Text>
+      <Spacer size={24} />
+      <Buttons
+        variant={TouchableType.INVERT}
+        style={{ backgroundColor: Colors.mainBackground }}
+        onPress={onLogout}
+      >
+        <Text variant="button" color={Colors.mainRed}>
+          Déconnexion
+        </Text>
       </Buttons>
     </ProfileEditContainer>
   );

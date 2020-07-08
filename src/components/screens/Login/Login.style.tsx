@@ -4,6 +4,8 @@ import { View } from 'react-native';
 
 export const LoginContainer = styled(SafeAreaView)`
   align-items: center;
+  width: 90%;
+  margin: 0 auto;
 `;
 
 export const LoginTextBlock = styled(View)`

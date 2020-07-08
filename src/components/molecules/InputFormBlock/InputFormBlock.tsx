@@ -61,7 +61,7 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
 }) => {
   const [isHidden, setHidden] = useState(inputType === 'password');
   const [isFocus, setFocus] = useState(false);
-  const [isValue, setValue] = useState('');
+  const [stateValue, setValue] = useState(defaultValue);
 
   const { Colors } = useContext(ThemeContext);
 
@@ -70,18 +70,18 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
 
   useEffect(() => {
     Animated.timing(translateY, {
-      toValue: isFocus ? 0 : 12,
+      toValue: isFocus || stateValue ? 0 : 12,
       duration: 300,
       easing: Easing.ease,
       useNativeDriver: false,
     }).start();
     Animated.timing(fontSize, {
-      toValue: isFocus ? 12 : 16,
+      toValue: isFocus || !!!stateValue ? 12 : 16,
       duration: 300,
       easing: Easing.ease,
       useNativeDriver: false,
     }).start();
-  }, [isFocus]);
+  }, [isFocus, stateValue]);
 
   const managePasswordVisibility = () => {
     setHidden(!isHidden);
@@ -103,7 +103,7 @@ const InputLoginBlock: FunctionComponent<IInputLoginBlock> = ({
       case 'password':
         return (
           <TouchableOpacity onPress={managePasswordVisibility}>
-            {/* {isValue ? (
+            {/* {stateValue ? (
               <Icon
                 height={20}
                 width={20}

@@ -13,7 +13,7 @@ export interface IAvatar extends TouchableOpacityProps {
   source?: string;
 }
 
-const StyledImage = styled(Image)`
+export const StyledImage = styled(Image)`
   width: 88px;
   height: 88px;
   border-radius: 100px;

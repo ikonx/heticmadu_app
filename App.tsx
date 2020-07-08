@@ -4,13 +4,14 @@ import { ThemeProvider } from 'styled-components';
 import { useFonts } from '@use-expo/font';
 import StorybookUIRoot from './storybook';
 import { AppLoading } from 'expo';
-import loadFonts from '@utils/loadFonts';
-import theme from '@styleGuide/Theme';
-import NavigationBottomBar from '@components/molecules/NavigationBottomBar/NavigationBottomBar';
-import navigationBottomData from '@utils/mocks/navigationBottomBar.data';
+import loadFonts from './src/utils/loadFonts';
+import theme from './src/styleGuide/Theme';
+import NavigationBottomBar from './src/components/molecules/NavigationBottomBar/NavigationBottomBar';
+import navigationBottomData from './src/utils/mocks/navigationBottomBar.data';
 import PoisProvider from './src/contexts/pois/pois.provider';
 import TagsProvider from './src/contexts/tags/tags.provider';
 import SearchProvider from './src/contexts/search/search.provider';
+import UserProvider from './src/contexts/user/user.provider';
 
 const ACTIVATE_STORYBOOK = false;
 
@@ -24,11 +25,13 @@ function App() {
     <PoisProvider>
       <TagsProvider>
         <SearchProvider>
-          <NavigationContainer>
-            <ThemeProvider theme={theme}>
-              <NavigationBottomBar data={navigationBottomData} />
-            </ThemeProvider>
-          </NavigationContainer>
+          <ThemeProvider theme={theme}>
+            <UserProvider>
+              <NavigationContainer>
+                <NavigationBottomBar data={navigationBottomData} />
+              </NavigationContainer>
+            </UserProvider>
+          </ThemeProvider>
         </SearchProvider>
       </TagsProvider>
     </PoisProvider>

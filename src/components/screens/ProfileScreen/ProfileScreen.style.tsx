@@ -1,4 +1,4 @@
-import { Dimensions, FlatList, View, Animated } from 'react-native';
+import { Dimensions, FlatList, Animated } from 'react-native';
 import styled from 'styled-components';
 import Buttons from '@components/atoms/Buttons/Buttons';
 import { SafeAreaView } from 'react-native-safe-area-context';

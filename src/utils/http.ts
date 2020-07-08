@@ -5,8 +5,9 @@ import { CreatePointsOfInterestDTO } from './dto/pointsOfInterest.dto';
 import { CompaniesModel } from './models/companies.model';
 import { CreateCompanyDTO } from './dto/company.dto';
 import { CreateTagsDTO } from './dto/tags.dto';
+import { UserModel } from './models/user.model';
 
-const API_URL = 'http://localhost:4000/';
+const API_URL = 'http://192.168.67.143:4000/';
 
 // POIS
 
@@ -36,6 +37,20 @@ export const deleteTag = async (_id: string | number): Promise<any> =>
 
 // LOGIN
 
+export const getUser = async (id: string) => {
+  return await axios.get(`${API_URL}users/${id}`);
+};
+
+export const updateUser = async (user: {
+  id: string;
+  lastName: string;
+  firstName: string;
+  email: string;
+  picture: string;
+}) => {
+  return await axios.patch(`${API_URL}users`, { ...user });
+};
+
 export const loginUser = async ({
   email,
   password,
@@ -43,7 +58,10 @@ export const loginUser = async ({
   email: string;
   password: string;
 }): Promise<any> =>
-  await axios.post('http://localhost:4000/auth/login', { email, password });
+  await axios.post(`${API_URL}auth/login`, {
+    email,
+    password,
+  });
 
 export const createUser = async ({
   firstName,
@@ -56,7 +74,7 @@ export const createUser = async ({
   email: string;
   password: string;
 }): Promise<any> =>
-  await axios.post('http://localhost:4000/users', {
+  await axios.post(`${API_URL}users`, {
     firstName,
     lastName,
     email,
@@ -94,10 +112,10 @@ export const deleteTheme = async (_id: string | number): Promise<any> =>
 
 export const getUserImg = (img: string) => `${API_URL}users/${img}`;
 
-export const uploadImg = async (file: any) => await axios.post(`${API_URL}users/upload`, file, {
-  headers: {
-    'content-type': 'multipart/form-data; boundary=---011000010111000001101001',
-  },
-});
-
-export const updateUser = async (user: any) => await axios.patch(`${API_URL}users`, { user });
+export const uploadImg = async (file: any) =>
+  await axios.post(`${API_URL}users/upload`, file, {
+    headers: {
+      'content-type':
+        'multipart/form-data; boundary=---011000010111000001101001',
+    },
+  });

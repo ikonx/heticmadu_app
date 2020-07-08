@@ -53,7 +53,7 @@ const Forms: FunctionComponent<IForms> = ({
       onSubmit={(values: any) => {
         console.log('values', values);
         const errors: any = {};
-        dataInput.map((field: any) => {
+        dataInput.forEach((field: any) => {
           if (!values[field.key]) {
             errors[field.key] = `Requiert ${field.label}`;
           } else if (field.pattern && !field.pattern.test(values[field.key])) {
@@ -64,8 +64,8 @@ const Forms: FunctionComponent<IForms> = ({
         Object.keys(errors).length === 0 && onSubmit(values);
         return errors;
       }}
-      validate={(values: { [key: string]: string; }) => {
-        dataInput.map((field: any) => {
+      validate={(values: { [key: string]: string }) => {
+        dataInput.forEach((field: any) => {
           !values[field.key]
             ? setisAvailableState(false)
             : setisAvailableState(true);
@@ -74,15 +74,14 @@ const Forms: FunctionComponent<IForms> = ({
     >
       {({ handleChange, handleSubmit }) => (
         <StyledContainerForm>
-          {dataInput.map((input: any, index: number) => {
+          {dataInput.map((input: any) => {
             return (
-              <>
+              <React.Fragment key={input.key}>
                 <InputLoginBlock
-                  key={index}
                   label={input.label}
                   required={input.required}
                   inputType={input.type}
-                  defaultValue={input.value}
+                  defaultValue={initialValue[input.key]}
                   onInputValueChange={handleChange(input.key)}
                   errors={errors[input.key]}
                 />
@@ -99,7 +98,7 @@ const Forms: FunctionComponent<IForms> = ({
                   </>
                 )}
                 <Spacer size={16} />
-              </>
+              </React.Fragment>
             );
           })}
           <Spacer size={8} />

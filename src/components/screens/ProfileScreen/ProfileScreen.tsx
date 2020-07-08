@@ -1,7 +1,14 @@
 // @ts-nocheck
 /* tslint:disable */
-import React, { FunctionComponent, useState } from 'react';
-import { View, Animated, Dimensions, StyleSheet } from 'react-native';
+import React, { FunctionComponent, useState, useContext } from 'react';
+import {
+  View,
+  Animated,
+  Dimensions,
+  StyleSheet,
+  Button,
+  Text,
+} from 'react-native';
 import {
   NavigationParams,
   NavigationScreenProp,
@@ -35,12 +42,15 @@ import {
   ProfileScreenContainer,
   ProfileScreenHeader,
 } from '@components/screens/ProfileScreen/ProfileScreen.style';
+import UserContext from '@src/contexts/user/user.context';
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
 const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
+  const { user } = useContext(UserContext);
+
   const [activeTab, setActiveTab] = useState(1);
   const [mainData, setData] = useState<
     ProfileBadgeModel[] | ProfileLeaderboardModel[]
@@ -87,13 +97,14 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
         <ProfileScreenHeader
           style={[
             {
+              zIndex: 2,
               transform: [{ translateY: iconTranslateY }],
             },
           ]}
         >
           <ProfileParams
             variant={TouchableType.ICON}
-            onPress={() => navigation.navigate('Profile')}
+            onPress={() => navigation.navigate('Profile', { screen: 'Edit' })}
           >
             <Icon
               height={24}
@@ -105,25 +116,31 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
           </ProfileParams>
         </ProfileScreenHeader>
         {/* </SafeAreaView> */}
-        {/*<Animated.View*/}
-        {/*  style={[*/}
-        {/*    {*/}
-        {/*      transform: [*/}
-        {/*        {*/}
-        {/*          translateY: animatedValue.interpolate({*/}
-        {/*            inputRange: [0, 100],*/}
-        {/*            outputRange: [0, 50],*/}
-        {/*            extrapolate: 'clamp',*/}
-        {/*          }),*/}
-        {/*          scale: avatarScale,*/}
-        {/*        },*/}
-        {/*      ],*/}
-        {/*    },*/}
-        {/*  ]}*/}
-        {/*>*/}
-        {/*  <Spacer size={24} />*/}
-        {/*  <Profile title="John Doe" text="7 Défi réalisés" />*/}
-        {/*</Animated.View>*/}
+        <Animated.View
+          style={[
+            {
+              transform: [
+                {
+                  translateY: animatedValue.interpolate({
+                    inputRange: [0, 100],
+                    outputRange: [0, 50],
+                    extrapolate: 'clamp',
+                  }),
+                },
+                {
+                  scale: avatarScale,
+                },
+              ],
+            },
+          ]}
+        >
+          <Spacer size={24} />
+          <Profile
+            title={`${user.firstName} ${user.lastName}`}
+            text="7 Défi réalisés"
+            avatar={user.picture}
+          />
+        </Animated.View>
         <Spacer size={24} />
         <View>
           <Tabs
