@@ -65,21 +65,8 @@ const ProfileNavigator: FunctionComponent<Props> = () => {
             elevation: 0,
             backgroundColor: Colors.mainBackground,
             shadowOpacity: 0,
+            height: 0,
           },
-          headerLeft: () => (
-            <ProfileCross
-              variant={TouchableType.ICON}
-              onPress={() => navigation.goBack()}
-            >
-              <Icon
-                height={24}
-                width={24}
-                name={IconName.CHEVRON}
-                fill={Colors.mainGrey}
-                direction={Direction.LEFT}
-              />
-            </ProfileCross>
-          ),
         })}
       />
     </ProfileStack.Navigator>

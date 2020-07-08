@@ -29,7 +29,7 @@ const ChallengeScreen: FunctionComponent<Props> = ({ navigation }) => {
           tagsArray={[{ label: '7 Défi' }, { label: 'Énergie' }]}
           title="Toutes ses fournitures"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          background={Colors.mainGreen}
+          background={Colors.categories.energy}
           onPress={onClickCard}
         />
         <Spacer size={16} />
@@ -37,7 +37,7 @@ const ChallengeScreen: FunctionComponent<Props> = ({ navigation }) => {
           tagsArray={[{ label: '14 Défi' }, { label: 'Cuisine' }]}
           title="Toutes ses fournitures"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          background={Colors.darknessPurple}
+          background={Colors.categories.cooking}
           illustration={IllustrationName.CUISINE}
         />
         <Spacer size={16} />
@@ -45,7 +45,7 @@ const ChallengeScreen: FunctionComponent<Props> = ({ navigation }) => {
           tagsArray={[{ label: '2 Défi' }, { label: 'Maison' }]}
           title="Toutes ses fournitures"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          background={Colors.mainYellow}
+          background={Colors.categories.house}
           illustration={IllustrationName.MAISON}
         />
         <Spacer size={16} />
@@ -53,7 +53,7 @@ const ChallengeScreen: FunctionComponent<Props> = ({ navigation }) => {
           tagsArray={[{ label: '6 Défi' }, { label: 'Recyclage' }]}
           title="Toutes ses fournitures"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          background={Colors.mainPurple}
+          background={Colors.categories.recycle}
           illustration={IllustrationName.RECYCLAGE}
         />
       </ChallengeContainer>
