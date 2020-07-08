@@ -1,11 +1,6 @@
 import styled from 'styled-components';
-import { View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Image, ScrollView, Text, View } from 'react-native';
 import Buttons from '@components/atoms/Buttons/Buttons';
-
-export const RewardContainer = styled(SafeAreaView)`
-  padding-top: 24px;
-`;
 
 export const RewardCross = styled(Buttons)`
   width: 24px;
@@ -13,28 +8,39 @@ export const RewardCross = styled(Buttons)`
   margin-right: 16px;
 `;
 
-export const RewardBadge = styled(View)`
-  min-width: 277px;
-  min-height: 183px;
-  margin: 90px auto 0;
+export const StyledImage = styled(Image)`
+  width: 207px;
+  height: 207px;
+  margin: 24px auto 0 auto;
+  border-radius: 10px;
 `;
 
-export const RewardTitle = styled(View)`
-  margin-top: 80px;
-  padding: 0 24px;
+export const CouponText = styled(Text)`
+  padding: 0 20px 0 20px;
+  margin: 32px auto 0 auto;
+  text-align: center;
+  font-weight: 500;
 `;
 
-export const RewardSubtitle = styled(View)`
-  justify-content: center;
-  align-items: center;
-  margin-top: 8px;
+export const TimelineContainer = styled(View)`
+  margin: 10px auto 0 auto;
 `;
 
-export const RewardButton = styled(Buttons)`
-  margin: 0 16px;
-  justify-content: center;
-  position: absolute;
-  right: 16px;
-  left: 16px;
-  bottom: 40px;
+export const TimelineLine = styled(View)`
+    width: 1px;
+    height: 330px;
+    background: rgba(115, 139, 255, 0.16);
+    position: absolute;
+    top: 30px;
+    left: 11.8px;
 `;
+
+export const NoCoupon = styled(View)`
+  width: 207px;
+  height: 207px;
+  margin: 24px auto 0 auto;
+  border-radius: 10px;
+  background: #EFEFEF;
+`;
+
+export const StyledCouponContainer = styled(ScrollView)``;
