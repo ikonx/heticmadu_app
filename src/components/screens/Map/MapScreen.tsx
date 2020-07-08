@@ -80,9 +80,13 @@ const MapScreen = (_: Props) => {
     });
   };
 
+  const scrollToItem = (index: number) => {
+    flatListRef.current.scrollToIndex({ index, animated: true });
+  };
+
   return (
     <List flexDirection="column" style={{ flex: 1 }}>
-      <Map pois={pois} />
+      <Map pois={pois} scrollToItem={scrollToItem} />
       <StyledPanel flexDirection="column">
         <Buttons
           variant={TouchableType.FULLWIDTH}
