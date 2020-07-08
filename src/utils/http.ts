@@ -5,7 +5,6 @@ import { CreatePointsOfInterestDTO } from './dto/pointsOfInterest.dto';
 import { CompaniesModel } from './models/companies.model';
 import { CreateCompanyDTO } from './dto/company.dto';
 import { CreateTagsDTO } from './dto/tags.dto';
-import { UserModel } from './models/user.model';
 
 const API_URL = 'http://192.168.67.143:4000/';
 

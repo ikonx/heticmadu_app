@@ -4,15 +4,26 @@ import { poisData } from '@src/utils/mocks/pois.data';
 import Title from '@components/atoms/Typography/Title/Title';
 import Spacer from '@components/atoms/Spacer/Spacer';
 import ChallengeCard from '@components/molecules/ChallengeCard/ChallengeCard';
-import { ScrollView, Button, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import { HomeChallenges, HomeContainer, HomePlaces } from './HomeScreen.style';
-import { seedPois, seedTags } from '@src/utils/seeder';
 import UserContext from '@src/contexts/user/user.context';
+import { PoiModel } from '@utils/models/pois.model';
 
-interface Props {}
+interface Props {
+  navigation: any;
+}
 
 const HomeScreen = (_: Props) => {
   const { user } = useContext(UserContext);
+  const onPressPoi = (poi: PoiModel) => () => {
+    _.navigation.navigate('Maps', {
+      screen: 'Details',
+      params: { poi },
+    });
+  };
+  const onPressChallenge = () => {
+    _.navigation.navigate('Stories');
+  };
   const seed = () => {
     // seedTags();
   };
@@ -27,7 +38,12 @@ const HomeScreen = (_: Props) => {
             Lieu à visiter
           </Title>
           <Spacer size={16} />
-          <PoiCard poi={poisData[0]} gotBorder fullWidth />
+          <PoiCard
+            poi={poisData[0]}
+            onPress={onPressPoi}
+            gotBorder
+            fullWidth
+          />
         </HomePlaces>
         <Title variant="h3" isBold>
           Défi en cours
@@ -38,6 +54,7 @@ const HomeScreen = (_: Props) => {
             tagsArray={[{ label: '7 Défi' }, { label: 'Énergie' }]}
             title="Toutes ses fournitures"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+            onPress={onPressChallenge}
           />
         </HomeChallenges>
       </ScrollView>
