@@ -11,6 +11,7 @@ import { getUserImg, uploadImg } from '@utils/http';
 
 export interface IAvatar extends TouchableOpacityProps {
   source?: string;
+  onUpdate?: (image: string) => void;
 }
 
 export const StyledImage = styled(Image)`
@@ -21,7 +22,7 @@ export const StyledImage = styled(Image)`
   border-color: ${ ({ theme }) => theme.Colors.mainBlack };
 `;
 
-const Avatar: FunctionComponent<IAvatar> = ({ source }) => {
+const Avatar: FunctionComponent<IAvatar> = ({ source, onUpdate }) => {
   const [image, setImage] = useState<any>(null);
 
   useEffect(() => {
@@ -58,6 +59,7 @@ const Avatar: FunctionComponent<IAvatar> = ({ source }) => {
 
     if (!result.cancelled) {
       setImage(image);
+      onUpdate && onUpdate(image);
     }
   };
 

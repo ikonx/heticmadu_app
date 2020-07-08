@@ -22,19 +22,19 @@ function App() {
     return <AppLoading />;
   }
   return (
-    <PoisProvider>
-      <TagsProvider>
-        <SearchProvider>
-          <ThemeProvider theme={theme}>
-            <UserProvider>
-              <NavigationContainer>
-                <NavigationBottomBar data={navigationBottomData} />
-              </NavigationContainer>
-            </UserProvider>
-          </ThemeProvider>
-        </SearchProvider>
-      </TagsProvider>
-    </PoisProvider>
+    <UserProvider>
+      <PoisProvider>
+        <TagsProvider>
+          <SearchProvider>
+            <ThemeProvider theme={theme}>
+                <NavigationContainer>
+                  <NavigationBottomBar data={navigationBottomData} />
+                </NavigationContainer>
+            </ThemeProvider>
+          </SearchProvider>
+        </TagsProvider>
+      </PoisProvider>
+    </UserProvider>
   );
 }
 

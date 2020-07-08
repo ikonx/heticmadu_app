@@ -173,6 +173,7 @@ const UserProvider: React.FC<Props> = ({ children }: any) => {
         createUserAccount,
         getUserAccount,
         updateUserAccount,
+        checkToken,
       }}
     >
       {children}
