@@ -58,9 +58,21 @@ const SearchScreen = ({ navigation }: Props) => {
   const goBack = () => navigation.goBack();
 
   const onSearch = (value: string) => {
+    // TODO: Cannot type in multiple tags
+    // TODO: Cannot type a name + a tag
+
     const val = formatValue(value);
 
     if (val !== '') {
+      // Filter pois by name
+      const newPois = [...pois];
+      const poisData = newPois.length === 0 ? defaultPois : newPois;
+      const filteredPoisByName = poisData.filter((item: PoiModel) => (
+        formatValue(item.name).includes(val)
+      ));
+
+      setPois(filteredPoisByName);
+
       // On search, add tag if search value is equal to one of the tags
       tags.map((item: any) => (
         formatValue(item.tag) === val && updateTags({ label: item.tag })
@@ -75,15 +87,6 @@ const SearchScreen = ({ navigation }: Props) => {
 
         setSelectedTags(newTags);
       }
-
-      // Filter pois by name
-      const newPois = [...pois];
-      const poisData = newPois.length === 0 ? defaultPois : newPois;
-      const filteredPoisByName = poisData.filter((item: PoiModel) => (
-        formatValue(item.name).includes(val)
-      ));
-
-      setPois(filteredPoisByName);
     } else {
       setSelectedTags([]);
       setPois(defaultPois);

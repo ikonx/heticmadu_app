@@ -93,7 +93,7 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
         >
           <ProfileParams
             variant={TouchableType.ICON}
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate('Profile')}
           >
             <Icon
               height={24}
@@ -105,25 +105,25 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
           </ProfileParams>
         </ProfileScreenHeader>
         {/* </SafeAreaView> */}
-        <Animated.View
-          style={[
-            {
-              transform: [
-                {
-                  translateY: animatedValue.interpolate({
-                    inputRange: [0, 100],
-                    outputRange: [0, 50],
-                    extrapolate: 'clamp',
-                  }),
-                  scale: avatarScale,
-                },
-              ],
-            },
-          ]}
-        >
-          <Spacer size={24} />
-          <Profile title="John Doe" text="7 Défi réalisés" />
-        </Animated.View>
+        {/*<Animated.View*/}
+        {/*  style={[*/}
+        {/*    {*/}
+        {/*      transform: [*/}
+        {/*        {*/}
+        {/*          translateY: animatedValue.interpolate({*/}
+        {/*            inputRange: [0, 100],*/}
+        {/*            outputRange: [0, 50],*/}
+        {/*            extrapolate: 'clamp',*/}
+        {/*          }),*/}
+        {/*          scale: avatarScale,*/}
+        {/*        },*/}
+        {/*      ],*/}
+        {/*    },*/}
+        {/*  ]}*/}
+        {/*>*/}
+        {/*  <Spacer size={24} />*/}
+        {/*  <Profile title="John Doe" text="7 Défi réalisés" />*/}
+        {/*</Animated.View>*/}
         <Spacer size={24} />
         <View>
           <Tabs
