@@ -63,8 +63,7 @@ const CouponScreen = ({ navigation, route }) => {
       <CouponText>
         {count >= 3
           ? 'Bénéficier de -15% sur votre addition dans tous les restaurants partenaires'
-          : "Malheuresement vous n'avez pas encore de réduction de disponible 😥. \n" +
-            'Réalisez des défis pour en débloquer.'}
+          : "Malheuresement vous n'avez pas encore de réduction de disponible 😥. \n Réalisez des défis pour en débloquer."}
       </CouponText>
       <CouponText>Prochain coupon...</CouponText>
       {couponType !== undefined ? (
@@ -74,31 +73,31 @@ const CouponScreen = ({ navigation, route }) => {
             count={count}
             couponType={couponType}
             category={illustration}
-            number={3}
+            nbOfChallenge={3}
           />
           <Timeline
             count={count}
             couponType={couponType}
             category={illustration}
-            number={6}
+            nbOfChallenge={6}
           />
           <Timeline
             count={count}
             couponType={couponType}
             category={illustration}
-            number={12}
+            nbOfChallenge={12}
           />
           <Timeline
             count={count}
             couponType={couponType}
             category={illustration}
-            number={18}
+            nbOfChallenge={18}
           />
           <Timeline
             count={count}
             couponType={couponType}
             category={illustration}
-            number={24}
+            nbOfChallenge={24}
           />
         </TimelineContainer>
       ) : (

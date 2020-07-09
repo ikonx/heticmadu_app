@@ -7,7 +7,9 @@ import {
 const PointTimeline = ({ spaceRight, isActive }) => {
   return (
     <StyledPointTimeline isActive={isActive} spaceRight={spaceRight}>
-      <StyledCenterPointTimeline isActive={isActive} />
+      <StyledCenterPointTimeline
+        isActive={isActive}
+      ></StyledCenterPointTimeline>
     </StyledPointTimeline>
   );
 };

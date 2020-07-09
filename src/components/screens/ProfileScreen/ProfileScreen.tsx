@@ -62,7 +62,7 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
   };
 
   const animatedValue: AnimatedValue = new Animated.Value(0);
-  const MAX_SCROLL = Dimensions.get('window').height / 3;
+  const MAX_SCROLL = 280;
   const headerTranslateY = animatedValue.interpolate({
     inputRange: [0, 100],
     outputRange: [0, -100],
@@ -83,14 +83,63 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
 
   return (
     <ProfileScreenContainer>
-      <ProfileScreenHeader>
-        <ProfileParams variant={TouchableType.ICON} onPress={() => navigation.navigate('Profile', { screen: 'Edit' })}>
-          <Icon
-            height={24}
-            width={24}
-            name={IconName.SETTINGS}
-            direction={Direction.LEFT}
-            fill={Colors.mainGrey}
+      <Animated.View
+        style={[
+          {
+            ...StyleSheet.absoluteFillObject,
+            zIndex: 1,
+            bottom: 'auto',
+            backgroundColor: 'white',
+            transform: [{ translateY: headerTranslateY }],
+          },
+        ]}
+      >
+        {/* <SafeAreaView forceInset={{ bottom: 'never', top: 'never' }}> */}
+        <ProfileScreenHeader
+          style={[
+            {
+              zIndex: 2,
+              transform: [{ translateY: iconTranslateY }],
+            },
+          ]}
+        >
+          <ProfileParams
+            variant={TouchableType.ICON}
+            onPress={() => navigation.navigate('Profile', { screen: 'Edit' })}
+          >
+            <Icon
+              height={24}
+              width={24}
+              name={IconName.SETTINGS}
+              direction={Direction.LEFT}
+              fill={Colors.mainGrey}
+            />
+          </ProfileParams>
+        </ProfileScreenHeader>
+        {/* </SafeAreaView> */}
+        <Animated.View
+          style={[
+            {
+              transform: [
+                {
+                  translateY: animatedValue.interpolate({
+                    inputRange: [0, 100],
+                    outputRange: [0, 50],
+                    extrapolate: 'clamp',
+                  }),
+                },
+                {
+                  scale: avatarScale,
+                },
+              ],
+            },
+          ]}
+        >
+          <Spacer size={24} />
+          <Profile
+            title={`${user.firstName} ${user.lastName}`}
+            text="7 Défis réalisés"
+            avatar={user.picture}
           />
         </Animated.View>
         <Spacer size={24} />
@@ -117,40 +166,46 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
           { useNativeDriver: true },
         )}
         data={mainData}
-        renderItem={
-          ({ item, index }: {
-            item: ProfileBadgeModel&ProfileLeaderboardModel,
-            index: number,
-          }) => {
-            return activeTab === 0 ? (
-                <ProfileItem flexDirection="column">
-                    < onPress={() => navigation.navigate('Profile', { screen: 'Coupon', params: { item: item } })}>
-                        <ChallengeBadge
-                            illustration={item.illustration}
-                            background={item.color}
-                            count={item.count}
-                        />
-                        <Spacer size={8}/>
-                        <Title variant="subtitle">{item.text}</Title>
-                    </TouchableOpacity>
-                </ProfileItem>
-              ) : (
-                <>
-                  <LeaderboardRow
-                    rank={item.rank}
-                    name={item.name}
-                    text={item.text}
-                  />
-                  <Spacer size={16} />
-                  { leaderboardData.length > index + 1 && (
-                    <Separator />
-                  )}
-                </>
-            );
-          }
-        }
-        key={(activeTab === 0 ? 'a' : 'b')}
-        keyExtractor={ (item: ProfileBadgeModel) => item.text }
+        renderItem={({
+          item,
+          index,
+        }: {
+          item: ProfileBadgeModel & ProfileLeaderboardModel;
+          index: number;
+        }) => {
+          return activeTab === 0 ? (
+            <ProfileItem flexDirection="column">
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('Profile', {
+                    screen: 'Coupon',
+                    params: { item },
+                  })
+                }
+              >
+                <ChallengeBadge
+                  illustration={item.illustration}
+                  background={item.color}
+                  count={item.count}
+                />
+                <Spacer size={8} />
+                <Title variant="subtitle">{item.text}</Title>
+              </TouchableOpacity>
+            </ProfileItem>
+          ) : (
+            <>
+              <LeaderboardRow
+                rank={item.rank}
+                name={item.name}
+                text={item.text}
+              />
+              <Spacer size={16} />
+              {leaderboardData.length > index + 1 && <Separator />}
+            </>
+          );
+        }}
+        key={activeTab === 0 ? 'a' : 'b'}
+        keyExtractor={(item: ProfileBadgeModel) => item.text}
         numColumns={activeTab === 0 ? 2 : 1}
         ItemSeparatorComponent={() => <Spacer size={24} />}
         ListFooterComponent={() => (
