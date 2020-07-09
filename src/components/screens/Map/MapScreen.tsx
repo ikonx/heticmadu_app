@@ -50,7 +50,7 @@ const MapScreen = (_: Props) => {
   const navigation = useNavigation();
   const { Colors } = useContext(ThemeContext);
   const [activeTab, setTab] = useState({ ...tabsArray[0] });
-  const { pois: defaultPois, fetchPois } = useContext(PoisContext);
+  const { pois: defaultPois } = useContext(PoisContext);
   const [pois, setPois] = useState(defaultPois);
   const onTabChange = (tab: TabsModel) => {
     let result = [...defaultPois];
@@ -62,10 +62,6 @@ const MapScreen = (_: Props) => {
     setTab(tab);
   };
   const flatListRef: any = useRef();
-
-  useEffect(() => {
-    pois.length === 0 && fetchPois();
-  });
 
   useEffect(() => {
     if (flatListRef && flatListRef.current) {

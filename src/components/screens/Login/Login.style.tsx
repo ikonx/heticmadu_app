@@ -6,6 +6,8 @@ export const LoginContainer = styled(SafeAreaView)`
   align-items: center;
   width: 90%;
   margin: 0 auto;
+  flex: 1;
+  justify-content: center;
 `;
 
 export const LoginTextBlock = styled(View)`
