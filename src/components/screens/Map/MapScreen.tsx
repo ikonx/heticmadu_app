@@ -56,7 +56,7 @@ const MapScreen = (_: Props) => {
     let result = [...defaultPois];
 
     result = tab.value
-      ? result.filter((item: PoiModel) => item.category === tab.value)
+      ? result.filter((item: PoiModel) => item.category.toLowerCase() === tab.value.toLowerCase())
       : defaultPois;
     setPois(result);
     setTab(tab);

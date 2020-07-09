@@ -10,3 +10,7 @@ export const CreateAccountContainer = styled(SafeAreaView)`
 export const CreateAccountTitleBlock = styled(View)`
   width: 90%;
 `;
+
+export const CreateAccountTFormsBlock = styled(View)`
+  width: 90%;
+`;

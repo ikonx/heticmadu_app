@@ -45,4 +45,5 @@ export const NoCoupon = styled(View)`
 
 export const StyledCouponContainer = styled(ScrollView)`
   padding-top: 16px;
+  margin-bottom: 32px;
 `;
