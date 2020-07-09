@@ -7,11 +7,12 @@ import NavigationHeader from '@src/components/molecules/NavigationHeader/Navigat
 import Forms from '@src/components/organisms/Forms/Forms';
 import Title from '@src/components/atoms/Typography/Title/Title';
 import Text from '@src/components/atoms/Typography/Text/Text';
+import UserContext from '@src/contexts/user/user.context';
 import {
   CreateAccountContainer,
   CreateAccountTitleBlock,
+  CreateAccountTFormsBlock,
 } from './CreateAccount.style';
-import UserContext from '@src/contexts/user/user.context';
 
 const CreateAccountScreen: FunctionComponent = () => {
   const navigation = useNavigation();
@@ -38,43 +39,45 @@ const CreateAccountScreen: FunctionComponent = () => {
           </Text>
         </CreateAccountTitleBlock>
         <Spacer size={24} />
-        <Forms
-          dataInput={[
-            {
-              label: 'Nom',
-              type: 'default',
-              required: true,
-              key: 'lastName',
-            },
-            {
-              label: 'Prénom',
-              type: 'default',
-              required: true,
-              key: 'firstName',
-            },
-            {
-              label: 'Email',
-              type: 'default',
-              required: true,
-              key: 'email',
-              pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            },
-            {
-              label: 'Mot de passe',
-              type: 'password',
-              required: true,
-              key: 'password',
-            },
-          ]}
-          buttonName="Confirmer"
-          initialValue={{
-            email: '',
-            firstName: '',
-            lastName: '',
-            password: '',
-          }}
-          onSubmit={submit}
-        />
+        <CreateAccountTFormsBlock>
+          <Forms
+            dataInput={[
+              {
+                label: 'Nom',
+                type: 'default',
+                required: true,
+                key: 'lastName',
+              },
+              {
+                label: 'Prénom',
+                type: 'default',
+                required: true,
+                key: 'firstName',
+              },
+              {
+                label: 'Email',
+                type: 'default',
+                required: true,
+                key: 'email',
+                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              },
+              {
+                label: 'Mot de passe',
+                type: 'password',
+                required: true,
+                key: 'password',
+              },
+            ]}
+            buttonName="Confirmer"
+            initialValue={{
+              email: '',
+              firstName: '',
+              lastName: '',
+              password: '',
+            }}
+            onSubmit={submit}
+          />
+        </CreateAccountTFormsBlock>
       </CreateAccountContainer>
     </>
   );
