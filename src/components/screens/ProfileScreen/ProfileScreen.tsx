@@ -7,8 +7,8 @@ import {
   Dimensions,
   StyleSheet,
   Button,
-  Text,
   TouchableOpacity,
+  Text,
 } from 'react-native';
 import {
   NavigationParams,
@@ -179,7 +179,7 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
                 onPress={() =>
                   navigation.navigate('Profile', {
                     screen: 'Coupon',
-                    params: { item: item },
+                    params: { item },
                   })
                 }
               >

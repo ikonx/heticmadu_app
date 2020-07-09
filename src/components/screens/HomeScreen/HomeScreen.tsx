@@ -5,9 +5,9 @@ import Title from '@components/atoms/Typography/Title/Title';
 import Spacer from '@components/atoms/Spacer/Spacer';
 import ChallengeCard from '@components/molecules/ChallengeCard/ChallengeCard';
 import { ScrollView, Button, Text } from 'react-native';
-import { HomeChallenges, HomeContainer, HomePlaces } from './HomeScreen.style';
 import { seedPois, seedTags } from '@src/utils/seeder';
 import UserContext from '@src/contexts/user/user.context';
+import { HomeChallenges, HomeContainer, HomePlaces } from './HomeScreen.style';
 
 interface Props {}
 
@@ -30,14 +30,14 @@ const HomeScreen = (_: Props) => {
           <PoiCard poi={poisData[0]} gotBorder fullWidth />
         </HomePlaces>
         <Title variant="h3" isBold>
-          Défi en cours
+          Défi suggéré
         </Title>
         <Spacer size={16} />
         <HomeChallenges>
           <ChallengeCard
-            tagsArray={[{ label: '7 Défi' }, { label: 'Énergie' }]}
+            tagsArray={[{ label: '7 Défis' }, { label: 'Énergie' }]}
             title="Toutes ses fournitures"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+            description="Apprenez à mieux gérer vos fournitures au travail."
           />
         </HomeChallenges>
       </ScrollView>

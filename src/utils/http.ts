@@ -8,14 +8,14 @@ import { CompaniesModel } from './models/companies.model';
 import { CreateCompanyDTO } from './dto/company.dto';
 import { CreateTagsDTO } from './dto/tags.dto';
 
-const API_URL = 'http://192.168.67.143:4000/';
+const API_URL = 'http://15.188.89.253:4000/';
 
 axios.interceptors.request.use(
   async (config: any) => {
     const token = await SecureStore.getItemAsync('token');
 
     if (token != null) {
-      config.headers.Authorization = `Bearer ${token}`;
+      config.headers.Austhorization = `Bearer ${token}`;
     }
 
     return config;
