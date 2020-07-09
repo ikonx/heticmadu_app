@@ -43,7 +43,7 @@ const StyledTouchable = styled(TouchableOpacity)<ITouchable>`
       css`
         background-color: ${Theme.Colors.mainPurple};
         max-height: 56px;
-        width: 90%;
+        width: 100%;
         padding: 11px 16px;
         z-index: 4;
       `}
