@@ -1,4 +1,11 @@
 import React from 'react';
+import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
+import Icon from '@components/atoms/Icons/Icon';
+import { IconName } from '@assets/icons/IconName.enum';
+import { Direction } from '@components/atoms/Icons/Chevron/Chevron.style';
+import Colors from '@styleGuide/Colors';
+import Timeline from '@components/molecules/Timeline/Timeline';
+import { Text } from 'react-native';
 import {
   RewardCross,
   StyledImage,
@@ -8,13 +15,6 @@ import {
   StyledCouponContainer,
   TimelineLine,
 } from './Coupon.style';
-import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
-import Icon from '@components/atoms/Icons/Icon';
-import { IconName } from '@assets/icons/IconName.enum';
-import { Direction } from '@components/atoms/Icons/Chevron/Chevron.style';
-import Colors from '@styleGuide/Colors';
-import Timeline from '@components/molecules/Timeline/Timeline';
-import { Text } from 'react-native';
 
 function getCouponType(category: string) {
   switch (category) {
@@ -55,9 +55,9 @@ const CouponScreen = ({ navigation, route }) => {
             uri:
               'https://upload.wikimedia.org/wikipedia/commons/7/78/Qrcode_wikipedia_fr_v2clean.png',
           }}
-        ></StyledImage>
+        />
       ) : (
-        <NoCoupon></NoCoupon>
+        <NoCoupon />
       )}
 
       <CouponText>
@@ -68,37 +68,37 @@ const CouponScreen = ({ navigation, route }) => {
       <CouponText>Prochain coupon...</CouponText>
       {couponType !== undefined ? (
         <TimelineContainer>
-          <TimelineLine></TimelineLine>
+          <TimelineLine />
           <Timeline
             count={count}
             couponType={couponType}
             category={illustration}
             nbOfChallenge={3}
-          ></Timeline>
+          />
           <Timeline
             count={count}
             couponType={couponType}
             category={illustration}
             nbOfChallenge={6}
-          ></Timeline>
+          />
           <Timeline
             count={count}
             couponType={couponType}
             category={illustration}
             nbOfChallenge={12}
-          ></Timeline>
+          />
           <Timeline
             count={count}
             couponType={couponType}
             category={illustration}
             nbOfChallenge={18}
-          ></Timeline>
+          />
           <Timeline
             count={count}
             couponType={couponType}
             category={illustration}
             nbOfChallenge={24}
-          ></Timeline>
+          />
         </TimelineContainer>
       ) : (
         <Text>loading...</Text>

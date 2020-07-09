@@ -24,9 +24,6 @@ const HomeScreen = (_: Props) => {
   const onPressChallenge = () => {
     _.navigation.navigate('Stories');
   };
-  const seed = () => {
-    // seedTags();
-  };
 
   return (
     <HomeContainer>
@@ -46,14 +43,14 @@ const HomeScreen = (_: Props) => {
           />
         </HomePlaces>
         <Title variant="h3" isBold>
-          Défi en cours
+          Défi suggéré
         </Title>
         <Spacer size={16} />
         <HomeChallenges>
           <ChallengeCard
-            tagsArray={[{ label: '7 Défi' }, { label: 'Énergie' }]}
+            tagsArray={[{ label: '7 Défis' }, { label: 'Énergie' }]}
             title="Toutes ses fournitures"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+            description="Apprenez à mieux gérer vos fournitures au travail."
             onPress={onPressChallenge}
           />
         </HomeChallenges>

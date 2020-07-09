@@ -1,6 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { FlatList, View } from 'react-native';
-import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
+import {
+  NavigationParams,
+  NavigationScreenProp,
+  NavigationState,
+} from 'react-navigation';
 import Colors from '@styleGuide/Colors';
 import {
   ChallengeListContainer,
@@ -34,7 +38,10 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
   return (
     <ChallengeListContainer>
       <View style={{ backgroundColor: Colors.mainGreen, paddingBottom: 24 }}>
-        <StyledButton variant={TouchableType.ICON} onPress={() => navigation.goBack()}>
+        <StyledButton
+          variant={TouchableType.ICON}
+          onPress={() => navigation.goBack()}
+        >
           <Icon
             height={24}
             width={24}
@@ -46,13 +53,16 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
       </View>
       <StyledHeader>
         <StyledHeaderText>
-          <TagsList tagsArray={[{ label: '7 Défi' }]} selectedTags={[{ label: '7 Défi' }]}/>
+          <TagsList
+            tagsArray={[{ label: '7 Défis' }]}
+            selectedTags={[{ label: '7 Défis' }]}
+          />
           <Spacer size={16} />
-          <Title variant="h4" color={Colors.mainWhite} isBold>Toutes ses fournitures</Title>
+          <Title variant="h4" color={Colors.mainWhite} isBold>
+            Toutes ses fournitures
+          </Title>
           <Spacer size={8} />
-          <Text
-            color={Colors.mainWhite}
-          >
+          <Text color={Colors.mainWhite}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Text>
         </StyledHeaderText>
@@ -61,7 +71,7 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
       <StyledContent>
         <FlatList
           data={ChallengeListData}
-          renderItem={ ({ item }) => (
+          renderItem={({ item }) => (
             <ChallengeRow
               text={item.text}
               icon={item.icon}
@@ -69,14 +79,14 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
               color={item.color}
             />
           )}
-          keyExtractor={ item => item.id }
+          keyExtractor={item => item.id}
           ListFooterComponent={() => <Spacer size={24} />}
-          ItemSeparatorComponent={() => <Spacer size={16}/>}
+          ItemSeparatorComponent={() => <Spacer size={16} />}
           style={{
             paddingTop: 24,
           }}
         />
-    </StyledContent>
+      </StyledContent>
     </ChallengeListContainer>
   );
 };
