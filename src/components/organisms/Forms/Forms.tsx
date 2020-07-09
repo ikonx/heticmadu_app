@@ -26,7 +26,6 @@ const StyledFormik = styled(Formik)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   flex-direction: column;
 `;
 
