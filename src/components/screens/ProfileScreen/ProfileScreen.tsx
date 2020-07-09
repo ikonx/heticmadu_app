@@ -17,6 +17,7 @@ import {
   AnimatedValue,
   SafeAreaView,
 } from 'react-navigation';
+import * as Animatable from 'react-native-animatable';
 import Colors from '@styleGuide/Colors';
 import { IconName } from '@assets/icons/IconName.enum';
 import { ProfileBadgeModel } from '@utils/models/profileBadge.model';
@@ -174,26 +175,36 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
           index: number;
         }) => {
           return activeTab === 0 ? (
-            <ProfileItem flexDirection="column">
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate('Profile', {
-                    screen: 'Coupon',
-                    params: { item },
-                  })
-                }
-              >
-                <ChallengeBadge
-                  illustration={item.illustration}
-                  background={item.color}
-                  count={item.count}
-                />
-                <Spacer size={8} />
-                <Title variant="subtitle">{item.text}</Title>
-              </TouchableOpacity>
-            </ProfileItem>
+            <Animatable.View
+              duration={1000}
+              delay={index ? (index * 1000) / 5 : 0}
+              animation="fadeIn"
+            >
+              <ProfileItem flexDirection="column">
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate('Profile', {
+                      screen: 'Coupon',
+                      params: { item },
+                    })
+                  }
+                >
+                  <ChallengeBadge
+                    illustration={item.illustration}
+                    background={item.color}
+                    count={item.count}
+                  />
+                  <Spacer size={8} />
+                  <Title variant="subtitle">{item.text}</Title>
+                </TouchableOpacity>
+              </ProfileItem>
+            </Animatable.View>
           ) : (
-            <>
+            <Animatable.View
+              duration={1000}
+              delay={index ? (index * 1000) / 5 : 0}
+              animation="fadeIn"
+            >
               <LeaderboardRow
                 rank={item.rank}
                 name={item.name}
@@ -201,7 +212,7 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
               />
               <Spacer size={16} />
               {leaderboardData.length > index + 1 && <Separator />}
-            </>
+            </Animatable.View>
           );
         }}
         key={activeTab === 0 ? 'a' : 'b'}

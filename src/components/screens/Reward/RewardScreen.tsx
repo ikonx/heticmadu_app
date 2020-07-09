@@ -1,5 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import { RewardBadge, RewardButton, RewardContainer, RewardCross, RewardSubtitle, RewardTitle } from './Reward.style';
+import { Dimensions } from 'react-native';
+import {
+  RewardBadge,
+  RewardButton,
+  RewardContainer,
+  RewardCross,
+  RewardIllustration,
+  RewardSubtitle,
+  RewardTitle,
+} from './Reward.style';
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
 import Icon from '@components/atoms/Icons/Icon';
@@ -10,6 +19,7 @@ import ChallengeBadge from '@components/molecules/ChallengeBadge/ChallengeBadge'
 import IllustrationName from '@assets/illustrations/IllustrationName.enum';
 import Title from '@components/atoms/Typography/Title/Title';
 import Text from '@components/atoms/Typography/Text/Text';
+import Illustration from '@components/atoms/Illustrations/Illustration';
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
@@ -17,6 +27,13 @@ interface Props {
 const RewardScreen: FunctionComponent<Props> = ({ navigation }) => {
   return (
     <>
+      <RewardIllustration>
+        <Illustration
+          name={IllustrationName.CONFETTI}
+          width={Dimensions.get('window').width}
+          height={Dimensions.get('window').height}
+        />
+      </RewardIllustration>
       <RewardContainer>
         <RewardCross variant={TouchableType.ICON} onPress={() => navigation.goBack()}>
           <Icon
