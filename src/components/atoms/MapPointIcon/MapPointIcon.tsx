@@ -10,7 +10,7 @@ interface Props {
 
 const MapPointIcon: React.FC<Props> = ({ point }) => {
   const renderEntryIcon = (point: any) => {
-    switch (point.category) {
+    switch (point.category.toLowerCase()) {
       case 'shop':
         return (
           <Svg width="22" height="24" viewBox="0 0 22 24" fill="none">
@@ -216,7 +216,7 @@ const MapPointIcon: React.FC<Props> = ({ point }) => {
   };
 
   const renderEntryIconColor = (point: any) => {
-    switch (point.category) {
+    switch (point.category.toLowerCase()) {
       case 'shop':
         return '#EB5757';
       case 'restau':
