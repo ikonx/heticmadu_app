@@ -39,50 +39,50 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
 
   return (
     <ChallengeListContainer>
-    <Animatable.View animation="slideInDown" style={{ backgroundColor: Colors.mainGreen }}>
-      <Animatable.View
-        duration={animDuration}
-        delay={500}
-        animation="fadeIn"
-        style={{ paddingBottom: 24 }}
-      >
-        <StyledButton
-          variant={TouchableType.ICON}
-          onPress={() => navigation.goBack()}
+      <Animatable.View animation="slideInDown" style={{ backgroundColor: Colors.mainGreen }}>
+        <Animatable.View
+          duration={animDuration}
+          delay={500}
+          animation="fadeIn"
+          style={{ paddingBottom: 24 }}
         >
-          <Icon
-            height={24}
-            width={24}
-            name={IconName.CROSS}
-            direction={Direction.LEFT}
-            fill={Colors.mainGrey}
-          />
-        </StyledButton>
-      </Animatable.View>
-      <Animatable.View
-        duration={animDuration}
-        delay={500}
-        animation="fadeIn"
-      >
-        <StyledHeader>
-          <StyledHeaderText>
-            <TagsList
-              tagsArray={[{ label: '7 Défis' }]}
-              selectedTags={[{ label: '7 Défis' }]}
+          <StyledButton
+            variant={TouchableType.ICON}
+            onPress={() => navigation.goBack()}
+          >
+            <Icon
+              height={24}
+              width={24}
+              name={IconName.CROSS}
+              direction={Direction.LEFT}
+              fill={Colors.mainGrey}
             />
-            <Spacer size={16} />
-            <Title variant="h4" color={Colors.mainWhite} isBold>
-              Toutes ses fournitures
-            </Title>
-            <Spacer size={8} />
-            <Text color={Colors.mainWhite}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </Text>
-          </StyledHeaderText>
-          <Illustration name={IllustrationName.ENERGIE} />
-        </StyledHeader>
+          </StyledButton>
+        </Animatable.View>
+        <Animatable.View
+          duration={animDuration}
+          delay={500}
+          animation="fadeIn"
+        >
+          <StyledHeader>
+            <StyledHeaderText>
+              <TagsList
+                tagsArray={[{ label: '7 Défis' }]}
+                selectedTags={[{ label: '7 Défis' }]}
+              />
+              <Spacer size={16} />
+              <Title variant="h4" color={Colors.mainWhite} isBold>
+                Toutes ses fournitures
+              </Title>
+              <Spacer size={8} />
+              <Text color={Colors.mainWhite}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </Text>
+            </StyledHeaderText>
+            <Illustration name={IllustrationName.ENERGIE} />
+          </StyledHeader>
+        </Animatable.View>
       </Animatable.View>
-    </Animatable.View>
       <StyledContent>
         <FlatList
           data={ChallengeListData}
