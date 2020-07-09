@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
 import {
   NavigationParams,
   NavigationScreenProp,

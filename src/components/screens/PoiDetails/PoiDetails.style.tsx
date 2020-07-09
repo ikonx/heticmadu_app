@@ -8,5 +8,5 @@ export const PoiDetailsContainer = styled(SafeAreaView)`
 `;
 
 export const StyledContent = styled(View)`
-  padding: 0 16px;
+  padding: 0 16px 48px;
 `;

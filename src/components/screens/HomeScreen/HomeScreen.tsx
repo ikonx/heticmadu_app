@@ -30,7 +30,7 @@ const HomeScreen = (_: Props) => {
       <ScrollView style={{ paddingBottom: 66 }}>
         <Title isBold>Hello, {user.firstName} ✌🏼</Title>
         {/* <Button title="seed" onPress={seed} /> */}
-        <HomePlaces>
+        <HomePlaces animation="fadeIn">
           <Title variant="h3" isBold>
             Lieu à visiter
           </Title>
@@ -46,7 +46,7 @@ const HomeScreen = (_: Props) => {
           Défi suggéré
         </Title>
         <Spacer size={16} />
-        <HomeChallenges>
+        <HomeChallenges animation="fadeIn">
           <ChallengeCard
             tagsArray={[{ label: '7 Défis' }, { label: 'Énergie' }]}
             title="Toutes ses fournitures"
