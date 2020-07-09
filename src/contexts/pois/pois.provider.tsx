@@ -16,16 +16,18 @@ const PoisProvider: React.FC<Props> = ({ children }) => {
   useEffect(() => {
     checkToken();
 
-    if (user.isLogin) {
-      setFetchingPois(true);
-      getPois().then((res: any) => {
-        if (res.status === 200) {
-          setPois(res.data);
-          setFetchingPois(false);
-        }
-      });
-    }
+    user.isLogin && fetchPois();
   }, []);
+
+  const fetchPois = () => {
+    setFetchingPois(true);
+    getPois().then((res: any) => {
+      if (res.status === 200) {
+        setPois(res.data);
+        setFetchingPois(false);
+      }
+    });
+  };
 
   const refreshPois = () =>
     getPois().then((res: any) => {
@@ -48,7 +50,7 @@ const PoisProvider: React.FC<Props> = ({ children }) => {
 
   return (
     <PoisContext.Provider
-      value={{ pois, setPois, fetchingPois, refreshPois, deletePoi }}
+      value={{ pois, setPois, fetchingPois, setFetchingPois, fetchPois, refreshPois, deletePoi }}
     >
       {children}
     </PoisContext.Provider>

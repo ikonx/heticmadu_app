@@ -12,6 +12,7 @@ import PoisProvider from './src/contexts/pois/pois.provider';
 import TagsProvider from './src/contexts/tags/tags.provider';
 import SearchProvider from './src/contexts/search/search.provider';
 import UserProvider from './src/contexts/user/user.provider';
+import FiltersProvider from './src/contexts/filters/filters.provider';
 
 const ACTIVATE_STORYBOOK = false;
 
@@ -26,11 +27,13 @@ function App() {
       <PoisProvider>
         <TagsProvider>
           <SearchProvider>
-            <ThemeProvider theme={theme}>
-                <NavigationContainer>
-                  <NavigationBottomBar data={navigationBottomData} />
-                </NavigationContainer>
-            </ThemeProvider>
+            <FiltersProvider>
+              <ThemeProvider theme={theme}>
+                  <NavigationContainer>
+                    <NavigationBottomBar data={navigationBottomData} />
+                  </NavigationContainer>
+              </ThemeProvider>
+            </FiltersProvider>
           </SearchProvider>
         </TagsProvider>
       </PoisProvider>

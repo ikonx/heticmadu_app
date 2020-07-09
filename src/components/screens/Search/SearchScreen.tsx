@@ -57,8 +57,6 @@ const SearchScreen = ({ navigation }: Props) => {
   const goBack = () => navigation.goBack();
 
   const onSearch = (value: string) => {
-    // TODO: Cannot type a name + a tag
-
     const val = formatValue(value);
 
     if (val !== '') {
