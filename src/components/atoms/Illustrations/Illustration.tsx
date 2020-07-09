@@ -30,7 +30,15 @@ const Illustration: FunctionComponent<Props> = ({ name, ...rest }) => {
 
   return (
     <StyledIllustration>
-      {<LottieView autoPlay autoSize loop source={renderIllustration()} { ...rest }/>}
+      {
+        <LottieView
+          autoPlay
+          autoSize
+          loop
+          source={renderIllustration()}
+          {...rest}
+        />
+      }
     </StyledIllustration>
   );
 };

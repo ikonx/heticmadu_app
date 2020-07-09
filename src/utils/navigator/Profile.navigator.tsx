@@ -8,6 +8,7 @@ import Icon from '@components/atoms/Icons/Icon';
 import { IconName } from '@assets/icons/IconName.enum';
 import Buttons from '@components/atoms/Buttons/Buttons';
 import { Direction } from '@components/atoms/Icons/Chevron/Chevron.style';
+import CouponScreen from '@components/screens/Coupon/CouponScreen';
 
 interface Props {}
 
@@ -24,7 +25,7 @@ const ProfileNavigator: FunctionComponent<Props> = () => {
       <ProfileStack.Screen
         name="Edit"
         component={ProfileEdit}
-        options={ ({ navigation }) => ({
+        options={({ navigation }) => ({
           cardStyle: {
             backgroundColor: Colors.mainBackground,
           },
@@ -36,7 +37,10 @@ const ProfileNavigator: FunctionComponent<Props> = () => {
             shadowOpacity: 0,
           },
           headerLeft: () => (
-            <ProfileCross variant={TouchableType.ICON} onPress={() => navigation.goBack()}>
+            <ProfileCross
+              variant={TouchableType.ICON}
+              onPress={() => navigation.goBack()}
+            >
               <Icon
                 height={24}
                 width={24}
@@ -46,6 +50,23 @@ const ProfileNavigator: FunctionComponent<Props> = () => {
               />
             </ProfileCross>
           ),
+        })}
+      />
+      <ProfileStack.Screen
+        name="Coupon"
+        component={CouponScreen}
+        options={({ navigation }) => ({
+          cardStyle: {
+            backgroundColor: Colors.mainBackground,
+          },
+          title: '',
+          headerStatusBarHeight: 0,
+          headerStyle: {
+            elevation: 0,
+            backgroundColor: Colors.mainBackground,
+            shadowOpacity: 0,
+            height: 0,
+          },
         })}
       />
     </ProfileStack.Navigator>
