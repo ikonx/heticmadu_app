@@ -101,7 +101,7 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
               />
             </Animatable.View>
           )}
-          keyExtractor={item => item.id}
+          keyExtractor={(item: any) => item.id}
           ListFooterComponent={() => <Spacer size={24} />}
           ItemSeparatorComponent={() => <Spacer size={16} />}
           style={{
