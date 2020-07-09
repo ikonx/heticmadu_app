@@ -7,6 +7,7 @@ import List from '@components/atoms/List/List';
 export const ProfileScreenContainer = styled(SafeAreaView)`
   background: ${({ theme }) => theme.Colors.mainWhite};
   flex: 1;
+  padding-bottom: 0;
 `;
 
 export const ProfileScreenHeader = styled(Animated.View)`

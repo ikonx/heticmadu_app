@@ -14,6 +14,12 @@ export default {
   mainBlack: '#000000',
   mainBackground: '#FAFAFA',
   mainGreen: '#6FCF97',
+  categories: {
+    energy: '#6FCF97',
+    cooking: '#df7861',
+    house: '#FFB347',
+    recycle: '#738BFF',
+  },
   tags: {
     africain: '#F68482',
     junkfood: '#F9722D',
