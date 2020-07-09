@@ -50,7 +50,8 @@ const PoiCard = ({
   onPress,
   onPressGreenscore,
 }: Props) => {
-  const { name, address, greenScore, averagePrice, images } = poi;
+  const { name, address, greenScore, averagePrice, picture } = poi;
+
   return (
     <StyledPoiCard
       gotBorder={gotBorder}
@@ -60,8 +61,8 @@ const PoiCard = ({
       <List flexDirection="column">
         <StyledImage
           source={{
-            uri: images
-              ? images[0]
+            uri: picture
+              ? picture
               : `https://source.unsplash.com/900x90${greenScore}/?food`,
           }}
         />
