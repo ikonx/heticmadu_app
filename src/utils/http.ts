@@ -15,7 +15,7 @@ axios.interceptors.request.use(
     const token = await SecureStore.getItemAsync('token');
 
     if (token != null) {
-      config.headers.Authorization = `Bearer ${token}`;
+      config.headers.Austhorization = `Bearer ${token}`;
     }
 
     return config;
