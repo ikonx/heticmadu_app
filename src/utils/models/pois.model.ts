@@ -27,4 +27,5 @@ export interface PoiModel {
   status?: string;
   tags?: TagModel[];
   images?: string[];
+  [key: string]: any;
 }

@@ -45,6 +45,18 @@ const ProfileEdit: FunctionComponent<Props> = () => {
   const onLogout = () => {
     logout();
   };
+  const updateProfileImg = async (img: string) => {
+    await updateUserAccount({
+      id,
+      firstName,
+      lastName,
+      email,
+      picture: img,
+    }).then((res: any) => {
+      res.status === 200 && navigation.navigate('Profile');
+    });
+
+  };
   const submit = async (values: any) => {
     await updateUserAccount({
       id,
@@ -61,7 +73,10 @@ const ProfileEdit: FunctionComponent<Props> = () => {
 
   return (
     <ProfileEditContainer>
-      <Avatar source={picture || 'https://picsum.photos/200/300'} />
+      <Avatar
+        source={picture || 'https://picsum.photos/200/300'}
+        onUpdate={(text: string) => updateProfileImg(text)}
+      />
       <Spacer size={24} />
       <Forms
         dataInput={data}

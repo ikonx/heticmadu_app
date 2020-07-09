@@ -17,4 +17,5 @@ export const StyledContent = styled(View)`
 export const StyledButton = styled(Buttons)`
   justify-content: center;
   flex: 1;
+  margin: 0 16px 24px;
 `;

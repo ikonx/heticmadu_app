@@ -12,6 +12,7 @@ import PoisProvider from './src/contexts/pois/pois.provider';
 import TagsProvider from './src/contexts/tags/tags.provider';
 import SearchProvider from './src/contexts/search/search.provider';
 import UserProvider from './src/contexts/user/user.provider';
+import FiltersProvider from './src/contexts/filters/filters.provider';
 
 const ACTIVATE_STORYBOOK = false;
 
@@ -22,19 +23,21 @@ function App() {
     return <AppLoading />;
   }
   return (
-    <PoisProvider>
-      <TagsProvider>
-        <SearchProvider>
-          <ThemeProvider theme={theme}>
-            <UserProvider>
-              <NavigationContainer>
-                <NavigationBottomBar data={navigationBottomData} />
-              </NavigationContainer>
-            </UserProvider>
-          </ThemeProvider>
-        </SearchProvider>
-      </TagsProvider>
-    </PoisProvider>
+    <UserProvider>
+      <PoisProvider>
+        <TagsProvider>
+          <SearchProvider>
+            <FiltersProvider>
+              <ThemeProvider theme={theme}>
+                  <NavigationContainer>
+                    <NavigationBottomBar data={navigationBottomData} />
+                  </NavigationContainer>
+              </ThemeProvider>
+            </FiltersProvider>
+          </SearchProvider>
+        </TagsProvider>
+      </PoisProvider>
+    </UserProvider>
   );
 }
 

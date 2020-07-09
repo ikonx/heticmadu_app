@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PoisContext from './pois.context';
 import { getPois, deletePoi as deletePoiAPI } from '@utils/http';
 import { PoiModel } from '@src/utils/models/pois.model';
-// import UserContext from 'contexts/user/user.context';
+import UserContext from '@src/contexts/user/user.context';
 
 interface Props {}
 
@@ -11,26 +11,23 @@ const defaultPois: PoiModel[] = [];
 const PoisProvider: React.FC<Props> = ({ children }) => {
   const [pois, setPois] = useState<PoiModel[]>(defaultPois);
   const [fetchingPois, setFetchingPois] = useState<boolean>(false);
-  //   const { isLogin } = useContext(UserContext);
+  const { checkToken, user } = useContext(UserContext);
 
   useEffect(() => {
+    checkToken();
+
+    user.isLogin && fetchPois();
+  }, []);
+
+  const fetchPois = () => {
+    setFetchingPois(true);
     getPois().then((res: any) => {
       if (res.status === 200) {
         setPois(res.data);
         setFetchingPois(false);
       }
     });
-    // TODO: manage user context
-    // if (isLogin) {
-    //   setFetchingPois(true);
-    //   getPois().then((res: any) => {
-    //     if (res.status === 200) {
-    //       setPois(res.data);
-    //       setFetchingPois(false);
-    //     }
-    //   });
-    // }
-  }, []);
+  };
 
   const refreshPois = () =>
     getPois().then((res: any) => {
@@ -53,7 +50,7 @@ const PoisProvider: React.FC<Props> = ({ children }) => {
 
   return (
     <PoisContext.Provider
-      value={{ pois, setPois, fetchingPois, refreshPois, deletePoi }}
+      value={{ pois, setPois, fetchingPois, setFetchingPois, fetchPois, refreshPois, deletePoi }}
     >
       {children}
     </PoisContext.Provider>

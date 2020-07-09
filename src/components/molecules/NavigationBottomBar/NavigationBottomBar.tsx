@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext, useEffect } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   createStackNavigator,
