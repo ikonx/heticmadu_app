@@ -38,3 +38,11 @@ export const RewardButton = styled(Buttons)`
   left: 16px;
   bottom: 40px;
 `;
+
+export const RewardIllustration = styled(View)`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+`;

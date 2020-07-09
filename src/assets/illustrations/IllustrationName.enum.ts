@@ -3,6 +3,7 @@ export enum IllustrationName {
   MAISON = 'maison',
   CUISINE = 'cuisine',
   RECYCLAGE = 'recyclage',
+  CONFETTI = 'confetti',
 }
 
 export default IllustrationName;

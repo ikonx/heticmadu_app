@@ -6,6 +6,7 @@ import {
   NavigationState,
 } from 'react-navigation';
 import Colors from '@styleGuide/Colors';
+import * as Animatable from 'react-native-animatable';
 import {
   ChallengeListContainer,
   StyledContent,
@@ -31,13 +32,20 @@ interface Props {
 }
 
 const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
+  const animDuration = 1000;
   const onClick = () => {
     navigation.navigate('Details');
   };
 
   return (
     <ChallengeListContainer>
-      <View style={{ backgroundColor: Colors.mainGreen, paddingBottom: 24 }}>
+    <Animatable.View animation="slideInDown" style={{ backgroundColor: Colors.mainGreen }}>
+      <Animatable.View
+        duration={animDuration}
+        delay={500}
+        animation="fadeIn"
+        style={{ paddingBottom: 24 }}
+      >
         <StyledButton
           variant={TouchableType.ICON}
           onPress={() => navigation.goBack()}
@@ -50,34 +58,48 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
             fill={Colors.mainGrey}
           />
         </StyledButton>
-      </View>
-      <StyledHeader>
-        <StyledHeaderText>
-          <TagsList
-            tagsArray={[{ label: '7 Défis' }]}
-            selectedTags={[{ label: '7 Défis' }]}
-          />
-          <Spacer size={16} />
-          <Title variant="h4" color={Colors.mainWhite} isBold>
-            Toutes ses fournitures
-          </Title>
-          <Spacer size={8} />
-          <Text color={Colors.mainWhite}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </Text>
-        </StyledHeaderText>
-        <Illustration name={IllustrationName.ENERGIE} />
-      </StyledHeader>
+      </Animatable.View>
+      <Animatable.View
+        duration={animDuration}
+        delay={500}
+        animation="fadeIn"
+      >
+        <StyledHeader>
+          <StyledHeaderText>
+            <TagsList
+              tagsArray={[{ label: '7 Défis' }]}
+              selectedTags={[{ label: '7 Défis' }]}
+            />
+            <Spacer size={16} />
+            <Title variant="h4" color={Colors.mainWhite} isBold>
+              Toutes ses fournitures
+            </Title>
+            <Spacer size={8} />
+            <Text color={Colors.mainWhite}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </Text>
+          </StyledHeaderText>
+          <Illustration name={IllustrationName.ENERGIE} />
+        </StyledHeader>
+      </Animatable.View>
+    </Animatable.View>
       <StyledContent>
         <FlatList
           data={ChallengeListData}
-          renderItem={({ item }) => (
-            <ChallengeRow
-              text={item.text}
-              icon={item.icon}
-              clickEvent={onClick}
-              color={item.color}
-            />
+          renderItem={({ item, index }) => (
+            <Animatable.View
+              animation="fadeIn"
+              duration={animDuration}
+              delay={index ? (index * animDuration) / 5 : 0}
+              useNativeDriver
+            >
+              <ChallengeRow
+                text={item.text}
+                icon={item.icon}
+                clickEvent={onClick}
+                color={item.color}
+              />
+            </Animatable.View>
           )}
           keyExtractor={item => item.id}
           ListFooterComponent={() => <Spacer size={24} />}
