@@ -54,3 +54,9 @@ And run `expo start`
 All stories are written with the storiesOf API (https://storybook.js.org/docs/formats/storiesof-api/)
 
 For every new module , add it in the "configure" options located in file 'storybook/index.tsx'.
+
+## Expo 
+
+App publié sur https://expo.io/@bowstyl/madu 
+
+:warning: Disponible uniquement sur android 
