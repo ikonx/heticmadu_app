@@ -9,7 +9,11 @@ import {
   RewardSubtitle,
   RewardTitle,
 } from './Reward.style';
-import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
+import {
+  NavigationParams,
+  NavigationScreenProp,
+  NavigationState,
+} from 'react-navigation';
 import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
 import Icon from '@components/atoms/Icons/Icon';
 import { IconName } from '@assets/icons/IconName.enum';
@@ -35,7 +39,10 @@ const RewardScreen: FunctionComponent<Props> = ({ navigation }) => {
         />
       </RewardIllustration>
       <RewardContainer>
-        <RewardCross variant={TouchableType.ICON} onPress={() => navigation.goBack()}>
+        <RewardCross
+          variant={TouchableType.ICON}
+          onPress={() => navigation.goBack()}
+        >
           <Icon
             height={24}
             width={24}
@@ -54,32 +61,31 @@ const RewardScreen: FunctionComponent<Props> = ({ navigation }) => {
           />
         </RewardBadge>
         <RewardTitle>
-          <Title variant="h3" align="center" isBold>Félicitations vous avez reussi
-            le défi Ma feuille l’unique 🎉</Title>
+          <Title variant="h3" align="center" isBold>
+            Félicitations vous avez reussi le défi Ma feuille l’unique 🎉
+          </Title>
         </RewardTitle>
         <RewardSubtitle>
-          <Text>
-            Vous avez débloqué un coupon de reduction
-          </Text>
+          <Text>Vous avez débloqué un coupon de reduction</Text>
         </RewardSubtitle>
       </RewardContainer>
-      <RewardButton variant={TouchableType.IMPORTANT} onPress={() =>
+      <RewardButton
+        variant={TouchableType.IMPORTANT}
+        onPress={() =>
           navigation.navigate('Profile', {
             screen: 'Coupon',
-            params: { item: {
-              color: "#6FCF97",
-              count: 2,
-              illustration: "energie",
-              text: "Master de l'energie",
+            params: {
+              item: {
+                color: '#6FCF97',
+                count: 2,
+                illustration: 'energie',
+                text: "Master de l'energie",
+              },
             },
-          },
-        })
-      }>
-        <Text
-          variant="button"
-          color={Colors.mainWhite}
-          isBold
-        >
+          })
+        }
+      >
+        <Text variant="button" color={Colors.mainWhite} isBold>
           Voir le coupon
         </Text>
       </RewardButton>

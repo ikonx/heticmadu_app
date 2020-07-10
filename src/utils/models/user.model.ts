@@ -7,4 +7,5 @@ export interface UserModel {
   password?: string;
   isLogin: boolean;
   gotError: boolean;
+  picture?: string;
 }

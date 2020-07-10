@@ -8,8 +8,8 @@ import { CompaniesModel } from './models/companies.model';
 import { CreateCompanyDTO } from './dto/company.dto';
 import { CreateTagsDTO } from './dto/tags.dto';
 
-// const API_URL = 'http://192.168.67.143:4000/';
-const API_URL = 'http://15.188.89.253:4000/';
+const API_URL = 'http://localhost:4000/';
+// const API_URL = 'http://15.188.89.253:4000/';
 
 axios.interceptors.request.use(
   async (config: any) => {
@@ -77,7 +77,7 @@ export const loginUser = async ({
 }): Promise<any> =>
   await axios.post(`${API_URL}auth/login`, {
     email,
-    password,
+    hashedPassword: password,
   });
 
 export const createUser = async ({
