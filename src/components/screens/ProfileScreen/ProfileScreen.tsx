@@ -174,45 +174,48 @@ const ProfileScreen: FunctionComponent<Props> = ({ navigation }) => {
           item: ProfileBadgeModel & ProfileLeaderboardModel;
           index: number;
         }) => {
-          return activeTab === 0 ? (
-            <Animatable.View
-              duration={1000}
-              delay={index ? (index * 1000) / 5 : 0}
-              animation="fadeIn"
-            >
-              <ProfileItem flexDirection="column">
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate('Profile', {
-                      screen: 'Coupon',
-                      params: { item },
-                    })
-                  }
-                >
-                  <ChallengeBadge
-                    illustration={item.illustration}
-                    background={item.color}
-                    count={item.count}
-                  />
-                  <Spacer size={8} />
-                  <Title variant="subtitle">{item.text}</Title>
-                </TouchableOpacity>
-              </ProfileItem>
-            </Animatable.View>
-          ) : (
-            <Animatable.View
-              duration={1000}
-              delay={index ? (index * 1000) / 5 : 0}
-              animation="fadeIn"
-            >
-              <LeaderboardRow
-                rank={item.rank}
-                name={item.name}
-                text={item.text}
-              />
-              <Spacer size={16} />
-              {leaderboardData.length > index + 1 && <Separator />}
-            </Animatable.View>
+          if (activeTab === 0) {
+            return (
+              <Animatable.View
+                duration={1000}
+                delay={index ? (index * 1000) / 5 : 0}
+                animation="fadeIn"
+              >
+                <ProfileItem flexDirection="column">
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate('Profile', {
+                        screen: 'Coupon',
+                        params: { item },
+                      })
+                    }
+                  >
+                    <ChallengeBadge
+                      illustration={item.illustration}
+                      background={item.color}
+                      count={item.count}
+                    />
+                    <Spacer size={8} />
+                    <Title variant="subtitle">{item.text}</Title>
+                  </TouchableOpacity>
+                </ProfileItem>
+              </Animatable.View>
+            )
+          }
+          return (
+            <LeaderboardRow
+              rank={item.rank}
+              name={item.name}
+              text={item.text}
+            />
+            // <Animatable.View
+            //   duration={1000}
+            //   delay={index ? (index * 1000) / 5 : 0}
+            //   animation="fadeIn"
+            // >
+              // <Spacer size={16} />
+              // {leaderboardData.length > index + 1 && <Separator />}
+            // </Animatable.View>
           );
         }}
         key={activeTab === 0 ? 'a' : 'b'}

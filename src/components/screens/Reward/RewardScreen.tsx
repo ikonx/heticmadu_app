@@ -24,7 +24,8 @@ import Illustration from '@components/atoms/Illustrations/Illustration';
 interface Props {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
-const RewardScreen: FunctionComponent<Props> = ({ navigation }) => {
+const RewardScreen: FunctionComponent<Props> = ({ navigation, route }) => {
+  const { style } = route.params;
   return (
     <>
       <RewardIllustration>
@@ -46,7 +47,8 @@ const RewardScreen: FunctionComponent<Props> = ({ navigation }) => {
         </RewardCross>
         <RewardBadge>
           <ChallengeBadge
-            illustration={IllustrationName.ENERGIE}
+            background={style.color}
+            illustration={style.illustration}
             count={2}
             style={{
               minHeight: 172,
@@ -64,12 +66,13 @@ const RewardScreen: FunctionComponent<Props> = ({ navigation }) => {
         </RewardSubtitle>
       </RewardContainer>
       <RewardButton variant={TouchableType.IMPORTANT} onPress={() =>
-          navigation.navigate('Profile', {
-            screen: 'Coupon',
-            params: { item: {
-              color: "#6FCF97",
+        navigation.navigate('Profile', {
+          screen: 'Coupon',
+          params: {
+            item: {
+              color: style.color,
               count: 2,
-              illustration: "energie",
+              illustration: style.illustration,
               text: "Master de l'energie",
             },
           },

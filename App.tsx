@@ -13,6 +13,7 @@ import TagsProvider from './src/contexts/tags/tags.provider';
 import SearchProvider from './src/contexts/search/search.provider';
 import UserProvider from './src/contexts/user/user.provider';
 import FiltersProvider from './src/contexts/filters/filters.provider';
+import ChallengesProvider from './src/contexts/challenges/challenges.provider';
 
 const ACTIVATE_STORYBOOK = false;
 
@@ -26,15 +27,17 @@ function App() {
     <UserProvider>
       <PoisProvider>
         <TagsProvider>
-          <SearchProvider>
-            <FiltersProvider>
-              <ThemeProvider theme={theme}>
-                  <NavigationContainer>
-                    <NavigationBottomBar data={navigationBottomData} />
-                  </NavigationContainer>
-              </ThemeProvider>
-            </FiltersProvider>
-          </SearchProvider>
+          <ChallengesProvider>
+            <SearchProvider>
+              <FiltersProvider>
+                <ThemeProvider theme={theme}>
+                    <NavigationContainer>
+                      <NavigationBottomBar data={navigationBottomData} />
+                    </NavigationContainer>
+                </ThemeProvider>
+              </FiltersProvider>
+            </SearchProvider>
+          </ChallengesProvider>
         </TagsProvider>
       </PoisProvider>
     </UserProvider>

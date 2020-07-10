@@ -3,17 +3,18 @@ import styled from 'styled-components';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import List from '@components/atoms/List/List';
 import Buttons from '@components/atoms/Buttons/Buttons';
+import Colors from '@styleGuide/Colors';
 
 export const ChallengeListContainer = styled(SafeAreaView)`
   padding: 0;
   flex: 1;
 `;
 
-export const StyledHeader = styled(List)`
+export const StyledHeader = styled(List)<{ background: string }>`
   padding: 0 20px 24px 16px;
   align-items: center;
   justify-content: space-between;
-  background: ${ ({ theme }) => theme.Colors.mainGreen };
+  background: ${ ({ background }) => background ? background : Colors.categories.recycle };
 `;
 
 export const StyledHeaderText = styled(View)`
