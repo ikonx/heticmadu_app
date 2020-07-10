@@ -32,6 +32,7 @@ function getCouponType(category: string) {
 }
 
 const CouponScreen = ({ navigation, route }) => {
+  console.log('route', route);
   const { count } = route.params.item;
   const { illustration } = route.params.item;
   const couponType = getCouponType(illustration);
@@ -49,7 +50,7 @@ const CouponScreen = ({ navigation, route }) => {
           fill={Colors.mainGrey}
         />
       </RewardCross>
-      {count >= 3 ? (
+      {count >= 1 ? (
         <StyledImage
           source={{
             uri:
@@ -61,7 +62,7 @@ const CouponScreen = ({ navigation, route }) => {
       )}
 
       <CouponText>
-        {count >= 3
+        {count >= 1
           ? 'Bénéficier de -15% sur votre addition dans tous les restaurants partenaires'
           : "Malheuresement vous n'avez pas encore de réduction de disponible 😥. \n Réalisez des défis pour en débloquer."}
       </CouponText>
@@ -69,6 +70,12 @@ const CouponScreen = ({ navigation, route }) => {
       {couponType !== undefined ? (
         <TimelineContainer>
           <TimelineLine />
+          <Timeline
+            count={count}
+            couponType={couponType}
+            category={illustration}
+            nbOfChallenge={1}
+          />
           <Timeline
             count={count}
             couponType={couponType}
@@ -85,19 +92,13 @@ const CouponScreen = ({ navigation, route }) => {
             count={count}
             couponType={couponType}
             category={illustration}
+            nbOfChallenge={9}
+          />
+          <Timeline
+            count={count}
+            couponType={couponType}
+            category={illustration}
             nbOfChallenge={12}
-          />
-          <Timeline
-            count={count}
-            couponType={couponType}
-            category={illustration}
-            nbOfChallenge={18}
-          />
-          <Timeline
-            count={count}
-            couponType={couponType}
-            category={illustration}
-            nbOfChallenge={24}
           />
         </TimelineContainer>
       ) : (
