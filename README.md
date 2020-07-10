@@ -10,7 +10,7 @@ We need some ingredients for our sauce, here is the list :
 
 Wipe it hard  and run 🧙‍♂️
 ```bash
-git clone https://github.com/ikonx/heticmadu_app && heticmadu_app && yarn install && expo start
+git clone https://github.com/ikonx/heticmadu_app && cd heticmadu_app && yarn install && expo start
 ```
 
 ## Project tree 🌲
