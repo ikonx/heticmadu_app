@@ -2,11 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { ThemeContext } from 'styled-components';
 import { NavigationScreenProp } from 'react-navigation';
 import { FlatList } from 'react-native';
-import {
-  some,
-  intersectionWith,
-  isEqual,
-} from 'lodash';
+import { some, intersectionWith, isEqual } from 'lodash';
 
 import NavigationHeader from '@src/components/molecules/NavigationHeader/NavigationHeader';
 import SearchInput from '@src/components/molecules/SearchInput/SearchInput';
@@ -39,7 +35,8 @@ const SearchScreen = ({ navigation }: Props) => {
     pois,
     setPois,
   } = useContext(SearchContext);
-  const formatValue = (value: string) => value.toLowerCase().replace(/\s+/g, '');
+  const formatValue = (value: string) =>
+    value.toLowerCase().replace(/\s+/g, '');
   const goToFiltersScreen = () => {
     navigation.navigate('Filters');
   };
@@ -76,9 +73,8 @@ const SearchScreen = ({ navigation }: Props) => {
       const newPois = [...pois];
       const poisData = newPois.length === 0 ? defaultPois : newPois;
       const filteredPoisByName = poisData.filter((item: PoiModel) => {
-        const hasTags = item.tags && item.tags.some(({ tag } : any) => (
-          val.includes(tag)
-        ));
+        const hasTags =
+          item.tags && item.tags.some(({ tag }: any) => val.includes(tag));
 
         return formatValue(item.name).includes(val) || hasTags;
       });
@@ -86,7 +82,10 @@ const SearchScreen = ({ navigation }: Props) => {
       setPois(filteredPoisByName);
 
       // If selected tags is deleted in search, update state
-      if (selectedTags.length > 0 && val.length < formatValue(searchValue).length) {
+      if (
+        selectedTags.length > 0 &&
+        val.length < formatValue(searchValue).length
+      ) {
         const newTags = selectedTags.filter((item: { label: string }) => {
           const formattedLabel = formatValue(item.label);
           return val.includes(formattedLabel);
@@ -109,7 +108,9 @@ const SearchScreen = ({ navigation }: Props) => {
     const filteredPois = poisData.filter((item: PoiModel) => {
       const itemTags = item.tags ? item.tags.map((item: any) => item.tag) : [];
 
-      return intersectionWith(itemTags, formatedExistingTags, isEqual).length > 0;
+      return (
+        intersectionWith(itemTags, formatedExistingTags, isEqual).length > 0
+      );
     });
 
     setPois(existingTags.length > 0 ? filteredPois : defaultPois);
@@ -163,22 +164,17 @@ const SearchScreen = ({ navigation }: Props) => {
         isLoading={fetchingTags}
       />
       <Spacer size={24} />
-      <StyledContent
-        contentContainerStyle={{
-          paddingBottom: 140,
-        }}
-      >
-        <FlatList
-          data={pois}
-          renderItem={({ item }) => (
-            <React.Fragment key={`poiCard_${item.id}`}>
-              <PoiCard gotBorder poi={item} fullWidth onPress={openPoiDetails} />
-              <Spacer size={16} />
-            </React.Fragment>
-          )}
-          keyExtractor={item => item.id.toString()}
-        />
-      </StyledContent>
+      <FlatList
+        data={pois}
+        contentContainerStyle={{ paddingBottom: 140, paddingHorizontal: 16 }}
+        renderItem={({ item }) => (
+          <React.Fragment key={`poiCard_${item.id}`}>
+            <PoiCard gotBorder poi={item} fullWidth onPress={openPoiDetails} />
+            <Spacer size={16} />
+          </React.Fragment>
+        )}
+        keyExtractor={(item: any) => item.id.toString()}
+      />
     </StyledSearchScreen>
   );
 };

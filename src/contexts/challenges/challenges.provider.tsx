@@ -9,12 +9,12 @@ const ChallengesProvider: React.FC<Props> = ({ children }) => {
   const [fetchingThemes, setFetchingThemes] = useState<boolean>(false);
 
   useEffect(() => {
-    getThemes().then((res: any) => {
-      if (res.status === 200) {
-        setThemes(res.data);
-        setFetchingThemes(false);
-      }
-    });
+    // getThemes().then((res: any) => {
+    //   if (res.status === 200) {
+    //     setThemes(res.data);
+    //     setFetchingThemes(false);
+    //   }
+    // });
     // TODO: manage user context
     // if (isLogin) {
     //   setFetchingPois(true);

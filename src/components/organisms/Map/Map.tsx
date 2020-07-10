@@ -64,8 +64,8 @@ const Map = ({ pois, scrollToItem }: Props) => {
           maxZoomLevel={18}
           minZoomLevel={1}
           initialRegion={{
-            longitude: location.longitude || 2.287592,
-            latitude: location.latitude || 48.862725,
+            longitude: location.longitude || 2.315826,
+            latitude: location.latitude || 48.870961,
             latitudeDelta: 0,
             longitudeDelta: 0,
           }}

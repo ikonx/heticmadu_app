@@ -39,7 +39,10 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
 
   return (
     <ChallengeListContainer>
-      <Animatable.View animation="slideInDown" style={{ backgroundColor: Colors.mainGreen }}>
+      <Animatable.View
+        animation="slideInDown"
+        style={{ backgroundColor: Colors.mainGreen }}
+      >
         <Animatable.View
           duration={animDuration}
           delay={500}
@@ -59,11 +62,7 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
             />
           </StyledButton>
         </Animatable.View>
-        <Animatable.View
-          duration={animDuration}
-          delay={500}
-          animation="fadeIn"
-        >
+        <Animatable.View duration={animDuration} delay={500} animation="fadeIn">
           <StyledHeader>
             <StyledHeaderText>
               <TagsList
@@ -76,7 +75,7 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
               </Title>
               <Spacer size={8} />
               <Text color={Colors.mainWhite}>
-                Apprenez à mieux gérer vos fournitures au travail. 
+                Apprenez à mieux gérer vos fournitures au travail.
               </Text>
             </StyledHeaderText>
             <Illustration name={IllustrationName.ENERGIE} />

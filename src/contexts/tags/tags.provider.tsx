@@ -6,7 +6,32 @@ import { TagModel } from '@utils/models/tag.model';
 
 interface Props {}
 
-const defaultTags: TagModel[] = [];
+const defaultTags: TagModel[] = [
+  {
+    tag: 'africain',
+    id: 1,
+  },
+  {
+    tag: 'indien',
+    id: 2,
+  },
+  {
+    tag: 'italien',
+    id: 3,
+  },
+  {
+    tag: 'mexicain',
+    id: 4,
+  },
+  {
+    tag: 'junkfood',
+    id: 5,
+  },
+  {
+    tag: 'vegan',
+    id: 6,
+  },
+];
 
 const TagsProvider: React.FC<Props> = ({ children }) => {
   const [tags, setTags] = useState<TagModel[]>(defaultTags);

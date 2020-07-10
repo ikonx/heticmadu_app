@@ -17,9 +17,9 @@ export interface PoiModel {
   schedule?: string;
   category: string;
   averagePrice: '€' | '€€' | '€€€';
-  glutenFree?: boolean;
-  bio?: string;
-  disabledAccess?: boolean;
+  glutenFree?: boolean | number;
+  bio?: string | boolean | number;
+  disabledAccess?: string | boolean | number;
   greenScore: number;
   phoneNumber?: string;
   picture?: string;
