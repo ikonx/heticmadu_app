@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, TouchableOpacity } from 'react-native';
 import {
   RewardBadge,
   RewardButton,
@@ -54,7 +54,7 @@ const RewardScreen: FunctionComponent<Props> = ({ navigation }) => {
           />
         </RewardBadge>
         <RewardTitle>
-          <Title variant="h3" align="center" isBold>Félicitation vous avez reussi
+          <Title variant="h3" align="center" isBold>Félicitations vous avez reussi
             le défi Ma feuille l’unique 🎉</Title>
         </RewardTitle>
         <RewardSubtitle>
@@ -63,7 +63,18 @@ const RewardScreen: FunctionComponent<Props> = ({ navigation }) => {
           </Text>
         </RewardSubtitle>
       </RewardContainer>
-      <RewardButton variant={TouchableType.IMPORTANT}>
+      <RewardButton variant={TouchableType.IMPORTANT} onPress={() =>
+          navigation.navigate('Profile', {
+            screen: 'Coupon',
+            params: { item: {
+              color: "#6FCF97",
+              count: 2,
+              illustration: "energie",
+              text: "Master de l'energie",
+            },
+          },
+        })
+      }>
         <Text
           variant="button"
           color={Colors.mainWhite}

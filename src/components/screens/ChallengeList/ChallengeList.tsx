@@ -76,7 +76,7 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
               </Title>
               <Spacer size={8} />
               <Text color={Colors.mainWhite}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Apprenez à mieux gérer vos fournitures au travail. 
               </Text>
             </StyledHeaderText>
             <Illustration name={IllustrationName.ENERGIE} />
