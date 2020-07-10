@@ -10,7 +10,37 @@ export const ChallengeListData = [
   },
   {
     id: '2',
-    text: 'Vider sa boîte e-mail',
+    text: 'Fais dodo mon écran',
+    icon: IconName.DONE,
+    color: Colors.mainGreen,
+  },
+  {
+    id: '3',
+    text: 'Ma tasse de café',
+    icon: IconName.STORY,
+    color: Colors.mainGreen,
+  },
+  {
+    id: '4',
+    text: 'Au dodo les prises au boulot',
+    icon: IconName.STORY,
+    color: Colors.mainGreen,
+  },
+  {
+    id: '5',
+    text: 'Le stylo vert',
+    icon: IconName.STORY,
+    color: Colors.mainGreen,
+  },
+  {
+    id: '6',
+    text: 'Stop la clim',
+    icon: IconName.STORY,
+    color: Colors.mainGreen,
+  },
+  {
+    id: '7',
+    text: 'Tri de la corbeille',
     icon: IconName.STORY,
     color: Colors.mainGreen,
   },

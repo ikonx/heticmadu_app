@@ -6,7 +6,6 @@ import Colors from '@styleGuide/Colors';
 import ChallengeList from '@components/screens/ChallengeList/ChallengeList';
 import ChallengeDetails from '@components/screens/ChallengeDetails/ChallengeDetails';
 import RewardScreen from '@components/screens/Reward/RewardScreen';
-import CouponScreen from '@components/screens/Coupon/CouponScreen';
 
 interface Props {}
 

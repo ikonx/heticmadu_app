@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 import { ChallengeContainer } from '@components/screens/ChallengeScreen/ChallengeScreen.style';
 import Title from '@components/atoms/Typography/Title/Title';
 import Text from '@components/atoms/Typography/Text/Text';
@@ -12,60 +12,94 @@ import {
   NavigationState,
 } from 'react-navigation';
 import Colors from '@styleGuide/Colors';
+import { challengesThemes } from '@utils/mocks/challengesThemes.data';
+import { ChallengeListData } from '@utils/mocks/challengeList.data';
 
 interface Props {
   navigation?: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
 const ChallengeScreen: FunctionComponent<Props> = ({ navigation }) => {
-  const onClickCard = () => {
-    navigation && navigation.navigate('Stories');
+  const getIllustration = (type: string) => {
+    let illustration;
+    let color;
+
+    switch (type) {
+      case 'cuisine':
+        illustration = IllustrationName.CUISINE;
+        color = Colors.categories.cooking;
+        return {
+          illustration,
+          color,
+        };
+      case 'energie':
+        illustration = IllustrationName.ENERGIE;
+        color = Colors.categories.energy;
+        return {
+          illustration,
+          color,
+        };
+      case 'maison':
+        illustration = IllustrationName.MAISON;
+        color = Colors.categories.house;
+        return {
+          illustration,
+          color,
+        };
+      case 'recyclage':
+        illustration = IllustrationName.RECYCLAGE;
+        color = Colors.categories.recycle;
+        return {
+          illustration,
+          color,
+        };
+      default:
+        illustration = IllustrationName.ENERGIE;
+        color = Colors.mainGreen;
+        return {
+          illustration,
+          color,
+        };
+    }
+  };
+  const onClickCard = (item: any, style) => {
+    navigation && navigation.navigate('Stories', {
+      screen: 'List',
+      params: {
+        item,
+        style,
+      },
+    });
   };
 
   return (
-    <ScrollView>
-      <ChallengeContainer>
-        <Title variant="h2" isBold>
-          Défis
-        </Title>
-        <Spacer size={8} />
-        <Text color={Colors.mainGrey}>
-          Une multitude de Défis pleine d’enrichissements
-        </Text>
-        <Spacer size={24} />
-        <ChallengeCard
-          tagsArray={[{ label: '7 Défis' }, { label: 'Énergie' }]}
-          title="Toutes ses fournitures"
-          description="Apprenez à mieux gérer vos fournitures au travail. "
-          background={Colors.categories.energy}
-          onPress={onClickCard}
-        />
-        <Spacer size={16} />
-        <ChallengeCard
-          tagsArray={[{ label: '14 Défis' }, { label: 'Cuisine' }]}
-          title="Des recettes éco"
-          description="Des recettes délicieuses et éco-responsables."
-          background={Colors.categories.cooking}
-          illustration={IllustrationName.CUISINE}
-        />
-        <Spacer size={16} />
-        <ChallengeCard
-          tagsArray={[{ label: '2 Défis' }, { label: 'Maison' }]}
-          title="Éco à la maison"
-          description="De bonnes habitudes pour mon corps et pour la planète."
-          background={Colors.categories.house}
-          illustration={IllustrationName.MAISON}
-        />
-        <Spacer size={16} />
-        <ChallengeCard
-          tagsArray={[{ label: '6 Défis' }, { label: 'Recyclage' }]}
-          title="La boucle du recyclage"
-          description="Apprenez à mieux recycler pour mieux consommer."
-          background={Colors.categories.recycle}
-          illustration={IllustrationName.RECYCLAGE}
-        />
-      </ChallengeContainer>
-    </ScrollView>
+    <ChallengeContainer>
+      <Title variant="h2" isBold>
+        Défis
+      </Title>
+      <Spacer size={8} />
+      <Text color={Colors.mainGrey}>
+        Une multitude de Défis pleine d’enrichissements
+      </Text>
+      <Spacer size={24} />
+      <Spacer size={16} />
+      <FlatList
+        data={challengesThemes}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+          <ChallengeCard
+            tagsArray={[{ label: `${ChallengeListData.length} Défi` }, { label: item.type }]}
+            title={item.title}
+            description={item.description}
+            background={getIllustration(item.type).color}
+            illustration={getIllustration(item.type).illustration}
+            onPress={() => onClickCard(item, getIllustration(item.type))}
+          />
+        )}
+        ItemSeparatorComponent={() => <Spacer size={16}/>}
+        ListFooterComponent={() => <Spacer size={24} />}
+      />
+    </ChallengeContainer>
   );
 };
 

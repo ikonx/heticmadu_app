@@ -19,7 +19,6 @@ import Title from '@components/atoms/Typography/Title/Title';
 import Text from '@components/atoms/Typography/Text/Text';
 import Spacer from '@components/atoms/Spacer/Spacer';
 import Illustration from '@components/atoms/Illustrations/Illustration';
-import IllustrationName from '@assets/illustrations/IllustrationName.enum';
 import ChallengeRow from '@components/molecules/ChallengeRow/ChallengeRow';
 import { ChallengeListData } from '@utils/mocks/challengeList.data';
 import { TouchableType } from '@components/atoms/Buttons/Buttons.enum';
@@ -29,19 +28,21 @@ import { Direction } from '@components/atoms/Icons/Chevron/Chevron.style';
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+  route: any;
 }
 
-const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
+const ChallengeList: FunctionComponent<Props> = ({ navigation, route }) => {
+  const { item, style } = route.params;
   const animDuration = 1000;
   const onClick = () => {
-    navigation.navigate('Details');
+    navigation.navigate('Details', { style });
   };
 
   return (
     <ChallengeListContainer>
       <Animatable.View
         animation="slideInDown"
-        style={{ backgroundColor: Colors.mainGreen }}
+        style={{ backgroundColor: style.color }}
       >
         <Animatable.View
           duration={animDuration}
@@ -63,7 +64,7 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
           </StyledButton>
         </Animatable.View>
         <Animatable.View duration={animDuration} delay={500} animation="fadeIn">
-          <StyledHeader>
+          <StyledHeader background={style.color}>
             <StyledHeaderText>
               <TagsList
                 tagsArray={[{ label: '7 Défis' }]}
@@ -71,14 +72,14 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
               />
               <Spacer size={16} />
               <Title variant="h4" color={Colors.mainWhite} isBold>
-                Toutes ses fournitures
+                { item.title }
               </Title>
               <Spacer size={8} />
               <Text color={Colors.mainWhite}>
-                Apprenez à mieux gérer vos fournitures au travail.
+                { item.description }
               </Text>
             </StyledHeaderText>
-            <Illustration name={IllustrationName.ENERGIE} />
+            <Illustration name={style.illustration} />
           </StyledHeader>
         </Animatable.View>
       </Animatable.View>
@@ -96,7 +97,7 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation }) => {
                 text={item.text}
                 icon={item.icon}
                 clickEvent={onClick}
-                color={item.color}
+                color={style.color}
               />
             </Animatable.View>
           )}

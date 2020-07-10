@@ -32,7 +32,6 @@ function getCouponType(category: string) {
 }
 
 const CouponScreen = ({ navigation, route }) => {
-  console.log('route', route);
   const { count } = route.params.item;
   const { illustration } = route.params.item;
   const couponType = getCouponType(illustration);

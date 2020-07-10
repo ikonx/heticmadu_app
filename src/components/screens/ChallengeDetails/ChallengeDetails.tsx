@@ -22,9 +22,12 @@ import {
   StyledReturn,
 } from './ChallengeDetails.style';
 
-interface Props {}
+interface Props {
+  route: any;
+}
 
-const ChallengeDetails: FunctionComponent<Props> = () => {
+const ChallengeDetails: FunctionComponent<Props> = ({ route }) => {
+  const { style } = route.params;
   const navigation = useNavigation();
   const [headerTitle, setHeaderTitle] = useState('');
   const scrollEvent = (e: SyntheticEvent<any, NativeScrollEvent>) => {
@@ -111,7 +114,7 @@ const ChallengeDetails: FunctionComponent<Props> = () => {
       </ScrollView>
       <StyledButton
         variant={TouchableType.IMPORTANT}
-        onPress={() => navigation.navigate('Reward')}
+        onPress={() => navigation.navigate('Reward', { style })}
       >
         <Text variant="button" color={Colors.mainWhite} isBold>
           J'ai réalisé le défi

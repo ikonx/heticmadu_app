@@ -86,5 +86,5 @@ export const leaderboardData: ProfileLeaderboardModel[] = [
     rank: 9,
     name: 'Dimeh',
     text: '4 Défis réalisés',
-  }
+  },
 ];
