@@ -40,7 +40,10 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation, route }) => {
 
   return (
     <ChallengeListContainer>
-      <Animatable.View animation="slideInDown" style={{ backgroundColor: style.color }}>
+      <Animatable.View
+        animation="slideInDown"
+        style={{ backgroundColor: style.color }}
+      >
         <Animatable.View
           duration={animDuration}
           delay={500}
@@ -60,11 +63,7 @@ const ChallengeList: FunctionComponent<Props> = ({ navigation, route }) => {
             />
           </StyledButton>
         </Animatable.View>
-        <Animatable.View
-          duration={animDuration}
-          delay={500}
-          animation="fadeIn"
-        >
+        <Animatable.View duration={animDuration} delay={500} animation="fadeIn">
           <StyledHeader background={style.color}>
             <StyledHeaderText>
               <TagsList

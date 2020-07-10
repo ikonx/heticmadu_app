@@ -8,6 +8,8 @@ import { ScrollView } from 'react-native';
 import { HomeChallenges, HomeContainer, HomePlaces } from './HomeScreen.style';
 import UserContext from '@src/contexts/user/user.context';
 import { PoiModel } from '@utils/models/pois.model';
+import { challengesThemes } from '@utils/mocks/challengesThemes.data';
+import Colors from '@styleGuide/Colors';
 
 interface Props {
   navigation: any;
@@ -21,8 +23,17 @@ const HomeScreen = (_: Props) => {
       params: { poi },
     });
   };
-  const onPressChallenge = () => {
-    _.navigation.navigate('Stories');
+  const onPressChallenge = (item: any) => {
+    _.navigation.navigate('Stories', {
+      screen: 'List',
+      params: {
+        item,
+        style: {
+          color: Colors.categories.energy,
+          illustration: 'energie',
+        },
+      },
+    });
   };
 
   return (
@@ -49,9 +60,9 @@ const HomeScreen = (_: Props) => {
         <HomeChallenges animation="fadeIn">
           <ChallengeCard
             tagsArray={[{ label: '7 Défis' }, { label: 'Énergie' }]}
-            title="Toutes ses fournitures"
-            description="Apprenez à mieux gérer vos fournitures au travail."
-            onPress={onPressChallenge}
+            title={challengesThemes[0].title}
+            description={challengesThemes[0].description}
+            onPress={() => onPressChallenge(challengesThemes[0])}
           />
         </HomeChallenges>
       </ScrollView>

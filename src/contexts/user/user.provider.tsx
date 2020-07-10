@@ -16,8 +16,14 @@ interface Props {}
 
 const UserProvider: React.FC<Props> = ({ children }: any) => {
   const [user, setUser] = useState<UserModel>({
-    isLogin: false,
+    isLogin: true,
     gotError: false,
+    email: 'Julien@gmail.com',
+    firstName: 'Julien',
+    id: '5',
+    lastName: 'Dupreh',
+    picture:
+      'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80',
   });
 
   const loginUser = async ({
@@ -55,12 +61,6 @@ const UserProvider: React.FC<Props> = ({ children }: any) => {
 
   const checkToken = async () => {
     const token = await SecureStore.getItemAsync('token');
-    // "email": "Julien@gmail.com",
-    // "firstName": "Dupreh",
-    // "hashedPassword": "$2a$10$.NhNaZ0T8qV0d.heTal.tu4bx/fFxKiPZdzWAFLkyRz5hfMnc92/G",
-    // "id": 5,
-    // "lastName": "Julien",
-    // "picture": "",
     if (token) {
       const { exp, user } = jwtDecode.default(token);
       const expDate = moment.unix(exp);
@@ -110,7 +110,6 @@ const UserProvider: React.FC<Props> = ({ children }: any) => {
   const getUserAccount = async () => {
     await getUser(user.id!).then((res) => {
       const response = res;
-      console.log('response.data', response.status);
       if (response.status === 201) {
         setUser({ ...response.data, isLogin: true, gotError: false });
         console.log('response.data', response.data);
@@ -159,9 +158,9 @@ const UserProvider: React.FC<Props> = ({ children }: any) => {
     });
   };
 
-  useEffect(() => {
-    checkToken();
-  }, []);
+  // useEffect(() => {
+  //   checkToken();
+  // }, []);
 
   return (
     <UserContext.Provider
